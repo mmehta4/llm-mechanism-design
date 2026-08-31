@@ -1,0 +1,18 @@
+anthropic>=1.0.0
+openai>=1.0.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# equilibrium computation
+nashpy>=0.0.40
+pygambit>=16.1.0
+
+# analysis
+numpy>=1.26.0
+scipy>=1.11.0
+pandas>=2.1.0
+statsmodels>=0.14.0
+matplotlib>=3.8.0
+
+# testing
+pytest>=7.4.0
