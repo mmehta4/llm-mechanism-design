@@ -34,3 +34,31 @@ allowed vs. not" as a condition. Thinking is adaptive and on by default on curre
 models, so a clean on/off contrast is not available. Use `output_config.effort`
 (`low` → `max`) instead. This is a better factor anyway: it is ordinal, giving a
 dose-response curve rather than a two-point contrast.
+
+## Running on open weights (the free-model constraint)
+
+The roster is local open-weight models via Ollama plus free-tier hosted arms.
+This was forced by budget, but it is not purely a compromise:
+
+**It closes the biggest reproducibility hole.** Frontier API models are deprecated
+and silently updated; a result measured against `claude-opus-5` in 2026 may not be
+reproducible in 2027 because that exact model no longer exists. Open weights are
+pinned and downloadable, so the experiment stays rerunnable indefinitely. State
+this as a deliberate design choice in the writeup, because it is one.
+
+**The cost is the confound it introduces.** A 7B model may deviate from equilibrium
+because it cannot do the arithmetic, not because of anything interesting about
+strategic reasoning. "Small models are bad at maths" is not a finding. Every trial
+therefore runs a paired **competence probe** asking the model directly for the rule,
+separating:
+
+- *competence gap* — does not know the rule; deviation is not strategic, discard
+- *strategic gap* — knows the rule, did not play it; this is the object of study
+
+Report the two separately. The competence probe is not optional bookkeeping; it is
+what keeps the central research question answerable on models of this size.
+
+**Read the probe's reasoning, not just its boolean.** Observed in the very first
+Phase 0 run: the model answered the competence probe correctly (`True`) while
+justifying it with an explanation about *first-price* auctions. A boolean alone
+would have scored that as competent. Score the justification too.

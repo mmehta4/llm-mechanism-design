@@ -35,52 +35,56 @@ class ModelSpec:
 # model's idiosyncrasy (overview section 6.1). Three arms, deliberately spanning
 # capability tiers.
 MODELS: dict[str, ModelSpec] = {
-    "opus5": ModelSpec(
-        key="opus5",
-        provider="anthropic",
-        api_id="claude-opus-5",
-        input_usd_per_mtok=5.00,
-        output_usd_per_mtok=25.00,
-        # Sampling parameters (temperature/top_p/top_k) were REMOVED on the
-        # current Anthropic models -- passing them returns HTTP 400. Determinism
-        # cannot be pinned this way; see docs/reproducibility.md.
-        supports_temperature=False,
-    ),
-    "sonnet5": ModelSpec(
-        key="sonnet5",
-        provider="anthropic",
-        api_id="claude-sonnet-5",
-        input_usd_per_mtok=2.00,
-        output_usd_per_mtok=10.00,
-        supports_temperature=False,
-    ),
-    "haiku45": ModelSpec(
-        key="haiku45",
-        provider="anthropic",
-        api_id="claude-haiku-4-5",
-        input_usd_per_mtok=1.00,
-        output_usd_per_mtok=5.00,
+    # --- Local, via Ollama. Free, unlimited, and PERFECTLY reproducible: the
+    # weights are pinned and downloadable, so anyone can rerun this experiment
+    # exactly. Frontier API models get deprecated and silently updated, which is
+    # the single biggest reproducibility hole in this kind of study -- running on
+    # open weights closes it. Treat this as a genuine methodological strength,
+    # not just a budget compromise.
+    "qwen7b": ModelSpec(
+        key="qwen7b",
+        provider="ollama",
+        api_id="qwen2.5:7b",
+        input_usd_per_mtok=0.0,
+        output_usd_per_mtok=0.0,
         supports_temperature=True,
     ),
-    # Second-provider arm. VERIFY this identifier against OpenAI's current model
-    # list before you rely on it -- it is a placeholder, not a checked value.
-    "openai": ModelSpec(
-        key="openai",
-        provider="openai",
-        api_id=os.getenv("OPENAI_MODEL_ID", "gpt-4.1"),
-        input_usd_per_mtok=float(os.getenv("OPENAI_INPUT_PRICE", "0")),
-        output_usd_per_mtok=float(os.getenv("OPENAI_OUTPUT_PRICE", "0")),
+    "qwen7b_coder": ModelSpec(
+        key="qwen7b_coder",
+        provider="ollama",
+        api_id="qwen2.5-coder:7b",
+        input_usd_per_mtok=0.0,
+        output_usd_per_mtok=0.0,
         supports_temperature=True,
     ),
+    # --- Free-tier hosted arms. Add when keys are set; both are rate-limited but
+    # free. Gemini's free tier is the most capable model reachable at zero cost
+    # and is the closest thing to a frontier arm available under this constraint.
+    # "gemini": ...   (Google AI Studio free tier)
+    # "openrouter": ... (models with a :free suffix)
 }
 
-DEFAULT_MODEL = "opus5"
+# Base URLs by provider. Ollama exposes an OpenAI-compatible endpoint, so one
+# client code path serves local, OpenRouter, and Groq alike.
+BASE_URLS = {
+    "ollama": "http://localhost:11434/v1",
+    "openrouter": "https://openrouter.ai/api/v1",
+    "groq": "https://api.groq.com/openai/v1",
+}
+
+# Providers that need no credential (local inference).
+NO_KEY_PROVIDERS = {"ollama"}
+
+DEFAULT_MODEL = "qwen7b"
 
 # --- Reasoning depth --------------------------------------------------------
 # The overview lists "chain-of-thought allowed vs. not" as a condition. On the
 # current Anthropic models thinking is adaptive and on by default, so a clean
 # on/off binary is not available. `effort` is the real lever and is a better
 # experimental factor anyway: it is ordinal, not binary.
+# Convenient parity: OpenAI's GPT-5.6 family exposes the same reasoning ladder
+# (none/low/medium/high/xhigh/max), so this factor can be held comparable across
+# providers rather than being confounded with them.
 EFFORT_LEVELS = ["low", "medium", "high", "xhigh", "max"]
 DEFAULT_EFFORT = "high"
 
@@ -90,10 +94,12 @@ MAX_TOKENS = 4096                # ample for a single game action + reasoning
 
 
 def api_key(provider: str) -> str:
+    if provider in NO_KEY_PROVIDERS:
+        return "not-needed"
     env_var = {
-        "anthropic": "ANTHROPIC_API_KEY",
-        "openai": "OPENAI_API_KEY",
+        "gemini": "GEMINI_API_KEY",
         "openrouter": "OPENROUTER_API_KEY",
+        "groq": "GROQ_API_KEY",
     }[provider]
     key = os.getenv(env_var)
     if not key:

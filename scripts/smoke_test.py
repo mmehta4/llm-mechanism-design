@@ -1,15 +1,22 @@
 """Phase 0 deliverable: prove the whole trial pipeline works end to end.
 
-This is deliberately not a "hello world". It runs a single real Vickrey auction
-trial -- the smallest possible instance of what every later experiment does:
+Not a "hello world". It runs the smallest real instance of what every later
+experiment does, on a locally-hosted model at zero cost:
 
     draw a private value -> prompt a model -> get a STRUCTURED action back
-    -> parse it -> compare to the equilibrium -> report the deviation
+    -> parse it -> compare to the equilibrium -> record the deviation
 
-If this passes, authentication, structured output, parsing, and the deviation
-metric are all confirmed working. Run:
+It also runs a COMPETENCE CHECK alongside the trial. This separates two failure
+modes that would otherwise be confounded:
 
-    python scripts/smoke_test.py
+    "the model cannot work out the equilibrium"      (competence)
+    "the model knows it but does not play it"        (strategy)
+
+Only the second is interesting. Without this split, a small model that simply
+fails at the arithmetic looks identical to one making a strategic error, and the
+project's central question collapses. See docs/reproducibility.md.
+
+Run:  ./venv/bin/python scripts/smoke_test.py
 """
 from __future__ import annotations
 
@@ -18,23 +25,32 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from openai import OpenAI
 from pydantic import BaseModel, Field
 
 import config
 
 
 class BidResponse(BaseModel):
-    """The structured action we require back from an agent.
+    """The structured action required back from an agent.
 
     Forcing a schema is what makes trials machine-parseable at scale. Free-text
-    replies like "I'd bid around 68" are the single most common cause of silent
-    null rows in this kind of experiment.
+    replies like "I'd bid around 68" are the most common cause of silent null
+    rows in this kind of experiment.
     """
     bid: float = Field(description="The sealed bid to submit, in tokens.")
     reasoning: str = Field(description="One sentence explaining the bid.")
 
 
-PROMPT = (
+class StrategyKnowledge(BaseModel):
+    """The competence probe: does the agent know the rule, asked directly?"""
+    optimal_bid_equals_true_value: bool = Field(
+        description="True if the optimal bid equals your exact private value."
+    )
+    explanation: str = Field(description="One sentence justification.")
+
+
+PLAY_PROMPT = (
     "You are bidding in a sealed-bid auction for a single item against 2 other "
     "bidders. The highest bidder wins and pays the SECOND-highest bid submitted. "
     "Your private value for the item is {value} tokens -- winning at a price "
@@ -42,93 +58,77 @@ PROMPT = (
     "difference. Submit your bid."
 )
 
+KNOW_PROMPT = (
+    "In a sealed-bid auction where the highest bidder wins but pays the "
+    "second-highest bid submitted, what is the optimal bid for a rational bidder "
+    "whose private value is known only to them?"
+)
+
 TRUE_VALUE = 73.0
-EQUILIBRIUM_BID = TRUE_VALUE  # truthful bidding is dominant in a Vickrey auction
+EQUILIBRIUM_BID = TRUE_VALUE  # truthful bidding is weakly dominant
 
 
-def cost_usd(spec: config.ModelSpec, usage) -> float:
-    return (
-        usage.input_tokens / 1_000_000 * spec.input_usd_per_mtok
-        + usage.output_tokens / 1_000_000 * spec.output_usd_per_mtok
+def client_for(spec: config.ModelSpec) -> OpenAI:
+    return OpenAI(
+        base_url=config.BASE_URLS[spec.provider],
+        api_key=config.api_key(spec.provider),
     )
 
 
-def run_anthropic(model_key: str) -> bool:
-    import anthropic
-
+def run_trial(model_key: str) -> bool:
     spec = config.MODELS[model_key]
-    client = anthropic.Anthropic(api_key=config.api_key("anthropic"))
+    client = client_for(spec)
 
-    # NOTE: no `temperature` argument. Sampling parameters were removed on the
-    # current Anthropic models and passing one returns HTTP 400.
-    response = client.messages.parse(
+    play = client.chat.completions.parse(
         model=spec.api_id,
-        max_tokens=config.MAX_TOKENS,
-        messages=[{"role": "user", "content": PROMPT.format(value=TRUE_VALUE)}],
-        output_format=BidResponse,
-    )
-
-    action = response.parsed_output
-    report(spec, action, cost_usd(spec, response.usage))
-    return True
-
-
-def run_openai(model_key: str) -> bool:
-    from openai import OpenAI
-
-    spec = config.MODELS[model_key]
-    client = OpenAI(api_key=config.api_key("openai"))
-
-    completion = client.chat.completions.parse(
-        model=spec.api_id,
-        messages=[{"role": "user", "content": PROMPT.format(value=TRUE_VALUE)}],
+        messages=[{"role": "user", "content": PLAY_PROMPT.format(value=TRUE_VALUE)}],
         response_format=BidResponse,
-    )
-    action = completion.choices[0].message.parsed
-    report(spec, action, cost_usd(spec, completion.usage) if spec.input_usd_per_mtok else 0.0)
+    ).choices[0].message.parsed
+
+    know = client.chat.completions.parse(
+        model=spec.api_id,
+        messages=[{"role": "user", "content": KNOW_PROMPT}],
+        response_format=StrategyKnowledge,
+    ).choices[0].message.parsed
+
+    deviation = play.bid - EQUILIBRIUM_BID
+    print(f"  model          {spec.api_id}  (local, $0.00)")
+    print(f"  private value  {TRUE_VALUE}")
+    print(f"  equilibrium    {EQUILIBRIUM_BID}   (truthful bidding is weakly dominant)")
+    print(f"  observed bid   {play.bid}")
+    print(f"  DEVIATION      {deviation:+.2f}")
+    print(f"  play reasoning {play.reasoning[:140]}")
+    print()
+    print(f"  COMPETENCE     knows bid==value? {know.optimal_bid_equals_true_value}")
+    print(f"  know reasoning {know.explanation[:140]}")
+    print()
+
+    if know.optimal_bid_equals_true_value and abs(deviation) > 1e-9:
+        verdict = "STRATEGIC GAP -- knows the rule, did not play it (the interesting case)"
+    elif not know.optimal_bid_equals_true_value:
+        verdict = "COMPETENCE GAP -- does not know the rule; deviation is not strategic"
+    else:
+        verdict = "AT EQUILIBRIUM -- knows the rule and played it"
+    print(f"  VERDICT        {verdict}")
     return True
-
-
-def report(spec: config.ModelSpec, action: BidResponse, cost: float) -> None:
-    deviation = action.bid - EQUILIBRIUM_BID
-    print(f"  model         {spec.api_id}")
-    print(f"  private value {TRUE_VALUE}")
-    print(f"  equilibrium   {EQUILIBRIUM_BID}  (truthful bidding is dominant)")
-    print(f"  observed bid  {action.bid}")
-    print(f"  DEVIATION     {deviation:+.2f}")
-    print(f"  reasoning     {action.reasoning[:100]}")
-    print(f"  cost          ${cost:.5f}")
 
 
 def main() -> int:
-    targets = [("anthropic", "opus5", run_anthropic), ("openai", "openai", run_openai)]
-    results = {}
-
-    for provider, model_key, runner in targets:
-        print(f"\n--- {provider} ---")
+    ok = 0
+    for model_key in ["qwen7b"]:
+        print(f"\n--- {model_key} ---")
         try:
-            config.api_key(provider)
-        except RuntimeError as e:
-            print(f"  SKIPPED: {e}")
-            results[provider] = None
-            continue
-        try:
-            runner(model_key)
-            results[provider] = True
+            run_trial(model_key)
+            ok += 1
         except Exception as e:
             print(f"  FAILED: {type(e).__name__}: {e}")
-            results[provider] = False
 
     print("\n=== summary ===")
-    for provider, ok in results.items():
-        status = {True: "OK", False: "FAILED", None: "no key set"}[ok]
-        print(f"  {provider:<12} {status}")
-
-    passed = [v for v in results.values() if v is True]
-    if not passed:
-        print("\nPhase 0 NOT complete -- no provider returned a parsed action.")
+    if not ok:
+        print("Phase 0 NOT complete -- no model returned a parsed action.")
+        print("Is the Ollama server running?  ollama serve")
         return 1
-    print(f"\nPhase 0 pipeline confirmed on {len(passed)} provider(s).")
+    print(f"Phase 0 pipeline confirmed on {ok} model(s), at zero cost.")
     return 0
 
 
