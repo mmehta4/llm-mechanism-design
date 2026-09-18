@@ -42,8 +42,9 @@ def test_missing_twins_fail_loudly():
     A silent fallback would make every disguised trial secretly a named trial:
     delta-lambda would come out at zero and nothing would look wrong.
     """
-    for key in ["cournot", "repeated_pd", "public_goods"]:
-        spec = ALL_GAMES[key]
+    for key, spec in ALL_GAMES.items():
+        if spec.has_twin():
+            continue
         with pytest.raises(DisguisedPromptMissing):
             spec.prompt("disguised", **spec.sampler(seed=1))
 
@@ -52,3 +53,21 @@ def test_twin_progress():
     """Fails until all four twins are written. Delete this test when done."""
     missing = [k for k, s in ALL_GAMES.items() if not s.has_twin()]
     assert not missing, f"disguised twins still to write: {missing}"
+
+
+def test_cournot_twin_is_isomorphic():
+    """Both framings must carry the same numbers and leak no economics vocabulary."""
+    spec = ALL_GAMES["cournot"]
+    p = spec.sampler(seed=3)
+    named, disguised = spec.prompt("named", **p), spec.prompt("disguised", **p)
+
+    for value in [str(p["a"]), str(p["b"]), str(p["c"])]:
+        assert value in named and value in disguised
+
+    leaks = ["firm", "profit", "payoff", "market", "produce", "price", "product"]
+    for word in leaks:
+        assert word not in disguised.lower(), f"'{word}' leaked into the disguised prompt"
+
+    # both framings must state the no-visibility condition, or the disguised
+    # version is easier than the named one and delta-lambda is biased downward
+    assert "sees the other" in named and "sees the other" in disguised

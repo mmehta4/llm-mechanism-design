@@ -16,21 +16,28 @@ class QuantityAction(BaseModel):
 
 NAMED = (
     "You are one of two firms producing an identical product. You and the other "
-    "firm simultaneously choose how many units to produce. The market price "
-    "depends on the total: P = {a} - {b} * (your quantity + their quantity). "
-    "Each unit costs you {c} to make, so your profit is (P - {c}) multiplied by "
-    "your quantity. Choose your quantity."
+    "firm simultaneously choose how many units to produce, and neither firm sees "
+    "the other's choice. The market price depends on the total: "
+    "P = {a} - {b} * (your quantity + their quantity). Each unit costs you {c} to "
+    "make, so your profit is (P - {c}) multiplied by your quantity. "
+    "Choose your quantity."
 )
 
-# TODO(you): write the disguised twin.
-#   Strip: "firm", "produce", "market price", "profit", "units".
-#   Keep:  a continuous non-negative quantity choice, the SAME a/b/c numbers,
-#          two simultaneous deciders, the same linear price-fall structure.
-#   Watch: the hard part is expressing "price falls linearly in total output"
-#          without economic vocabulary, and WITHOUT adding a step where the
-#          model must first work out that this is a quantity-setting problem.
-#          State the payoff formula outright, exactly as the named version does.
-DISGUISED = None
+# Structure by the user; surface revised to remove three leaks:
+#   - "payoff" is the standard game-theory term, a stronger signal than "profit"
+#   - "P" is the standard economics symbol for price
+#   - stations/slots collided with the Vickrey twin's world, risking the disguised
+#     set becoming its own recognisable family
+# The user's addition of an explicit no-visibility sentence was kept and mirrored
+# into NAMED above, so the two framings state the information structure equally.
+DISGUISED = (
+    "You and one other operator each draw water from the same reservoir. You both "
+    "choose how many channels to open at the same time, and neither of you sees the "
+    "other's choice. The amount each channel delivers depends on the total number "
+    "open: V = {a} - {b} * (your channels + their channels). Each channel you open "
+    "costs you {c} credits to maintain, so what you gain is (V - {c}) multiplied by "
+    "your number of channels. Choose how many channels to open."
+)
 
 
 def sample(seed: int, a: float = 100.0, b: float = 1.0, c: float = 10.0) -> dict:
