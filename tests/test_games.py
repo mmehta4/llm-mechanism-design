@@ -71,3 +71,31 @@ def test_cournot_twin_is_isomorphic():
     # both framings must state the no-visibility condition, or the disguised
     # version is easier than the named one and delta-lambda is biased downward
     assert "sees the other" in named and "sees the other" in disguised
+
+
+def test_public_goods_twin_is_isomorphic():
+    """Both framings carry the same numbers and leak no cooperation vocabulary."""
+    spec = ALL_GAMES["public_goods"]
+    p = spec.sampler(seed=5)
+    named, disguised = spec.prompt("named", **p), spec.prompt("disguised", **p)
+
+    for value in [str(p["endowment"]), str(p["M"]), str(p["n_total"])]:
+        assert value in named and value in disguised
+
+    # words that pre-load a cooperation frame before any reasoning happens
+    leaks = ["contribute", "pot", "share", "player", "public", "common", "donate"]
+    for word in leaks:
+        assert word not in disguised.lower(), f"'{word}' leaked into the disguised prompt"
+
+    # both framings must state the two facts needed to compute the marginal return
+    for text in (named, disguised):
+        assert "evenly" in text or "equally" in text
+        assert "keep whatever" in text
+
+
+def test_public_goods_action_bounds():
+    from games.public_goods import is_valid_action
+    assert is_valid_action(0.0, 20.0)
+    assert is_valid_action(20.0, 20.0)
+    assert not is_valid_action(25.0, 20.0)      # more than you hold
+    assert not is_valid_action(-1.0, 20.0)

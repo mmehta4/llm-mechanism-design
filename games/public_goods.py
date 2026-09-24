@@ -22,15 +22,35 @@ NAMED = (
     "you did not contribute. How much do you contribute?"
 )
 
-# TODO(you): write the disguised twin.
-#   Strip: "contribute", "common pot", "players", "share" -- all of it signals
-#          a cooperation frame before the model has done any reasoning.
-#   Keep:  a continuous choice in [0, endowment], the SAME endowment and
-#          multiplier, the same group size, and the equal-split rule.
-#   Watch: this one is easy to make TOO neutral and end up ambiguous. The
-#          model must still be able to see exactly what it keeps and exactly
-#          what comes back to it. State the arithmetic outright.
-DISGUISED = None
+# Written by the user. Passed review unchanged.
+#   numbers, bound, multiplier and group size all carry over; the multiply-then-split
+#   rule and the "you keep what you held back" clause are both stated outright, which
+#   is what lets the model compute the -0.5 marginal return; "route" is purely
+#   mechanical and carries none of the generosity that "contribute" smuggles in; and
+#   the operators/signal/amplifier world does not collide with the Vickrey or Cournot
+#   twins.
+#
+# Noted but not corrected: neither framing states the [0, endowment] bound explicitly,
+# both merely imply it. That is symmetric, so it does not bias delta-lambda -- but a
+# model can return an out-of-range action, so `is_valid_action` below flags rather
+# than clamps. The invalid rate is itself a finding.
+DISGUISED = (
+    "You and {n_others} other operators each hold {endowment} units of signal. "
+    "Each of you privately chooses how many units to route into a central "
+    "amplifier. The total routed in is multiplied by {M} and then divided evenly "
+    "among all {n_total} operators, regardless of how much each one routed in. "
+    "You keep whatever you did not route in. How many units do you route in?"
+)
+
+
+def is_valid_action(contribution: float, endowment: float) -> bool:
+    """An action outside [0, endowment] is impossible, not merely unusual.
+
+    Flagged rather than clamped: clamping would silently convert a comprehension
+    failure into a data point at the boundary, which is exactly the kind of quiet
+    corruption that survives every downstream check.
+    """
+    return 0.0 <= contribution <= endowment
 
 
 def sample(seed: int, n_others: int = 3, endowment: float = 20.0, M: float = 2.0) -> dict:
