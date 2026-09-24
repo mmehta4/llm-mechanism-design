@@ -15,7 +15,13 @@ Two design decisions worth stating:
    boolean probe correctly while justifying it with reasoning about a completely
    different auction format. A number is much harder to get right by accident.
 
-2. PROBES MATCH THE FRAMING OF THE TRIAL. A named probe after a disguised trial would
+2. THEY REPORT ONLY THE AGENT'S OWN PAYOFF, and lead every line with the agent's own
+   choice. The first version listed four two-player outcomes ("you D and they C: you
+   5, them 0") and the model inverted the rows in BOTH framings -- a prompt-design
+   fault, not a model failure. Bookkeeping the opponent's score is irrelevant to the
+   question being asked, so it was removed.
+
+3. PROBES MATCH THE FRAMING OF THE TRIAL. A named probe after a disguised trial would
    hand the model the vocabulary the disguise exists to withhold. It would also
    misclassify an agent that knows the textbook rule but cannot read the disguised
    mechanics -- that agent is not competent *on this trial*, and the probe must say so.
@@ -52,16 +58,16 @@ class ChoiceProbe(BaseModel):
 
 PROBES = {
     ("vickrey", "named"): (
-        "In a sealed-bid auction where the highest bidder wins but pays the "
-        "SECOND-highest bid submitted: your private value is 50. You bid 55. The "
-        "highest bid among the other bidders is 60. What is your payoff?",
+        "In a sealed-bid auction the highest bidder wins and pays the SECOND-highest "
+        "bid submitted. Your private value is 50 and you bid 50. The highest bid among "
+        "the other bidders is 60. What is your payoff?",
         NumericProbe,
         lambda **_: 0.0,          # you lose the auction, so payoff is zero
     ),
     ("vickrey", "disguised"): (
         "Research stations request a processing slot. The station with the highest "
         "request receives the slot and is charged the amount of the SECOND-highest "
-        "request. The slot is worth 50 credits to your station. You request 55. The "
+        "request. The slot is worth 50 credits to your station and you request 50. The "
         "highest request among the other stations is 60. What is your net result?",
         NumericProbe,
         lambda **_: 0.0,
@@ -102,19 +108,25 @@ PROBES = {
     ),
 
     ("repeated_pd", "named"): (
-        "Two players choose C or D simultaneously. Both C: 3 each. Both D: 1 each. "
-        "You D and they C: you 5, them 0. You C and they D: you 0, them 5. Consider "
-        "ONE round in isolation. If they choose C, which choice scores you more? "
-        "Reply with the single letter only.",
+        "Two players simultaneously choose C or D. Your own score:\n"
+        "  you choose C, they choose C  ->  you score 3\n"
+        "  you choose D, they choose C  ->  you score 5\n"
+        "  you choose C, they choose D  ->  you score 0\n"
+        "  you choose D, they choose D  ->  you score 1\n"
+        "Consider ONE round in isolation. They choose C. Which of your two choices "
+        "scores you more? Reply with the single letter only.",
         ChoiceProbe,
         lambda **_: "D",
     ),
     ("repeated_pd", "disguised"): (
-        "Two technicians set panels to position {coop} or {defect} simultaneously. "
-        "Both {coop}: 3 units each. Both {defect}: 1 unit each. You {defect} and they "
-        "{coop}: you 5, them 0. You {coop} and they {defect}: you 0, them 5. Consider "
-        "ONE round in isolation. If they set {coop}, which setting gives you more? "
-        "Reply with the single letter only.",
+        "Two technicians simultaneously set panels to position {coop} or {defect}. "
+        "Your own units received:\n"
+        "  you set {coop}, they set {coop}  ->  you receive 3\n"
+        "  you set {defect}, they set {coop}  ->  you receive 5\n"
+        "  you set {coop}, they set {defect}  ->  you receive 0\n"
+        "  you set {defect}, they set {defect}  ->  you receive 1\n"
+        "Consider ONE round in isolation. They set {coop}. Which of your two settings "
+        "gives you more? Reply with the single letter only.",
         ChoiceProbe,
         lambda defect="Y", **_: defect,
     ),

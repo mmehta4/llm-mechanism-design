@@ -30,12 +30,19 @@ class LLMAgent:
 
     def act(self, prompt: str, action_model: Type[BaseModel]) -> AgentResponse:
         started = time.perf_counter()
+        kwargs = dict(
+            model=self.spec.api_id,
+            messages=[{"role": "user", "content": prompt}],
+            response_format=action_model,
+        )
         try:
-            completion = self.client.chat.completions.parse(
-                model=self.spec.api_id,
-                messages=[{"role": "user", "content": prompt}],
-                response_format=action_model,
-            )
+            try:
+                completion = self.client.chat.completions.parse(**kwargs)
+            except (AttributeError, NotImplementedError, TypeError):
+                # Gemini's compatibility layer documents the .beta path; Ollama and
+                # Groq serve the stable one. Try stable first, fall back rather than
+                # branching on provider, so a provider moving between them is silent.
+                completion = self.client.beta.chat.completions.parse(**kwargs)
         except Exception as e:
             return AgentResponse(
                 action=None, reasoning="", raw="", parse_ok=False,

@@ -57,12 +57,34 @@ MODELS: dict[str, ModelSpec] = {
         output_usd_per_mtok=0.0,
         supports_temperature=True,
     ),
-    # --- Free-tier hosted arms. Add when keys are set; both are rate-limited but
-    # free. Gemini's free tier is the most capable model reachable at zero cost
-    # and is the closest thing to a frontier arm available under this constraint.
-    # "gemini": ...   (Google AI Studio free tier)
-    # "openrouter": ... (models with a :free suffix)
+    # --- Capable open-weight arm, via Groq's free tier.
+    # 120B open weights: capable enough to differentiate a quadratic, and PINNED --
+    # anyone can rerun this experiment against the same weights in five years. That
+    # is what keeps the reproducibility argument alive once a hosted frontier arm is
+    # in the roster, since free-tier hosted models get deprecated and replaced.
+    "gptoss120b": ModelSpec(
+        key="gptoss120b",
+        provider="groq",
+        api_id="openai/gpt-oss-120b",
+        input_usd_per_mtok=0.0,      # free tier
+        output_usd_per_mtok=0.0,
+        supports_temperature=True,
+    ),
+    # --- Most capable arm reachable at zero cost, via Google AI Studio's free tier.
+    # Not reproducible in the way open weights are -- note that in limitations.
+    "gemini": ModelSpec(
+        key="gemini",
+        provider="gemini",
+        api_id="gemini-3.8-flash",
+        input_usd_per_mtok=0.0,      # free tier
+        output_usd_per_mtok=0.0,
+        supports_temperature=True,
+    ),
 }
+
+# The roster spans roughly 7B -> 120B -> frontier. That ladder is deliberate: it
+# lets delta-lambda be read against capability, rather than only against framing.
+CAPABILITY_ORDER = ["qwen7b", "gptoss120b", "gemini"]
 
 # Base URLs by provider. Ollama exposes an OpenAI-compatible endpoint, so one
 # client code path serves local, OpenRouter, and Groq alike.
@@ -70,6 +92,8 @@ BASE_URLS = {
     "ollama": "http://localhost:11434/v1",
     "openrouter": "https://openrouter.ai/api/v1",
     "groq": "https://api.groq.com/openai/v1",
+    # Gemini's OpenAI-compatibility layer. Trailing slash is required.
+    "gemini": "https://generativelanguage.googleapis.com/v1beta/openai/",
 }
 
 # Providers that need no credential (local inference).
