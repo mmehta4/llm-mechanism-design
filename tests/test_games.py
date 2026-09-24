@@ -49,8 +49,9 @@ def test_missing_twins_fail_loudly():
             spec.prompt("disguised", **spec.sampler(seed=1))
 
 
-def test_twin_progress():
-    """Fails until all four twins are written. Delete this test when done."""
+def test_every_game_has_a_twin():
+    """Every game must have a disguised twin. Was the Stage 0 progress tracker;
+    kept as a permanent invariant so a fifth game cannot be added without one."""
     missing = [k for k, s in ALL_GAMES.items() if not s.has_twin()]
     assert not missing, f"disguised twins still to write: {missing}"
 
@@ -99,3 +100,40 @@ def test_public_goods_action_bounds():
     assert is_valid_action(20.0, 20.0)
     assert not is_valid_action(25.0, 20.0)      # more than you hold
     assert not is_valid_action(-1.0, 20.0)
+
+
+def test_repeated_pd_twin_is_isomorphic():
+    """All four payoff lines, the known horizon, and no moral vocabulary."""
+    spec = ALL_GAMES["repeated_pd"]
+    p = spec.sampler(seed=11)
+    named, disguised = spec.prompt("named", **p), spec.prompt("disguised", **p)
+
+    for value in ["3", "1", "5", "0", "10"]:
+        assert value in disguised
+
+    leaks = ["cooperate", "defect", "betray", "honest", "cheat", "loyal",
+             "share", "hoard", "selfish", "fair", "trust", "punish"]
+    for word in leaks:
+        assert word not in disguised.lower(), f"'{word}' leaked into the disguised prompt"
+
+    # backward induction requires the horizon to be COMMON knowledge, not just known
+    for text in (named, disguised):
+        assert "known to both" in text
+        assert "simultaneous" in text.lower()
+        assert "History so far" in text
+
+
+def test_repeated_pd_labels_are_counterbalanced():
+    """Across seeds, the cooperative action must sometimes be X and sometimes Y."""
+    spec = ALL_GAMES["repeated_pd"]
+    coops = {spec.sampler(seed=i)["coop"] for i in range(30)}
+    assert coops == {"X", "Y"}
+
+
+def test_repeated_pd_equilibrium_tracks_the_label():
+    """Whichever letter denotes defection is the predicted action that trial."""
+    spec = ALL_GAMES["repeated_pd"]
+    for i in range(10):
+        p = spec.sampler(seed=i)
+        assert p["equilibrium"] == p["defect"]
+        assert p["equilibrium"] != p["coop"]
