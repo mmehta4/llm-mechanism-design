@@ -14,7 +14,7 @@ FIELDS = [
     "paraphrase_idx", "params", "equilibrium", "observed_action", "deviation",
     "verdict", "probe_answer", "probe_correct_answer", "probe_passed", "probe_malformed",
     "play_parse_ok", "probe_parse_ok", "play_error",
-    "play_latency_s", "probe_latency_s", "total_latency_s", "cost_usd",
+    "play_latency_s", "probe_latency_s", "total_latency_s", "cost_usd", "attempts",
     "play_reasoning", "probe_reasoning", "play_prompt", "probe_prompt", "play_raw",
 ]
 

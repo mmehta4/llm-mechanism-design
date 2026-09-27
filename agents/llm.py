@@ -19,6 +19,17 @@ from pydantic import BaseModel
 
 import config
 from agents.base import AgentResponse
+from agents.pacer import TokenPacer
+
+# One pacer per provider, shared across agents, since the limit is per account.
+_PACERS: dict[str, TokenPacer] = {}
+
+
+def pacer_for(provider: str) -> TokenPacer | None:
+    """Local inference is unmetered, so it needs no pacing."""
+    if provider in config.NO_KEY_PROVIDERS:
+        return None
+    return _PACERS.setdefault(provider, TokenPacer())
 
 
 # Transient on free-tier hosted models: rate limits and capacity spikes. Observed
@@ -46,6 +57,9 @@ class LLMAgent:
             base_url=config.BASE_URLS[self.spec.provider],
             api_key=config.api_key(self.spec.provider),
         )
+        self.pacer = pacer_for(self.spec.provider)
+        # rough per-call estimate, refined from observed usage as the run proceeds
+        self._est_tokens = 1100
 
     def act(self, prompt: str, action_model: Type[BaseModel]) -> AgentResponse:
         started = time.perf_counter()
@@ -54,6 +68,9 @@ class LLMAgent:
             messages=[{"role": "user", "content": prompt}],
             response_format=action_model,
         )
+
+        if self.pacer is not None:
+            self.pacer.wait_for(self._est_tokens)
 
         completion, last_error, attempts = None, None, 0
         for attempt in range(1, MAX_ATTEMPTS + 1):
@@ -86,6 +103,12 @@ class LLMAgent:
             )
 
         latency = time.perf_counter() - started
+        if self.pacer is not None and completion.usage is not None:
+            actual = getattr(completion.usage, "total_tokens", None) or self._est_tokens
+            self.pacer.record(actual)
+            # ease the estimate toward reality so pacing self-corrects
+            self._est_tokens = int(0.7 * self._est_tokens + 0.3 * actual)
+
         message = completion.choices[0].message
         raw = message.content or ""
         parsed = getattr(message, "parsed", None)

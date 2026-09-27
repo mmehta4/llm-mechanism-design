@@ -94,6 +94,9 @@ def run_trial(game_key: str, framing: str, model_key: str, seed: int,
         "probe_latency_s": round(probe.latency_s, 3),
         "total_latency_s": round(play.latency_s + probe.latency_s, 3),
         "cost_usd": round(agent.cost_usd(play) + agent.cost_usd(probe), 6),
+        # how many HTTP attempts the two calls needed between them; >2 means
+        # backoff engaged, which is rate limiting rather than model behaviour
+        "attempts": play.extra.get("attempts", 1) + probe.extra.get("attempts", 1),
     }
 
     if play.parse_ok:

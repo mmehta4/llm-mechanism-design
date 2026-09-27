@@ -30,6 +30,7 @@ def main() -> int:
     log = TrialLog(args.out)
     rows, latencies = [], []
     verdicts = Counter()
+    retries = 0
 
     total = len(args.games) * 2 * args.n
     i = 0
@@ -41,17 +42,26 @@ def main() -> int:
                 rows.append(row)
                 latencies.append(row["total_latency_s"])
                 verdicts[row["verdict"]] += 1
+                retries += max(0, row.get("attempts", 1) - 1)
+
+                # Written one row at a time, deliberately. Stage 2 runs for hours;
+                # batching the write to the end means a crash at hour three loses
+                # every trial. Flushing per row costs nothing next to a network call.
+                log.write([row])
+
                 print(f"[{i:3d}/{total}] {game:14s} {framing:10s} "
                       f"dev={row['deviation']!s:>8s} {row['verdict']:18s} "
                       f"{row['total_latency_s']:6.1f}s", flush=True)
-
-    log.write(rows)
 
     print("\n=== verdicts ===")
     for verdict, n in verdicts.most_common():
         print(f"  {verdict:20s} {n:3d}  ({n/len(rows):.0%})")
 
     med = statistics.median(latencies)
+    if retries:
+        print(f"\n  retries triggered: {retries} "
+              f"({retries/len(rows):.1f} per trial) -- free-tier rate limiting")
+
     print("\n=== latency ===")
     print(f"  median {med:.1f}s   mean {statistics.mean(latencies):.1f}s   "
           f"min {min(latencies):.1f}s   max {max(latencies):.1f}s")
