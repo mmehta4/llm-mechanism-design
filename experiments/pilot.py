@@ -49,7 +49,7 @@ def main() -> int:
                 rows.append(row)
                 latencies.append(row["total_latency_s"])
                 verdicts[row["verdict"]] += 1
-                retries += max(0, row.get("attempts", 1) - 1)
+                retries += max(0, row.get("attempts", 2) - 2)   # 2 calls per trial
 
                 # Written one row at a time, deliberately. Stage 2 runs for hours;
                 # batching the write to the end means a crash at hour three loses

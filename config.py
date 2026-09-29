@@ -116,6 +116,19 @@ MODELS: dict[str, ModelSpec] = {
         output_usd_per_mtok=0.0,
         supports_temperature=True,
     ),
+    # --- Replacement for "gemini" in Stage 2. Gemini 3.8 Flash's free tier allows
+    # 20 requests/day (AI Studio Rate Limit page, 2026-09-30); one model needs
+    # ~2,208, i.e. ~110 days. 3.5 Flash Lite allows 500/day (~5 days), is still
+    # Google's closed model, and was swapped in before any Gemini Stage 2 data
+    # existed. Disclosed as a deviation from preregistration-1 Section 4.
+    "gemini_lite": ModelSpec(
+        key="gemini_lite",
+        provider="gemini",
+        api_id="gemini-3.5-flash-lite",
+        input_usd_per_mtok=0.0,      # free tier
+        output_usd_per_mtok=0.0,
+        supports_temperature=True,
+    ),
 }
 
 # The study roster: four models from four different companies -- OpenAI, NVIDIA,
@@ -131,7 +144,7 @@ MODELS: dict[str, ModelSpec] = {
 # qwen7b is DROPPED from the study: 75% competence failure in the pilot meant most
 # of its trials were excluded before fitting. Its spec stays above only so the
 # pilot rows that reference it remain interpretable.
-CAPABILITY_ORDER = ["gptoss120b", "nemotron", "kimi", "gemini"]
+CAPABILITY_ORDER = ["gptoss120b", "nemotron", "kimi", "gemini_lite"]
 
 # Base URLs by provider. Ollama exposes an OpenAI-compatible endpoint, so one
 # client code path serves local, OpenRouter, and Groq alike.

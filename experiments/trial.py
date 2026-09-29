@@ -66,10 +66,42 @@ def at_equilibrium(deviation, equilibrium) -> bool:
     return abs(deviation) <= NUMERIC_TOLERANCE
 
 
+def equilibrium_for(params: dict, framing: str):
+    """The equilibrium action IN THE LABELS OF THIS FRAMING.
+
+    For most games the two framings share one answer (a bid, a quantity). The PD
+    does not: the named prompt says C/D, the disguised one says X/Y with the letters
+    counterbalanced. Scoring a named answer against the disguised label marked every
+    named PD trial wrong -- found 2026-09-30, after the practice runs had reported
+    named-PD equilibrium play as 0% when the models had in fact defected 15/20 times.
+    """
+    if framing == "named" and "equilibrium_named" in params:
+        return params["equilibrium_named"]
+    return params.get("equilibrium")
+
+
+def verdict_of(row: dict, equilibrium) -> str:
+    """Verdict from a row's recorded fields -- shared by live trials and rescoring."""
+    # infrastructure first: a request the model never received says nothing about
+    # the model, whichever of the two calls it hit
+    if row.get("infra"):
+        return INFRA_FAIL
+    if not row.get("play_parse_ok"):
+        return PARSE_FAIL
+    if row.get("probe_malformed"):
+        return PROBE_FORMAT_FAIL
+    if row.get("probe_passed") is not True:
+        return COMPETENCE_GAP
+    if at_equilibrium(row["deviation"], equilibrium):
+        return AT_EQUILIBRIUM
+    return STRATEGIC_GAP
+
+
 def run_trial(game_key: str, framing: str, model_key: str, seed: int,
               paraphrase_idx: int = 0) -> dict:
     spec = ALL_GAMES[game_key]
     params = spec.sampler(seed=seed)
+    eq = equilibrium_for(params, framing)
     agent = LLMAgent(model_key)
 
     play_prompt = spec.prompt(framing, paraphrase_idx, **params)
@@ -87,7 +119,7 @@ def run_trial(game_key: str, framing: str, model_key: str, seed: int,
         "seed": seed,
         "paraphrase_idx": paraphrase_idx,
         "params": json.dumps({k: v for k, v in params.items() if not k.startswith("_")}),
-        "equilibrium": params.get("equilibrium"),
+        "equilibrium": eq,
         "play_prompt": play_prompt,
         "play_raw": play.raw,
         "play_parse_ok": play.parse_ok,
@@ -106,7 +138,7 @@ def run_trial(game_key: str, framing: str, model_key: str, seed: int,
 
     if play.parse_ok:
         observed = extract_action(play.action, game_key)
-        dev = deviation_of(observed, params.get("equilibrium"))
+        dev = deviation_of(observed, eq)
         row.update({
             "observed_action": observed,
             "deviation": dev,
@@ -127,21 +159,6 @@ def run_trial(game_key: str, framing: str, model_key: str, seed: int,
         row.update({"probe_answer": None, "probe_passed": None,
                     "probe_malformed": True, "probe_reasoning": ""})
 
-    # verdict -- infrastructure first: a request the model never received says
-    # nothing about the model, whichever of the two calls it hit
-    infra = play.extra.get("infra") or probe.extra.get("infra")
-    row["infra"] = infra
-    if infra:
-        row["verdict"] = INFRA_FAIL
-    elif not play.parse_ok:
-        row["verdict"] = PARSE_FAIL
-    elif row.get("probe_malformed"):
-        row["verdict"] = PROBE_FORMAT_FAIL
-    elif row.get("probe_passed") is not True:
-        row["verdict"] = COMPETENCE_GAP
-    elif at_equilibrium(row["deviation"], params.get("equilibrium")):
-        row["verdict"] = AT_EQUILIBRIUM
-    else:
-        row["verdict"] = STRATEGIC_GAP
-
+    row["infra"] = play.extra.get("infra") or probe.extra.get("infra")
+    row["verdict"] = verdict_of(row, eq)
     return row

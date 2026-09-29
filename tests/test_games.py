@@ -137,3 +137,24 @@ def test_repeated_pd_equilibrium_tracks_the_label():
         p = spec.sampler(seed=i)
         assert p["equilibrium"] == p["defect"]
         assert p["equilibrium"] != p["coop"]
+
+
+def test_named_pd_scored_against_named_labels():
+    """Regression: named PD answers were compared with the disguised X/Y label."""
+    from experiments.trial import equilibrium_for
+    from games.repeated_pd import sample
+    for seed in range(20):
+        p = sample(seed=seed)
+        assert equilibrium_for(p, "named") == "D"
+        assert equilibrium_for(p, "disguised") == p["defect"] in ("X", "Y")
+
+
+def test_every_game_named_equilibrium_is_a_named_action():
+    """No game may score a named answer against a disguised-only label."""
+    from experiments.trial import equilibrium_for
+    from games import ALL_GAMES
+    for key, spec in ALL_GAMES.items():
+        p = spec.sampler(seed=7)
+        eq = equilibrium_for(p, "named")
+        if isinstance(eq, str):
+            assert eq in spec.prompt("named", 0, **p), key

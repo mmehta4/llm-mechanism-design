@@ -54,6 +54,10 @@ MAX_INFRA_STREAK = 5
 
 EXIT_DONE, EXIT_QUOTA, EXIT_INFRA = 0, 3, 4
 
+# with --wait, how long to sleep before trying again after each kind of stop.
+# Free-tier daily caps reset once a day; probing hourly costs one request per hour.
+WAIT_S = {EXIT_QUOTA: 3600, EXIT_INFRA: 900}
+
 
 def trial_key(game: str, framing: str, seed: int, paraphrase: int) -> tuple:
     return (game, framing, int(seed), int(paraphrase))
@@ -92,6 +96,8 @@ def main() -> int:
     ap.add_argument("--model", required=True, choices=CAPABILITY_ORDER)
     ap.add_argument("--limit", type=int, default=None,
                     help="stop after this many trials this session (smoke tests)")
+    ap.add_argument("--wait", action="store_true",
+                    help="on a daily cap or outage, sleep and carry on instead of exiting")
     ap.add_argument("--status", action="store_true",
                     help="print progress and exit without calling any model")
     args = ap.parse_args()
@@ -101,12 +107,24 @@ def main() -> int:
               "fingerprint. Stage 2 must run against the plan that was registered.")
         return 1
 
+    while True:
+        code = session(args)
+        if not (args.wait and code in WAIT_S):
+            return code
+        wake = time.strftime("%H:%M", time.localtime(time.time() + WAIT_S[code]))
+        print(f"waiting until ~{wake}, then resuming.\n", flush=True)
+        time.sleep(WAIT_S[code])
+
+
+def session(args) -> int:
+    """One pass over the unfinished trials. Returns an EXIT_* code."""
     out = ROOT / "results" / "raw" / f"stage2_{args.model}.csv"
     todo_all = plan()
     done = finished(out)
     todo = [t for t in todo_all if t not in done]
 
-    print(f"{args.model}: {len(done)}/{len(todo_all)} done, {len(todo)} to go  -> {out.name}")
+    print(f"{args.model}: {len(done)}/{len(todo_all)} done, {len(todo)} to go  -> {out.name}",
+          flush=True)
     if args.status or not todo:
         return EXIT_DONE
 
@@ -134,11 +152,11 @@ def main() -> int:
         infra_streak += 1
         if row["infra"] == "quota":
             print("\nDaily quota reached. Nothing is lost -- run the same command "
-                  "tomorrow and it carries on from here.")
+                  "tomorrow and it carries on from here.", flush=True)
             return EXIT_QUOTA
         if infra_streak >= MAX_INFRA_STREAK:
             print(f"\n{MAX_INFRA_STREAK} infrastructure failures in a row "
-                  f"(last: {row['infra']}). Stopping; re-run later to resume.")
+                  f"(last: {row['infra']}). Stopping; re-run later to resume.", flush=True)
             return EXIT_INFRA
 
     print("\nthis session:", dict(verdicts))
