@@ -62,3 +62,13 @@ but the registration date is fixed and counts.
 It's a fingerprint of the exact file. Anyone can later check that the file in your repo is
 byte-for-byte the one you registered — change one character and the fingerprint changes.
 That ties the OSF record to the code.
+
+## Registered
+
+- **OSF registration:** https://osf.io/2uqpj
+- **Submitted:** 2026-09-29 (UTC)
+- **Status at submission:** embargoed (private) until **2027-09-30**, then public automatically.
+  OSF asks project admins to approve the embargo by email; if nobody acts, it is approved automatically after 48 hours.
+- **Registered file:** `docs/preregistration-1.md`, SHA-256
+  `a70cf95ace715646b5ef000845ab56cc2289d00c267878c2c1943f4643a78a40` (commit 54cdfe6).
+  Do not edit that file: the fingerprint is the proof that the plan came before the data.
