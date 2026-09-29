@@ -44,6 +44,7 @@ def pacer_for(provider: str) -> TokenPacer | None:
 # them as failures would understate the model and corrupt the parse-failure rate.
 RETRY_STATUS = {408, 409, 425, 429, 500, 502, 503, 504}
 MAX_ATTEMPTS = 5
+REQUEST_TIMEOUT_S = 420
 BASE_BACKOFF_S = 2.0
 
 
@@ -96,6 +97,14 @@ class LLMAgent:
         self.client = OpenAI(
             base_url=config.BASE_URLS[self.spec.provider],
             api_key=config.api_key(self.spec.provider),
+            # A request that stalls must fail and be retried, not hang: Stage 2's
+            # first Nemotron run sat on one call for 8+ minutes while the endpoint
+            # answered fresh requests in under a second. The slowest legitimate
+            # call seen is Kimi at ~3 min, so 7 min only ever cuts a dead request.
+            timeout=REQUEST_TIMEOUT_S,
+            # retrying is done below, where it is counted and classified; the SDK's
+            # own silent retries would hide attempts from the log
+            max_retries=0,
         )
         self.pacer = pacer_for(self.spec.provider)
         # rough per-call estimate, refined from observed usage as the run proceeds
