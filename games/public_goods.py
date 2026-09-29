@@ -67,6 +67,39 @@ def sample(seed: int, n_others: int = 3, endowment: float = 20.0, M: float = 2.0
     }
 
 
+# --- Paraphrases --------------------------------------------------------------
+# Index 0 is the primary prompt above. Variant 1 rewords in the same order;
+# variant 2 leads with the retention rule. Same facts, same numbers, nothing added.
+NAMED_VARIANTS = (
+    "There are {n_total} players, including you, and each begins with "
+    "{endowment} tokens. Each of you privately decides how much to contribute to "
+    "a common pot. Whatever is in the pot is multiplied by {M} and then split "
+    "equally among all {n_total} players, regardless of who contributed what. You "
+    "keep whatever you did not contribute. How much do you contribute?",
+
+    "You keep whatever you do not contribute out of your {endowment} tokens. You "
+    "and {n_others} other players each privately choose how much to contribute to "
+    "a common pot; the total pot is multiplied by {M} and then split equally among "
+    "all {n_total} players, regardless of who contributed what. How much do you "
+    "contribute?",
+)
+
+DISGUISED_VARIANTS = (
+    "There are {n_total} operators, including you, and each holds {endowment} "
+    "units of signal. Each of you privately decides how many units to route into "
+    "a central amplifier. Whatever is routed in is multiplied by {M} and then "
+    "divided evenly among all {n_total} operators, regardless of how much each one "
+    "routed in. You keep whatever you did not route in. How many units do you "
+    "route in?",
+
+    "You keep whatever you do not route in out of your {endowment} units of "
+    "signal. You and {n_others} other operators each privately choose how many "
+    "units to route into a central amplifier; the total routed in is multiplied by "
+    "{M} and then divided evenly among all {n_total} operators, regardless of how "
+    "much each one routed in. How many units do you route in?",
+)
+
+
 SPEC = GameSpec(
     key="public_goods",
     named_prompt=NAMED,
@@ -74,4 +107,6 @@ SPEC = GameSpec(
     action_model=ContributionAction,
     equilibrium=public_goods.nash_contribution,
     sampler=sample,
+    named_variants=NAMED_VARIANTS,
+    disguised_variants=DISGUISED_VARIANTS,
 )

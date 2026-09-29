@@ -25,6 +25,11 @@ def main() -> int:
     ap.add_argument("--n", type=int, default=2, help="trials per game per framing")
     ap.add_argument("--games", nargs="*", default=list(ALL_GAMES))
     ap.add_argument("--out", default="results/raw/pilot.csv")
+    ap.add_argument("--paraphrases", nargs="*", type=int, default=[0],
+                    help="paraphrase indices to run; index 0 is the primary prompt")
+    ap.add_argument("--seed-base", type=int, default=1000,
+                    help="seeds are seed_base..seed_base+n-1, IDENTICAL across "
+                         "paraphrases, so wording is the only thing that varies")
     args = ap.parse_args()
 
     log = TrialLog(args.out)
@@ -32,13 +37,15 @@ def main() -> int:
     verdicts = Counter()
     retries = 0
 
-    total = len(args.games) * 2 * args.n
+    total = len(args.games) * 2 * len(args.paraphrases) * args.n
     i = 0
     for game in args.games:
         for framing in ("named", "disguised"):
+          for para in args.paraphrases:
             for k in range(args.n):
                 i += 1
-                row = run_trial(game, framing, args.model, seed=1000 + k)
+                row = run_trial(game, framing, args.model,
+                                seed=args.seed_base + k, paraphrase_idx=para)
                 rows.append(row)
                 latencies.append(row["total_latency_s"])
                 verdicts[row["verdict"]] += 1
@@ -49,7 +56,7 @@ def main() -> int:
                 # every trial. Flushing per row costs nothing next to a network call.
                 log.write([row])
 
-                print(f"[{i:3d}/{total}] {game:14s} {framing:10s} "
+                print(f"[{i:3d}/{total}] {game:14s} {framing:10s} p{para} "
                       f"dev={row['deviation']!s:>8s} {row['verdict']:18s} "
                       f"{row['total_latency_s']:6.1f}s", flush=True)
 

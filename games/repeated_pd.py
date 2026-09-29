@@ -88,6 +88,57 @@ def sample(seed: int, n_rounds: int = 10) -> dict:
     }
 
 
+# --- Paraphrases --------------------------------------------------------------
+# Index 0 is the primary prompt above. Variant 1 LISTS THE DEFECTING OPTION FIRST;
+# variant 2 leads with the round and history. Both mirrored across framings.
+#
+# Variant 1 has a second job. Label counterbalancing in sample() randomises which
+# LETTER means cooperate, but the primary prompt always LISTS the cooperative
+# option first -- so a first-listed-is-default bias would survive counterbalancing.
+# Flipping the order here puts that bias in the data where it can be measured.
+NAMED_VARIANTS = (
+    "You and one other player will play exactly {n_rounds} rounds, a number "
+    "known to both of you. In every round you each choose D or C simultaneously.\n"
+    "  If you both choose D, you each score {P}.\n"
+    "  If you both choose C, you each score {R}.\n"
+    "  If you choose C and they choose D, you score {S} and they score {T}.\n"
+    "  If you choose D and they choose C, you score {T} and they score {S}.\n"
+    "Current round: {round_num}. History so far: {history}\n"
+    "Choose D or C.",
+
+    "This is round {round_num} of a game lasting exactly {n_rounds} rounds, a "
+    "length known to both you and the other player. History so far: {history}\n"
+    "Each round, you both simultaneously choose C or D, and score as follows:\n"
+    "  If you both choose C, you each score {R}.\n"
+    "  If you both choose D, you each score {P}.\n"
+    "  If you choose D and they choose C, you score {T} and they score {S}.\n"
+    "  If you choose C and they choose D, you score {S} and they score {T}.\n"
+    "Choose C or D.",
+)
+
+DISGUISED_VARIANTS = (
+    "You and one other technician run control panels for a session of exactly "
+    "{n_rounds} rounds, a number known to both of you. In every round you both "
+    "simultaneously set your panel to position {defect} or position {coop}.\n"
+    "   If you both set {defect}, you each receive {P} units.\n"
+    "   If you both set {coop}, you each receive {R} units.\n"
+    "   If you set {coop} and they set {defect}, you receive {S} units and they receive {T}.\n"
+    "   If you set {defect} and they set {coop}, you receive {T} units and they receive {S}.\n"
+    "Current round: {round_num}. History so far: {history}\n"
+    "Set your panel to {defect} or {coop}.",
+
+    "This is round {round_num} of a session lasting exactly {n_rounds} rounds, a "
+    "length known to both you and the other technician. History so far: {history}\n"
+    "Each round, you both simultaneously set your control panel to position "
+    "{coop} or position {defect}, and receive units as follows:\n"
+    "   If you both set {coop}, you each receive {R} units.\n"
+    "   If you both set {defect}, you each receive {P} units.\n"
+    "   If you set {defect} and they set {coop}, you receive {T} units and they receive {S}.\n"
+    "   If you set {coop} and they set {defect}, you receive {S} units and they receive {T}.\n"
+    "Set your panel to {coop} or {defect}.",
+)
+
+
 SPEC = GameSpec(
     key="repeated_pd",
     named_prompt=NAMED,
@@ -95,4 +146,6 @@ SPEC = GameSpec(
     action_model=PDAction,
     equilibrium=lambda **_: "D",
     sampler=sample,
+    named_variants=NAMED_VARIANTS,
+    disguised_variants=DISGUISED_VARIANTS,
 )

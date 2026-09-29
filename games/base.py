@@ -49,16 +49,34 @@ class DisguisedPromptMissing(RuntimeError):
 
 @dataclass(frozen=True)
 class GameSpec:
+    """A game in both framings, each with a primary prompt and paraphrases.
+
+    Paraphrases answer one specific objection: that a framing effect is really a
+    WORDING effect. If behaviour moves about as much across paraphrases within a
+    framing as it moves between framings, the framing result is not real.
+
+    They are PAIRED across framings -- paraphrase 1 is the same kind of rewording in
+    the named and disguised versions, paraphrase 2 the same reordering. So a
+    wording sensitivity that shows up identically in both framings cancels out of
+    delta-lambda, while one that shows up in only one framing is itself a finding.
+
+    Rule for writing them: reword and reorder, never add or drop a fact. The
+    lesson from building the twins applies here too -- making one version more
+    explicit than another makes it easier.
+    """
     key: str
     named_prompt: str
     disguised_prompt: str | None      # None until written -- see docstring above
     action_model: Type[BaseModel]
     equilibrium: Callable[..., float]
     sampler: Callable[..., dict]
+    named_variants: tuple[str, ...] = ()
+    disguised_variants: tuple[str, ...] = ()
 
-    def prompt(self, framing: str, **params) -> str:
+    def prompts(self, framing: str) -> tuple[str, ...]:
+        """Every template for this framing; index 0 is the primary prompt."""
         if framing == "named":
-            return self.named_prompt.format(**params)
+            return (self.named_prompt,) + self.named_variants
         if framing == "disguised":
             if self.disguised_prompt is None:
                 raise DisguisedPromptMissing(
@@ -66,8 +84,20 @@ class GameSpec:
                     f"See games/base.py for the isomorphism criteria, and "
                     f"games/vickrey.py for a worked example."
                 )
-            return self.disguised_prompt.format(**params)
+            return (self.disguised_prompt,) + self.disguised_variants
         raise ValueError(f"framing must be 'named' or 'disguised', got {framing!r}")
+
+    def n_paraphrases(self, framing: str) -> int:
+        return len(self.prompts(framing))
+
+    def prompt(self, framing: str, paraphrase_idx: int = 0, **params) -> str:
+        templates = self.prompts(framing)
+        if not 0 <= paraphrase_idx < len(templates):
+            raise IndexError(
+                f"{self.key}/{framing} has {len(templates)} paraphrases; "
+                f"index {paraphrase_idx} does not exist"
+            )
+        return templates[paraphrase_idx].format(**params)
 
     def has_twin(self) -> bool:
         return self.disguised_prompt is not None

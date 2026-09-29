@@ -67,7 +67,7 @@ def run_trial(game_key: str, framing: str, model_key: str, seed: int,
     params = spec.sampler(seed=seed)
     agent = LLMAgent(model_key)
 
-    play_prompt = spec.prompt(framing, **params)
+    play_prompt = spec.prompt(framing, paraphrase_idx, **params)
     play = agent.act(play_prompt, spec.action_model)
 
     probe_prompt, probe_schema, probe_correct = probe_for(game_key, framing, **params)
