@@ -54,7 +54,8 @@ def infra_kind(exc: Exception | None) -> str | None:
         return None
     code = getattr(exc, "status_code", None)
     msg = str(exc).lower()
-    if code == 429 and "quota" in msg:
+    # Google says "quota"; Groq says "tokens per day (TPD)" / "requests per day (RPD)"
+    if code == 429 and any(s in msg for s in ("quota", "per day", "(tpd)", "(rpd)")):
         return "quota"            # a DAILY cap -- will not clear by retrying
     if code == 429:
         return "rate_limit"       # a per-minute cap -- clears in seconds

@@ -34,3 +34,10 @@ def test_overload_is_infrastructure_and_retried():
 def test_a_real_model_error_is_not_infrastructure():
     e = FakeAPIError(400, "Failed to generate JSON")
     assert infra_kind(e) is None
+
+
+def test_groq_daily_token_cap_is_quota_not_rate_limit():
+    e = FakeAPIError(429, "Rate limit reached for model `openai/gpt-oss-120b` "
+                          "on tokens per day (TPD): Limit 200000, Used 199500")
+    assert infra_kind(e) == "quota"
+    assert _is_transient(e) is False

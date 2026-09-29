@@ -20,3 +20,4 @@ __pycache__/
 # large/derived artifacts (raw trial data IS committed — see README)
 results/figures/*.png
 !results/figures/.gitkeep
+results/logs/
