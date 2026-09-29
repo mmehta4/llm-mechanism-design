@@ -83,12 +83,25 @@ MODELS: dict[str, ModelSpec] = {
         supports_temperature=True,
     ),
     # --- NVIDIA, open weights, the largest free model available (550B total,
-    # 55B active). OpenRouter only. Free-tier cap is 50 requests/day without
-    # purchased credit, 1,000/day with $10+ ever bought -- verified 2026-09-30.
+    # 55B active). Served direct from NVIDIA (build.nvidia.com) rather than via
+    # OpenRouter, which avoids OpenRouter's 50-requests/day free cap. Model id
+    # verified against NVIDIA's live /v1/models list on 2026-09-30.
     "nemotron": ModelSpec(
         key="nemotron",
-        provider="openrouter",
-        api_id="nvidia/nemotron-3-ultra-550b-a55b:free",
+        provider="nvidia",
+        api_id="nvidia/nemotron-3-ultra-550b-a55b",
+        input_usd_per_mtok=0.0,
+        output_usd_per_mtok=0.0,
+        supports_temperature=True,
+    ),
+    # --- Moonshot AI, open weights, via the NVIDIA key. Id verified against
+    # NVIDIA's /v1/models on 2026-09-30. (DeepSeek v4.1 Flash was also trialled
+    # for this slot and dropped: NVIDIA's endpoint returned empty content for every
+    # structured-output request.)
+    "kimi": ModelSpec(
+        key="kimi",
+        provider="nvidia",
+        api_id="moonshotai/kimi-k3",
         input_usd_per_mtok=0.0,
         output_usd_per_mtok=0.0,
         supports_temperature=True,
@@ -105,14 +118,20 @@ MODELS: dict[str, ModelSpec] = {
     ),
 }
 
-# The study roster: four models, four different companies, a size ladder, three
-# of four open-weight. Same effect across all four rules out one company's quirk;
-# the ladder lets delta-lambda be read against capability.
+# The study roster: four models from four different companies -- OpenAI, NVIDIA,
+# Moonshot, Google -- three of four open-weight. The same effect across all four
+# rules out one company's quirk.
+#
+# Kimi took the fourth slot over Qwen 3.8 27B on the practice rounds: Qwen was
+# fast (~30s/trial) but only 5/8 usable, including a mid-answer drift into
+# Russian that broke JSON generation; Kimi was 3/3 usable but slow (~165s/trial).
+# Reliability won, because every unusable trial is excluded before fitting. That
+# rests on only 3 Kimi trials -- revisit if its remaining practice trials fail.
 #
 # qwen7b is DROPPED from the study: 75% competence failure in the pilot meant most
 # of its trials were excluded before fitting. Its spec stays above only so the
 # pilot rows that reference it remain interpretable.
-CAPABILITY_ORDER = ["qwen27b", "gptoss120b", "nemotron", "gemini"]
+CAPABILITY_ORDER = ["gptoss120b", "nemotron", "kimi", "gemini"]
 
 # Base URLs by provider. Ollama exposes an OpenAI-compatible endpoint, so one
 # client code path serves local, OpenRouter, and Groq alike.
@@ -120,6 +139,7 @@ BASE_URLS = {
     "ollama": "http://localhost:11434/v1",
     "openrouter": "https://openrouter.ai/api/v1",
     "groq": "https://api.groq.com/openai/v1",
+    "nvidia": "https://integrate.api.nvidia.com/v1",
     # Gemini's OpenAI-compatibility layer. Trailing slash is required.
     "gemini": "https://generativelanguage.googleapis.com/v1beta/openai/",
 }
@@ -152,6 +172,7 @@ def api_key(provider: str) -> str:
         "gemini": "GEMINI_API_KEY",
         "openrouter": "OPENROUTER_API_KEY",
         "groq": "GROQ_API_KEY",
+        "nvidia": "NVIDIA_API_KEY",
     }[provider]
     key = os.getenv(env_var)
     if not key:
