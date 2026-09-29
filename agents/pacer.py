@@ -22,7 +22,7 @@ from collections import deque
 
 class TokenPacer:
     def __init__(self, tokens_per_minute: int = 8000, window_s: float = 60.0,
-                 safety: float = 0.85):
+                 safety: float = 0.85, requests_per_minute: int | None = None):
         # safety margin because the estimate for the NEXT call is necessarily a
         # guess, and overshooting the window costs a full reset
         self.budget = tokens_per_minute * safety
@@ -30,6 +30,11 @@ class TokenPacer:
         self._spent: deque[tuple[float, int]] = deque()
         self._lock = threading.Lock()
         self.total_waited_s = 0.0
+        # Google's free tier binds on REQUESTS per minute (15 for Flash Lite) long
+        # before tokens, so space calls evenly rather than bursting into a 429
+        self.min_interval_s = (window_s / (requests_per_minute * safety)
+                               if requests_per_minute else 0.0)
+        self._last_start = float("-inf")
 
     def _prune(self, now: float) -> None:
         while self._spent and now - self._spent[0][0] > self.window_s:
@@ -43,6 +48,13 @@ class TokenPacer:
     def wait_for(self, estimated_tokens: int) -> float:
         """Block until `estimated_tokens` fits in the window. Returns seconds waited."""
         waited = 0.0
+        with self._lock:
+            gap = self._last_start + self.min_interval_s - time.monotonic()
+            self._last_start = time.monotonic() + max(gap, 0.0)
+        if gap > 0:
+            time.sleep(gap)
+            waited += gap
+            self.total_waited_s += gap
         while True:
             with self._lock:
                 now = time.monotonic()

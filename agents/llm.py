@@ -24,12 +24,18 @@ from agents.pacer import TokenPacer
 # One pacer per provider, shared across agents, since the limit is per account.
 _PACERS: dict[str, TokenPacer] = {}
 
+# Request-per-minute caps that bind before the token cap (AI Studio Rate Limit
+# page, 2026-09-30: Gemini 3.5 Flash Lite free tier = 15 RPM).
+RPM_LIMITS = {"gemini": 15}
+
 
 def pacer_for(provider: str) -> TokenPacer | None:
     """Local inference is unmetered, so it needs no pacing."""
     if provider in config.NO_KEY_PROVIDERS:
         return None
-    return _PACERS.setdefault(provider, TokenPacer())
+    if provider not in _PACERS:
+        _PACERS[provider] = TokenPacer(requests_per_minute=RPM_LIMITS.get(provider))
+    return _PACERS[provider]
 
 
 # Transient on free-tier hosted models: rate limits and capacity spikes. Observed
@@ -54,7 +60,10 @@ def infra_kind(exc: Exception | None) -> str | None:
         return None
     code = getattr(exc, "status_code", None)
     msg = str(exc).lower()
-    # Google says "quota"; Groq says "tokens per day (TPD)" / "requests per day (RPD)"
+    # Google says "exceeded your current quota" for BOTH its per-minute and per-day
+    # caps; only the quotaId tells them apart. Groq says "tokens per day (TPD)".
+    if code == 429 and "perminute" in msg:
+        return "rate_limit"
     if code == 429 and any(s in msg for s in ("quota", "per day", "(tpd)", "(rpd)")):
         return "quota"            # a DAILY cap -- will not clear by retrying
     if code == 429:

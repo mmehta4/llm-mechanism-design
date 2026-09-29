@@ -41,3 +41,27 @@ def test_groq_daily_token_cap_is_quota_not_rate_limit():
                           "on tokens per day (TPD): Limit 200000, Used 199500")
     assert infra_kind(e) == "quota"
     assert _is_transient(e) is False
+
+
+def test_google_per_minute_cap_is_rate_limit_not_daily_quota():
+    """Google words both caps 'exceeded your current quota'; the quotaId differs."""
+    e = FakeAPIError(429, "You exceeded your current quota ... 'quotaId': "
+                          "'GenerateRequestsPerMinutePerProjectPerModel-FreeTier'")
+    assert infra_kind(e) == "rate_limit"
+    assert _is_transient(e) is True
+
+
+def test_google_per_day_cap_is_quota():
+    e = FakeAPIError(429, "You exceeded your current quota ... 'quotaId': "
+                          "'GenerateRequestsPerDayPerProjectPerModel-FreeTier'")
+    assert infra_kind(e) == "quota"
+
+
+def test_request_pacer_spaces_calls():
+    import time
+    from agents.pacer import TokenPacer
+    p = TokenPacer(requests_per_minute=600, safety=1.0)    # 0.1s apart
+    t = time.monotonic()
+    for _ in range(4):
+        p.wait_for(1)
+    assert time.monotonic() - t >= 0.29
