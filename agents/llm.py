@@ -41,8 +41,38 @@ MAX_ATTEMPTS = 5
 BASE_BACKOFF_S = 2.0
 
 
+def infra_kind(exc: Exception | None) -> str | None:
+    """Classify a failure that happened BEFORE the model ever saw the question.
+
+    These are infrastructure, not behaviour, and must never be recorded as the model
+    failing. Observed on the Gemini practice round: six trials were logged as
+    PARSE_FAIL -- "the model gave an unreadable answer" -- when Google had in fact
+    refused the request outright. The model answered 2/2 of the questions it
+    actually received.
+    """
+    if exc is None:
+        return None
+    code = getattr(exc, "status_code", None)
+    msg = str(exc).lower()
+    if code == 429 and "quota" in msg:
+        return "quota"            # a DAILY cap -- will not clear by retrying
+    if code == 429:
+        return "rate_limit"       # a per-minute cap -- clears in seconds
+    if code in (500, 502, 503, 504):
+        return "overloaded"
+    if type(exc).__name__ in {"APIConnectionError", "APITimeoutError"}:
+        return "connection"
+    return None
+
+
 def _is_transient(exc: Exception) -> bool:
     code = getattr(exc, "status_code", None)
+    # A daily quota does not clear on a timescale any backoff can wait out.
+    # Retrying it five times -- as this function used to -- only burns more of
+    # the cap: ~180 of the ~200 requests Gemini logged on the practice day were
+    # retries against an already-exhausted quota.
+    if infra_kind(exc) == "quota":
+        return False
     if code in RETRY_STATUS:
         return True
     name = type(exc).__name__
@@ -99,7 +129,7 @@ class LLMAgent:
                 latency_s=time.perf_counter() - started,
                 model_api_id=self.spec.api_id,
                 error=f"{type(last_error).__name__}: {last_error}",
-                extra={"attempts": attempts},
+                extra={"attempts": attempts, "infra": infra_kind(last_error)},
             )
 
         latency = time.perf_counter() - started

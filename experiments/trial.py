@@ -14,7 +14,11 @@ The verdict column is the point of the whole paired design:
                     COMPETENCE_GAP would silently delete correct trials from the fits.
     STRATEGIC_GAP   computes them correctly, plays something else. The object of study.
     AT_EQUILIBRIUM  computes them and plays accordingly.
-    PARSE_FAIL      no usable action. Reported as a rate, never dropped.
+    PARSE_FAIL      the model answered, but not in a usable form. A fact about the
+                    model; reported as a rate, never dropped.
+    INFRA_FAIL      the request never reached the model -- quota, overload, network.
+                    NOT a fact about the model. Excluded from every model-level
+                    rate, and re-run in a later pass rather than recorded as data.
 """
 from __future__ import annotations
 
@@ -30,6 +34,7 @@ PROBE_FORMAT_FAIL = "PROBE_FORMAT_FAIL"
 STRATEGIC_GAP = "STRATEGIC_GAP"
 AT_EQUILIBRIUM = "AT_EQUILIBRIUM"
 PARSE_FAIL = "PARSE_FAIL"
+INFRA_FAIL = "INFRA_FAIL"
 
 # how close counts as "played the equilibrium"
 NUMERIC_TOLERANCE = 0.5
@@ -122,8 +127,13 @@ def run_trial(game_key: str, framing: str, model_key: str, seed: int,
         row.update({"probe_answer": None, "probe_passed": None,
                     "probe_malformed": True, "probe_reasoning": ""})
 
-    # verdict
-    if not play.parse_ok:
+    # verdict -- infrastructure first: a request the model never received says
+    # nothing about the model, whichever of the two calls it hit
+    infra = play.extra.get("infra") or probe.extra.get("infra")
+    row["infra"] = infra
+    if infra:
+        row["verdict"] = INFRA_FAIL
+    elif not play.parse_ok:
         row["verdict"] = PARSE_FAIL
     elif row.get("probe_malformed"):
         row["verdict"] = PROBE_FORMAT_FAIL

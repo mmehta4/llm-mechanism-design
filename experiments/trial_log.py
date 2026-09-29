@@ -12,7 +12,7 @@ from pathlib import Path
 FIELDS = [
     "timestamp", "game", "framing", "model_key", "model_api_id", "seed",
     "paraphrase_idx", "params", "equilibrium", "observed_action", "deviation",
-    "verdict", "probe_answer", "probe_correct_answer", "probe_passed", "probe_malformed",
+    "verdict", "infra", "probe_answer", "probe_correct_answer", "probe_passed", "probe_malformed",
     "play_parse_ok", "probe_parse_ok", "play_error",
     "play_latency_s", "probe_latency_s", "total_latency_s", "cost_usd", "attempts",
     "play_reasoning", "probe_reasoning", "play_prompt", "probe_prompt", "play_raw",
