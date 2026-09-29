@@ -72,9 +72,13 @@ def load(path: Path):
         c = cells[(r["game"], r["framing"])]
         c[0] += 1
         c[1] += r["verdict"] == "AT_EQUILIBRIUM"
-    stamps = sorted(dt.datetime.fromisoformat(r["timestamp"]) for r in rows)
-    minutes = (stamps[-1] - stamps[0]).total_seconds() / 60 if len(stamps) > 1 else 0
-    return cells, len(rows), (len(rows) / minutes if minutes else None)
+    # Throughput from time actually SPENT on trials, not from the first-to-last
+    # timestamp span. The span includes any time the machine slept or stalled --
+    # the first version of this script did that, and reported 0.8 trials/min for a
+    # run observed live at 5-7/min, inflating the compute estimate sixfold.
+    # total_latency_s includes pacer waits, so throttling is still counted.
+    busy_s = sum(float(r["total_latency_s"]) for r in rows if r.get("total_latency_s"))
+    return cells, len(rows), (len(rows) / (busy_s / 60) if busy_s else None)
 
 
 def main(path: str = "results/raw/pilot_n20.csv") -> int:
@@ -145,13 +149,22 @@ def main(path: str = "results/raw/pilot_n20.csv") -> int:
       "paper claims, large enough to stay affordable.\n")
 
     w("## 6. Compute\n")
-    w(f"{trials} trials per model ({len(GAMES)} games × 2 framings × {rec3}).\n")
+    calls = trials * 2                     # every trial = one play call + one probe call
+    w(f"{trials} trials per model ({len(GAMES)} games × 2 framings × {rec3}), "
+      f"which is **{calls} API calls** — each trial is a play call plus a probe call.\n")
     if rate:
-        w(f"- **gpt-oss-120b (Groq free tier):** measured {rate:.1f} trials/min in "
-          f"the pilot, token-limited → **~{trials / rate / 60:.1f} hours**")
-    w(f"- **qwen2.5:7b (local):** ~28 s/trial → ~{trials * 28 / 3600:.1f} hours, "
-      f"though at 75% competence failure most trials would be excluded")
-    w("- **Gemini (free tier):** rate limits not published; measure in a short pilot first\n")
+        w(f"- **gpt-oss-120b and Qwen 3.8 27B (Groq):** measured {rate:.1f} trials/min "
+          f"in the pilot, token-limited → **~{trials / rate / 60:.1f} hours each**. If "
+          f"Groq's limits are per model rather than per account, they can run in parallel.")
+    w(f"- **Nemotron 3 Ultra (OpenRouter free):** capped by requests per DAY, not speed. "
+      f"At 50/day: **~{math.ceil(calls / 50)} days**. At 1,000/day (after $10 of credit "
+      f"has ever been bought): **~{math.ceil(calls / 1000)} days**.")
+    w("- **Gemini (Google free tier):** limits are not published, only shown in your "
+      "AI Studio dashboard. Measure in a short pilot first.\n")
+    if math.ceil(calls / 50) > 28:
+        w(f"**At this n, Nemotron on the free cap does not fit Stage 2's four-week "
+          f"window.** Either buy the $10 of credit, or lower n for Nemotron only and "
+          f"accept less power for that one model.\n")
 
     w("## 7. Caveats\n")
     w("- Proportions are a proxy; the real analysis compares fitted λ. Conservative "

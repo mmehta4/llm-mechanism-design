@@ -70,6 +70,29 @@ MODELS: dict[str, ModelSpec] = {
         output_usd_per_mtok=0.0,
         supports_temperature=True,
     ),
+    # --- Alibaba, open weights, via Groq's free tier (TPM-limited, no daily cap).
+    # NOT the dropped qwen2.5:7b above -- a newer generation and ~4x the size.
+    # Groq lists it as a PREVIEW model, which can be withdrawn; OpenRouter serves
+    # the same weights as qwen/qwen3.8-27b:free, so there is a fallback.
+    "qwen27b": ModelSpec(
+        key="qwen27b",
+        provider="groq",
+        api_id="qwen/qwen3.8-27b",
+        input_usd_per_mtok=0.0,
+        output_usd_per_mtok=0.0,
+        supports_temperature=True,
+    ),
+    # --- NVIDIA, open weights, the largest free model available (550B total,
+    # 55B active). OpenRouter only. Free-tier cap is 50 requests/day without
+    # purchased credit, 1,000/day with $10+ ever bought -- verified 2026-09-30.
+    "nemotron": ModelSpec(
+        key="nemotron",
+        provider="openrouter",
+        api_id="nvidia/nemotron-3-ultra-550b-a55b:free",
+        input_usd_per_mtok=0.0,
+        output_usd_per_mtok=0.0,
+        supports_temperature=True,
+    ),
     # --- Most capable arm reachable at zero cost, via Google AI Studio's free tier.
     # Not reproducible in the way open weights are -- note that in limitations.
     "gemini": ModelSpec(
@@ -82,9 +105,14 @@ MODELS: dict[str, ModelSpec] = {
     ),
 }
 
-# The roster spans roughly 7B -> 120B -> frontier. That ladder is deliberate: it
-# lets delta-lambda be read against capability, rather than only against framing.
-CAPABILITY_ORDER = ["qwen7b", "gptoss120b", "gemini"]
+# The study roster: four models, four different companies, a size ladder, three
+# of four open-weight. Same effect across all four rules out one company's quirk;
+# the ladder lets delta-lambda be read against capability.
+#
+# qwen7b is DROPPED from the study: 75% competence failure in the pilot meant most
+# of its trials were excluded before fitting. Its spec stays above only so the
+# pilot rows that reference it remain interpretable.
+CAPABILITY_ORDER = ["qwen27b", "gptoss120b", "nemotron", "gemini"]
 
 # Base URLs by provider. Ollama exposes an OpenAI-compatible endpoint, so one
 # client code path serves local, OpenRouter, and Groq alike.

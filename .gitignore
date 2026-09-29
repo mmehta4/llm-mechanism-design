@@ -3,7 +3,12 @@
 *.key
 
 # python
+# The environment lives in venv.nosync -- iCloud skips any name ending in
+# .nosync, so it cannot be evicted -- and `venv` is a symlink to it. Both
+# patterns are needed: `venv/` matches only directories, and a symlink is a file.
+venv
 venv/
+venv.nosync/
 __pycache__/
 *.py[cod]
 .pytest_cache/
