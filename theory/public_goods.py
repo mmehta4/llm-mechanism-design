@@ -28,7 +28,14 @@ def marginal_private_return(M: float, n: int) -> float:
 
 
 def nash_contribution(endowment: float, M: float, n: int) -> float:
-    """Individually rational contribution."""
+    """Individually rational contribution.
+
+    Boundary: at M == n EXACTLY, the marginal private return is zero, so every
+    contribution in [0, endowment] pays the same and all of them are equilibria --
+    nothing is dominant. This returns the endowment there only as a representative
+    choice, not because full contribution is uniquely optimal. Caught during the
+    Stage 0A blank-page test. Irrelevant to the experiment, which uses M=2, n=4.
+    """
     if marginal_private_return(M, n) < 0:
         return 0.0
     return endowment          # if M > n, contributing is privately profitable
