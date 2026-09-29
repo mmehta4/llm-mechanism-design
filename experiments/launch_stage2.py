@@ -7,7 +7,8 @@ model exits immediately. Each run is started in its own session, so closing the
 terminal or the app that launched it does not stop it. `caffeinate -i` keeps the Mac
 from idle-sleeping while any run is alive (closing the lid still sleeps it).
 
-The two NVIDIA models share one account, so they run one after the other.
+Every model runs side by side, the two NVIDIA models included: they share an
+account, but at ~1 request a minute each they sit far under its per-minute cap.
 """
 from __future__ import annotations
 
@@ -20,7 +21,10 @@ PY = "./venv/bin/python"
 # one chain per provider: models in a chain run in order, chains run side by side
 CHAINS = [
     ["gptoss120b"],             # Groq
-    ["nemotron", "kimi"],       # NVIDIA
+    # NVIDIA: side by side. Both are slow thinkers, ~1 request a minute each, far
+    # under the free tier's per-minute cap, so queueing them only cost days.
+    ["nemotron"],
+    ["kimi"],
     ["gemini_lite"],            # Google
 ]
 

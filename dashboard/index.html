@@ -155,9 +155,9 @@ const INFO = {
   gptoss120b: {name:"gpt-oss-120b", org:"OpenAI · open weights · via Groq free tier",
     note:"Fastest of the four. Groq caps how much text it can handle per minute, so short pauses of a few seconds are the pacer staying under the limit, not a freeze. Groq also has a daily cap. If it's hit, the run sleeps and retries hourly."},
   nemotron: {name:"Nemotron 3 Ultra", org:"NVIDIA · open weights · via NVIDIA free API",
-    note:"A very large model that reasons at length before answering. 1–4 minutes per question is normal, so this is the longest run, roughly 1.5–2 days. Kimi starts automatically when it finishes."},
+    note:"A very large model that reasons at length before answering. 1–4 minutes per question is normal, so this is one of the longest runs, roughly 1.5–2 days. Runs alongside Kimi on the same NVIDIA account."},
   kimi: {name:"Kimi K3", org:"Moonshot AI · open weights · via NVIDIA free API",
-    note:"Shares the NVIDIA account with Nemotron, so it waits its turn. Running both at once would just make each slower. Also a long thinker, around 2–3 days once it starts."},
+    note:"Shares the NVIDIA account with Nemotron and runs alongside it. Each makes only about one request a minute, well under NVIDIA's free limit. A long thinker: around 2–3 days in total."},
   gemini_lite: {name:"Gemini 3.5 Flash Lite", org:"Google · closed model · via AI Studio free tier",
     note:"Free tier allows 15 requests a minute and 500 a day. Each question uses 2, so about 250 questions a day, then it sleeps until the daily reset. About 5 days in total. Swapped in for Gemini 3.8 Flash, which only allows 20 a day."},
 };
