@@ -34,7 +34,7 @@ sys.path.insert(0, str(ROOT))
 
 from config import CAPABILITY_ORDER, MASTER_SEED
 from experiments import stage2
-from experiments.stage2 import WAIT_S, run_plan, trial_key
+from experiments.stage2 import WAIT_S, run_plan, sleep_until, trial_key
 from games.stress import ENDGAME, SWEEP, TRAPS
 
 FRAMINGS = ("named", "disguised")
@@ -139,7 +139,7 @@ def main() -> int:
             return code
         wake = time.strftime("%H:%M", time.localtime(time.time() + WAIT_S[code]))
         print(f"waiting until ~{wake}, then resuming.\n", flush=True)
-        time.sleep(WAIT_S[code])
+        sleep_until(time.time() + WAIT_S[code])
 
 
 if __name__ == "__main__":

@@ -59,6 +59,18 @@ EXIT_DONE, EXIT_QUOTA, EXIT_INFRA = 0, 3, 4
 WAIT_S = {EXIT_QUOTA: 3600, EXIT_INFRA: 900}
 
 
+def sleep_until(deadline: float) -> None:
+    """Sleep until a WALL-CLOCK time, in short steps.
+
+    A single time.sleep(3600) counts only time the Mac is awake: after a night with
+    the lid shut, a run paused for a daily limit was still "waiting" at lunchtime
+    although the limit had long reset. Checking the real clock every minute resumes
+    within a minute of waking.
+    """
+    while time.time() < deadline:
+        time.sleep(min(60.0, max(0.0, deadline - time.time())))
+
+
 def trial_key(game: str, framing: str, seed: int, paraphrase: int) -> tuple:
     return (game, framing, int(seed), int(paraphrase))
 
@@ -113,7 +125,7 @@ def main() -> int:
             return code
         wake = time.strftime("%H:%M", time.localtime(time.time() + WAIT_S[code]))
         print(f"waiting until ~{wake}, then resuming.\n", flush=True)
-        time.sleep(WAIT_S[code])
+        sleep_until(time.time() + WAIT_S[code])
 
 
 def session(args) -> int:

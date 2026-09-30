@@ -2,6 +2,8 @@
 
     python experiments/launch_stage2.py
 
+Also starts the live console (http://localhost:8792) if it is not already up.
+
 Safe to run any time: a run that is already going is left alone, and a finished
 model exits immediately. Each run is started in its own session, so closing the
 terminal or the app that launched it does not stop it. `caffeinate -i` keeps the Mac
@@ -36,8 +38,22 @@ def running(model: str) -> bool:
                for line in out.splitlines())
 
 
+def dashboard_up() -> bool:
+    out = subprocess.run(["lsof", "-ti", ":8792"], capture_output=True, text=True).stdout
+    return bool(out.strip())
+
+
 def main() -> None:
     (ROOT / "results" / "logs").mkdir(parents=True, exist_ok=True)
+    # the live console, detached like the runs so it outlives the app that started it
+    if dashboard_up():
+        print("live console       already running  http://localhost:8792")
+    else:
+        subprocess.Popen(
+            [PY, "dashboard/server.py"], cwd=ROOT, start_new_session=True,
+            stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+        print("live console       started          http://localhost:8792")
     for chain in CHAINS:
         live = [m for m in chain if running(m)]
         if live:
