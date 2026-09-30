@@ -70,6 +70,10 @@ td.r{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowra
 .sub{font-size:.7rem;color:var(--faint)}
 
 .feed{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+a.name{color:var(--ink);text-decoration:none}
+a.name:hover{text-decoration:underline}
+.all-q{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-2);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px}
+.all-q:hover{border-color:var(--ink-2);color:var(--ink)}
 .s2b{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
 .s2b h4{margin:0 0 8px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
 .s2b .row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr) auto;gap:10px;align-items:center;font-size:.8rem;padding:3px 0}
@@ -245,7 +249,7 @@ function card(m){
   const e = eta(m);
   return `<div class="card ${m.status}">
     <div class="top">
-      <div><div class="name">${info.name}</div><div class="org">${info.org}</div><div class="api">${esc(m.api_id)}</div></div>
+      <div><a class="name" href="/questions.html?model=${m.key}">${info.name}</a><div class="org">${info.org}</div><div class="api">${esc(m.api_id)}</div></div>
       <span class="pill ${m.status}">${m.status==="running"?'<span class="dot"></span>':""}${m.status}</span>
     </div>
     <div class="prog"><span class="n">${fmt(m.done)}</span><span class="dim">/ ${fmt(m.total)} questions answered, Stage 2A + 2B · ${(100*m.done/m.total).toFixed(1)}%</span></div>
@@ -265,6 +269,7 @@ function card(m){
       <tbody>${rows}</tbody>
     </table>
     <div class="feed">${feed || '<span class="dim" style="font-size:.85rem">No answers yet.</span>'}</div>
+    <a class="all-q" href="/questions.html?model=${m.key}">See every question and answer (${fmt(m.done)}) →</a>
     <div class="s2b"><h4>Progress by block · 2A osf.io/2uqpj · 2B osf.io/6hz8d</h4>${m.blocks.map(b =>
       `<div class="row ${b.running?"live":""}"><span class="lbl">${b.running?"● ":(b.waiting?"◐ ":"")}${esc(b.label)}</span>
         <div class="bar"><i style="width:${100*b.done/b.total}%;background:${b.done>=b.total?"var(--eq)":(b.running?"var(--eq)":(b.waiting?"var(--gap)":"var(--ink-2)"))}"></i></div>

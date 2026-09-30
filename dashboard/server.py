@@ -12,6 +12,7 @@ import datetime as dt
 import json
 import statistics
 import subprocess
+import urllib.parse
 import sys
 from collections import defaultdict
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -194,13 +195,99 @@ def state() -> dict:
             "now": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
 
 
+# --- Question browser -----------------------------------------------------------
+
+GAME_NAMES = {"vickrey": "Vickrey auction", "cournot": "Cournot",
+              "repeated_pd": "Repeated PD", "public_goods": "Public goods"}
+TRAP_NAMES = {"vickrey_trap": "Vickrey · trap: winner pays double",
+              "cournot_trap": "Cournot · trap: three firms",
+              "repeated_pd_trap": "Repeated PD · trap: cooperating pays more",
+              "public_goods_trap": "Public goods · trap: multiplier 5"}
+
+
+def game_label(key: str) -> str:
+    """Readable name for any Stage 2 game key, including the Stage 2B variants."""
+    if key in GAME_NAMES:
+        return GAME_NAMES[key]
+    if key in TRAP_NAMES:
+        return TRAP_NAMES[key]
+    if key.startswith("repeated_pd_round"):
+        return f"Repeated PD · round {key.rsplit('round', 1)[1]} of 10"
+    sizes = {"vickrey_n_others": lambda v: f"{int(v) + 1} bidders",
+             "cournot_a": lambda v: f"market size ~{int(v)}",
+             "public_goods_n_others": lambda v: f"{int(v) + 1} players",
+             "repeated_pd_n_rounds": lambda v: f"{int(v)} rounds"}
+    for prefix, fmt in sizes.items():
+        if key.startswith(prefix):
+            base = GAME_NAMES[prefix.split("_n_")[0].split("_a")[0]]
+            return f"{base} · {fmt(float(key[len(prefix):]))}"
+    return key
+
+
+def questions(query: dict) -> dict:
+    """Every question one model was asked, newest first, filtered and paged."""
+    from config import CAPABILITY_ORDER
+    model = query.get("model", "")
+    if model not in CAPABILITY_ORDER:
+        return {"error": f"unknown model {model!r}"}
+    raw = ROOT / "results" / "raw"
+    rows = []
+    for src in sources(model):
+        for r in read_rows(raw / f"{src['csv']}.csv"):
+            r["_block"], r["_block_label"] = src["block"], src["label"]
+            rows.append(r)
+    rows.sort(key=lambda r: r["timestamp"], reverse=True)
+
+    games = sorted({r["game"] for r in rows}, key=game_label)
+    want = {k: query.get(k, "") for k in ("block", "game", "framing", "verdict")}
+    if query.get("refusals") != "1":
+        rows = [r for r in rows if r["verdict"] != "INFRA_FAIL"]
+    if want["block"]:
+        rows = [r for r in rows if r["_block"] == want["block"]]
+    if want["game"]:
+        rows = [r for r in rows if r["game"] == want["game"]]
+    if want["framing"]:
+        rows = [r for r in rows if r["framing"] == want["framing"]]
+    if want["verdict"]:
+        rows = [r for r in rows if r["verdict"] == want["verdict"]]
+
+    offset = max(0, int(query.get("offset", 0) or 0))
+    limit = min(100, max(1, int(query.get("limit", 25) or 25)))
+    page = rows[offset:offset + limit]
+    return {
+        "model": model,
+        "total": len(rows),
+        "offset": offset,
+        "blocks": [{"block": s["block"], "label": s["label"]} for s in sources(model)],
+        "games": [{"key": g, "label": game_label(g)} for g in games],
+        "rows": [{
+            "time": r["timestamp"], "age": age_s(r["timestamp"]),
+            "block": r["_block"], "block_label": r["_block_label"],
+            "game": r["game"], "game_label": game_label(r["game"]),
+            "framing": r["framing"], "wording": int(r["paraphrase_idx"]) + 1,
+            "seed": r["seed"], "verdict": r["verdict"], "infra": r.get("infra") or "",
+            "correct": r["equilibrium"], "played": r["observed_action"],
+            "prompt": r["play_prompt"], "reasoning": r["play_reasoning"],
+            "raw": r["play_raw"], "error": r["play_error"],
+            "probe_prompt": r["probe_prompt"], "probe_answer": r["probe_answer"],
+            "probe_correct": r["probe_correct_answer"], "probe_reasoning": r["probe_reasoning"],
+            "latency": r["total_latency_s"],
+        } for r in page],
+    }
+
+
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *a, **kw):
         super().__init__(*a, directory=str(HERE), **kw)
 
     def do_GET(self):
-        if self.path.startswith("/api/state"):
-            body = json.dumps(state()).encode()
+        if self.path.startswith("/api/state") or self.path.startswith("/api/questions"):
+            if self.path.startswith("/api/state"):
+                data = state()
+            else:
+                q = urllib.parse.parse_qs(urllib.parse.urlsplit(self.path).query)
+                data = questions({k: v[0] for k, v in q.items()})
+            body = json.dumps(data).encode()
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.send_header("Cache-Control", "no-store")
