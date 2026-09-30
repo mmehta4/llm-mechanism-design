@@ -36,22 +36,15 @@ def sh(*args: str) -> str:
 GAMES = ["vickrey", "cournot", "repeated_pd", "public_goods"]
 
 
-def model_process(model: str) -> bool:
-    """Is a Python process running Stage 2 for this model?
-
-    Only the interpreter itself counts. The caffeinate and `sh -c` wrappers carry
-    the same arguments -- the Nemotron wrapper even names Kimi, which is queued
-    behind it -- and must not make a waiting model look live.
-    """
-    for line in sh("ps", "-eo", "command").splitlines():
-        exe = line.split(" ", 1)[0].lower()
-        if "python" in exe and f"stage2.py --model {model}" in line:
-            return True
-    return False
+def python_commands() -> list[str]:
+    """Command lines of running Python processes -- only the interpreter counts, not
+    the caffeinate / sh wrappers that carry the same arguments."""
+    return [line for line in sh("ps", "-eo", "command").splitlines()
+            if "python" in line.split(" ", 1)[0].lower()]
 
 
-def log_tail(model: str, n: int = 6) -> list[str]:
-    path = ROOT / "results" / "logs" / f"stage2_{model}.log"
+def log_tail(name: str, n: int = 6) -> list[str]:
+    path = ROOT / "results" / "logs" / f"{name}.log"
     try:
         with path.open("rb") as f:
             f.seek(0, 2)
@@ -69,112 +62,127 @@ def age_s(ts: str) -> float | None:
         return None
 
 
-def stage2_model(model: str, spec, total: int) -> dict:
-    path = ROOT / "results" / "raw" / f"stage2_{model}.csv"
-    rows = []
-    if path.exists():
-        with path.open(encoding="utf-8") as f:
-            rows = list(csv.DictReader(f))
+BLOCK_NAMES = {"A": "Stage 2A · confirmatory", "B": "Traps", "C": "Number sweep",
+               "E": "PD endgame", "D": "Think harder"}
 
-    answered = [r for r in rows if r.get("verdict") != "INFRA_FAIL"]
-    keys = {(r["game"], r["framing"], r["seed"], r["paraphrase_idx"]) for r in answered}
+
+def read_rows(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    with path.open(encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def sources(model: str) -> list[dict]:
+    """Every run that belongs to one model: its Stage 2A run and each Stage 2B block."""
+    from experiments.stage2 import plan as plan_a
+    from experiments.stage2b import BLOCK_MODELS, PLANS
+    out = [{"block": "A", "label": BLOCK_NAMES["A"], "runner": model, "total": len(plan_a()),
+            "csv": f"stage2_{model}", "cmd": f"stage2.py --model {model}"}]
+    for block in "BCED":
+        for runner in BLOCK_MODELS[block]:
+            if runner != model and not (block == "D" and runner.startswith(model + "_")):
+                continue
+            label = BLOCK_NAMES[block]
+            if block == "D":
+                label += f" ({runner.rsplit('_', 1)[-1]} effort)"
+            out.append({"block": block, "label": label, "runner": runner,
+                        "total": len(PLANS[block]()), "csv": f"stage2b_{block}_{runner}",
+                        "cmd": f"stage2b.py --block {block} --model {runner}"})
+    return out
+
+
+def model_state(model: str, spec, procs: list[str]) -> dict:
+    """One model across ALL its questions: Stage 2A plus every Stage 2B block."""
+    raw = ROOT / "results" / "raw"
+    blocks, answered_all, rows_all = [], [], []
+    for src in sources(model):
+        rows = read_rows(raw / f"{src['csv']}.csv")
+        answered = [r for r in rows if r.get("verdict") != "INFRA_FAIL"]
+        keys = {(r["game"], r["framing"], r["seed"], r["paraphrase_idx"]) for r in answered}
+        live = any(src["cmd"] in c for c in procs)
+        tail = log_tail(src["csv"]) if live else []
+        waiting = bool(tail) and tail[-1].startswith("waiting until")
+        blocks.append({
+            "block": src["block"], "label": src["label"], "done": len(keys),
+            "total": src["total"], "running": live and not waiting, "waiting": live and waiting,
+            "resume_at": tail[-1].replace("waiting until ~", "").split(",")[0] if waiting else "",
+            "pause_reason": ("daily" if "daily quota" in " ".join(tail[-3:-1]).lower()
+                             else "outage") if waiting else "",
+        })
+        for r in rows:
+            r["_block"] = src["block"]
+        rows_all += rows
+        answered_all += answered
+
+    rows_all.sort(key=lambda r: r["timestamp"])
+    answered_all.sort(key=lambda r: r["timestamp"])
+    done = sum(b["done"] for b in blocks)
+    total = sum(b["total"] for b in blocks)
+
     verdicts = defaultdict(int)
-    for r in answered:
+    for r in answered_all:
         verdicts[r["verdict"]] += 1
 
+    a_rows = [r for r in answered_all if r["_block"] == "A"]
     cells = {}
     for g in GAMES:
         for fr in ("named", "disguised"):
-            rs = [r for r in answered if r["game"] == g and r["framing"] == fr]
-            at = sum(r["verdict"] == "AT_EQUILIBRIUM" for r in rs)
-            cells[f"{g}|{fr}"] = {"n": len(rs), "at_eq": at}
+            rs = [r for r in a_rows if r["game"] == g and r["framing"] == fr]
+            cells[f"{g}|{fr}"] = {"n": len(rs),
+                                  "at_eq": sum(r["verdict"] == "AT_EQUILIBRIUM" for r in rs)}
 
-    recent_hour = [r for r in answered if (age_s(r["timestamp"]) or 1e9) < 3600]
-    lat = [float(r["total_latency_s"]) for r in answered[-40:] if r.get("total_latency_s")]
-
-    # real pace = time between consecutive finished questions, which includes pacer
-    # waits that latency alone misses; gaps over 15 min are pauses or restarts
-    stamps = [dt.datetime.fromisoformat(r["timestamp"]) for r in answered[-31:]]
-    gaps = [(b - a).total_seconds() for a, b in zip(stamps, stamps[1:])]
+    # real pace across everything this model is doing, parallel runs included: time
+    # between consecutive finished questions; gaps over 15 min are pauses or restarts
+    stamps = [dt.datetime.fromisoformat(r["timestamp"]) for r in answered_all[-31:]]
+    gaps = [(y - x).total_seconds() for x, y in zip(stamps, stamps[1:])]
     gaps = [g for g in gaps if 0 <= g < 900]
-    if model_process(model) and rows:
-        since = age_s(rows[-1]["timestamp"]) or 0
+    running = [b for b in blocks if b["running"]]
+    if running and rows_all:
+        since = age_s(rows_all[-1]["timestamp"]) or 0
         if since < 900:
-            gaps.append(since)        # the question in flight counts too
+            gaps.append(since)
 
-    tail = log_tail(model)
-    last = tail[-1] if tail else ""
-    running = model_process(model)
-    if len(keys) >= total:
+    waiting = [b for b in blocks if b["waiting"]]
+    if done >= total:
         status = "complete"
-    elif running and last.startswith("waiting until"):
-        status = "paused"
     elif running:
         status = "running"
-    elif model == "kimi" and model_process("nemotron"):
-        status = "queued"
+    elif waiting:
+        status = "paused"
     else:
         status = "stopped"
 
-    pause_reason = ""
-    if status == "paused":
-        prev = " ".join(tail[-3:-1]).lower()
-        pause_reason = "daily" if "daily quota" in prev else "outage"
-
+    lat = [float(r["total_latency_s"]) for r in answered_all[-40:] if r.get("total_latency_s")]
     return {
         "key": model,
         "api_id": spec.api_id,
         "provider": spec.provider,
-        "done": len(keys),
+        "done": done,
         "total": total,
-        "infra_fails": len(rows) - len(answered),
+        "blocks": blocks,
+        "infra_fails": len(rows_all) - len(answered_all),
         "status": status,
-        "pause_reason": pause_reason,
-        "resume_at": last.replace("waiting until ~", "").split(",")[0] if status == "paused" else "",
-        "since_last_s": age_s(rows[-1]["timestamp"]) if rows else None,
-        "last_hour": len(recent_hour),
+        "pause_reason": waiting[0]["pause_reason"] if status == "paused" else "",
+        "resume_at": waiting[0]["resume_at"] if status == "paused" else "",
+        "since_last_s": age_s(rows_all[-1]["timestamp"]) if rows_all else None,
+        "last_hour": sum(1 for r in answered_all if (age_s(r["timestamp"]) or 1e9) < 3600),
         "median_latency": round(statistics.median(lat), 1) if lat else None,
         "sec_per_q": round(statistics.mean(gaps), 1) if len(gaps) >= 2 else None,
         "verdicts": dict(verdicts),
         "cells": cells,
         "recent": [
-            {"game": r["game"], "framing": r["framing"], "verdict": r["verdict"],
-             "latency": r.get("total_latency_s"), "age": age_s(r["timestamp"]),
-             "infra": r.get("infra")}
-            for r in rows[-8:][::-1]
+            {"block": r["_block"], "game": r["game"], "framing": r["framing"],
+             "verdict": r["verdict"], "age": age_s(r["timestamp"]), "infra": r.get("infra")}
+            for r in rows_all[-8:][::-1]
         ],
     }
 
 
-def stage2b_blocks(model: str) -> list[dict]:
-    """Stage 2B progress for one model: done / planned per block."""
-    from experiments.stage2 import finished
-    from experiments.stage2b import BLOCK_MODELS, PLANS
-    names = {"B": "Traps", "C": "Number sweep", "D": "Think harder", "E": "PD endgame"}
-    out = []
-    for block in "BCED":
-        runners = [m for m in BLOCK_MODELS[block] if m.split("_")[0] == model.split("_")[0]
-                   and (m == model or block == "D")]
-        for runner in runners:
-            path = ROOT / "results" / "raw" / f"stage2b_{block}_{runner}.csv"
-            total = len(PLANS[block]())
-            done = len(finished(path))
-            label = names[block] + (f" ({runner.split('_')[-1]} effort)" if block == "D" else "")
-            live = any("python" in l.split(" ", 1)[0].lower()
-                       and f"stage2b.py --block {block} --model {runner}" in l
-                       for l in sh("ps", "-eo", "command").splitlines())
-            out.append({"block": block, "label": label, "done": done, "total": total,
-                        "running": live})
-    return out
-
-
 def state() -> dict:
     from config import CAPABILITY_ORDER, MODELS
-    from experiments.stage2 import plan
-    total = len(plan()) // 1          # trials per model
-    models = [stage2_model(m, MODELS[m], total) for m in CAPABILITY_ORDER]
-    for m in models:
-        m["stage2b"] = stage2b_blocks(m["key"])
+    procs = python_commands()
+    models = [model_state(m, MODELS[m], procs) for m in CAPABILITY_ORDER]
 
     commits = []
     for line in sh("git", "log", "--pretty=%h|%ar|%s", "-8").splitlines():

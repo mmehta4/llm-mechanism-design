@@ -131,9 +131,10 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
   <h2>How to read this</h2>
   <div class="guide">
     <div class="card">
-      <p><b>What's being run.</b> Each model gets 1,104 questions: 4 games × normal words / disguised words × 138. Question #57 in normal words and #57 in disguised words use exactly the same numbers. Only the wording changes.</p>
+      <p><b>What's being run.</b> 18,768 questions in two registered experiments. <b>Stage 2A</b> (osf.io/2uqpj): each model gets 1,104, which is 4 games × normal / disguised words × 138. <b>Stage 2B</b> (osf.io/6hz8d): trap games where the textbook answer is wrong (1,104), the same games at three sizes (1,104), and the prisoner's dilemma at rounds 5, 9 and 10 (828). gpt-oss also re-answers Stage 2A at low and at high reasoning effort (2 × 1,104). That's 4,140 questions per model, 6,348 for gpt-oss.</p>
+      <p><b>Paired questions.</b> Question #57 in normal words and #57 in disguised words use exactly the same numbers. Only the wording changes.</p>
       <p><b>Each question is two calls.</b> First the model plays the game. Then, separately, it's asked a simple payoff question to check it can do the maths. That check decides which colour the answer gets.</p>
-      <p><b>The % table isn't a result yet.</b> It moves as questions come in. It only counts once every box has all 138 answers, which is your locked stopping rule. No extra questions ever get added.</p>
+      <p><b>The % table isn't a result yet.</b> It moves as questions come in, and it only counts once every box has all its answers, which is your locked stopping rule. No extra questions ever get added. A block is only marked done when every one of its questions has a real answer: anything the server refused is asked again until it's answered.</p>
       <p><b>Pauses are normal.</b> Free servers have limits. When one is hit, the run saves everything, sleeps, and carries on by itself. Nothing is lost.</p>
     </div>
     <div class="card">
@@ -202,24 +203,25 @@ function eta(m){
 }
 
 function nowText(m){
-  const next = fmt(m.done + 1);
   const lat = m.sec_per_q || m.median_latency;
+  const live = m.blocks.filter(b => b.running);
+  const waiting = m.blocks.filter(b => b.waiting);
+  const where = b => `${b.label}: question ${fmt(Math.min(b.done + 1, b.total))} of ${fmt(b.total)}`;
   switch (m.status) {
     case "running": {
-      let t = `Working on question ${next} of ${fmt(m.total)}.`;
-      if (lat) t += ` Lately one question finishes every ~${dur(lat)}, counting the game, the maths check and any rate-limit waits.`;
+      let t = `Working on ${live.length > 1 ? "two things at once. " : ""}${live.map(where).join(" · ")}.`;
+      if (lat) t += ` Across everything, one question finishes every ~${dur(lat)}, counting the game, the maths check and any rate-limit waits.`;
       if (m.since_last_s != null && lat && m.since_last_s > Math.max(20, lat * 2))
-        t += ` It's been thinking on this one for ${dur(m.since_last_s)}. Waits like that are normal for this model or its rate limit.`;
+        t += ` Nothing new for ${dur(m.since_last_s)}; long waits are normal for this model or its limits.`;
+      if (waiting.length) t += ` ${waiting.map(b => b.label).join(", ")} is paused for its limit.`;
       return t;
     }
     case "paused":
       return m.pause_reason === "daily"
-        ? `Hit today's free limit after ${fmt(m.done)} questions. Nothing is lost. It's asleep and will try again at about ${esc(m.resume_at)} (your time).`
-        : `The server refused 5 requests in a row (busy or down). It's waiting 15 minutes and will retry at about ${esc(m.resume_at)}.`;
-    case "queued":
-      return "In the queue. It starts automatically as soon as Nemotron finishes all 1,104.";
+        ? `Hit today's free limit. Nothing is lost. It's asleep and will try again at about ${esc(m.resume_at)} (your time), carrying on with ${waiting.map(where).join(" · ")}.`
+        : `The server refused 5 requests in a row (busy or down). It's waiting and will retry at about ${esc(m.resume_at)}.`;
     case "complete":
-      return `Finished: all ${fmt(m.total)} questions answered.`;
+      return `Finished: all ${fmt(m.total)} of this model's questions answered, Stage 2A and 2B.`;
     default:
       return m.done ? `Not running. It stopped at ${fmt(m.done)} of ${fmt(m.total)}. Restarting carries on from here.` : "Not started yet.";
   }
@@ -236,8 +238,9 @@ function card(m){
     return `<tr><td>${label}</td><td class="r">${cell(pa,a)}</td><td class="r" style="color:var(--disguised)">${cell(pb,b)}</td>
       <td class="r shift">${d==null?"":(d>0?"+":"")+d}</td></tr>`;
   }).join("");
+  const TAG = {A:"2A", B:"trap", C:"sweep", D:"effort", E:"endgame"};
   const feed = m.recent.slice(0,6).map(r =>
-    `<span class="chip"><b class="c-${r.verdict}">●</b> ${esc(r.game.replace("_"," "))} · ${r.framing==="named"?"normal":"disguised"} · <span class="c-${r.verdict}">${SHORT[r.verdict]||r.verdict}</span> · ${dur(r.age)} ago</span>`
+    `<span class="chip"><b class="c-${r.verdict}">●</b> ${TAG[r.block]||""} · ${esc(r.game.replace(/_/g," "))} · ${r.framing==="named"?"normal":"disguised"} · <span class="c-${r.verdict}">${SHORT[r.verdict]||r.verdict}</span> · ${dur(r.age)} ago</span>`
   ).join("");
   const e = eta(m);
   return `<div class="card ${m.status}">
@@ -245,7 +248,7 @@ function card(m){
       <div><div class="name">${info.name}</div><div class="org">${info.org}</div><div class="api">${esc(m.api_id)}</div></div>
       <span class="pill ${m.status}">${m.status==="running"?'<span class="dot"></span>':""}${m.status}</span>
     </div>
-    <div class="prog"><span class="n">${fmt(m.done)}</span><span class="dim">/ ${fmt(m.total)} answered · ${(100*m.done/m.total).toFixed(1)}%</span></div>
+    <div class="prog"><span class="n">${fmt(m.done)}</span><span class="dim">/ ${fmt(m.total)} questions answered, Stage 2A + 2B · ${(100*m.done/m.total).toFixed(1)}%</span></div>
     <div class="bar">${bar(m.verdicts, m.total)}</div>
     <div class="stats">
       <div class="stat"><b>${m.last_hour}</b><span>in the last hour</span></div>
@@ -258,13 +261,13 @@ function card(m){
       <p class="note">${info.note}</p>
     </div>
     <table>
-      <thead><tr><th>Played the equilibrium</th><th class="r">Normal</th><th class="r">Disguised</th><th class="r">Shift</th></tr></thead>
+      <thead><tr><th>Stage 2A · played the equilibrium</th><th class="r">Normal</th><th class="r">Disguised</th><th class="r">Shift</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
     <div class="feed">${feed || '<span class="dim" style="font-size:.85rem">No answers yet.</span>'}</div>
-    <div class="s2b"><h4>Stage 2B · stress tests · osf.io/6hz8d</h4>${(m.stage2b||[]).map(b =>
-      `<div class="row ${b.running?"live":""}"><span class="lbl">${b.running?"● ":""}${esc(b.label)}</span>
-        <div class="bar"><i style="width:${100*b.done/b.total}%;background:${b.running?"var(--eq)":"var(--ink-2)"}"></i></div>
+    <div class="s2b"><h4>Progress by block · 2A osf.io/2uqpj · 2B osf.io/6hz8d</h4>${m.blocks.map(b =>
+      `<div class="row ${b.running?"live":""}"><span class="lbl">${b.running?"● ":(b.waiting?"◐ ":"")}${esc(b.label)}</span>
+        <div class="bar"><i style="width:${100*b.done/b.total}%;background:${b.done>=b.total?"var(--eq)":(b.running?"var(--eq)":(b.waiting?"var(--gap)":"var(--ink-2)"))}"></i></div>
         <span class="n">${fmt(b.done)} / ${fmt(b.total)}</span></div>`).join("")}</div>
   </div>`;
 }
@@ -272,16 +275,16 @@ function card(m){
 async function refresh(){
   try {
     const s = await (await fetch("/api/state", {cache:"no-store"})).json();
-    const a2 = s.models.reduce((a,m)=>a+m.done,0), t2 = s.models.reduce((a,m)=>a+m.total,0);
-    const b2 = s.models.reduce((a,m)=>a+(m.stage2b||[]).reduce((x,b)=>x+b.done,0),0);
-    const tb = s.models.reduce((a,m)=>a+(m.stage2b||[]).reduce((x,b)=>x+b.total,0),0);
+    const blocks = s.models.flatMap(m => m.blocks);
+    const a2 = blocks.filter(b=>b.block==="A").reduce((x,b)=>x+b.done,0), t2 = blocks.filter(b=>b.block==="A").reduce((x,b)=>x+b.total,0);
+    const b2 = blocks.filter(b=>b.block!=="A").reduce((x,b)=>x+b.done,0), tb = blocks.filter(b=>b.block!=="A").reduce((x,b)=>x+b.total,0);
     const all = a2 + b2, total = t2 + tb;
     const v = {};
     s.models.forEach(m => ORDER.forEach(k => v[k] = (v[k]||0) + (m.verdicts[k]||0)));
     document.getElementById("all-n").textContent = fmt(all);
     document.getElementById("all-of").textContent = `of ${fmt(total)} questions answered`;
     const live = s.models.filter(m=>m.status==="running").length;
-    document.getElementById("all-pct").textContent = `Stage 2A ${fmt(a2)}/${fmt(t2)} · Stage 2B ${fmt(b2)}/${fmt(tb)} · ${live} of 4 models on 2A right now`;
+    document.getElementById("all-pct").textContent = `Stage 2A ${fmt(a2)}/${fmt(t2)} · Stage 2B ${fmt(b2)}/${fmt(tb)} · ${live} of 4 models working right now`;
     document.getElementById("all-bar").innerHTML = bar(v, total);
     document.getElementById("models").innerHTML = s.models.map(card).join("");
     document.getElementById("commits").innerHTML = s.commits.map(c =>
