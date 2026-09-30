@@ -102,14 +102,23 @@ def finished(path: Path) -> set[tuple]:
 MAX_TRIES_PER_TRIAL = 10
 
 
+# Refusals that are about the ACCOUNT (a daily or per-minute cap), not the question.
+# A paused run re-probes hourly, and each probe is refused against whichever question
+# is next in line; counting those set a healthy Gemini question aside after ten hours
+# of waiting for the daily reset.
+ACCOUNT_LIMITS = {"quota", "rate_limit"}
+
+
 def infra_attempts(path: Path) -> Counter:
-    """How many times each trial was refused by the server, from the log."""
+    """How many times each trial failed for reasons about the QUESTION's request
+    (overload, timeouts, empty replies) -- not account limits -- from the log."""
     if not path.exists():
         return Counter()
     with path.open(newline="", encoding="utf-8") as f:
         return Counter(
             trial_key(r["game"], r["framing"], r["seed"], r["paraphrase_idx"])
-            for r in csv.DictReader(f) if r["verdict"] == INFRA_FAIL
+            for r in csv.DictReader(f)
+            if r["verdict"] == INFRA_FAIL and r.get("infra") not in ACCOUNT_LIMITS
         )
 
 

@@ -58,3 +58,22 @@ def test_block_not_done_while_refusals_remain(tmp_path, monkeypatch):
     assert stage2.run_plan("m", plan, out) == stage2.EXIT_INFRA
     rows = iter([{"verdict": "AT_EQUILIBRIUM", "infra": None}])
     assert stage2.run_plan("m", plan, out) == stage2.EXIT_DONE
+
+
+def test_daily_limit_refusals_never_set_a_question_aside(tmp_path):
+    """Hourly probes against a spent daily cap must not count against the question."""
+    import csv as _csv
+    from experiments.stage2 import MAX_TRIES_PER_TRIAL, infra_attempts
+    from experiments.trial_log import FIELDS
+    out = tmp_path / "run.csv"
+    with out.open("w", newline="") as f:
+        w = _csv.DictWriter(f, fieldnames=FIELDS, extrasaction="ignore")
+        w.writeheader()
+        for _ in range(MAX_TRIES_PER_TRIAL + 5):
+            w.writerow({"game": "vickrey", "framing": "named", "seed": 1,
+                        "paraphrase_idx": 0, "verdict": "INFRA_FAIL", "infra": "quota"})
+        w.writerow({"game": "vickrey", "framing": "named", "seed": 2,
+                    "paraphrase_idx": 0, "verdict": "INFRA_FAIL", "infra": "overloaded"})
+    counts = infra_attempts(out)
+    assert counts[("vickrey", "named", 1, 0)] == 0
+    assert counts[("vickrey", "named", 2, 0)] == 1
