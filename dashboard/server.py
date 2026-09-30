@@ -146,11 +146,35 @@ def stage2_model(model: str, spec, total: int) -> dict:
     }
 
 
+def stage2b_blocks(model: str) -> list[dict]:
+    """Stage 2B progress for one model: done / planned per block."""
+    from experiments.stage2 import finished
+    from experiments.stage2b import BLOCK_MODELS, PLANS
+    names = {"B": "Traps", "C": "Number sweep", "D": "Think harder", "E": "PD endgame"}
+    out = []
+    for block in "BCED":
+        runners = [m for m in BLOCK_MODELS[block] if m.split("_")[0] == model.split("_")[0]
+                   and (m == model or block == "D")]
+        for runner in runners:
+            path = ROOT / "results" / "raw" / f"stage2b_{block}_{runner}.csv"
+            total = len(PLANS[block]())
+            done = len(finished(path))
+            label = names[block] + (f" ({runner.split('_')[-1]} effort)" if block == "D" else "")
+            live = any("python" in l.split(" ", 1)[0].lower()
+                       and f"stage2b.py --block {block} --model {runner}" in l
+                       for l in sh("ps", "-eo", "command").splitlines())
+            out.append({"block": block, "label": label, "done": done, "total": total,
+                        "running": live})
+    return out
+
+
 def state() -> dict:
     from config import CAPABILITY_ORDER, MODELS
     from experiments.stage2 import plan
     total = len(plan()) // 1          # trials per model
     models = [stage2_model(m, MODELS[m], total) for m in CAPABILITY_ORDER]
+    for m in models:
+        m["stage2b"] = stage2b_blocks(m["key"])
 
     commits = []
     for line in sh("git", "log", "--pretty=%h|%ar|%s", "-8").splitlines():

@@ -20,22 +20,42 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PY = "./venv/bin/python"
 
-# one chain per provider: models in a chain run in order, chains run side by side
+# Each chain runs its steps in order; chains run side by side. A step is
+# (script, args). Finished steps exit at once, so re-launching is always safe.
+#
+# Stage 2B (pre-registration 2, osf.io/6hz8d) follows Stage 2A on the providers with
+# DAILY caps -- Groq and Google -- because running both at once would only split one
+# day's allowance between them. The NVIDIA models have no daily cap, so their 2B
+# chain runs alongside their 2A run.
+A = lambda m: ("stage2.py", f"--model {m}")
+B = lambda block, m: ("stage2b.py", f"--block {block} --model {m}")
+
 CHAINS = [
-    ["gptoss120b"],             # Groq
-    # NVIDIA: side by side. Both are slow thinkers, ~1 request a minute each, far
-    # under the free tier's per-minute cap, so queueing them only cost days.
-    ["nemotron"],
-    ["kimi"],
-    ["gemini_lite"],            # Google
+    # Groq. Free tier: 200,000 tokens a day, ~170 questions. The traps (Block B) go
+    # first because they carry the study; Block D, the largest, goes last.
+    [A("gptoss120b"), B("B", "gptoss120b"), B("C", "gptoss120b"), B("E", "gptoss120b"),
+     B("D", "gptoss120b_low"), B("D", "gptoss120b_high")],
+    # NVIDIA
+    [A("nemotron")],
+    [B("B", "nemotron"), B("C", "nemotron"), B("E", "nemotron")],
+    [A("kimi")],
+    [B("B", "kimi"), B("C", "kimi"), B("E", "kimi")],
+    # Google
+    [A("gemini_lite"), B("B", "gemini_lite"), B("C", "gemini_lite"), B("E", "gemini_lite")],
 ]
 
 
-def running(model: str) -> bool:
+def running(step: tuple[str, str]) -> bool:
+    script, args = step
     out = subprocess.run(["ps", "-eo", "command"], capture_output=True, text=True).stdout
     return any("python" in line.split(" ", 1)[0].lower()
-               and f"stage2.py --model {model}" in line
+               and f"{script} {args}" in line
                for line in out.splitlines())
+
+
+def label(step: tuple[str, str]) -> str:
+    script, args = step
+    return ("2A " if script == "stage2.py" else "2B ") + args.replace("--block ", "").replace("--model ", "")
 
 
 def dashboard_up() -> bool:
@@ -55,21 +75,22 @@ def main() -> None:
         )
         print("live console       started          http://localhost:8792")
     for chain in CHAINS:
-        live = [m for m in chain if running(m)]
+        name = " -> ".join(label(step) for step in chain)
+        live = [step for step in chain if running(step)]
         if live:
-            print(f"{' -> '.join(chain):18s} already running ({live[0]})")
+            print(f"{name}\n    already running ({label(live[0])})")
             continue
         script = "; ".join(
-            f"{PY} experiments/stage2.py --model {m} --wait "
-            f">> results/logs/stage2_{m}.log 2>&1"
-            for m in chain
+            f"{PY} experiments/{s} {a} --wait "
+            f">> results/logs/{s.split('.')[0]}_{a.replace('--block ', '').replace('--model ', '').replace(' ', '_')}.log 2>&1"
+            for s, a in chain
         )
         subprocess.Popen(
             ["caffeinate", "-i", "sh", "-c", script],
             cwd=ROOT, start_new_session=True,
             stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
         )
-        print(f"{' -> '.join(chain):18s} started")
+        print(f"{name}\n    started")
 
 
 if __name__ == "__main__":

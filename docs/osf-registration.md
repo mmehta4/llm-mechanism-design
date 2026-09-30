@@ -119,3 +119,12 @@ Attached file: preregistration-2.md
 SHA-256: ad378d9158fca7872babc3f024783d98e645c5dd2bb8eb4e26095a4705a9dfc0
 Locked in git commit 2a71eda; materials at commit d3ef924.
 ```
+
+## Registered (registration 2)
+
+- **OSF registration:** https://osf.io/6hz8d
+- **Submitted:** 2026-09-30 08:44:43 UTC, before any Stage 2B data existed.
+- **Status at submission:** embargoed (private) until **2027-09-30**, then public automatically.
+- **Registered file:** `docs/preregistration-2.md`, SHA-256
+  `ad378d9158fca7872babc3f024783d98e645c5dd2bb8eb4e26095a4705a9dfc0` (lock commit 2a71eda).
+  OSF's own hash of the uploaded file matches.

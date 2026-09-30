@@ -70,7 +70,13 @@ td.r{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowra
 .sub{font-size:.7rem;color:var(--faint)}
 
 .feed{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-family:var(--mono);font-size:10.5px;padding:3px 7px;border-radius:5px;border:1px solid var(--line);color:var(--ink-2);white-space:nowrap}
+.s2b{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
+.s2b h4{margin:0 0 8px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.s2b .row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr) auto;gap:10px;align-items:center;font-size:.8rem;padding:3px 0}
+.s2b .row .bar{margin-top:0;height:5px}
+.s2b .row .n{font-family:var(--mono);font-size:.75rem;color:var(--muted);white-space:nowrap}
+.s2b .row.live .lbl{color:var(--eq)}
+.chip{font-family:var(--mono);font-size:10.5px;padding:3px 7px;border-radius:5px;border:1px solid var(--line);color:var(--ink-2);white-space:normal;max-width:100%}
 .chip b{font-weight:500}
 .c-AT_EQUILIBRIUM{color:var(--eq)} .c-STRATEGIC_GAP{color:var(--gap)} .c-COMPETENCE_GAP{color:var(--comp)}
 .c-PARSE_FAIL,.c-PROBE_FORMAT_FAIL,.c-INFRA_FAIL{color:var(--grey)}
@@ -108,7 +114,7 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
   <section class="overall">
     <div class="row">
       <span class="num" id="all-n">–</span>
-      <span class="dim" id="all-of">of 4,416 questions answered</span>
+      <span class="dim" id="all-of">of 18,768 questions answered</span>
       <span class="dim" id="all-pct" style="margin-left:auto"></span>
     </div>
     <div class="bar" id="all-bar"></div>
@@ -153,15 +159,15 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
 <script>
 const INFO = {
   gptoss120b: {name:"gpt-oss-120b", org:"OpenAI · open weights · via Groq free tier",
-    note:"Fastest of the four. Groq caps how much text it can handle per minute, so short pauses of a few seconds are the pacer staying under the limit, not a freeze. Groq also has a daily cap. If it's hit, the run sleeps and retries hourly."},
+    note:"Fast per question, but Groq's free tier allows only 200,000 tokens a day, about 170 questions. After that it sleeps and retries hourly. Stage 2B follows Stage 2A in one queue: traps first, the \"think harder\" block last. The slowest model overall: about five weeks in total."},
   nemotron: {name:"Nemotron 3 Ultra", org:"NVIDIA · open weights · via NVIDIA free API",
-    note:"A very large model that reasons at length before answering. 1–4 minutes per question is normal, so this is one of the longest runs, roughly 1.5–2 days. Runs alongside Kimi on the same NVIDIA account."},
+    note:"A very large model that reasons at length before answering. 1–4 minutes per question is normal, so this is one of the longest runs, roughly 1.5–2 days. Runs alongside Kimi on the same NVIDIA account. No daily cap, so its Stage 2B runs at the same time as its Stage 2A."},
   kimi: {name:"Kimi K3", org:"Moonshot AI · open weights · via NVIDIA free API",
-    note:"Shares the NVIDIA account with Nemotron and runs alongside it. Each makes only about one request a minute, well under NVIDIA's free limit. A long thinker: around 2–3 days in total."},
+    note:"Shares the NVIDIA account with Nemotron and runs alongside it. Each makes only about one request a minute, well under NVIDIA's free limit. A long thinker, around 6 minutes a question. No daily cap, so its Stage 2B runs at the same time as its Stage 2A."},
   gemini_lite: {name:"Gemini 3.5 Flash Lite", org:"Google · closed model · via AI Studio free tier",
-    note:"Free tier allows 15 requests a minute and 500 a day. Each question uses 2, so about 250 questions a day, then it sleeps until the daily reset. About 5 days in total. Swapped in for Gemini 3.8 Flash, which only allows 20 a day."},
+    note:"Free tier allows 15 requests a minute and 500 a day. Each question uses 2, so about 250 questions a day, then it sleeps until the daily reset. Stage 2B follows Stage 2A in the same queue, since both share the daily limit. Swapped in for Gemini 3.8 Flash, which only allows 20 a day."},
 };
-const DAILY_CAP = {gemini_lite: 250};
+const DAILY_CAP = {gemini_lite: 250, gptoss120b: 170};   // questions a day on the free tiers
 const GAMES = [["vickrey","Vickrey auction"],["cournot","Cournot"],["repeated_pd","Repeated PD"],["public_goods","Public goods"]];
 const COLOR = {AT_EQUILIBRIUM:"var(--eq)",STRATEGIC_GAP:"var(--gap)",COMPETENCE_GAP:"var(--comp)",
   PARSE_FAIL:"var(--grey)",PROBE_FORMAT_FAIL:"var(--grey)"};
@@ -256,19 +262,26 @@ function card(m){
       <tbody>${rows}</tbody>
     </table>
     <div class="feed">${feed || '<span class="dim" style="font-size:.85rem">No answers yet.</span>'}</div>
+    <div class="s2b"><h4>Stage 2B · stress tests · osf.io/6hz8d</h4>${(m.stage2b||[]).map(b =>
+      `<div class="row ${b.running?"live":""}"><span class="lbl">${b.running?"● ":""}${esc(b.label)}</span>
+        <div class="bar"><i style="width:${100*b.done/b.total}%;background:${b.running?"var(--eq)":"var(--ink-2)"}"></i></div>
+        <span class="n">${fmt(b.done)} / ${fmt(b.total)}</span></div>`).join("")}</div>
   </div>`;
 }
 
 async function refresh(){
   try {
     const s = await (await fetch("/api/state", {cache:"no-store"})).json();
-    const all = s.models.reduce((a,m)=>a+m.done,0), total = s.models.reduce((a,m)=>a+m.total,0);
+    const a2 = s.models.reduce((a,m)=>a+m.done,0), t2 = s.models.reduce((a,m)=>a+m.total,0);
+    const b2 = s.models.reduce((a,m)=>a+(m.stage2b||[]).reduce((x,b)=>x+b.done,0),0);
+    const tb = s.models.reduce((a,m)=>a+(m.stage2b||[]).reduce((x,b)=>x+b.total,0),0);
+    const all = a2 + b2, total = t2 + tb;
     const v = {};
     s.models.forEach(m => ORDER.forEach(k => v[k] = (v[k]||0) + (m.verdicts[k]||0)));
     document.getElementById("all-n").textContent = fmt(all);
     document.getElementById("all-of").textContent = `of ${fmt(total)} questions answered`;
     const live = s.models.filter(m=>m.status==="running").length;
-    document.getElementById("all-pct").textContent = `${(100*all/total).toFixed(1)}% · ${live} of 4 models working right now`;
+    document.getElementById("all-pct").textContent = `Stage 2A ${fmt(a2)}/${fmt(t2)} · Stage 2B ${fmt(b2)}/${fmt(tb)} · ${live} of 4 models on 2A right now`;
     document.getElementById("all-bar").innerHTML = bar(v, total);
     document.getElementById("models").innerHTML = s.models.map(card).join("");
     document.getElementById("commits").innerHTML = s.commits.map(c =>
