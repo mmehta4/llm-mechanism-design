@@ -56,3 +56,35 @@ name Gemini (Section 2) are tested against Flash Lite.
 
 **Timing.** The swap was made before any Gemini Stage 2 data existed. An 8-question
 practice check confirmed Flash Lite returns usable answers (8/8 parsed).
+
+---
+
+## 3. Empty replies are re-asked, not scored as unreadable (2026-09-30)
+
+**Applies to:** both pre-registrations (Stage 2A and Stage 2B).
+
+**What was found.** NVIDIA's Kimi K3 endpoint sometimes returns a reply with **no text
+at all**: its reasoning is a burst of "!!!!" and the answer is empty. Re-asking the
+identical question three times gave two normal answers and one more empty reply, so it
+is random and comes from the serving stack, not from the question.
+
+**Registered rule it touches.** Unreadable answers (PARSE_FAIL) are "a fact about the
+model, reported as a rate, never dropped"; server refusals are re-asked.
+
+**Decision.** A reply with no text in it is not an answer, so it is treated like a
+server refusal: re-asked, never scored. A reply that has any text but doesn't fit the
+answer format is still the model's, and stays PARSE_FAIL exactly as registered. The rule
+depends only on whether the reply is empty, never on what the answer would have been.
+
+**Affected rows.** 4 Kimi rows (3 in Stage 2A, 1 in Stage 2B), relabelled with
+`analysis/relabel_empty_replies.py`; the original rows stay in the files as the audit
+trail. No other model has returned an empty reply. The count of empty replies per model
+will be reported in the paper.
+
+## 4. Practical note: gpt-oss daily token cap (2026-09-30)
+
+Not a deviation, recorded for the timeline. Groq's free tier limits gpt-oss-120b to
+200,000 tokens a day, about 170 questions. Every planned question is still asked; it
+just takes longer (gpt-oss finishes around early November 2026). Its Stage 2B blocks run
+in the order B, C, E, D so the traps finish first. Block order does not change any
+question or analysis.

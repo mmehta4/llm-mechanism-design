@@ -39,3 +39,22 @@ def test_order_fixed_and_interleaved():
 
 def test_preregistration_untouched():
     assert prereg_intact()
+
+
+def test_block_not_done_while_refusals_remain(tmp_path, monkeypatch):
+    """A pass that leaves server-refused questions must not report the block done."""
+    from experiments import stage2
+    rows = iter([{"verdict": "INFRA_FAIL", "infra": "overloaded"},
+                 {"verdict": "AT_EQUILIBRIUM", "infra": None}])
+
+    def fake_trial(game, framing, model, seed, paraphrase_idx):
+        r = next(rows)
+        return {"game": game, "framing": framing, "seed": seed,
+                "paraphrase_idx": paraphrase_idx, "total_latency_s": 0.0, **r}
+
+    monkeypatch.setattr(stage2, "run_trial", fake_trial)
+    plan = [("vickrey", "named", 1, 0), ("vickrey", "named", 2, 0)]
+    out = tmp_path / "run.csv"
+    assert stage2.run_plan("m", plan, out) == stage2.EXIT_INFRA
+    rows = iter([{"verdict": "AT_EQUILIBRIUM", "infra": None}])
+    assert stage2.run_plan("m", plan, out) == stage2.EXIT_DONE

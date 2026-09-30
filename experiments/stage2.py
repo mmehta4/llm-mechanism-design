@@ -99,6 +99,20 @@ def finished(path: Path) -> set[tuple]:
         }
 
 
+MAX_TRIES_PER_TRIAL = 10
+
+
+def infra_attempts(path: Path) -> Counter:
+    """How many times each trial was refused by the server, from the log."""
+    if not path.exists():
+        return Counter()
+    with path.open(newline="", encoding="utf-8") as f:
+        return Counter(
+            trial_key(r["game"], r["framing"], r["seed"], r["paraphrase_idx"])
+            for r in csv.DictReader(f) if r["verdict"] == INFRA_FAIL
+        )
+
+
 def prereg_intact() -> bool:
     return hashlib.sha256(PREREG.read_bytes()).hexdigest() == PREREG_SHA256
 
@@ -136,9 +150,23 @@ def session(args) -> int:
 
 def run_plan(model: str, todo_all: list[tuple], out: Path, limit: int | None = None,
              status: bool = False) -> int:
-    """Run every trial in `todo_all` not already answered in `out`. Shared with 2B."""
+    """Run every trial in `todo_all` not already answered in `out`. Shared with 2B.
+
+    Returns EXIT_DONE only when every planned trial has an answer. Trials the model
+    never received (INFRA_FAIL) stay in the plan, so a pass that ends with some left
+    returns EXIT_INFRA and, under --wait, the next pass re-asks exactly those. Without
+    this, a chain would move on to its next block with holes in the current one.
+    A trial refused MAX_TRIES_PER_TRIAL times is set aside and reported, so one
+    question the server can never answer cannot stall the whole block forever.
+    """
     done = finished(out)
-    todo = [t for t in todo_all if t not in done]
+    refused = infra_attempts(out)
+    stuck = {t for t in todo_all if t not in done and refused.get(t, 0) >= MAX_TRIES_PER_TRIAL}
+    if stuck:
+        print(f"{len(stuck)} trial(s) refused {MAX_TRIES_PER_TRIAL}+ times by the server; "
+              f"set aside and reported, not counted as answered: {sorted(stuck)[:5]}",
+              flush=True)
+    todo = [t for t in todo_all if t not in done and t not in stuck]
 
     print(f"{model}: {len(done)}/{len(todo_all)} done, {len(todo)} to go  -> {out.name}",
           flush=True)
@@ -177,9 +205,14 @@ def run_plan(model: str, todo_all: list[tuple], out: Path, limit: int | None = N
             return EXIT_INFRA
 
     print("\nthis session:", dict(verdicts))
-    remaining = len(todo_all) - len(finished(out))
-    print("model complete." if remaining == 0 else f"{remaining} trials still to go.")
-    return EXIT_DONE
+    answered = finished(out)
+    remaining = sum(1 for t in todo_all if t not in answered and t not in stuck)
+    if remaining == 0:
+        print("complete: every planned question has an answer.", flush=True)
+        return EXIT_DONE
+    print(f"{remaining} questions still to go (server refusals) -- they are re-asked "
+          f"on the next pass.", flush=True)
+    return EXIT_INFRA
 
 
 if __name__ == "__main__":

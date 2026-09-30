@@ -48,6 +48,18 @@ REQUEST_TIMEOUT_S = 420
 BASE_BACKOFF_S = 2.0
 
 
+class EmptyResponse(Exception):
+    """The endpoint returned a reply with no text in it at all.
+
+    Nothing was said, so nothing can be scored: this is the serving stack failing,
+    not the model answering badly. Found in Stage 2 on NVIDIA's Kimi endpoint, where
+    about one reply in three came back as a burst of "!!!!" reasoning and an empty
+    answer; re-asking the identical question returned a normal answer. A reply that
+    contains text but does not fit the schema is still the model's, and stays
+    PARSE_FAIL. Recorded in docs/deviations-from-preregistration.md.
+    """
+
+
 def infra_kind(exc: Exception | None) -> str | None:
     """Classify a failure that happened BEFORE the model ever saw the question.
 
@@ -59,6 +71,8 @@ def infra_kind(exc: Exception | None) -> str | None:
     """
     if exc is None:
         return None
+    if isinstance(exc, EmptyResponse):
+        return "empty_response"
     code = getattr(exc, "status_code", None)
     msg = str(exc).lower()
     # Google says "exceeded your current quota" for BOTH its per-minute and per-day
@@ -84,6 +98,8 @@ def _is_transient(exc: Exception) -> bool:
     # retries against an already-exhausted quota.
     if infra_kind(exc) == "quota":
         return False
+    if isinstance(exc, EmptyResponse):
+        return True
     if code in RETRY_STATUS:
         return True
     name = type(exc).__name__
@@ -134,8 +150,12 @@ class LLMAgent:
                     # and Groq serve the stable one. Try stable first and fall back,
                     # rather than branching on provider.
                     completion = self.client.beta.chat.completions.parse(**kwargs)
+                message = completion.choices[0].message
+                if not (message.content or "").strip() and getattr(message, "parsed", None) is None:
+                    raise EmptyResponse("the endpoint returned an empty reply")
                 break
             except Exception as e:
+                completion = None
                 last_error = e
                 if attempt == MAX_ATTEMPTS or not _is_transient(e):
                     break

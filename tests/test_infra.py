@@ -65,3 +65,11 @@ def test_request_pacer_spaces_calls():
     for _ in range(4):
         p.wait_for(1)
     assert time.monotonic() - t >= 0.29
+
+
+def test_empty_reply_is_infrastructure_and_retried():
+    """An empty reply is the endpoint failing, not the model answering badly."""
+    from agents.llm import EmptyResponse
+    e = EmptyResponse("the endpoint returned an empty reply")
+    assert infra_kind(e) == "empty_response"
+    assert _is_transient(e) is True
