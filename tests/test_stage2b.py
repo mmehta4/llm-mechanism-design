@@ -97,5 +97,6 @@ def test_endgame_history_in_each_framings_labels():
     assert equilibrium_for(p, "disguised") == p["defect"]
 
 
-def test_real_runs_locked_until_registered():
-    assert prereg2_locked() is False
+def test_preregistration_2_untouched():
+    """Locked: editing docs/preregistration-2.md now stops every real 2B run."""
+    assert prereg2_locked() is True

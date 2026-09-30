@@ -55,7 +55,7 @@ BLOCK_MODELS = {
 }
 
 PREREG2 = ROOT / "docs" / "preregistration-2.md"
-PREREG2_SHA256 = None          # set when pre-registration 2 is locked
+PREREG2_SHA256 = "ad378d9158fca7872babc3f024783d98e645c5dd2bb8eb4e26095a4705a9dfc0"
 
 
 def _shuffled(trials: list[tuple], block: str) -> list[tuple]:

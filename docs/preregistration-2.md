@@ -1,6 +1,6 @@
 # Pre-registration 2 — Equilibrium or Retrieval: stress tests
 
-**Status:** DRAFT. Not locked. Waiting on the round-9 prediction and the prompt check.
+**Locked:** 2026-09-30 08:16 UTC, before any Stage 2B data existed.
 **Scope:** the Stage 2B experiment: Blocks B (traps), C (number sweep), D (reasoning
 effort) and E (PD endgame). 14,352 new questions across four models.
 **Relation to pre-registration 1** (https://osf.io/2uqpj): a separate, second study.
@@ -90,6 +90,12 @@ training data, and the named version lights it directly, even though the numbers
 cooperation dominant. Disguised, X and Y carry no history; the model either compares the
 columns or it doesn't. **Committed: named ≈ 15–30% correct, disguised ≈ 60–75%.**
 
+*Kept after review.* The named PD prompt uses the letters C and D on the payoff table,
+never the words "cooperate", "defect" or "prisoner's dilemma". The author kept these
+numbers: the recall cue is the C/D letter pair on the familiar 2×2 table, which lights the
+"prisoner's dilemma → defect" schema nearly as strongly as the words would; losing the
+words costs the recall channel a few points at most, which the ranges absorb.
+
 **Cournot (3 firms).** More falls in normal words. The memorised formula (a − c)/3b happens
 to contain the duopoly "3", so three firms hands the recall model a plausible, confident,
 wrong answer. Disguised requires the triopoly first-order condition, one step harder than
@@ -136,8 +142,17 @@ history. Named models show a weak human-style endgame effect.
 | Round | Named, % defect | Disguised, % defect |
 |---|---|---|
 | 5 | 30–40 | 80–85 |
-| 9 | **[TO BE FILLED]** | **[TO BE FILLED]** |
+| 9 | 40–55 | 80–85 |
 | 10 | 55–65 | 85–90 |
+
+**Round 9 vs round 10, the discriminator.** Named models cooperate for niceness, so they
+hold through round 9 and jump only when the prompt announces the last round. **Committed:
+named (defection in round 10 − defection in round 9) ≈ +10 to +15 points.** If named round-9
+defection equals round 10, the models are doing human-style "vaguely late" defection, and
+round 10 will be read as endgame folklore, not backward induction. Disguised stays high
+throughout, dipping only slightly before the announced end; a disguised model that
+suddenly cooperates in round 9 "because they kept setting X" is pattern-matching
+reciprocity, not calculating.
 
 If named models defect in round 10 at near-theory rates, their named-version cooperation
 was strategic calculation after all, not warmth. The author considers that the most
@@ -203,6 +218,9 @@ or its analysis.
 - One design error was corrected before registration: the PD trap first specified
   "R > T" alone, which does not make cooperation dominant. Built and registered as R > T
   and S > P.
+- The author checked every trap prompt and its maths check in both wordings against the
+  Stage 0 standard (same game, nothing added, nothing hinted, rule stated outright) and
+  passed all five: Vickrey, Cournot, PD, public goods and the endgame.
 - The fourth model is Gemini 3.5 Flash Lite, not Gemini 3.8 Flash, for the free-tier
   reason recorded in `docs/deviations-from-preregistration.md`.
 
@@ -218,6 +236,8 @@ registration.
 
 ## 7. Materials
 
-Code, prompts and seeds: repository commit **[SET AT LOCK]**.
+Code, prompts and seeds: repository commit **d3ef924**. Between that commit and the lock
+commit, no file under `games/`, `theory/`, `agents/` or `config.py` changed; in
+`experiments/stage2b.py` only the fingerprint line below was set.
 This file's SHA-256 is recorded in `experiments/stage2b.py`, which refuses to collect real
 Stage 2B data unless this file matches it.
