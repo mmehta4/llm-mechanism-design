@@ -106,7 +106,7 @@ MAX_TRIES_PER_TRIAL = 10
 # A paused run re-probes hourly, and each probe is refused against whichever question
 # is next in line; counting those set a healthy Gemini question aside after ten hours
 # of waiting for the daily reset.
-ACCOUNT_LIMITS = {"quota", "rate_limit"}
+ACCOUNT_LIMITS = {"quota", "rate_limit", "auth"}
 
 
 def infra_attempts(path: Path) -> Counter:
@@ -204,6 +204,12 @@ def run_plan(model: str, todo_all: list[tuple], out: Path, limit: int | None = N
             infra_streak = 0
             continue
         infra_streak += 1
+        if row["infra"] == "auth":
+            # access refused for the whole account: stop at once rather than burn
+            # through the plan at five refusals a second
+            print("\nThe provider is refusing access (401/403). Pausing; nothing is "
+                  "lost.", flush=True)
+            return EXIT_INFRA
         if row["infra"] == "quota":
             print("\nDaily quota reached. Nothing is lost -- run the same command "
                   "tomorrow and it carries on from here.", flush=True)

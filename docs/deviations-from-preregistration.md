@@ -88,3 +88,18 @@ Not a deviation, recorded for the timeline. Groq's free tier limits gpt-oss-120b
 just takes longer (gpt-oss finishes around early November 2026). Its Stage 2B blocks run
 in the order B, C, E, D so the traps finish first. Block order does not change any
 question or analysis.
+
+## 5. Scoring correction: NVIDIA access outage (2026-09-30 19:22–19:32 UTC)
+
+Not a deviation from either plan; a correction of a scoring error, recorded for the audit.
+
+For about ten minutes NVIDIA refused every request with "403 Authorization failed". The
+code did not yet classify 403 as a server refusal, so 4,454 refused requests across Kimi
+and Nemotron were scored as unreadable answers in a fraction of a second each, which made
+several blocks look complete. The models never saw those questions.
+
+They were relabelled INFRA_FAIL with `analysis/relabel_outage_403.py` and are re-asked
+under the registered rule for server refusals. Genuine maths-check format failures from
+before the outage (replies taking 5–25 seconds) were left exactly as they were. Since
+then, any failure that happens before a reply arrives is classified as infrastructure,
+and an access refusal pauses the run instead of racing through the plan.

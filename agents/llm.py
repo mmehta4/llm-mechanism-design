@@ -83,11 +83,18 @@ def infra_kind(exc: Exception | None) -> str | None:
         return "quota"            # a DAILY cap -- will not clear by retrying
     if code == 429:
         return "rate_limit"       # a per-minute cap -- clears in seconds
+    if code == 400:
+        return None               # Groq's "Failed to generate JSON": the model's output
+    if code in (401, 403):
+        return "auth"             # access refused -- NVIDIA had a 10-minute outage of this
     if code in (500, 502, 503, 504):
         return "overloaded"
     if type(exc).__name__ in {"APIConnectionError", "APITimeoutError"}:
         return "connection"
-    return None
+    # Anything else that failed before a reply arrived is still infrastructure: the
+    # model never saw the question. Returning None here once let ~4,450 "403
+    # Forbidden" refusals be scored as unreadable answers.
+    return "api_error"
 
 
 def _is_transient(exc: Exception) -> bool:

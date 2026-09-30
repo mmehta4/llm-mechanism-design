@@ -73,3 +73,14 @@ def test_empty_reply_is_infrastructure_and_retried():
     e = EmptyResponse("the endpoint returned an empty reply")
     assert infra_kind(e) == "empty_response"
     assert _is_transient(e) is True
+
+
+def test_access_refused_is_infrastructure():
+    """403s were once scored as unreadable answers: ~4,450 of them in ten minutes."""
+    assert infra_kind(FakeAPIError(403, "Authorization failed")) == "auth"
+    assert infra_kind(FakeAPIError(401, "Unauthorized")) == "auth"
+
+
+def test_any_failure_before_a_reply_is_infrastructure():
+    assert infra_kind(FakeAPIError(418, "something unexpected")) == "api_error"
+    assert infra_kind(ValueError("boom")) == "api_error"
