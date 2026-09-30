@@ -102,6 +102,8 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
 .commits div:first-child{border-top:0}
 .commits .mono{color:var(--muted);font-size:.78rem;flex:none}
 .err{color:var(--comp);font-family:var(--mono);font-size:.85rem;margin-bottom:12px}
+.alarm{border:1px solid var(--comp);color:var(--comp);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:.9rem}
+.alarm b{color:var(--ink)}
 </style>
 
 <div class="wrap">
@@ -114,6 +116,7 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
   </header>
 
   <div id="err"></div>
+  <div id="alarms"></div>
 
   <section class="overall">
     <div class="row">
@@ -292,6 +295,8 @@ async function refresh(){
     document.getElementById("all-pct").textContent = `Stage 2A ${fmt(a2)}/${fmt(t2)} · Stage 2B ${fmt(b2)}/${fmt(tb)} · ${live} of 4 models working right now`;
     document.getElementById("all-bar").innerHTML = bar(v, total);
     document.getElementById("models").innerHTML = s.models.map(card).join("");
+    const alarms = s.models.flatMap(m => (m.alarms||[]).map(a => `<div class="alarm">⚠ <b>${esc((INFO[m.key]||{}).name||m.key)}:</b> ${esc(a)} Ask Claude to check.</div>`));
+    document.getElementById("alarms").innerHTML = alarms.join("");
     document.getElementById("commits").innerHTML = s.commits.map(c =>
       `<div><span class="mono">${esc(c.when)}</span><span>${esc(c.subject)}</span></div>`).join("");
     document.getElementById("tick").textContent = "live · updated " + new Date().toLocaleTimeString("en-GB");

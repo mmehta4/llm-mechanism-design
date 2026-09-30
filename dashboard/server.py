@@ -155,7 +155,22 @@ def model_state(model: str, spec, procs: list[str]) -> dict:
         status = "stopped"
 
     lat = [float(r["total_latency_s"]) for r in answered_all[-40:] if r.get("total_latency_s")]
+
+    # health alarms -- the 403 outage went unnoticed because 4,450 refusals looked
+    # like fast, unreadable answers. Either symptom now raises a visible warning.
+    hour = [r for r in answered_all if (age_s(r["timestamp"]) or 1e9) < 3600]
+    unreadable = sum(r["verdict"] in ("PARSE_FAIL", "PROBE_FORMAT_FAIL") for r in hour)
+    too_fast = sum(float(r.get("total_latency_s") or 99) < 0.5 for r in hour)
+    alarms = []
+    if len(hour) >= 10 and unreadable / len(hour) > 0.2:
+        alarms.append(f"{unreadable} of its last {len(hour)} answers in the past hour are "
+                      f"unreadable -- possibly the provider failing, not the model.")
+    if too_fast >= 5:
+        alarms.append(f"{too_fast} answers in the past hour came back in under half a "
+                      f"second, which a real reply cannot do.")
+
     return {
+        "alarms": alarms,
         "key": model,
         "api_id": spec.api_id,
         "provider": spec.provider,
