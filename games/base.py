@@ -97,6 +97,9 @@ class GameSpec:
                 f"{self.key}/{framing} has {len(templates)} paraphrases; "
                 f"index {paraphrase_idx} does not exist"
             )
+        # Values that must differ by framing -- the PD endgame history is written in
+        # C/D or in the disguised X/Y labels -- arrive under "_by_framing".
+        params = {**params, **params.get("_by_framing", {}).get(framing, {})}
         return templates[paraphrase_idx].format(**params)
 
     def has_twin(self) -> bool:

@@ -63,7 +63,8 @@ DISGUISED = (
 )
 
 
-def sample(seed: int, n_rounds: int = 10) -> dict:
+def sample(seed: int, n_rounds: int = 10, T: float = 5.0, R: float = 3.0,
+           P: float = 1.0, S: float = 0.0, round_num: int = 1) -> dict:
     """Counterbalances which letter denotes the cooperative action.
 
     Without this, the cooperative option is always X and always listed first, so a
@@ -71,21 +72,35 @@ def sample(seed: int, n_rounds: int = 10) -> dict:
     along with the treatment.
     """
     rng = random.Random(seed)
-    T, R, P, S = 5.0, 3.0, 1.0, 0.0
     coop, defect = ("X", "Y") if rng.random() < 0.5 else ("Y", "X")
-    return {
+    # finite KNOWN horizon + a dominant stage action -> play it every round. For the
+    # Stage 2A payoffs that is defect from round one; the Stage 2B harmony trap
+    # (R > T and S > P) flips it to cooperate.
+    dominant = repeated_pd.stage_dominant_action(T, R, P, S)
+    if dominant is None:
+        raise ValueError(f"no dominant stage action for T={T} R={R} P={P} S={S}")
+    params = {
         "n_rounds": n_rounds,
         "T": T, "R": R, "P": P, "S": S,
-        "round_num": 1,
+        "round_num": round_num,
         "history": "none yet",
         "coop": coop,
         "defect": defect,
         "delta_min": repeated_pd.min_discount_factor(T, R, P, S),
-        # finite KNOWN horizon -> backward induction -> defect from round one
-        "equilibrium": defect,
-        "equilibrium_named": "D",
+        "equilibrium": coop if dominant == repeated_pd.COOPERATE else defect,
+        "equilibrium_named": dominant,
         "_seed": rng.random(),
     }
+    if round_num > 1:
+        # Stage 2B endgame: a history of mutual cooperation, in each framing's own
+        # labels. The sampler cannot know the framing, so both are supplied and
+        # GameSpec.prompt picks the right one.
+        span = "round 1" if round_num == 2 else f"rounds 1 to {round_num - 1}"
+        params["_by_framing"] = {
+            "named": {"history": f"in {span}, you both chose C every time."},
+            "disguised": {"history": f"in {span}, you both set {coop} every time."},
+        }
+    return params
 
 
 # --- Paraphrases --------------------------------------------------------------

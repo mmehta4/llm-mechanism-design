@@ -50,3 +50,13 @@ def market_price(q1: float, q2: float, a: float, b: float) -> float:
 def profit(q_i: float, q_other: float, a: float, b: float, c_i: float) -> float:
     """(price - your marginal cost) * your quantity."""
     return (market_price(q_i, q_other, a, b) - c_i) * q_i
+
+
+def nash_quantity_symmetric_n(a: float, b: float, c: float, n_firms: int) -> float:
+    """Symmetric Nash quantity with n identical firms: (a - c) / ((n + 1) b).
+
+    Each firm's first-order condition is a - c - b*Q_others - 2b*q = 0. Imposing
+    symmetry, Q_others = (n - 1) q, gives q = (a - c) / ((n + 1) b). At n = 2 this is
+    the duopoly (a - c) / 3b -- the formula the triopoly trap tempts a model to reuse.
+    """
+    return (a - c) / ((n_firms + 1) * b)

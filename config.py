@@ -28,6 +28,9 @@ class ModelSpec:
     input_usd_per_mtok: float
     output_usd_per_mtok: float
     supports_temperature: bool
+    # Sent only when set. None means the provider's default, which is what every
+    # Stage 2A request used -- so Stage 2A requests are byte-for-byte unchanged.
+    reasoning_effort: str | None = None
 
 
 # --- The roster -------------------------------------------------------------
@@ -115,6 +118,26 @@ MODELS: dict[str, ModelSpec] = {
         input_usd_per_mtok=0.0,      # free tier
         output_usd_per_mtok=0.0,
         supports_temperature=True,
+    ),
+    # --- Stage 2B Block D: the same gpt-oss at the two ends of its reasoning
+    # setting. Groq's default, used for Stage 2A, is the middle ("medium").
+    "gptoss120b_low": ModelSpec(
+        key="gptoss120b_low",
+        provider="groq",
+        api_id="openai/gpt-oss-120b",
+        input_usd_per_mtok=0.0,
+        output_usd_per_mtok=0.0,
+        supports_temperature=True,
+        reasoning_effort="low",
+    ),
+    "gptoss120b_high": ModelSpec(
+        key="gptoss120b_high",
+        provider="groq",
+        api_id="openai/gpt-oss-120b",
+        input_usd_per_mtok=0.0,
+        output_usd_per_mtok=0.0,
+        supports_temperature=True,
+        reasoning_effort="high",
     ),
     # --- Replacement for "gemini" in Stage 2. Gemini 3.8 Flash's free tier allows
     # 20 requests/day (AI Studio Rate Limit page, 2026-09-30); one model needs

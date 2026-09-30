@@ -26,7 +26,7 @@ import datetime as dt
 import json
 
 from agents.llm import LLMAgent
-from games import ALL_GAMES
+from games import GAMES
 from games.probes import probe_for, probe_passed, is_malformed
 
 COMPETENCE_GAP = "COMPETENCE_GAP"
@@ -99,7 +99,7 @@ def verdict_of(row: dict, equilibrium) -> str:
 
 def run_trial(game_key: str, framing: str, model_key: str, seed: int,
               paraphrase_idx: int = 0) -> dict:
-    spec = ALL_GAMES[game_key]
+    spec = GAMES[game_key]
     params = spec.sampler(seed=seed)
     eq = equilibrium_for(params, framing)
     agent = LLMAgent(model_key)

@@ -117,6 +117,8 @@ class LLMAgent:
             messages=[{"role": "user", "content": prompt}],
             response_format=action_model,
         )
+        if self.spec.reasoning_effort is not None:
+            kwargs["reasoning_effort"] = self.spec.reasoning_effort
 
         if self.pacer is not None:
             self.pacer.wait_for(self._est_tokens)

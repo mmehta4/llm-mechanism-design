@@ -52,3 +52,21 @@ def min_discount_factor(T: float, R: float, P: float, S: float = 0.0) -> float:
 def cooperation_sustainable(delta: float, T: float, R: float, P: float, S: float = 0.0) -> bool:
     """Is cooperation an equilibrium at this discount factor?"""
     return delta >= min_discount_factor(T, R, P, S)
+
+
+def stage_dominant_action(T: float, R: float, P: float, S: float) -> str | None:
+    """The one-shot action that is best against BOTH opponent choices, if any.
+
+    DEFECT when T > R and P > S (the dilemma). COOPERATE when R > T and S > P (a
+    "harmony" game: the Stage 2B trap, where the textbook answer is wrong). None
+    otherwise. R > T alone is NOT enough for cooperation to dominate: against a
+    defector you still prefer defecting whenever P > S.
+
+    With a dominant stage action and a known finite horizon, playing it in every
+    round is the unique subgame-perfect equilibrium.
+    """
+    if T > R and P > S:
+        return DEFECT
+    if R > T and S > P:
+        return COOPERATE
+    return None

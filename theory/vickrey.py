@@ -44,3 +44,14 @@ def winner_pays(bids: list[float]) -> float:
     if len(bids) < 2:
         return 0.0
     return sorted(bids, reverse=True)[1]
+
+
+def equilibrium_bid_multiplied(private_value: float, multiplier: float) -> float:
+    """Dominant bid when the winner pays `multiplier` x the second-highest bid.
+
+    Winning is worth v - m*b2, so you want to win exactly when b2 < v/m. Bidding v/m
+    does that against every profile of rival bids, by the same argument that makes
+    truthful bidding dominant at m = 1: it is a second-price auction for an item
+    worth v/m. At m = 2 the textbook answer, bid your value, overbids by half.
+    """
+    return private_value / multiplier

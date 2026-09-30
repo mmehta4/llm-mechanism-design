@@ -117,31 +117,36 @@ def main() -> int:
 
 
 def session(args) -> int:
-    """One pass over the unfinished trials. Returns an EXIT_* code."""
+    """One pass over the unfinished Stage 2A trials. Returns an EXIT_* code."""
     out = ROOT / "results" / "raw" / f"stage2_{args.model}.csv"
-    todo_all = plan()
+    return run_plan(args.model, plan(), out, limit=args.limit, status=args.status)
+
+
+def run_plan(model: str, todo_all: list[tuple], out: Path, limit: int | None = None,
+             status: bool = False) -> int:
+    """Run every trial in `todo_all` not already answered in `out`. Shared with 2B."""
     done = finished(out)
     todo = [t for t in todo_all if t not in done]
 
-    print(f"{args.model}: {len(done)}/{len(todo_all)} done, {len(todo)} to go  -> {out.name}",
+    print(f"{model}: {len(done)}/{len(todo_all)} done, {len(todo)} to go  -> {out.name}",
           flush=True)
-    if args.status or not todo:
+    if status or not todo:
         return EXIT_DONE
 
-    if args.limit is not None:
-        todo = todo[:args.limit]
+    if limit is not None:
+        todo = todo[:limit]
 
     log = TrialLog(out)
     verdicts, infra_streak, t0 = Counter(), 0, time.time()
 
     for i, (game, framing, seed, para) in enumerate(todo, 1):
-        row = run_trial(game, framing, args.model, seed=seed, paraphrase_idx=para)
+        row = run_trial(game, framing, model, seed=seed, paraphrase_idx=para)
         log.write([row])
         verdicts[row["verdict"]] += 1
 
         n_done = len(done) + sum(v for k, v in verdicts.items() if k != INFRA_FAIL)
         rate = i / max(time.time() - t0, 1e-9) * 3600
-        print(f"[{n_done:4d}/{len(todo_all)}] {game:12s} {framing:9s} p{para} "
+        print(f"[{n_done:4d}/{len(todo_all)}] {game:22s} {framing:9s} p{para} "
               f"{row['verdict']:17s} {row['total_latency_s']:6.1f}s  "
               f"~{rate:.0f}/h{'  ' + row['infra'] if row.get('infra') else ''}",
               flush=True)
