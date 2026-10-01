@@ -69,3 +69,43 @@ def test_vickrey_value_mention_is_not_a_mismatch():
 def test_codebook_is_locked():
     from analysis.reasoning import reasoning_locked
     assert reasoning_locked()
+
+
+# --- codebook v2 ---------------------------------------------------------------------
+
+def test_v2_label_swap_claims_the_chosen_cooperative_letter_dominates():
+    from analysis.reasoning_v2 import main_code
+    r, p = row("repeated_pd", "disguised", "", "")
+    r["observed_action"] = p["coop"]
+    r["play_reasoning"] = f"{p['coop']} strictly dominates {p['defect']}: it pays more either way."
+    assert main_code(r) == "LABEL_SWAP"
+
+
+def test_v2_dominated_is_not_a_label_swap():
+    from analysis.reasoning_v2 import main_code
+    r, p = row("repeated_pd", "named", "C", "C is dominated, but cooperating builds trust.")
+    assert main_code(r) in {"KNEW_OVERRODE", "COOPERATION_NORM"}
+
+
+def test_v2_knew_overrode_beats_cooperation_norm_in_the_order():
+    from analysis.reasoning_v2 import main_code
+    r, _ = row("repeated_pd", "named", "C",
+               "Backward induction says defect, but cooperating builds mutual trust.")
+    assert main_code(r) == "KNEW_OVERRODE"
+
+
+def test_v2_claimed_nash_wrong_number():
+    from analysis.reasoning_v2 import main_code
+    r, p = row("cournot", "named", 0, "This is the Cournot-Nash equilibrium output.")
+    r["observed_action"] = str(float(r["equilibrium"]) - 4.3)
+    assert main_code(r) == "CLAIMED_NASH_WRONG"
+
+
+def test_v2_only_offers_codes_for_the_right_game():
+    from analysis.reasoning_v2 import ORDER
+    assert "COLLUSIVE" not in ORDER["repeated_pd"] and "LABEL_SWAP" not in ORDER["cournot"]
+
+
+def test_codebook_v2_is_locked():
+    from analysis.reasoning_v2 import locked
+    assert locked()
