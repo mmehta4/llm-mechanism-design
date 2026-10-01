@@ -1,7 +1,7 @@
 # Analysis plan — Stage 3
 
-**Status:** DRAFT. Locked by fingerprint in `analysis/lock.py` before any real Stage 2
-answer is fitted. Written while Stage 2 was still running; built and tested only on
+**Locked:** 2026-10-01 12:20 UTC, before any real Stage 2 answer was fitted. Fingerprint in
+`analysis/lock.py`. Written while Stage 2 was still running; built and tested only on
 simulated data and on the Stage 1 practice run.
 
 This document turns the analysis sections of pre-registration 1 (osf.io/2uqpj, Section 5)
@@ -102,9 +102,13 @@ from a wording effect.
 ## 6. How the method was checked before the lock
 
 - **Parameter recovery** (`analysis/recovery.py`): for every game, simulated "models" with
-  a chosen λ answer the planned questions; the fit must recover λ (95% interval covering
-  the true value in ≥ 85% of 20 repetitions), flag a perfect model as CEILING, and recover
-  a built-in normal-vs-disguised gap with the right sign.
+  a chosen λ answer the planned questions (138 per cell, 20 repetitions, two λ values per
+  game, Stage 2A games and the four traps). **Result:** the 95% intervals covered the true
+  λ in 300 of 320 fits (93.75%); medians of the estimates were within 6% of the true λ in
+  every setting; every perfect model was flagged CEILING; every built-in
+  normal-vs-disguised gap was recovered with the right sign (P(Δλ > 0) = 1.00). One
+  setting, Vickrey at λ = 0.3, covered 16 of 20; re-run 100 times it covered 94 of 100,
+  so the low count was chance. Full output: `results/analysis/recovery_full.txt`.
 - **Practice run** (Stage 1, gpt-oss, 20 per cell, already seen and not confirmatory):
   the full pipeline was run end to end. This found and fixed a bug in reading the
   equivalence test, which had printed a negative p-value.

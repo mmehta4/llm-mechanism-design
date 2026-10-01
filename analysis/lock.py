@@ -19,7 +19,7 @@ LOCKED_FILES = [
     "analysis/fit.py",
     "analysis/stage2a.py",
 ]
-ANALYSIS_SHA256 = None          # set at the lock
+ANALYSIS_SHA256 = "22a26a68e2090c948062471098636bfa897a5b3278ba4570e2d7aeeeb61fccea"
 
 
 def fingerprint() -> str:

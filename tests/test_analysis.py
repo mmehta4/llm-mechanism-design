@@ -70,3 +70,9 @@ def test_equivalence_test_reads_the_p_value_not_the_statistic():
     from statsmodels.stats.proportion import tost_proportions_2indep
     p = tost_proportions_2indep(19, 20, 18, 20, -0.13, 0.13).pvalue
     assert 0 <= p <= 1 and p == pytest.approx(0.188, abs=0.01)
+
+
+def test_analysis_is_locked():
+    """Editing the plan or the analysis code after the lock must fail loudly."""
+    from analysis.lock import analysis_locked
+    assert analysis_locked()
