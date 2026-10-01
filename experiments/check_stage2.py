@@ -35,6 +35,16 @@ def runs():
             yield m, f"2B-{block}", PLANS[block](), RAW / f"stage2b_{block}_{m}.csv"
 
 
+def block_complete(model: str, block: str) -> bool:
+    """True when every planned question of this model's block has exactly one answer.
+    block is "2A" or "2B-B" / "2B-C" / "2B-D" / "2B-E"."""
+    for m, b, planned, path in runs():
+        if m == model and b == block:
+            done = finished(path)
+            return done == set(planned)
+    raise KeyError((model, block))
+
+
 def main() -> int:
     all_ok = True
     print(f"{'model':18s} {'block':6s} {'answered':>15s} {'refused, to redo':>17s} "
