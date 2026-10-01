@@ -74,6 +74,10 @@ def main() -> None:
             stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
         )
         print("live console       started          http://localhost:8792")
+    # automatic backup to the private GitHub repository, every 3 hours
+    subprocess.Popen(["sh", "scripts/backup_loop.sh"], cwd=ROOT, start_new_session=True,
+                     stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print("backup to GitHub   running every 3 hours (results/logs/backup.log)")
     for chain in CHAINS:
         name = " -> ".join(label(step) for step in chain)
         live = [step for step in chain if running(step)]
