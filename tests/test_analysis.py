@@ -76,3 +76,32 @@ def test_analysis_is_locked():
     """Editing the plan or the analysis code after the lock must fail loudly."""
     from analysis.lock import analysis_locked
     assert analysis_locked()
+
+
+def test_regression_reports_separation_instead_of_a_fake_number():
+    """Practice data once printed an interaction of +94.7 with p = 1."""
+    import pandas as pd
+    from analysis.stage2b import logit_interaction
+    # disguised always wrong at size 0, always right at size 2: perfectly separated
+    df = pd.DataFrame([{"y": int(d == (s == 2)), "disguised": d, "size": s}
+                       for d in (0, 1) for s in (0, 1, 2) for _ in range(10)])
+    c, p, note = logit_interaction(df, "y ~ disguised * size", "disguised:size")
+    assert "not estimable" in note
+
+
+def test_regression_estimates_a_real_interaction():
+    import pandas as pd
+    from analysis.stage2b import logit_interaction
+    rng = np.random.default_rng(0)
+    rows = []
+    for d in (0, 1):
+        for s in (0, 1, 2):
+            p = 0.8 - (0.25 * s if d else 0)
+            rows += [{"y": int(rng.random() < p), "disguised": d, "size": s} for _ in range(200)]
+    c, p, note = logit_interaction(pd.DataFrame(rows), "y ~ disguised * size", "disguised:size")
+    assert not note and c < 0 and p < 0.01
+
+
+def test_stage2b_analysis_is_locked():
+    from analysis.stage2b import stage2b_locked
+    assert stage2b_locked()
