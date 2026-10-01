@@ -1,0 +1,313 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 2 Live</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#000;--card:#000;--line:#262626;--line-2:#1a1a1a;
+  --ink:#f5f5f5;--ink-2:#c9c9c9;--muted:#8a8a8a;--faint:#5a5a5a;
+  --eq:#3ddc84;--gap:#ff9f43;--comp:#ff5c5c;--grey:#6b6b6b;
+  --named:#e8e8e8;--disguised:#ff9f43;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{background:#000}
+body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 80px}
+.mono{font-family:var(--mono)}
+.dim{color:var(--muted)}
+
+header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 24px;margin-bottom:22px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{margin:4px 0 0;font-size:1.75rem;font-weight:700;letter-spacing:-.02em}
+.live{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--eq);box-shadow:0 0 10px var(--eq);animation:p 1.6s infinite}
+.dot.off{background:var(--comp);box-shadow:none;animation:none}
+@keyframes p{50%{opacity:.3}}
+
+.overall{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:22px}
+.overall .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
+.overall .num{font-family:var(--mono);font-size:2.2rem;font-weight:500;letter-spacing:-.02em}
+.bar{height:8px;background:var(--line-2);border-radius:99px;overflow:hidden;margin-top:12px;display:flex}
+.bar i{display:block;height:100%}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:10px;padding:18px 20px;min-width:0}
+.card.running{border-color:#2f2f2f}
+.top{display:flex;align-items:flex-start;gap:12px}
+.name{font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
+.org{font-size:.82rem;color:var(--muted)}
+.api{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:2px;word-break:break-all}
+.pill{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 9px;border-radius:99px;border:1px solid currentColor;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.pill.running{color:var(--eq)} .pill.paused{color:var(--gap)} .pill.queued{color:var(--muted)}
+.pill.complete{color:var(--ink)} .pill.stopped{color:var(--comp)}
+.pill .dot{width:6px;height:6px}
+
+.prog{display:flex;align-items:baseline;gap:8px;margin-top:16px}
+.prog .n{font-family:var(--mono);font-size:1.7rem;font-weight:500}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+@media (max-width:460px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{border-top:1px solid var(--line);padding-top:7px}
+.stat b{display:block;font-family:var(--mono);font-weight:500;font-size:.95rem}
+.stat span{font-size:.72rem;color:var(--muted)}
+
+.explain{margin-top:16px;padding:12px 14px;border-left:2px solid var(--line);background:#0b0b0b;border-radius:0 6px 6px 0}
+.explain p{margin:0}
+.explain .now{color:var(--ink)}
+.explain .note{color:var(--muted);font-size:.85rem;margin-top:6px}
+
+table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.84rem}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  font-weight:500;text-align:left;padding:0 0 6px}
+th.r,td.r{text-align:right}
+td{padding:6px 0;border-top:1px solid var(--line-2)}
+td.r{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:10px}
+.shift{font-family:var(--mono);font-size:.8rem}
+.sub{font-size:.7rem;color:var(--faint)}
+
+.feed{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+a.name{color:var(--ink);text-decoration:none}
+a.name:hover{text-decoration:underline}
+.all-q{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-2);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px}
+.all-q:hover{border-color:var(--ink-2);color:var(--ink)}
+.s2b{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
+.s2b h4{margin:0 0 8px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.s2b .row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr) auto;gap:10px;align-items:center;font-size:.8rem;padding:3px 0}
+.s2b .row .bar{margin-top:0;height:5px}
+.s2b .row .n{font-family:var(--mono);font-size:.75rem;color:var(--muted);white-space:nowrap}
+.s2b .row.live .lbl{color:var(--eq)}
+.chip{font-family:var(--mono);font-size:10.5px;padding:3px 7px;border-radius:5px;border:1px solid var(--line);color:var(--ink-2);white-space:normal;max-width:100%}
+.chip b{font-weight:500}
+.c-AT_EQUILIBRIUM{color:var(--eq)} .c-STRATEGIC_GAP{color:var(--gap)} .c-COMPETENCE_GAP{color:var(--comp)}
+.c-PARSE_FAIL,.c-PROBE_FORMAT_FAIL,.c-INFRA_FAIL{color:var(--grey)}
+
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:.76rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:9px;height:9px;border-radius:2px;display:inline-block}
+
+h2{font-size:1.05rem;font-weight:600;margin:40px 0 12px}
+.guide{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:820px){.guide{grid-template-columns:1fr}}
+.guide .card p{margin:0 0 10px;color:var(--ink-2)}
+.guide .card p:last-child{margin-bottom:0}
+dl{margin:0}
+dt{font-family:var(--mono);font-size:.78rem;margin-top:10px}
+dt:first-child{margin-top:0}
+dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
+.commits div{display:flex;gap:10px;padding:6px 0;border-top:1px solid var(--line-2);font-size:.84rem}
+.commits div:first-child{border-top:0}
+.commits .mono{color:var(--muted);font-size:.78rem;flex:none}
+.err{color:var(--comp);font-family:var(--mono);font-size:.85rem;margin-bottom:12px}
+.alarm{border:1px solid var(--comp);color:var(--comp);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:.9rem}
+.alarm b{color:var(--ink)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="kicker">Equilibrium or Retrieval · Stage 2</div>
+      <h1>The real experiment, live</h1>
+    </div>
+    <div class="live"><span class="dot" id="dot"></span><span id="tick">connecting…</span></div>
+  </header>
+
+  <div id="err"></div>
+  <div id="alarms"></div>
+
+  <section class="overall">
+    <div class="row">
+      <span class="num" id="all-n">–</span>
+      <span class="dim" id="all-of">of 18,768 questions answered</span>
+      <span class="dim" id="all-pct" style="margin-left:auto"></span>
+    </div>
+    <div class="bar" id="all-bar"></div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--eq)"></i>Played the equilibrium</span>
+      <span><i class="sw" style="background:var(--gap)"></i>Could do the maths, played something else</span>
+      <span><i class="sw" style="background:var(--comp)"></i>Failed the maths check</span>
+      <span><i class="sw" style="background:var(--grey)"></i>Unusable answer</span>
+    </div>
+  </section>
+
+  <div class="grid" id="models"></div>
+
+  <h2>How to read this</h2>
+  <div class="guide">
+    <div class="card">
+      <p><b>What's being run.</b> 18,768 questions in two registered experiments. <b>Stage 2A</b> (osf.io/2uqpj): each model gets 1,104, which is 4 games × normal / disguised words × 138. <b>Stage 2B</b> (osf.io/6hz8d): trap games where the textbook answer is wrong (1,104), the same games at three sizes (1,104), and the prisoner's dilemma at rounds 5, 9 and 10 (828). gpt-oss also re-answers Stage 2A at low and at high reasoning effort (2 × 1,104). That's 4,140 questions per model, 6,348 for gpt-oss.</p>
+      <p><b>Paired questions.</b> Question #57 in normal words and #57 in disguised words use exactly the same numbers. Only the wording changes.</p>
+      <p><b>Each question is two calls.</b> First the model plays the game. Then, separately, it's asked a simple payoff question to check it can do the maths. That check decides which colour the answer gets.</p>
+      <p><b>The % table isn't a result yet.</b> It moves as questions come in, and it only counts once every box has all its answers, which is your locked stopping rule. No extra questions ever get added. A block is only marked done when every one of its questions has a real answer: anything the server refused is asked again until it's answered.</p>
+      <p><b>Pauses are normal.</b> Free servers have limits. When one is hit, the run saves everything, sleeps, and carries on by itself. Nothing is lost.</p>
+    </div>
+    <div class="card">
+      <dl>
+        <dt class="c-AT_EQUILIBRIUM">AT_EQUILIBRIUM</dt>
+        <dd>Passed the maths check and played the game-theory answer.</dd>
+        <dt class="c-STRATEGIC_GAP">STRATEGIC_GAP</dt>
+        <dd>Passed the maths check but played something else. This is what the study is about.</dd>
+        <dt class="c-COMPETENCE_GAP">COMPETENCE_GAP</dt>
+        <dd>Got the maths check wrong, so its move says nothing about strategy. Left out of the fits.</dd>
+        <dt class="c-PARSE_FAIL">PARSE_FAIL / PROBE_FORMAT_FAIL</dt>
+        <dd>Answered in a form the code can't read. Counted as a rate, never quietly dropped.</dd>
+        <dt class="c-INFRA_FAIL">INFRA_FAIL</dt>
+        <dd>The server refused the request, so the model never saw the question. Not counted, and asked again later.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h2>Latest changes to the code</h2>
+  <div class="card commits" id="commits"></div>
+</div>
+
+<script>
+const INFO = {
+  gptoss120b: {name:"gpt-oss-120b", org:"OpenAI · open weights · via Groq free tier",
+    note:"Fast per question, but Groq's free tier allows only 200,000 tokens a day, about 170 questions. After that it sleeps and retries hourly. Stage 2B follows Stage 2A in one queue: traps first, the \"think harder\" block last. The slowest model overall: about five weeks in total."},
+  nemotron: {name:"Nemotron 3 Ultra", org:"NVIDIA · open weights · via NVIDIA free API",
+    note:"A very large model that reasons at length before answering. 1–4 minutes per question is normal, so this is one of the longest runs, roughly 1.5–2 days. Runs alongside Kimi on the same NVIDIA account. No daily cap, so its Stage 2B runs at the same time as its Stage 2A."},
+  kimi: {name:"Kimi K3", org:"Moonshot AI · open weights · via NVIDIA free API",
+    note:"Shares the NVIDIA account with Nemotron and runs alongside it. Each makes only about one request a minute, well under NVIDIA's free limit. A long thinker, around 6 minutes a question. No daily cap, so its Stage 2B runs at the same time as its Stage 2A."},
+  gemini_lite: {name:"Gemini 3.5 Flash Lite", org:"Google · closed model · via AI Studio free tier",
+    note:"Free tier allows 15 requests a minute and 500 a day. Each question uses 2, so about 250 questions a day, then it sleeps until the daily reset. Stage 2B follows Stage 2A in the same queue, since both share the daily limit. Swapped in for Gemini 3.8 Flash, which only allows 20 a day."},
+};
+const DAILY_CAP = {gemini_lite: 250, gptoss120b: 170};   // questions a day on the free tiers
+const GAMES = [["vickrey","Vickrey auction"],["cournot","Cournot"],["repeated_pd","Repeated PD"],["public_goods","Public goods"]];
+const COLOR = {AT_EQUILIBRIUM:"var(--eq)",STRATEGIC_GAP:"var(--gap)",COMPETENCE_GAP:"var(--comp)",
+  PARSE_FAIL:"var(--grey)",PROBE_FORMAT_FAIL:"var(--grey)"};
+const ORDER = ["AT_EQUILIBRIUM","STRATEGIC_GAP","COMPETENCE_GAP","PROBE_FORMAT_FAIL","PARSE_FAIL"];
+const SHORT = {AT_EQUILIBRIUM:"equilibrium",STRATEGIC_GAP:"strategic gap",COMPETENCE_GAP:"maths fail",
+  PARSE_FAIL:"unreadable",PROBE_FORMAT_FAIL:"format",INFRA_FAIL:"server refused"};
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = n => n.toLocaleString("en-GB");
+function dur(s){
+  if (s == null) return "–";
+  s = Math.max(0, Math.round(s));
+  if (s < 90) return s + "s";
+  if (s < 5400) return Math.round(s/60) + " min";
+  if (s < 172800) return (s/3600).toFixed(1) + " h";
+  return (s/86400).toFixed(1) + " days";
+}
+function bar(verdicts, total){
+  return ORDER.map(k => {
+    const n = verdicts[k] || 0;
+    return n ? `<i style="width:${100*n/total}%;background:${COLOR[k]}"></i>` : "";
+  }).join("");
+}
+function eta(m){
+  const left = m.total - m.done;
+  if (!left) return 0;
+  if (m.key === "kimi" && m.status === "queued") return null;
+  const per = m.sec_per_q || m.median_latency;
+  let perHour = per ? 3600 / per : 0;
+  if (DAILY_CAP[m.key]) perHour = Math.min(perHour, DAILY_CAP[m.key] / 24);
+  return perHour ? left / perHour * 3600 : null;
+}
+
+function nowText(m){
+  const lat = m.sec_per_q || m.median_latency;
+  const live = m.blocks.filter(b => b.running);
+  const waiting = m.blocks.filter(b => b.waiting);
+  const where = b => `${b.label}: question ${fmt(Math.min(b.done + 1, b.total))} of ${fmt(b.total)}`;
+  switch (m.status) {
+    case "running": {
+      let t = `Working on ${live.length > 1 ? "two things at once. " : ""}${live.map(where).join(" · ")}.`;
+      if (lat) t += ` Across everything, one question finishes every ~${dur(lat)}, counting the game, the maths check and any rate-limit waits.`;
+      if (m.since_last_s != null && lat && m.since_last_s > Math.max(20, lat * 2))
+        t += ` Nothing new for ${dur(m.since_last_s)}; long waits are normal for this model or its limits.`;
+      if (waiting.length) t += ` ${waiting.map(b => b.label).join(", ")} is paused for its limit.`;
+      return t;
+    }
+    case "paused":
+      return m.pause_reason === "daily"
+        ? `Hit today's free limit. Nothing is lost. It's asleep and will try again at about ${esc(m.resume_at)} (your time), carrying on with ${waiting.map(where).join(" · ")}.`
+        : `The server refused 5 requests in a row (busy or down). It's waiting and will retry at about ${esc(m.resume_at)}.`;
+    case "complete":
+      return `Finished: all ${fmt(m.total)} of this model's questions answered, Stage 2A and 2B.`;
+    default:
+      return m.done ? `Not running. It stopped at ${fmt(m.done)} of ${fmt(m.total)}. Restarting carries on from here.` : "Not started yet.";
+  }
+}
+
+function card(m){
+  const info = INFO[m.key] || {name:m.key, org:m.provider, note:""};
+  const answered = ORDER.reduce((a,k)=>a+(m.verdicts[k]||0),0) || 1;
+  const rows = GAMES.map(([g,label]) => {
+    const a = m.cells[g+"|named"], b = m.cells[g+"|disguised"];
+    const pa = a.n ? 100*a.at_eq/a.n : null, pb = b.n ? 100*b.at_eq/b.n : null;
+    const d = (pa!=null && pb!=null) ? Math.round(pb-pa) : null;
+    const cell = (p,c) => p==null ? `<span class="dim">–</span>` : `${Math.round(p)}% <span class="sub">(${c.n}/138)</span>`;
+    return `<tr><td>${label}</td><td class="r">${cell(pa,a)}</td><td class="r" style="color:var(--disguised)">${cell(pb,b)}</td>
+      <td class="r shift">${d==null?"":(d>0?"+":"")+d}</td></tr>`;
+  }).join("");
+  const TAG = {A:"2A", B:"trap", C:"sweep", D:"effort", E:"endgame"};
+  const feed = m.recent.slice(0,6).map(r =>
+    `<span class="chip"><b class="c-${r.verdict}">●</b> ${TAG[r.block]||""} · ${esc(r.game.replace(/_/g," "))} · ${r.framing==="named"?"normal":"disguised"} · <span class="c-${r.verdict}">${SHORT[r.verdict]||r.verdict}</span> · ${dur(r.age)} ago</span>`
+  ).join("");
+  const e = eta(m);
+  return `<div class="card ${m.status}">
+    <div class="top">
+      <div><a class="name" href="/questions.html?model=${m.key}">${info.name}</a><div class="org">${info.org}</div><div class="api">${esc(m.api_id)}</div></div>
+      <span class="pill ${m.status}">${m.status==="running"?'<span class="dot"></span>':""}${m.status}</span>
+    </div>
+    <div class="prog"><span class="n">${fmt(m.done)}</span><span class="dim">/ ${fmt(m.total)} questions answered, Stage 2A + 2B · ${(100*m.done/m.total).toFixed(1)}%</span></div>
+    <div class="bar">${bar(m.verdicts, m.total)}</div>
+    <div class="stats">
+      <div class="stat"><b>${m.last_hour}</b><span>in the last hour</span></div>
+      <div class="stat"><b>${(m.sec_per_q||m.median_latency) ? (m.sec_per_q||m.median_latency)+"s" : "–"}</b><span>per question</span></div>
+      <div class="stat"><b>${m.status==="complete"?"done":(e==null?"–":"~"+dur(e))}</b><span>time left (rough)</span></div>
+      <div class="stat"><b>${m.infra_fails}</b><span>server refusals, retried</span></div>
+    </div>
+    <div class="explain">
+      <p class="now">${nowText(m)}</p>
+      <p class="note">${info.note}</p>
+    </div>
+    <table>
+      <thead><tr><th>Stage 2A · played the equilibrium</th><th class="r">Normal</th><th class="r">Disguised</th><th class="r">Shift</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="feed">${feed || '<span class="dim" style="font-size:.85rem">No answers yet.</span>'}</div>
+    <a class="all-q" href="/questions.html?model=${m.key}">See every question and answer (${fmt(m.done)}) →</a>
+    <div class="s2b"><h4>Progress by block · 2A osf.io/2uqpj · 2B osf.io/6hz8d</h4>${m.blocks.map(b =>
+      `<div class="row ${b.running?"live":""}"><span class="lbl">${b.running?"● ":(b.waiting?"◐ ":"")}${esc(b.label)}</span>
+        <div class="bar"><i style="width:${100*b.done/b.total}%;background:${b.done>=b.total?"var(--eq)":(b.running?"var(--eq)":(b.waiting?"var(--gap)":"var(--ink-2)"))}"></i></div>
+        <span class="n">${fmt(b.done)} / ${fmt(b.total)}</span></div>`).join("")}</div>
+  </div>`;
+}
+
+async function refresh(){
+  try {
+    const s = await (await fetch("/api/state", {cache:"no-store"})).json();
+    const blocks = s.models.flatMap(m => m.blocks);
+    const a2 = blocks.filter(b=>b.block==="A").reduce((x,b)=>x+b.done,0), t2 = blocks.filter(b=>b.block==="A").reduce((x,b)=>x+b.total,0);
+    const b2 = blocks.filter(b=>b.block!=="A").reduce((x,b)=>x+b.done,0), tb = blocks.filter(b=>b.block!=="A").reduce((x,b)=>x+b.total,0);
+    const all = a2 + b2, total = t2 + tb;
+    const v = {};
+    s.models.forEach(m => ORDER.forEach(k => v[k] = (v[k]||0) + (m.verdicts[k]||0)));
+    document.getElementById("all-n").textContent = fmt(all);
+    document.getElementById("all-of").textContent = `of ${fmt(total)} questions answered`;
+    const live = s.models.filter(m=>m.status==="running").length;
+    document.getElementById("all-pct").textContent = `Stage 2A ${fmt(a2)}/${fmt(t2)} · Stage 2B ${fmt(b2)}/${fmt(tb)} · ${live} of 4 models working right now`;
+    document.getElementById("all-bar").innerHTML = bar(v, total);
+    document.getElementById("models").innerHTML = s.models.map(card).join("");
+    const alarms = s.models.flatMap(m => (m.alarms||[]).map(a => `<div class="alarm">⚠ <b>${esc((INFO[m.key]||{}).name||m.key)}:</b> ${esc(a)} Ask Claude to check.</div>`));
+    document.getElementById("alarms").innerHTML = alarms.join("");
+    document.getElementById("commits").innerHTML = s.commits.map(c =>
+      `<div><span class="mono">${esc(c.when)}</span><span>${esc(c.subject)}</span></div>`).join("");
+    document.getElementById("tick").textContent = "live · updated " + new Date().toLocaleTimeString("en-GB");
+    document.getElementById("dot").classList.remove("off");
+    document.getElementById("err").innerHTML = "";
+  } catch (e) {
+    document.getElementById("dot").classList.add("off");
+    document.getElementById("tick").textContent = "can't reach the server";
+    document.getElementById("err").innerHTML = `<div class="err">The dashboard server isn't answering. Start it again from the Claude app (live-console).</div>`;
+  }
+}
+refresh();
+setInterval(refresh, 3000);
+</script>

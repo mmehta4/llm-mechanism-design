@@ -1,0 +1,204 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Question Log</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* same world as the live console: pure black, one line colour, semantic verdict colours */
+:root{
+  --bg:#000;--line:#262626;--line-2:#1a1a1a;--panel:#0b0b0b;
+  --ink:#f5f5f5;--ink-2:#c9c9c9;--muted:#8a8a8a;--faint:#5a5a5a;
+  --eq:#3ddc84;--gap:#ff9f43;--comp:#ff5c5c;--grey:#6b6b6b;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px 80px}
+a{color:var(--ink-2)}
+.back{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+h1{margin:10px 0 2px;font-size:1.6rem;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+.sub{color:var(--muted);font-size:.9rem;margin:0 0 20px}
+
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:end;border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.filters label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);min-width:0}
+select{background:#000;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:7px 9px;font:inherit;font-family:Inter,system-ui,sans-serif;font-size:.85rem;text-transform:none;letter-spacing:0;max-width:100%}
+select:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--ink-2);outline-offset:2px}
+.check{flex-direction:row !important;align-items:center;gap:8px !important;padding-bottom:8px}
+.count{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted);padding-bottom:8px}
+
+.list{display:flex;flex-direction:column;gap:8px}
+details{border:1px solid var(--line);border-radius:10px;background:#000}
+details[open]{border-color:#3a3a3a}
+summary{list-style:none;cursor:pointer;padding:12px 14px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 14px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--panel);border-radius:10px}
+.when{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+.what{min-width:0;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.game{font-weight:600;font-size:.92rem}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.named{color:var(--ink-2)} .tag.disguised{color:var(--gap);border-color:#4a3316}
+.moves{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap}
+.moves b{color:var(--ink);font-weight:500}
+.verdict{font-family:var(--mono);font-size:10.5px;padding:3px 8px;border-radius:5px;border:1px solid currentColor;white-space:nowrap;justify-self:end}
+.v-AT_EQUILIBRIUM{color:var(--eq)} .v-STRATEGIC_GAP{color:var(--gap)} .v-COMPETENCE_GAP{color:var(--comp)}
+.v-PARSE_FAIL,.v-PROBE_FORMAT_FAIL,.v-INFRA_FAIL{color:var(--grey)}
+
+.body{border-top:1px solid var(--line-2);padding:14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:760px){.body{grid-template-columns:1fr} summary{grid-template-columns:1fr} .verdict{justify-self:start}}
+.box{min-width:0}
+.box h3{margin:0 0 6px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.box pre{margin:0;white-space:pre-wrap;word-wrap:break-word;font-family:var(--mono);font-size:.78rem;line-height:1.6;color:var(--ink-2);background:var(--panel);border:1px solid var(--line-2);border-radius:8px;padding:10px 12px;max-height:22rem;overflow:auto}
+.box p{margin:0 0 6px;font-size:.88rem;color:var(--ink-2)}
+.box p b{color:var(--ink);font-weight:600}
+.full{grid-column:1/-1}
+.meta{font-family:var(--mono);font-size:11px;color:var(--faint)}
+
+.pager{display:flex;gap:10px;justify-content:center;align-items:center;margin-top:18px}
+button{background:#000;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+button:hover:not(:disabled){border-color:var(--ink-2)}
+button:disabled{opacity:.35;cursor:default}
+.empty{border:1px dashed var(--line);border-radius:10px;padding:28px;text-align:center;color:var(--muted)}
+.err{color:var(--comp);font-family:var(--mono);font-size:.85rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <a class="back" href="/">← All models</a>
+  <h1 id="title">Every question</h1>
+  <p class="sub" id="sub">Loading…</p>
+
+  <div class="filters">
+    <label for="f-block">Block<select id="f-block"><option value="">All blocks</option></select></label>
+    <label for="f-game">Game<select id="f-game"><option value="">All games</option></select></label>
+    <label for="f-framing">Wording<select id="f-framing">
+      <option value="">Both</option><option value="named">Normal words</option><option value="disguised">Disguised</option>
+    </select></label>
+    <label for="f-verdict">Result<select id="f-verdict">
+      <option value="">All results</option>
+      <option value="AT_EQUILIBRIUM">Played the equilibrium</option>
+      <option value="STRATEGIC_GAP">Did the maths, played something else</option>
+      <option value="COMPETENCE_GAP">Failed the maths check</option>
+      <option value="PARSE_FAIL">Unreadable answer</option>
+      <option value="PROBE_FORMAT_FAIL">Maths check in the wrong format</option>
+    </select></label>
+    <label class="check" for="f-refusals"><input type="checkbox" id="f-refusals"> Show server refusals</label>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="list" id="list"></div>
+
+  <div class="pager">
+    <button id="newer" type="button">← Newer</button>
+    <span class="meta" id="range"></span>
+    <button id="older" type="button">Older →</button>
+  </div>
+</div>
+
+<script>
+const NAMES = {gptoss120b:"gpt-oss-120b", nemotron:"Nemotron 3 Ultra", kimi:"Kimi K3", gemini_lite:"Gemini 3.5 Flash Lite"};
+const VERDICT = {
+  AT_EQUILIBRIUM:"Played the equilibrium", STRATEGIC_GAP:"Did the maths, played something else",
+  COMPETENCE_GAP:"Failed the maths check", PARSE_FAIL:"Unreadable answer",
+  PROBE_FORMAT_FAIL:"Maths check in wrong format", INFRA_FAIL:"Server refused · asked again later",
+};
+const TAG = {A:"2A", B:"Trap", C:"Sweep", D:"Effort", E:"Endgame"};
+const LIMIT = 25;
+const params = new URLSearchParams(location.search);
+const model = params.get("model") || "";
+let offset = 0, filtersLoaded = false;
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const num = v => { const n = parseFloat(v); return (v === "" || v == null || isNaN(n)) ? (v || "–") : (+n.toFixed(2)).toString(); };
+function ago(s){
+  if (s == null) return "";
+  s = Math.max(0, Math.round(s));
+  if (s < 60) return s + "s ago";
+  if (s < 3600) return Math.round(s/60) + " min ago";
+  if (s < 86400) return Math.round(s/3600) + " h ago";
+  return Math.round(s/86400) + " d ago";
+}
+
+function item(r){
+  const wording = r.framing === "named" ? "Normal words" : "Disguised";
+  const probeOk = r.probe_answer !== "" && num(r.probe_answer) === num(r.probe_correct);
+  return `<details>
+    <summary>
+      <span class="when">${ago(r.age)}</span>
+      <span class="what">
+        <span class="tag">${TAG[r.block] || r.block}</span>
+        <span class="game">${esc(r.game_label)}</span>
+        <span class="tag ${r.framing}">${wording}</span>
+        <span class="moves">played <b>${esc(num(r.played))}</b> · correct <b>${esc(num(r.correct))}</b></span>
+      </span>
+      <span class="verdict v-${r.verdict}">${VERDICT[r.verdict] || r.verdict}</span>
+    </summary>
+    <div class="body">
+      <div class="box">
+        <h3>The question it was asked</h3>
+        <pre>${esc(r.prompt)}</pre>
+      </div>
+      <div class="box">
+        <h3>Its answer</h3>
+        <p>Move: <b>${esc(num(r.played))}</b> &nbsp;·&nbsp; Game-theory answer: <b>${esc(num(r.correct))}</b></p>
+        ${r.reasoning ? `<pre>${esc(r.reasoning)}</pre>` : `<p class="meta">${esc(r.error || "No reasoning returned.")}</p>`}
+      </div>
+      <div class="box">
+        <h3>Maths check (asked separately)</h3>
+        <pre>${esc(r.probe_prompt)}</pre>
+      </div>
+      <div class="box">
+        <h3>Its maths check answer</h3>
+        <p>Answered <b>${esc(num(r.probe_answer))}</b> &nbsp;·&nbsp; Correct <b>${esc(num(r.probe_correct))}</b> &nbsp;${probeOk ? "✓" : "✗"}</p>
+        ${r.probe_reasoning ? `<pre>${esc(r.probe_reasoning)}</pre>` : ""}
+      </div>
+      <p class="meta full">${esc(r.block_label)} · wording ${r.wording} of 3 · question seed ${esc(r.seed)} · ${esc(new Date(r.time).toLocaleString("en-GB"))} · took ${esc(num(r.latency))}s${r.infra ? " · server: " + esc(r.infra) : ""}</p>
+    </div>
+  </details>`;
+}
+
+async function load(){
+  const q = new URLSearchParams({model, offset, limit: LIMIT});
+  for (const k of ["block","game","framing","verdict"]) {
+    const v = document.getElementById("f-" + k).value;
+    if (v) q.set(k, v);
+  }
+  if (document.getElementById("f-refusals").checked) q.set("refusals", "1");
+  try {
+    const d = await (await fetch("/api/questions?" + q, {cache:"no-store"})).json();
+    if (d.error) throw new Error(d.error);
+    document.getElementById("title").textContent = `${NAMES[model] || model}: every question`;
+    document.title = `${NAMES[model] || model} · Question Log`;
+    document.getElementById("sub").textContent =
+      "Newest first. Tap any question to see exactly what was asked, what the model answered and why, and its maths check.";
+    if (!filtersLoaded) {
+      document.getElementById("f-block").innerHTML += d.blocks.map(b => `<option value="${b.block}">${esc(b.label)}</option>`).join("");
+      filtersLoaded = true;
+    }
+    const gSel = document.getElementById("f-game"), gVal = gSel.value;
+    gSel.innerHTML = `<option value="">All games</option>` +
+      d.games.map(g => `<option value="${esc(g.key)}">${esc(g.label)}</option>`).join("");
+    gSel.value = gVal;
+    document.getElementById("count").textContent = `${d.total.toLocaleString("en-GB")} question${d.total === 1 ? "" : "s"}`;
+    document.getElementById("list").innerHTML = d.rows.length ? d.rows.map(item).join("")
+      : `<div class="empty">No questions match these filters yet. The runs are still going, so check back soon.</div>`;
+    const end = Math.min(offset + LIMIT, d.total);
+    document.getElementById("range").textContent = d.total ? `${offset + 1}–${end} of ${d.total.toLocaleString("en-GB")}` : "";
+    document.getElementById("newer").disabled = offset === 0;
+    document.getElementById("older").disabled = end >= d.total;
+  } catch (e) {
+    document.getElementById("list").innerHTML = `<p class="err">Couldn't load questions: ${esc(e.message)}. Is the live console running?</p>`;
+  }
+}
+
+for (const id of ["f-block","f-game","f-framing","f-verdict","f-refusals"])
+  document.getElementById(id).addEventListener("change", () => { offset = 0; load(); });
+document.getElementById("newer").onclick = () => { offset = Math.max(0, offset - LIMIT); load(); window.scrollTo(0, 0); };
+document.getElementById("older").onclick = () => { offset += LIMIT; load(); window.scrollTo(0, 0); };
+
+load();
+// live: refresh the first page every 15 s, but never while you are reading an open question
+setInterval(() => { if (offset === 0 && !document.querySelector("details[open]")) load(); }, 15000);
+</script>
