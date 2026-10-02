@@ -46,19 +46,40 @@ for the stage-game QRE. Stated as a limitation.
 
 ## 2. Predictions
 
-**Nemotron.** Written by the author on 2026-10-03, in git before any subsidy question existed
-(`docs/stage4-informal-predictions.md`), restated here:
-- **Cooperation by level:** 41% at τ = 0; 65% at 1.5; 95% at 5; 98% at 10. [AUTHOR] Guesses at
-  τ = 2.5 and τ\* = 16.2 are still to be written.
-- **The view:** steeper than QRE. Nemotron's low PD λ is a cooperation norm absorbed as
-  "noise", so once a subsidy makes cooperation pay, cooperation jumps.
+**Authorship.** The predictions below were written by **Claude (Opus 5.5)**, in a separate
+session at the author's request, on 2026-10-03. That was before the Stage 2A analyses of
+gpt-oss-120b, Kimi K3 and Gemini 3.5 Flash Lite existed; only Nemotron's had been run. **The
+author adopts them as the registered predictions.** Nemotron's values at τ = 0 and 1.5 match the
+author's informal predictions committed earlier that day (`docs/stage4-informal-predictions.md`).
 
-[GATE] **The other three models:** the author's numbers at τ = 0, 1.5, 2.5 and τ\*ₘ.
+**Cooperation rate (%) by subsidy level:**
 
-**Headline (author's amendment).** The comparison is between the two theories'
-*predictions*, not "more subsidy gives more cooperation". At τ = 2.5, QRE's prediction is closer
-to the observed rate than classical theory's 100%; and at τ\*ₘ the observed rate is within
-90 ± 15. [AUTHOR] For which models do you predict each of these holds?
+| Model | τ = 0 | τ = 1.5 | τ = 2.5 | τ\* |
+|---|---:|---:|---:|---:|
+| Nemotron | 41 | 65 | 90 | 98 |
+| gpt-oss-120b | 10 | 45 | 95 | 99 (likely no separate τ\*: λ at the ceiling, gate rule 4c) |
+| Kimi K3 | 25 | 60 | 90 | 97 |
+| Gemini 3.5 Flash Lite | 20 | 45 | 70 | 85 |
+
+**Shape, relative to the QRE curve at each model's λ̂:**
+
+| Model | Prediction |
+|---|---|
+| Nemotron | steeper than QRE (cooperation norm) |
+| gpt-oss-120b | on the QRE curve (sharp: high λ, near-classical) |
+| Kimi K3 | steeper than QRE (cooperation norm) |
+| Gemini 3.5 Flash Lite | flatter (weakest at integrating the added rule) |
+
+**Headline as originally worded** (τ\* gives more cooperation than 2.5): yes, for every model
+with a separate τ\*. This is near-mechanical, since τ\* > 2.5 whenever λ < 3.66.
+
+**Headline as amended (the real prediction):** at τ = 2.5, **classical theory (100%) predicts
+better than QRE for Nemotron and Kimi**, and τ\* overshoots 90% (the mechanism overpays).
+**QRE's prediction is closest only for Gemini 3.5 Flash Lite.**
+
+**Reasoning.** The low PD λ values mostly reflect a cooperation norm, not insensitivity to
+payoffs. Once the subsidy makes C dominant, the models respond almost classically, and a λ
+fitted on the plain PD under-predicts that response.
 
 ## 3. How the results will be judged
 
@@ -95,5 +116,6 @@ short of the 90% target), for a model whose derived level was not dropped.
 and the Stage 4 theory, including that the derived τ\* depends on the fitted λ.
 
 **Authorship.** The Stage 5 design was proposed by Claude and confirmed by the author with two
-amendments: the headline test and the stage-game caveat. The gate criteria, the interpretation
-key and the predictions are the author's.
+amendments: the headline test and the stage-game caveat. The predictions in Section 2 were
+written by Claude (Opus 5.5) and adopted by the author. [PENDING: the author's confirmation of
+who wrote the amendments, the gate criteria and the interpretation key.]
