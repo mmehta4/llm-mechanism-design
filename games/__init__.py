@@ -12,7 +12,8 @@ ALL_GAMES = {
 # registers their probes. GAMES is what a trial looks a key up in.
 from games.stress import STRESS_GAMES  # noqa: E402
 from games.deep import DEEP_GAMES  # noqa: E402  (Stage 2C pilot: deeper disguises)
+from games.extreme import EXTREME_GAMES  # noqa: E402  (Stage 2C: extreme disguise)
 
-GAMES = {**ALL_GAMES, **STRESS_GAMES, **DEEP_GAMES}
+GAMES = {**ALL_GAMES, **STRESS_GAMES, **DEEP_GAMES, **EXTREME_GAMES}
 
-__all__ = ["GameSpec", "DisguisedPromptMissing", "ALL_GAMES", "STRESS_GAMES", "DEEP_GAMES", "GAMES"]
+__all__ = ["GameSpec", "DisguisedPromptMissing", "ALL_GAMES", "STRESS_GAMES", "DEEP_GAMES", "EXTREME_GAMES", "GAMES"]
