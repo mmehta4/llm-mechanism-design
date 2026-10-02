@@ -133,3 +133,22 @@ checklist gets a matching code (answer–reasoning mismatch).
 **Also seen, for Stage 3.5:** in the disguised wording Nemotron often writes "This is a
 Cournot duopoly game", i.e. it recognised the disguised game. Recognition rates will be
 measured for every model by the Stage 3.5 checklist.
+
+## 7. Block D (reasoning effort) dropped before data collection (2026-10-02)
+
+**Applies to:** pre-registration 2 (osf.io/6hz8d), Block D.
+
+**What changed.** Block D — gpt-oss-120b answering the 1,104 Stage 2A questions again at low
+and at high reasoning effort (2,208 questions) — was dropped. **No Block D data was ever
+collected**: gpt-oss was still on Stage 2A, and Block D was last in its queue.
+
+**Why.** So that all four models answer exactly the same set of questions (4,140 each),
+which the author judged better for the comparison across models. It also shortens
+gpt-oss's run by about 13 days under Groq's free-tier cap.
+
+**Consequences.**
+- The Block D prediction in pre-registration 2 (high effort cuts the normal-vs-disguised
+  gap by half or more) is **not tested**, and the paper will say so.
+- No other block, prediction, sample size or analysis changes. The locked Stage 2B analysis
+  code for Block D is left in place, unused.
+- Stage 2 totals: 16,560 questions (Stage 2A 4,416 + Stage 2B 12,144), down from 18,768.

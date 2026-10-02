@@ -47,6 +47,11 @@ SEED_BASE = {"B": MASTER_SEED + 1_000, "C": MASTER_SEED + 2_000,
              "E": MASTER_SEED + 3_000, "D": MASTER_SEED}
 PRACTICE_SEED_BASE = 900_000
 
+# Block D (reasoning effort, gpt-oss only) was dropped on 2026-10-02, before any of its
+# data existed, so that all four models answer the same questions. Recorded as deviation
+# 7. Its plan stays here so the registered design remains readable; real runs refuse it.
+DROPPED_BLOCKS = {"D"}
+
 BLOCK_MODELS = {
     "B": CAPABILITY_ORDER,
     "C": CAPABILITY_ORDER,
@@ -116,6 +121,9 @@ def main() -> int:
     ap.add_argument("--status", action="store_true")
     args = ap.parse_args()
 
+    if args.block in DROPPED_BLOCKS and not args.practice:
+        print(f"Block {args.block} was dropped before data collection (deviation 7).")
+        return 2
     if args.model not in BLOCK_MODELS[args.block]:
         print(f"Block {args.block} runs on {BLOCK_MODELS[args.block]}, not {args.model}.")
         return 2

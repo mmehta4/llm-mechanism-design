@@ -121,7 +121,7 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
   <section class="overall">
     <div class="row">
       <span class="num" id="all-n">–</span>
-      <span class="dim" id="all-of">of 18,768 questions answered</span>
+      <span class="dim" id="all-of">of 16,560 questions answered</span>
       <span class="dim" id="all-pct" style="margin-left:auto"></span>
     </div>
     <div class="bar" id="all-bar"></div>
@@ -138,7 +138,7 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
   <h2>How to read this</h2>
   <div class="guide">
     <div class="card">
-      <p><b>What's being run.</b> 18,768 questions in two registered experiments. <b>Stage 2A</b> (osf.io/2uqpj): each model gets 1,104, which is 4 games × normal / disguised words × 138. <b>Stage 2B</b> (osf.io/6hz8d): trap games where the textbook answer is wrong (1,104), the same games at three sizes (1,104), and the prisoner's dilemma at rounds 5, 9 and 10 (828). gpt-oss also re-answers Stage 2A at low and at high reasoning effort (2 × 1,104). That's 4,140 questions per model, 6,348 for gpt-oss.</p>
+      <p><b>What's being run.</b> 16,560 questions in two registered experiments. <b>Stage 2A</b> (osf.io/2uqpj): each model gets 1,104, which is 4 games × normal / disguised words × 138. <b>Stage 2B</b> (osf.io/6hz8d): trap games where the textbook answer is wrong (1,104), the same games at three sizes (1,104), and the prisoner's dilemma at rounds 5, 9 and 10 (828). That's 4,140 questions per model, the same for all four. (A gpt-oss-only "think harder" block was dropped before it started, so every model answers exactly the same questions.)</p>
       <p><b>Paired questions.</b> Question #57 in normal words and #57 in disguised words use exactly the same numbers. Only the wording changes.</p>
       <p><b>Each question is two calls.</b> First the model plays the game. Then, separately, it's asked a simple payoff question to check it can do the maths. That check decides which colour the answer gets.</p>
       <p><b>The % table isn't a result yet.</b> It moves as questions come in, and it only counts once every box has all its answers, which is your locked stopping rule. No extra questions ever get added. A block is only marked done when every one of its questions has a real answer: anything the server refused is asked again until it's answered.</p>
@@ -167,7 +167,7 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
 <script>
 const INFO = {
   gptoss120b: {name:"gpt-oss-120b", org:"OpenAI · open weights · via Groq free tier",
-    note:"Fast per question, but Groq's free tier allows only 200,000 tokens a day, about 170 questions. After that it sleeps and retries hourly. Stage 2B follows Stage 2A in one queue: traps first, the \"think harder\" block last. The slowest model overall: about five weeks in total."},
+    note:"Fast per question, but Groq's free tier allows only 200,000 tokens a day, about 170 questions. After that it sleeps and retries hourly. Stage 2B follows Stage 2A in one queue, traps first. The slowest model overall, limited by its daily allowance."},
   nemotron: {name:"Nemotron 3 Ultra", org:"NVIDIA · open weights · via NVIDIA free API",
     note:"A very large model that reasons at length before answering. 1–4 minutes per question is normal, so this is one of the longest runs, roughly 1.5–2 days. Runs alongside Kimi on the same NVIDIA account. No daily cap, so its Stage 2B runs at the same time as its Stage 2A."},
   kimi: {name:"Kimi K3", org:"Moonshot AI · open weights · via NVIDIA free API",

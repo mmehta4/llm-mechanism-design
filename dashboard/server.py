@@ -77,10 +77,12 @@ def read_rows(path: Path) -> list[dict]:
 def sources(model: str) -> list[dict]:
     """Every run that belongs to one model: its Stage 2A run and each Stage 2B block."""
     from experiments.stage2 import plan as plan_a
-    from experiments.stage2b import BLOCK_MODELS, PLANS
+    from experiments.stage2b import BLOCK_MODELS, DROPPED_BLOCKS, PLANS
     out = [{"block": "A", "label": BLOCK_NAMES["A"], "runner": model, "total": len(plan_a()),
             "csv": f"stage2_{model}", "cmd": f"stage2.py --model {model}"}]
     for block in "BCED":
+        if block in DROPPED_BLOCKS:
+            continue
         for runner in BLOCK_MODELS[block]:
             if runner != model and not (block == "D" and runner.startswith(model + "_")):
                 continue
