@@ -152,3 +152,34 @@ gpt-oss's run by about 13 days under Groq's free-tier cap.
 - No other block, prediction, sample size or analysis changes. The locked Stage 2B analysis
   code for Block D is left in place, unused.
 - Stage 2 totals: 16,560 questions (Stage 2A 4,416 + Stage 2B 12,144), down from 18,768.
+
+## 8. Limitation found: the answer box carried the named game's words (2026-10-02)
+
+Not a change to either plan; a flaw in the materials, recorded so results are read
+correctly.
+
+**What was found.** Each answer is returned through a form whose field names and
+descriptions the model sees, and writes, as it answers. For three games the same form was
+used for both wordings, and it uses the **named** game's vocabulary:
+
+| Game | Field the model sees in the DISGUISED question |
+|---|---|
+| Vickrey (and its trap and sweep) | `bid` — "The sealed bid to submit." |
+| Cournot (and its trap and sweep) | `quantity` — "The quantity to produce." |
+| Public goods (and its trap and sweep) | `contribution` — "How much of your endowment to contribute." |
+| Prisoner's dilemma | `action` — "The option chosen" (neutral: not affected) |
+
+So in Stage 2A and Stage 2B the disguised Vickrey, Cournot and public goods questions were
+less disguised than intended. Found while designing the Stage 2C pilot; not caught by the
+Stage 0 isomorphism checks, which compared prompt texts only.
+
+**What it means.**
+- Registered results are reported exactly as collected; nothing is rescored.
+- The disguise comparison for Vickrey, Cournot and public goods is a comparison between the
+  named wording and a *partly* disguised one. The prisoner's dilemma disguise is clean.
+- Recognition rates in disguised questions (Stage 3.5 `NAMES_GAME`) may be inflated for those
+  three games. Nemotron still named the clean PD disguise in 81% of answers, so the box is
+  not the whole story.
+- The Stage 2C pilot measures the box's effect directly: the Stage 2A disguised wording,
+  word for word, asked with a neutral `number` box. Stage 2C itself uses neutral boxes
+  throughout.
