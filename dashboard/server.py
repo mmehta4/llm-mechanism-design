@@ -197,6 +197,30 @@ def model_state(model: str, spec, procs: list[str]) -> dict:
     }
 
 
+def pilot_deep() -> list[dict]:
+    """Stage 2C pilot (practice questions only): per model, per game, per wording."""
+    from analysis.reasoning import code
+    from experiments.pilot_deep import FAMILIES, LEVELS
+    out = []
+    for path in sorted((ROOT / "results" / "raw").glob("practice2c_*.csv")):
+        model = path.stem.replace("practice2c_", "")
+        rows = [r for r in read_rows(path) if r.get("verdict") != "INFRA_FAIL"]
+        cells = []
+        for fam in FAMILIES:
+            for label, suffix in LEVELS.items():
+                rs = [r for r in rows if r["game"] == fam + suffix]
+                counted = [r for r in rs if r["verdict"] in ("AT_EQUILIBRIUM", "STRATEGIC_GAP")]
+                cells.append({
+                    "game": fam, "wording": label, "n": len(rs),
+                    "names": sum("NAMES_GAME" in code(r) for r in counted), "counted": len(counted),
+                    "eq": sum(r["verdict"] == "AT_EQUILIBRIUM" for r in rs),
+                    "probe": sum(r["probe_passed"] == "True" for r in rs),
+                })
+        out.append({"model": model, "done": len(rows), "planned": 8 * len(FAMILIES) * len(LEVELS),
+                    "cells": cells})
+    return out
+
+
 def state() -> dict:
     from config import CAPABILITY_ORDER, MODELS
     procs = python_commands()
@@ -208,7 +232,7 @@ def state() -> dict:
         if len(parts) == 3:
             commits.append({"hash": parts[0], "when": parts[1], "subject": parts[2]})
 
-    return {"models": models, "commits": commits,
+    return {"models": models, "commits": commits, "pilot_deep": pilot_deep(),
             "now": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
 
 

@@ -135,6 +135,8 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
 
   <div class="grid" id="models"></div>
 
+  <div id="pilot"></div>
+
   <h2>How to read this</h2>
   <div class="guide">
     <div class="card">
@@ -175,6 +177,7 @@ const INFO = {
   gemini_lite: {name:"Gemini 3.5 Flash Lite", org:"Google · closed model · via AI Studio free tier",
     note:"Free tier allows 15 requests a minute and 500 a day. Each question uses 2, so about 250 questions a day, then it sleeps until the daily reset. Stage 2B follows Stage 2A in the same queue, since both share the daily limit. Swapped in for Gemini 3.8 Flash, which only allows 20 a day."},
 };
+const NAMES_SHORT = {nemotron:"Nemotron 3 Ultra", kimi:"Kimi K3", gptoss120b:"gpt-oss-120b", gemini_lite:"Gemini 3.5 Flash Lite"};
 const DAILY_CAP = {gemini_lite: 250, gptoss120b: 170};   // questions a day on the free tiers
 const GAMES = [["vickrey","Vickrey auction"],["cournot","Cournot"],["repeated_pd","Repeated PD"],["public_goods","Public goods"]];
 const COLOR = {AT_EQUILIBRIUM:"var(--eq)",STRATEGIC_GAP:"var(--gap)",COMPETENCE_GAP:"var(--comp)",
@@ -297,6 +300,18 @@ async function refresh(){
     document.getElementById("models").innerHTML = s.models.map(card).join("");
     const alarms = s.models.flatMap(m => (m.alarms||[]).map(a => `<div class="alarm">⚠ <b>${esc((INFO[m.key]||{}).name||m.key)}:</b> ${esc(a)} Ask Claude to check.</div>`));
     document.getElementById("alarms").innerHTML = alarms.join("");
+    document.getElementById("pilot").innerHTML = (s.pilot_deep||[]).map(p => `
+      <h2>Stage 2C pilot · deeper disguises · ${esc(NAMES_SHORT[p.model]||p.model)} · practice questions only</h2>
+      <div class="card">
+        <p class="dim" style="margin:0 0 6px">${p.done} of ${p.planned} answered. Same game, same answer, three wordings. A disguise that works should cut <b>names the game</b> while the <b>maths check</b> stays high. Not Stage 2 data: it only decides how Stage 2C is built.</p>
+        <div style="overflow-x:auto"><table>
+          <thead><tr><th>Game</th><th>Wording</th><th class="r">Answered</th><th class="r">Names the game</th><th class="r">At equilibrium</th><th class="r">Maths check passed</th></tr></thead>
+          <tbody>${p.cells.map(c => `<tr><td>${esc(c.game)}</td><td>${esc(c.wording)}</td><td class="r">${c.n}/8</td>
+            <td class="r">${c.counted ? Math.round(100*c.names/c.counted)+"% ("+c.names+"/"+c.counted+")" : "–"}</td>
+            <td class="r">${c.n ? Math.round(100*c.eq/c.n)+"%" : "–"}</td>
+            <td class="r">${c.n ? Math.round(100*c.probe/c.n)+"%" : "–"}</td></tr>`).join("")}</tbody>
+        </table></div>
+      </div>`).join("");
     document.getElementById("commits").innerHTML = s.commits.map(c =>
       `<div><span class="mono">${esc(c.when)}</span><span>${esc(c.subject)}</span></div>`).join("");
     document.getElementById("tick").textContent = "live · updated " + new Date().toLocaleTimeString("en-GB");
