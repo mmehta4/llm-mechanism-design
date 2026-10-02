@@ -29,10 +29,7 @@ from functools import partial
 
 from games import cournot, public_goods, repeated_pd, vickrey
 from games.base import GameSpec
-import re
-from fractions import Fraction
-
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field
 
 from games.probes import PROBES, ChoiceProbe, NumericProbe
 
@@ -40,45 +37,17 @@ from games.probes import PROBES, ChoiceProbe, NumericProbe
 DEEP_PD = dict(T=9.5, R=6.5, P=3.5, S=2.0)
 
 
-_NUM = re.compile(r"-?\d+(?:\.\d+)?(?:\s*/\s*\d+(?:\.\d+)?)?")
-
-
+# A NEUTRAL answer box, in the same form as Stage 2A's (number-only, answer first, then
+# reasoning); only the field's words change. NO DOCSTRING on purpose: a pydantic class
+# docstring is sent to the model as the schema's description. The first version of this
+# box had one that quoted the Stage 2A field texts ("bid: The sealed bid to submit",
+# "quantity to produce", "contribution"), which leaked those words into every pilot
+# deep-disguise question. Asking for "a decimal, not a fraction" did not stop Nemotron's
+# fraction slip, and a free-text box drew template junk in 6 of 12 practice answers, so
+# the slip is left exactly as in Stage 2A and counted separately.
 class NumberAction(BaseModel):
-    """A NEUTRAL answer box. The Stage 2A boxes carried the named game's vocabulary into
-    the disguised questions ("bid: The sealed bid to submit", "quantity to produce",
-    "contribution"), and a model writes the field name as it answers. Every deep and
-    extreme version uses this instead.
-
-    The answer is a STRING that may be a fraction. Nemotron derives answers as fractions
-    ("683/60") and writes the answer before its reasoning; a number-only box blocks the
-    "/" and keeps the numerator (deviation 6). Asking for a decimal did not stop it in
-    practice. Accepting "a/b" and converting it here removes the cut-off entirely while
-    keeping Stage 2A's order (answer, then reasoning).
-    """
-    number: str = Field(description="The number you choose, as a decimal (12.25) or a "
-                                    "fraction (49/4).")
+    number: float = Field(description="The number you choose.")
     reasoning: str = Field(description="One or two sentences explaining the number.")
-
-    @field_validator("number")
-    @classmethod
-    def _to_decimal(cls, v: str) -> str:
-        """A fixed reading rule, decided before any Stage 2C data:
-        1. if the box holds an equation, read what follows the LAST "=";
-        2. a plain decimal or fraction is taken as it is;
-        3. otherwise, exactly one number (decimal or a/b) anywhere in it is taken;
-        4. anything else is unreadable -- the model's answer, scored PARSE_FAIL."""
-        text = str(v).replace("（", "(").replace("）", ")")
-        if "=" in text:
-            text = text.rsplit("=", 1)[1]
-        text = text.strip().strip("$}{ ")
-        try:
-            return str(float(Fraction(text.replace(" ", ""))))
-        except (ValueError, ZeroDivisionError):
-            pass
-        found = _NUM.findall(text)
-        if len(found) == 1:
-            return str(float(Fraction(found[0].replace(" ", ""))))
-        raise ValueError(f"no single number in the answer box: {v!r}")
 
 
 def _spec(key: str, base: GameSpec, text: str, sampler=None, neutral: bool = True) -> GameSpec:

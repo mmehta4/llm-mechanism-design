@@ -40,13 +40,12 @@ derives should not.
 | Prisoner's dilemma | No story; payoffs 2u − 4 of the Stage 2A table (+6, +2, −2, −4) shown as balance changes; 10 rounds known to both; round 1. | defect |
 | Public goods | No story; asks how many points to KEEP; points not kept are pooled, multiplied by M and shared equally. | keep everything |
 
-**Answer box:** neutral throughout. `number`, "The number you choose, as a decimal (12.25) or a
-fraction (49/4)", converted to a decimal in code. A number-only box cut Nemotron's fractions at the
-"/" (deviation 6), and asking for a decimal did not stop it in practice; accepting the fraction
-removes the cut-off while keeping Stage 2A's order (answer first, then reasoning). **Reading rule,
-fixed now:** if the box holds an equation, the number after the last "=" is read; otherwise a
-plain decimal or fraction; otherwise exactly one number found in it; anything else is an
-unreadable answer (PARSE_FAIL). The PD keeps its already-neutral `action` box.
+**Answer box:** neutral, otherwise the same form as Stage 2A's: a number-only field `number`
+("The number you choose."), answer first, then reasoning. The PD keeps its already-neutral
+`action` box. Two alternatives were tried in practice and rejected before registration: asking
+for a decimal did not stop Nemotron's fraction slip, and a free-text box drew unreadable template
+text in 6 of 12 answers. The fraction slip (deviation 6) is therefore left exactly as in Stage 2A,
+so it affects both stages alike, and is counted separately (Section 3).
 
 **Questions:** 138 per game per model, all four Stage 2A models (gpt-oss-120b, Nemotron 3 Ultra,
 Kimi K3, Gemini 3.5 Flash Lite). **Question k uses the same seed and the same wording index as
@@ -130,6 +129,10 @@ stratified McNemar (Mantel–Haenszel for matched pairs), Holm across the four g
 same paired questions — exact McNemar per model and game. Exploratory: within the extreme
 wording, equilibrium play when the model named the game vs when it did not.
 
+**Fraction slips** (counted separately, as in Stage 2A): Cournot or Vickrey answers that are an
+exact whole multiple (2× to 9×) of the correct answer while the reasoning's last number is the
+correct answer — the numerator of a fraction cut at the "/".
+
 **Conversion slips** (counted separately, from the author's prompt review). Vickrey: answer within
 0.5 of the prize, or of prize − 5 (the offer, or the offer without dividing by 3). Cournot: answer
 within 0.5 of K/3 (the amount A) or of K/3 − 4 (A without dividing by 2). The main test uses the
@@ -163,7 +166,11 @@ The predictions were written after seeing:
 - the live board of Stage 2A and 2B results while they ran, and Nemotron's complete Stage 2A
   analysis, including its game-naming rates;
 - the answer-box leak (deviation 8);
-- the Nemotron pilot of the extreme disguise (8 practice questions per game), reported above;
+- the Nemotron pilot of the extreme disguise (8 practice questions per game), reported above.
+  ✏️ *After the predictions were written, the pilot's answer box was found to have sent the Stage 2A
+  field texts ("bid", "quantity to produce", "contribution") with every pilot question (deviation
+  10), so the pilot's recognition rates that informed these predictions are likely overstated. The
+  predictions are kept as written; the Stage 2C box sends no such text;*
 - ✏️ *that Nemotron answered all of its early Cournot trap questions correctly (Stage 2B, before
   that block was analysed);*
 - ✏️ *two hand-check sheets of 60 real Stage 2A answers each, in which the model behind each

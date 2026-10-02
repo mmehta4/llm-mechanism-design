@@ -32,22 +32,16 @@ def test_not_registered_yet():
     assert prereg3_locked() is False
 
 
-def test_answer_box_accepts_fractions_so_nothing_is_cut_at_the_slash():
-    """Nemotron writes 683/60; a number-only box kept 683 (deviation 6)."""
-    from experiments.trial import deviation_of
+def test_stage2c_box_is_neutral_and_shaped_like_stage2a():
+    """Number-only, answer first, reasoning second: only the field's words change."""
     from games.deep import NumberAction
-    a = NumberAction(number="683/60", reasoning="")
-    assert abs(float(a.number) - 683 / 60) < 1e-9
-    assert deviation_of(a.number, 683 / 60) == 0.0
-
-
-def test_answer_box_reading_rule():
-    import pytest
-    from games.deep import NumberAction
-    read = lambda v: float(NumberAction(number=v, reasoning="").number)
-    assert read("(33.2 - 5) / 3 = 9.4") == pytest.approx(9.4)
-    assert read("683/60") == pytest.approx(683 / 60)
-    assert read(">${88.4 - 5}{3} = 27.8") == pytest.approx(27.8)
-    for bad in ("", "between 9 and 10"):
-        with pytest.raises(Exception):
-            read(bad)
+    from games.vickrey import BidAction
+    neutral = NumberAction.model_json_schema()
+    assert neutral["properties"]["number"]["type"] == "number"
+    assert list(neutral["properties"]) == ["number", "reasoning"]
+    assert list(BidAction.model_json_schema()["properties"]) == ["bid", "reasoning"]
+    from openai.lib._pydantic import to_strict_json_schema
+    text = str(to_strict_json_schema(NumberAction)).lower()   # exactly what is sent
+    assert "description" not in to_strict_json_schema(NumberAction)
+    for leak in ("bid", "sealed", "quantity", "produce", "contribut", "endowment", "auction"):
+        assert leak not in text
