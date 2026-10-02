@@ -1726,3 +1726,25 @@ Traceback (most recent call last):
     with self.path.open("a", newline="", encoding="utf-8") as f:
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+kimi: 690/1104 done, 414 to go  -> stage2_kimi.csv
+[ 691/1104] public_goods           named     p2 AT_EQUILIBRIUM     384.1s  ~9/h
+[ 692/1104] vickrey                named     p2 AT_EQUILIBRIUM     326.1s  ~10/h
+[ 693/1104] public_goods           named     p2 AT_EQUILIBRIUM     281.8s  ~11/h
+[ 694/1104] public_goods           named     p0 AT_EQUILIBRIUM     281.5s  ~11/h
+[ 695/1104] public_goods           disguised p2 AT_EQUILIBRIUM     249.7s  ~12/h
+[ 696/1104] cournot                named     p0 AT_EQUILIBRIUM     330.9s  ~12/h
+[ 697/1104] cournot                disguised p0 AT_EQUILIBRIUM    1096.9s  ~9/h
+[ 698/1104] cournot                disguised p1 AT_EQUILIBRIUM     259.6s  ~9/h
+[ 699/1104] repeated_pd            disguised p1 STRATEGIC_GAP      315.3s  ~9/h
+[ 700/1104] cournot                disguised p2 AT_EQUILIBRIUM     242.0s  ~10/h
+[ 701/1104] cournot                disguised p1 AT_EQUILIBRIUM     247.9s  ~10/h
+[ 702/1104] public_goods           named     p1 AT_EQUILIBRIUM     356.8s  ~10/h
+[ 703/1104] repeated_pd            named     p0 STRATEGIC_GAP      343.3s  ~10/h
+[ 704/1104] vickrey                named     p0 AT_EQUILIBRIUM     293.7s  ~10/h
+[ 705/1104] cournot                disguised p2 AT_EQUILIBRIUM     218.6s  ~10/h
+[ 706/1104] cournot                disguised p0 AT_EQUILIBRIUM     260.6s  ~10/h
+[ 707/1104] cournot                named     p2 AT_EQUILIBRIUM     237.1s  ~11/h
+[ 708/1104] cournot                named     p2 AT_EQUILIBRIUM     372.5s  ~11/h
+[ 709/1104] vickrey                disguised p2 AT_EQUILIBRIUM     297.0s  ~11/h
+[ 710/1104] vickrey                disguised p0 AT_EQUILIBRIUM     508.4s  ~10/h
+[ 711/1104] repeated_pd            named     p0 AT_EQUILIBRIUM     299.0s  ~10/h

@@ -22,7 +22,7 @@ sys.path.insert(0, str(ROOT))
 from config import CAPABILITY_ORDER
 from experiments.stage2 import (MAX_TRIES_PER_TRIAL, finished, infra_attempts,
                                 plan as plan_a, trial_key)
-from experiments.stage2b import BLOCK_MODELS, PLANS
+from experiments.stage2b import BLOCK_MODELS, DROPPED_BLOCKS, PLANS
 
 RAW = ROOT / "results" / "raw"
 
@@ -31,6 +31,8 @@ def runs():
     for m in CAPABILITY_ORDER:
         yield m, "2A", plan_a(), RAW / f"stage2_{m}.csv"
     for block in "BCED":
+        if block in DROPPED_BLOCKS:
+            continue
         for m in BLOCK_MODELS[block]:
             yield m, f"2B-{block}", PLANS[block](), RAW / f"stage2b_{block}_{m}.csv"
 

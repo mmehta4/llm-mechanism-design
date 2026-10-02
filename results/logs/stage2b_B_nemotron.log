@@ -1958,3 +1958,42 @@ Traceback (most recent call last):
     with self.path.open("a", newline="", encoding="utf-8") as f:
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 OSError: [Errno 28] No space left on device
+nemotron: 1042/1104 done, 62 to go  -> stage2b_B_nemotron.csv
+[1043/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM     251.0s  ~14/h
+[1044/1104] vickrey_trap           named     p1 AT_EQUILIBRIUM     129.9s  ~19/h
+[1045/1104] vickrey_trap           named     p1 AT_EQUILIBRIUM     113.7s  ~22/h
+[1046/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM      74.1s  ~25/h
+[1047/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM      81.8s  ~28/h
+[1048/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM     315.7s  ~22/h
+[1049/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     508.0s  ~17/h
+[1050/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM     740.5s  ~13/h
+[1051/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM     228.7s  ~13/h
+[1052/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM      40.1s  ~14/h
+[1053/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM      75.3s  ~15/h
+[1054/1104] repeated_pd_trap       named     p2 AT_EQUILIBRIUM     349.7s  ~15/h
+[1055/1104] cournot_trap           disguised p2 AT_EQUILIBRIUM     184.0s  ~15/h
+[1056/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM     190.3s  ~15/h
+[1056/1104] vickrey_trap           named     p2 INFRA_FAIL          93.8s  ~16/h  overloaded
+[1057/1104] vickrey_trap           named     p1 AT_EQUILIBRIUM      86.8s  ~17/h
+[1058/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM     176.3s  ~17/h
+[1059/1104] cournot_trap           named     p2 COMPETENCE_GAP      40.7s  ~18/h
+[1060/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM     284.6s  ~17/h
+[1060/1104] public_goods_trap      disguised p0 INFRA_FAIL         234.1s  ~17/h  overloaded
+[1061/1104] cournot_trap           named     p0 AT_EQUILIBRIUM      44.5s  ~18/h
+[1062/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     221.9s  ~18/h
+[1063/1104] cournot_trap           named     p0 AT_EQUILIBRIUM      56.2s  ~18/h
+[1064/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM      97.1s  ~19/h
+[1065/1104] cournot_trap           named     p2 AT_EQUILIBRIUM      93.6s  ~19/h
+[1066/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM     501.0s  ~18/h
+[1067/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM      74.3s  ~18/h
+[1068/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     132.6s  ~19/h
+[1069/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM     349.4s  ~18/h
+[1070/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM     163.9s  ~18/h
+[1071/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM     107.6s  ~18/h
+[1072/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM      92.4s  ~19/h
+[1073/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM     394.3s  ~18/h
+[1074/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM      69.2s  ~19/h
+[1075/1104] cournot_trap           disguised p2 AT_EQUILIBRIUM     133.2s  ~19/h
+[1076/1104] vickrey_trap           disguised p1 AT_EQUILIBRIUM     234.4s  ~19/h
+[1077/1104] cournot_trap           named     p1 AT_EQUILIBRIUM     359.7s  ~18/h
+[1078/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM      35.0s  ~19/h

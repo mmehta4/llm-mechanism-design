@@ -31,10 +31,10 @@ A = lambda m: ("stage2.py", f"--model {m}")
 B = lambda block, m: ("stage2b.py", f"--block {block} --model {m}")
 
 CHAINS = [
-    # Groq. Free tier: 200,000 tokens a day, ~170 questions. The traps (Block B) go
-    # first because they carry the study; Block D, the largest, goes last.
-    [A("gptoss120b"), B("B", "gptoss120b"), B("C", "gptoss120b"), B("E", "gptoss120b"),
-     B("D", "gptoss120b_low"), B("D", "gptoss120b_high")],
+    # Groq. Free tier: 200,000 tokens a day, ~170 questions. Traps (Block B) first.
+    # Block D was dropped before any of its data existed (deviation 7), so every model
+    # now answers exactly the same set of questions.
+    [A("gptoss120b"), B("B", "gptoss120b"), B("C", "gptoss120b"), B("E", "gptoss120b")],
     # NVIDIA
     [A("nemotron")],
     [B("B", "nemotron"), B("C", "nemotron"), B("E", "nemotron")],

@@ -11,7 +11,8 @@ ALL_GAMES = {
 # Stage 2B games live apart from the registered Stage 2A set, and importing them
 # registers their probes. GAMES is what a trial looks a key up in.
 from games.stress import STRESS_GAMES  # noqa: E402
+from games.deep import DEEP_GAMES  # noqa: E402  (Stage 2C pilot: deeper disguises)
 
-GAMES = {**ALL_GAMES, **STRESS_GAMES}
+GAMES = {**ALL_GAMES, **STRESS_GAMES, **DEEP_GAMES}
 
-__all__ = ["GameSpec", "DisguisedPromptMissing", "ALL_GAMES", "STRESS_GAMES", "GAMES"]
+__all__ = ["GameSpec", "DisguisedPromptMissing", "ALL_GAMES", "STRESS_GAMES", "DEEP_GAMES", "GAMES"]

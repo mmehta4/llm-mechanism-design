@@ -77,10 +77,12 @@ def read_rows(path: Path) -> list[dict]:
 def sources(model: str) -> list[dict]:
     """Every run that belongs to one model: its Stage 2A run and each Stage 2B block."""
     from experiments.stage2 import plan as plan_a
-    from experiments.stage2b import BLOCK_MODELS, PLANS
+    from experiments.stage2b import BLOCK_MODELS, DROPPED_BLOCKS, PLANS
     out = [{"block": "A", "label": BLOCK_NAMES["A"], "runner": model, "total": len(plan_a()),
             "csv": f"stage2_{model}", "cmd": f"stage2.py --model {model}"}]
     for block in "BCED":
+        if block in DROPPED_BLOCKS:
+            continue
         for runner in BLOCK_MODELS[block]:
             if runner != model and not (block == "D" and runner.startswith(model + "_")):
                 continue
@@ -195,6 +197,39 @@ def model_state(model: str, spec, procs: list[str]) -> dict:
     }
 
 
+# Validated Stage 3.5 result (NAMES_GAME, κ = 1.00) on the model's complete Stage 2A
+# disguised answers: results/analysis/reasoning_nemotron.md
+REAL_2A_RECOGNITION = {"nemotron": {"cournot": "96%", "vickrey": "100%", "repeated_pd": "81%",
+                                    "public_goods": "54%"}}
+
+
+def pilot_deep() -> list[dict]:
+    """Stage 2C pilot (practice questions only): per model, per game, per wording."""
+    from analysis.reasoning import code
+    from experiments.pilot_deep import FAMILIES, LEVELS
+    out = []
+    for path in sorted((ROOT / "results" / "raw").glob("practice2c_*.csv")):
+        model = path.stem.replace("practice2c_", "")
+        rows = [r for r in read_rows(path) if r.get("verdict") != "INFRA_FAIL"]
+        cells = []
+        for fam in FAMILIES:
+            # the panel shows the extreme disguise; its comparison is the model's REAL
+            # Stage 2A disguised recognition, shown beside it
+            for label, suffix in [("deep3 extreme", "_deep3")]:
+                rs = [r for r in rows if r["game"] == fam + suffix]
+                counted = [r for r in rs if r["verdict"] in ("AT_EQUILIBRIUM", "STRATEGIC_GAP")]
+                cells.append({
+                    "game": fam, "wording": label, "n": len(rs),
+                    "names": sum("NAMES_GAME" in code(r) for r in counted), "counted": len(counted),
+                    "eq": sum(r["verdict"] == "AT_EQUILIBRIUM" for r in rs),
+                    "probe": sum(r["probe_passed"] == "True" for r in rs),
+                })
+        extreme = [r for r in rows if r["game"].endswith("_deep3")]
+        out.append({"model": model, "done": len(extreme), "planned": 8 * len(FAMILIES),
+                    "cells": cells, "real_2a": REAL_2A_RECOGNITION.get(model, {})})
+    return out
+
+
 def state() -> dict:
     from config import CAPABILITY_ORDER, MODELS
     procs = python_commands()
@@ -206,7 +241,7 @@ def state() -> dict:
         if len(parts) == 3:
             commits.append({"hash": parts[0], "when": parts[1], "subject": parts[2]})
 
-    return {"models": models, "commits": commits,
+    return {"models": models, "commits": commits, "pilot_deep": pilot_deep(),
             "now": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
 
 
@@ -311,6 +346,13 @@ class Handler(SimpleHTTPRequestHandler):
             self.wfile.write(body)
             return
         super().do_GET()
+
+    def end_headers(self):
+        # never let the browser reuse an old copy of the page: it hid the new Stage 2C
+        # panel behind a cached version once
+        if not self.path.startswith("/api/"):
+            self.send_header("Cache-Control", "no-store")
+        super().end_headers()
 
     def log_message(self, *a):
         pass          # polling every 2s would otherwise flood the terminal
