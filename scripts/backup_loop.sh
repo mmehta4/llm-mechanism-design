@@ -29,5 +29,13 @@ while true; do
       echo "$(date '+%F %T') push failed, will retry" >> "$SRC/results/logs/backup.log"
     fi
   fi
+  # the main repository too, now that iCloud keeps it local ("Keep Downloaded"): new
+  # results go into the real history on branch main
+  cd "$SRC" && git add results/raw results/analysis >/dev/null 2>&1
+  if ! git diff --cached --quiet 2>/dev/null; then
+    git commit -q -m "Automatic backup: results $(date '+%F %H:%M')" && \
+    git push -q origin main >/dev/null 2>&1 && \
+    echo "$(date '+%F %T') results pushed to main" >> "$SRC/results/logs/backup.log"
+  fi
   sleep 10800
 done
