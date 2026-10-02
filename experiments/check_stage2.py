@@ -35,6 +35,9 @@ def runs():
             continue
         for m in BLOCK_MODELS[block]:
             yield m, f"2B-{block}", PLANS[block](), RAW / f"stage2b_{block}_{m}.csv"
+    from experiments.stage2c import plan as plan_c
+    for m in CAPABILITY_ORDER:
+        yield m, "2C", plan_c(), RAW / f"stage2c_{m}.csv"
 
 
 def block_complete(model: str, block: str) -> bool:

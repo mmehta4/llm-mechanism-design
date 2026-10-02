@@ -29,7 +29,9 @@ from functools import partial
 
 from games import cournot, public_goods, repeated_pd, vickrey
 from games.base import GameSpec
-from pydantic import BaseModel, Field
+from fractions import Fraction
+
+from pydantic import BaseModel, Field, field_validator
 
 from games.probes import PROBES, ChoiceProbe, NumericProbe
 
@@ -39,15 +41,24 @@ DEEP_PD = dict(T=9.5, R=6.5, P=3.5, S=2.0)
 
 class NumberAction(BaseModel):
     """A NEUTRAL answer box. The Stage 2A boxes carried the named game's vocabulary into
-    the disguised questions ("bid: The sealed bid to submit", "quantity: The quantity to
-    produce", "contribution: How much of your endowment to contribute"), and a model
-    writes the field name as it answers. Every deep version uses this instead."""
-    # "as a decimal": Nemotron derives answers as fractions ("683/60") and the number-only
-    # box cuts them at the "/", keeping the numerator (deviation 6). Stating the format
-    # removes that measuring error from Stage 2C without hinting at any game.
-    number: float = Field(description="The number you choose, written as a decimal "
-                                      "(for example 12.25), not a fraction.")
+    the disguised questions ("bid: The sealed bid to submit", "quantity to produce",
+    "contribution"), and a model writes the field name as it answers. Every deep and
+    extreme version uses this instead.
+
+    The answer is a STRING that may be a fraction. Nemotron derives answers as fractions
+    ("683/60") and writes the answer before its reasoning; a number-only box blocks the
+    "/" and keeps the numerator (deviation 6). Asking for a decimal did not stop it in
+    practice. Accepting "a/b" and converting it here removes the cut-off entirely while
+    keeping Stage 2A's order (answer, then reasoning).
+    """
+    number: str = Field(description="The number you choose, as a decimal (12.25) or a "
+                                    "fraction (49/4).")
     reasoning: str = Field(description="One or two sentences explaining the number.")
+
+    @field_validator("number")
+    @classmethod
+    def _to_decimal(cls, v: str) -> str:
+        return str(float(Fraction(str(v).strip().replace(" ", ""))))
 
 
 def _spec(key: str, base: GameSpec, text: str, sampler=None, neutral: bool = True) -> GameSpec:

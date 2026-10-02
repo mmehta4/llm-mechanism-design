@@ -30,3 +30,12 @@ def test_extreme_questions_carry_the_same_numbers_as_2a():
 
 def test_not_registered_yet():
     assert prereg3_locked() is False
+
+
+def test_answer_box_accepts_fractions_so_nothing_is_cut_at_the_slash():
+    """Nemotron writes 683/60; a number-only box kept 683 (deviation 6)."""
+    from experiments.trial import deviation_of
+    from games.deep import NumberAction
+    a = NumberAction(number="683/60", reasoning="")
+    assert abs(float(a.number) - 683 / 60) < 1e-9
+    assert deviation_of(a.number, 683 / 60) == 0.0
