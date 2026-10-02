@@ -45,3 +45,10 @@ whenever λ < 3.66. So it tests nothing. Instead:
 3. **The stage-game halfway point, at τ = 1.5:** an exact binomial test against 0.5, read with
    `docs/interpretation-key.md` (the repeated-game caveat applies).
 4. **Calibration:** each level against the QRE curve at λ̂ₘ.
+
+## Two definitions made explicit in the analysis code (Claude, for the author's review)
+
+- **"Target exceeded"** at τ\*: the 95% Wilson interval lies wholly above 90%. That is reported as
+  "QRE under-predicts responsiveness; the mechanism overpays".
+- **QRE's prediction band** at each level comes from the posterior over λ of the model's
+  Stage 2A named-PD fit. The point prediction uses the posterior median (λ̂).
