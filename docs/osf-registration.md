@@ -173,3 +173,15 @@ and disclosures are in the attached file.
 Attached file: preregistration-3.md
 SHA-256: cda56ed6445045cfc1f7d78a804d22d97cd9bf243139c039520ab57d9054aead
 Locked in git commit 103a7ce; materials at commit 49168d4.
+```
+
+## Registered (registration 3)
+
+- **OSF registration:** https://osf.io/cqnsy
+- **Submitted:** 2026-10-02 19:29:18 UTC, before any Stage 2C data existed (the Stage 2C
+  runner refuses real runs until the lock matches; first Stage 2C question asked after this).
+- **Status at submission:** embargoed (private) until **2027-09-30**, then public automatically.
+- **Registered file:** `docs/preregistration-3.md`, SHA-256
+  `cda56ed6445045cfc1f7d78a804d22d97cd9bf243139c039520ab57d9054aead` (lock commit 103a7ce).
+  OSF's own hash of the uploaded file matches.
+- Licence CC-By 4.0; same subjects and tags as registrations 1 and 2.
