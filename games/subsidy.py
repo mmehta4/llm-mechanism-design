@@ -23,9 +23,19 @@ from functools import partial
 from games import repeated_pd
 from games.probes import NumericProbe
 
-# Decision 2, pending the author's choice: baseline, the parameter-free halfway point
-# (τ = ((T − R) + (P − S)) / 2 = 1.5), and points along the curve.
-SUBSIDY_LEVELS = (0.0, 1.5, 3.0, 5.0, 10.0)
+# docs/stage5-design.md. Fixed levels: baseline, the parameter-free halfway point
+# (τ = ((T − R) + (P − S)) / 2 = 1.5), and the classical "guess" just above the dominance
+# threshold T − R = 2. The fourth, DERIVED level is per model: Theorem 3's subsidy for 90%
+# cooperation at that model's fitted λ (derived_level), fixed at the decision gate.
+SUBSIDY_LEVELS = (0.0, 1.5, 2.5)
+TARGET = 0.9
+
+
+def derived_level(lam: float, target: float = TARGET) -> float:
+    """The derived mechanism: τ(p*, λ) of Theorem 3, rounded to one decimal for the question."""
+    from mechanisms.pd import required_subsidy
+    return round(float(required_subsidy(target, lam)), 1)
+
 
 RULE = ("On top of these scores, each player is paid an extra {tau:g} points in every round "
         "in which they choose C.")
@@ -64,13 +74,14 @@ def key_for(tau: float) -> str:
     return "repeated_pd_subsidy_" + f"{tau:g}".replace(".", "p")
 
 
-SUBSIDY_GAMES = {
-    key_for(tau): replace(
+def spec_for(tau: float):
+    return replace(
         repeated_pd.SPEC, key=key_for(tau), named_prompt=NAMED, named_variants=NAMED_VARIANTS,
         disguised_prompt=None, disguised_variants=(),
         equilibrium=lambda **p: p["equilibrium_named"], sampler=partial(sample, tau=tau))
-    for tau in SUBSIDY_LEVELS
-}
+
+
+SUBSIDY_GAMES = {key_for(tau): spec_for(tau) for tau in SUBSIDY_LEVELS}
 
 # Maths check in the question's own terms: the subsidy must be read and applied.
 PROBE = (
@@ -91,5 +102,5 @@ SUBSIDY_PROBES = {
 
 def render(tau: float, wording: int = 0, seed: int = 1) -> str:
     """The exact question text, for the author's prompt check."""
-    spec = SUBSIDY_GAMES[key_for(tau)]
+    spec = spec_for(tau)
     return spec.prompt("named", wording, **spec.sampler(seed=seed))
