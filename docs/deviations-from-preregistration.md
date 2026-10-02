@@ -103,3 +103,33 @@ under the registered rule for server refusals. Genuine maths-check format failur
 before the outage (replies taking 5–25 seconds) were left exactly as they were. Since
 then, any failure that happens before a reply arrives is classified as infrastructure,
 and an access refusal pauses the run instead of racing through the plan.
+
+## 6. Observation and exploratory addition: Nemotron's "fraction slip" (2026-10-02)
+
+Not a deviation: the confirmatory analysis is run and reported exactly as locked. Recorded
+because it changes how one number should be read.
+
+**What was seen** (Nemotron's Stage 2A analysis, the first real result): 31 of its 276
+counted Cournot answers (11%) are exactly 3× or 6× the equilibrium. In every one, the
+written reasoning reaches the correct answer as a fraction ("q = 70/3 ≈ 23.33",
+"157/6 ≈ 26.17"), but the answer field holds the numerator (70, 157). The answer field
+only accepts a plain number, and the fraction was cut at the "/". No other model shows
+this in Stage 2A, and Nemotron does not show it in the Cournot trap.
+
+**What it does to the results.**
+- *Main test (share at equilibrium):* scored as registered — the answer field is the
+  answer. The slip hits both wordings about equally (normal 90%, disguised 88%), so the
+  conclusion of no disguise effect is unaffected.
+- *λ for Nemotron's Cournot cells:* the logit model reads a jump to 3× the equilibrium as
+  an enormously costly strategic error, so λ is pulled to the bottom of the grid. For this
+  cell, λ measures the slip rate, not strategic precision. It is reported with that note.
+
+**Exploratory addition, defined before any other model's Stage 2A analysis.** For every
+model, λ will also be reported with answers excluded where the answer field disagrees
+with the final number stated in the model's own reasoning. This is labelled exploratory
+in the paper; the confirmatory numbers are the locked ones. Stage 3.5's reasoning
+checklist gets a matching code (answer–reasoning mismatch).
+
+**Also seen, for Stage 3.5:** in the disguised wording Nemotron often writes "This is a
+Cournot duopoly game", i.e. it recognised the disguised game. Recognition rates will be
+measured for every model by the Stage 3.5 checklist.
