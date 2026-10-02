@@ -4,6 +4,7 @@
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
+\usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
@@ -377,7 +378,16 @@ $\lam$ & $r^*(\lam)$ & Revenue at $r^*$ & Revenue at 50 \\
 \end{tabular}
 \end{table}
 
-$r^*(\lam)$ is U-shaped:
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\linewidth]{figures/reserve_curve.pdf}
+\caption{The revenue-optimal reserve for three logit-QRE bidders (full symmetric QRE, values
+uniform on $[10,100]$). It is U-shaped in precision, and returns to Myerson's 50 as
+$\lam \to \infty$.}
+\label{fig:reserve}
+\end{figure}
+
+$r^*(\lam)$ is U-shaped (Figure~\ref{fig:reserve}):
 \begin{itemize}
 \item \textbf{Moderate noise:} 21\% of bidders with $v > 50$ bid below a reserve of 50 (at
   $\lam = 0.2$), so lowering $r$ recovers those sales.
@@ -424,7 +434,18 @@ it too passes through $\tfrac12$ at $\tau = 1.5$. The corollary is a statement a
 the last round \citep{benoit1985finitely}. At $\tau = 1.5$ deviating gains $0.5$, while the
 last-round punishment costs at least $1.5$. Cooperation above 50\% at $\tau = 1.5$ is therefore
 consistent with rational repeated-game play, as well as with a cooperation norm. Noisy players are cheap to nudge towards
-partial cooperation and expensive to push to near-certainty. At Nemotron's fitted
+partial cooperation and expensive to push to near-certainty (Figure~\ref{fig:subsidy}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\linewidth]{figures/subsidy_curves.pdf}
+\caption{Cooperation under a subsidy $\tau$ for logit-QRE players. Every precision passes through
+50\% at $\tau = 1.5$ (Corollary~1), as does the rational mixed equilibrium. The dotted line is
+Theorem~3's subsidy for 90\% at Nemotron's fitted $\lam = 0.154$.}
+\label{fig:subsidy}
+\end{figure}
+
+At Nemotron's fitted
 $\lam = 0.154$:
 \begin{itemize}
 \item $\tau = 1.5$ gives 50\%;
