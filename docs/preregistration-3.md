@@ -40,8 +40,11 @@ derives should not.
 | Prisoner's dilemma | No story; payoffs 2u − 4 of the Stage 2A table (+6, +2, −2, −4) shown as balance changes; 10 rounds known to both; round 1. | defect |
 | Public goods | No story; asks how many points to KEEP; points not kept are pooled, multiplied by M and shared equally. | keep everything |
 
-**Answer box:** neutral throughout. `number`, "The number you choose, written as a decimal
-(for example 12.25), not a fraction." The PD keeps its already-neutral `action` box.
+**Answer box:** neutral throughout. `number`, "The number you choose, as a decimal (12.25) or a
+fraction (49/4)", converted to a decimal in code. A number-only box cut Nemotron's fractions at the
+"/" (deviation 6), and asking for a decimal did not stop it in practice; accepting the fraction
+removes the cut-off while keeping Stage 2A's order (answer first, then reasoning). The PD keeps its
+already-neutral `action` box.
 
 **Questions:** 138 per game per model, all four Stage 2A models (gpt-oss-120b, Nemotron 3 Ultra,
 Kimi K3, Gemini 3.5 Flash Lite). **Question k uses the same seed and the same wording index as
