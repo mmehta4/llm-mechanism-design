@@ -94,3 +94,112 @@ when noise is extreme. The reason, at r = 50:
 around λ ≈ 0.2. A difference that small is unlikely to be detectable in a Stage 5 test with
 AI bidders. So the auction result belongs in the paper as theory, not as the mechanism Stage 5
 tests. The decision gate (late October) picks the game where the AIs are actually noisy.
+
+---
+
+# The prisoner's dilemma with a cooperation subsidy
+
+## Set-up
+
+- Stage 2A's PD payoffs: T = 5, R = 3, P = 1, S = 0.
+- **Rule S(τ):** every player who cooperates is paid an extra τ. (A tax of τ on defecting is
+  the same rule for the players, since only the payoff difference between the two actions
+  matters.)
+- **Symmetric logit QRE** (as in the Stage 3 fits). Against an opponent who cooperates with
+  probability p, defecting pays more by ΔU(p) = p(T − R) + (1 − p)(P − S). Under S(τ), that
+  advantage becomes ΔU(p) − τ, so
+
+  p = 1 / (1 + exp(λ (ΔU(p) − τ))).
+
+## Theorem 3: the subsidy needed for a cooperation target, in closed form
+
+Write logit(p) = ln(p / (1 − p)). The τ at which the QRE cooperation rate equals p* is
+
+  **τ(p\*, λ) = ΔU(p\*) + logit(p\*) / λ.**
+
+**Proof.** Rearrange the QRE condition: (1 − p)/p = exp(λ (ΔU(p) − τ)), so
+−logit(p) = λ (ΔU(p) − τ). Solve for τ. ∎
+
+Since T − R ≥ P − S, ΔU increases in p, so the right-hand side of the QRE condition falls in p
+and the fixed point is unique. Each target has exactly one subsidy.
+
+**Corollary (a prediction with no free parameter).** logit(1/2) = 0, so at
+
+  **τ½ = ΔU(1/2) = ((T − R) + (P − S)) / 2 = 1.5**
+
+every logit-QRE population cooperates exactly half the time, **whatever its λ**. Rational
+players agree. Between τ = P − S = 1 and τ = T − R = 2, the subsidised game is "chicken", and
+its symmetric equilibrium is mixed, with p = τ − 1. That gives p = 1/2 at τ = 1.5 too. So all
+the QRE curves cross the rational ramp at the same point; λ only sets how steep the curve is
+there.
+
+**Cooperation rate under subsidy τ:**
+
+| λ | τ = 0 | 1 | **1.5** | 2 | 3 | 5 | 10 | 20 |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0.154 (Nemotron, Stage 2A fit) | 44% | 48% | **50%** | 52% | 56% | 63% | 78% | 94% |
+| 0.5 | 34% | 44% | **50%** | 56% | 66% | 83% | 98% | 100% |
+| 2.0 | 10% | 34% | **50%** | 66% | 90% | 100% | 100% | 100% |
+| rational (λ → ∞) | 0% | 0% | **50%** | 100% | 100% | 100% | 100% | 100% |
+
+Nemotron's observed first-round cooperation at τ = 0 is 41% (Stage 2A, named wording).
+
+**Subsidy needed for a target:**
+
+| λ | p\* = 25% | 50% | 75% | 90% | 99% |
+|---:|---:|---:|---:|---:|---:|
+| 0.154 | −5.9 (a *tax* on cooperating) | 1.5 | 8.9 | 16.2 | 31.8 |
+| 0.5 | −0.9 | 1.5 | 3.9 | 6.3 | 11.2 |
+| 2.0 | 0.7 | 1.5 | 2.3 | 3.0 | 4.3 |
+
+**What this means:**
+- Noisy players are cheap to nudge to partial cooperation, and very expensive to get to near
+  certainty. Rational theory says τ just above 2 buys 100% cooperation. For Nemotron's fitted
+  λ, 90% costs about 16.
+- **For Stage 5, this is a much stronger test than the auction.** The effects are tens of
+  percentage points, not 1%.
+- **The halfway point separates the behaviour models with no fitting at all:**
+  - any logit-QRE player cooperates 50% at τ = 1.5;
+  - a model that recalls "always defect in a finitely repeated PD" stays near 0%;
+  - a model driven by a cooperation norm (the reasoning code `COOPERATION_NORM`) sits well
+    above 50%.
+
+**Caveats, stated now:**
+- The Stage 2A PD is round 1 of a known 10-round game. The stage-game QRE ignores
+  continuation play, which is harmless for a rational player (backward induction) but is a
+  modelling choice for a noisy one.
+- Nemotron's PD λ is uncertain: the 95% interval is [0.0016, 0.47]. Predictions away from the
+  halfway point inherit that uncertainty; the halfway point does not.
+
+## Cournot: no mechanism target, so far
+
+After the fraction-slip correction, Nemotron plays the Cournot equilibrium in about 98% of
+counted answers. Its misses were mostly answers cut at a fraction bar, and a mechanism that
+corrects a formatting error isn't mechanism design. The decision gate rechecks this with all
+four models.
+
+**Beyond logit (Meet Mehta, Stage 4A Task 5f).** The halfway-point prediction does not depend
+on the logit form. In any *regular* quantal response with symmetric errors, a player who is
+indifferent chooses each action with probability ½. ΔU − τ rises in p, while the response
+falls in ΔU − τ, so the fixed point is unique. At τ = ΔU(½) it is therefore p = ½. A miss at
+τ = 1.5 can't be blamed on having chosen logit: it rejects the whole regular-QRE family.
+
+**Correction: the stage game vs the 10-round game (Meet Mehta, final workbook, Task 1).** The
+halfway-point prediction is for the one-shot *stage* game. For 1 < τ < 2 the subsidised stage
+game is chicken, with two pure equilibria that pay each player differently (5 vs τ). In a
+finitely repeated game with several stage equilibria like this, early cooperation can be
+subgame-perfect (Benoît & Krishna, 1985): play (C, C), and punish a deviator in the last round
+with the equilibrium worst for them. At τ = 1.5:
+- deviating from C gains 5 − 4.5 = 0.5;
+- the last-round punishment costs at least 3 − 1.5 = 1.5 (against the mixed equilibrium) and up
+  to 5 − 1.5 = 3.5.
+
+So mutual cooperation in round 1 is consistent with fully rational play. At τ = 0, 2.5 and τ\*
+the stage equilibrium is unique, so nothing changes there. Stage 5 keeps τ = 1.5, for
+comparability with the stage-game λ fits, and reads a cooperation rate above 50% there as either
+a norm or repeated-game reasoning (`docs/interpretation-key.md`).
+
+**The headline test (author's amendment).** "τ\* gives more cooperation than 2.5" is nearly
+guaranteed, because τ\* = 1.9 + ln 9/λ > 2.5 whenever λ < 3.66. The real test compares the
+theories' predictions: at τ = 2.5, is QRE closer than classical theory's 100%? And at τ\* is the
+observed rate within 90 ± 15?

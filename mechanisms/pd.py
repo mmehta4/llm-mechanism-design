@@ -18,9 +18,11 @@ cooperate with probability p* is
 
     τ(p*, λ) = ΔU(p*) + ln(p* / (1 − p*)) / λ,
 
-in closed form, with no fixed point to solve. Rational players (λ → ∞) need only τ just above
-max(T − R, P − S) for p* → 1. Noisy players need an extra ln(p*/(1−p*))/λ: cheaper than
-rational theory for low targets, and ever dearer as p* → 1.
+in closed form, with no fixed point to solve. Rational players (λ → ∞) defect below
+τ = P − S, cooperate above τ = T − R, and in between play the subsidised game as chicken,
+mixing with ΔU(p) = τ. Noisy players need an extra ln(p*/(1−p*))/λ: cheaper than rational
+theory for low targets, and ever dearer as p* → 1. At p* = 1/2 the extra term vanishes, so
+τ = ΔU(1/2) gives 50% cooperation at EVERY λ -- a prediction with no free parameter.
 """
 from __future__ import annotations
 
@@ -48,7 +50,8 @@ def required_subsidy(p_target, lam: float, T=5.0, R=3.0, P=1.0, S=0.0):
 
 
 def rational_threshold(T=5.0, R=3.0, P=1.0, S=0.0) -> float:
-    """Above this τ, cooperating is dominant for a rational player."""
+    """Above this τ, cooperating is dominant for a rational player. (Below P − S defecting
+    is dominant; in between, the symmetric equilibrium is mixed.)"""
     return max(T - R, P - S)
 
 

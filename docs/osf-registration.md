@@ -185,3 +185,18 @@ Locked in git commit 103a7ce; materials at commit 49168d4.
   `cda56ed6445045cfc1f7d78a804d22d97cd9bf243139c039520ab57d9054aead` (lock commit 103a7ce).
   OSF's own hash of the uploaded file matches.
 - Licence CC-By 4.0; same subjects and tags as registrations 1 and 2.
+
+---
+
+# Made public (all three together)
+
+- **2026-10-02, about 22:30–22:40 UTC.** Registrations 1–3 were taken out of embargo early at the
+  author's request, after OSF support repaired registration 1's stalled archive.
+- **Steps:**
+  1. The embargoes of registrations 2 and 3 were approved through OSF's emailed links.
+  2. "End embargo early" was requested on all three.
+  3. Each termination was approved through its emailed link.
+- **Verified through the OSF API:** `public: true` and `embargoed: false` for 2uqpj, 6hz8d and
+  cqnsy. Registration timestamps are unchanged (29 Sep, 30 Sep and 2 Oct 2026).
+- An empty, unsubmitted "update" draft on registration 1 (created 2026-10-02 19:41 UTC) is not
+  part of the public record.

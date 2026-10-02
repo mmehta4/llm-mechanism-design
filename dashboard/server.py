@@ -64,7 +64,8 @@ def age_s(ts: str) -> float | None:
 
 
 BLOCK_NAMES = {"A": "Stage 2A · confirmatory", "B": "Traps", "C": "Number sweep",
-               "E": "PD endgame", "D": "Think harder", "X": "Stage 2C · extreme disguise"}
+               "E": "PD endgame", "D": "Think harder", "X": "Stage 2C · extreme disguise",
+               "S": "Stage 5 · subsidy test"}
 
 
 def read_rows(path: Path) -> list[dict]:
@@ -95,6 +96,12 @@ def sources(model: str) -> list[dict]:
     from experiments.stage2c import plan as plan_c
     out.append({"block": "X", "label": BLOCK_NAMES["X"], "runner": model, "total": len(plan_c()),
                 "csv": f"stage2c_{model}", "cmd": f"stage2c.py --model {model}"})
+    # Stage 5: 100 per level; the number of levels (3 or 4) is fixed at the decision gate
+    from experiments.stage5 import LAMBDA_HAT, plan as plan_5
+    gated = model in LAMBDA_HAT
+    out.append({"block": "S", "label": BLOCK_NAMES["S"] + ("" if gated else " (starts after the gate)"),
+                "runner": model, "total": len(plan_5(model)) if gated else 400,
+                "csv": f"stage5_{model}", "cmd": f"stage5.py --model {model}"})
     return out
 
 
@@ -212,6 +219,8 @@ def pilot_deep() -> list[dict]:
     from experiments.pilot_deep import FAMILIES, LEVELS
     out = []
     for path in sorted((ROOT / "results" / "raw").glob("practice2c_*.csv")):
+        if "superseded" in path.stem or "wordings" in path.stem:
+            continue          # superseded practice files stay on disk, off the board
         model = path.stem.replace("practice2c_", "")
         rows = [r for r in read_rows(path) if r.get("verdict") != "INFRA_FAIL"]
         cells = []
@@ -233,6 +242,28 @@ def pilot_deep() -> list[dict]:
     return out
 
 
+def stage5_panel() -> dict:
+    """Stage 5 live: cooperation by subsidy level, beside QRE's prediction at the model's λ̂."""
+    from config import CAPABILITY_ORDER
+    from experiments.stage5 import LAMBDA_HAT, levels_for, prereg4_locked
+    from games.subsidy import key_for
+    from mechanisms.pd import coop_prob
+    rows = []
+    for m in CAPABILITY_ORDER:
+        lam = LAMBDA_HAT.get(m)
+        levels = levels_for(m) if lam is not None else (0.0, 1.5, 2.5, None)
+        answers = [r for r in read_rows(ROOT / "results" / "raw" / f"stage5_{m}.csv")
+                   if r.get("verdict") in ("AT_EQUILIBRIUM", "STRATEGIC_GAP")]
+        cells = []
+        for tau in levels:
+            rs = [r for r in answers if tau is not None and r["game"] == key_for(tau)]
+            cells.append({"tau": tau, "n": len(rs),
+                          "coop": sum(str(r["observed_action"]).strip().upper() == "C" for r in rs),
+                          "qre": coop_prob(lam, tau) if (lam is not None and tau is not None) else None})
+        rows.append({"model": m, "lam": lam, "cells": cells})
+    return {"registered": prereg4_locked(), "rows": rows}
+
+
 def state() -> dict:
     from config import CAPABILITY_ORDER, MODELS
     procs = python_commands()
@@ -244,7 +275,7 @@ def state() -> dict:
         if len(parts) == 3:
             commits.append({"hash": parts[0], "when": parts[1], "subject": parts[2]})
 
-    return {"models": models, "commits": commits, "pilot_deep": pilot_deep(),
+    return {"models": models, "commits": commits, "pilot_deep": pilot_deep(), "stage5": stage5_panel(),
             "now": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
 
 

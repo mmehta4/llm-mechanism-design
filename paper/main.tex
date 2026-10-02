@@ -1,0 +1,578 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newcommand{\tbd}[1]{\textcolor{red}{[TBD: #1]}}
+\newcommand{\lam}{\lambda}
+\DeclareMathOperator{\logit}{logit}
+
+\title{Equilibrium or Retrieval? Do LLM Agents Derive or Recall Game-Theoretic Equilibria,\\
+and What That Means for Mechanism Design}
+\author{Meet Mehta}
+\date{Draft, \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Large language models (LLMs) play textbook games well, but a model can reach the textbook
+answer in two ways: by deriving it from the rules, or by recognising a famous game and
+recalling its answer. We separate the two with \emph{isomorphic twins}: every question is
+asked in its standard wording, in a disguised wording with identical numbers and rules but no
+game vocabulary, and, in a third pre-registered study, in an extreme disguise with no story, coded
+answers and a neutral answer box. Four models from four providers answer 18{,}768 questions
+across a Vickrey auction, a Cournot duopoly, a finitely repeated prisoner's dilemma (PD) and a
+public goods game, each checked by a competence probe. All three studies are pre-registered on
+OSF. We fit a logit quantal response equilibrium (QRE) to every cell and compare precision
+$\lam$ across wordings. For the first model analysed (Nemotron~3~Ultra), the standard disguise
+changed nothing: play was identical in both wordings, and the model named the disguised game in
+54--100\% of answers, so the disguise did not hide the game. \tbd{2A results for the other
+three models; Stage 2C (extreme disguise) results.} We then ask what noisy, QRE-like agents
+imply for mechanism design. We prove that in a second-price auction a payment multiplier
+$\alpha$ is irrelevant for QRE bidders, but not for bidders who recall ``bid your value'',
+so $\alpha$ separates derivation from retrieval. We show that the revenue-optimal reserve for
+QRE bidders is U-shaped in $\lam$, but gains at most about 1\% over Myerson's reserve. And we
+derive in closed form the cooperation subsidy that reaches any target cooperation rate in a PD.
+In the stage game, its halfway point is free of parameters for the whole regular QRE family. A pre-registered test
+compares the derived subsidy's predictions with a classically ``guessed'' one: \tbd{Stage 5 result}.
+\end{abstract}
+
+% =====================================================================================
+\section{Introduction}
+
+LLM agents are beginning to take part in settings that game theory was built to analyse:
+bidding, pricing, negotiating, and sharing common resources. Designing the rules for such
+settings, which is the job of mechanism design, needs a model of how the participants behave.
+Classical mechanism design assumes rational players who best-respond. Behavioural mechanism
+design replaces them with an empirically fitted model, such as the logit quantal response
+equilibrium \citep{mckelvey1995qre,goeree2016qre}. Before a fitted model of LLM play can be
+trusted to design anything, a prior question must be answered: \emph{is the play we measure
+reasoning at all, or retrieval?}
+
+The concern is concrete. The Vickrey auction, the Cournot duopoly, the prisoner's dilemma and the
+public goods game are among the most written-about games in any training corpus. A model can
+answer ``bid your true value'' or ``produce $(a-c)/3b$'' because it has seen the answer
+thousands of times, not because it derived it. LLMs are known to perform better on familiar
+versions of a task than on unfamiliar but equivalent ones \citep{mccoy2024embers}. If strategic
+play is recalled, then a mechanism tuned to it may fail as soon as the rules depart from the
+textbook, which is exactly when a designer would change them.
+
+\paragraph{What we do.}
+\begin{enumerate}
+\item \textbf{Isomorphic twins.} Each question has a standard (``named'') wording and a disguised
+  wording. The disguise keeps every number and rule but removes the game's vocabulary. A third
+  study adds an \emph{extreme} disguise: no story, coded answers (for example, offer $=3x+5$) and
+  a neutral answer box. A model that derives should play identically across wordings; a model
+  that recalls should not.
+\item \textbf{Competence probes and pre-registration.} Every answer is paired with a short maths
+  check posed in the question's own terms, and only answers whose check is passed are analysed.
+  All hypotheses, sample sizes and analyses were pre-registered on OSF before data collection,
+  in three registrations \citep{nosek2018prereg}.
+\item \textbf{Behavioural fits.} We fit a logit QRE to each model, game and wording, and compare
+  precision $\lam$ across wordings ($\Delta\lam$).
+\item \textbf{Mechanism design for noisy agents.} We derive three results for QRE players: that
+  a payment multiplier is irrelevant in a second-price auction; that a reserve price can only
+  lower efficiency, while the revenue-optimal reserve is U-shaped in $\lam$; and a closed-form
+  cooperation subsidy for the PD. We then test the derived subsidy on the models against a
+  classically guessed one.
+\end{enumerate}
+
+\paragraph{Contributions.}
+(i) A pre-registered, probe-checked twin design that separates derived from recalled strategic
+play. (ii) Evidence on four frontier models across four games and three wordings
+\tbd{one-sentence headline once all models are analysed}. (iii) Theory results for mechanism
+design with QRE agents, including a parameter-free prediction (Corollary~1) and an
+$\alpha$-based test of retrieval (Theorem~1), with a confirmatory test on the same models.
+
+% =====================================================================================
+\section{Related work}
+
+\paragraph{LLMs as economic and strategic agents.} \citet{horton2023homo} proposed treating LLMs
+as simulated economic agents, ``homo silicus'', and reproduced classic behavioural-economics
+experiments with them. \citet{akata2025repeated} studied LLMs in finitely repeated $2\times 2$
+games, including the PD, and found strong play in self-interested games but poor coordination.
+\citet{fan2024rational} evaluated whether LLMs satisfy basic rationality requirements in
+games, and benchmarks such as GTBench \citep{duan2024gtbench} measure strategic reasoning across
+many game types. Our design differs: we hold the game fixed and vary only its \emph{wording},
+so that a difference in play isolates recognition of the game rather than ability.
+
+\paragraph{Behavioural game theory for LLMs.} \citet{jia2025behavioral} evaluated 22 LLMs with
+behavioural game-theory models rather than Nash benchmarks. \citet{pechon2026auditing} audit
+QRE-based measures of LLM strategic reasoning and argue that fitted parameters are payoff- and
+model-dependent summaries rather than structural measures of rationality. We take that caution
+seriously: we report fits per game rather than pooling one $\lam$; we verify by parameter
+recovery that our fitting procedure recovers known $\lam$; and we use $\lam$ mainly for
+\emph{within-question} comparisons across wordings, where the payoffs are identical by
+construction.
+
+\paragraph{Familiarity versus reasoning.} \citet{mccoy2024embers} showed that LLM accuracy
+depends on how probable a task and its output are under the training distribution. Our twins
+apply this idea to strategic play, with the important addition of competence probes, so that a
+drop under disguise cannot simply reflect misreading the disguised rules.
+
+\paragraph{Mechanism design.} Our auction results build on the second-price auction
+\citep{vickrey1961}, on Myerson's optimal auction and implementability results
+\citep{myerson1981}, and on the treatment in \citet{roughgarden2016}. QRE was introduced by
+\citet{mckelvey1995qre} and is surveyed in \citet{goeree2016qre}. To our knowledge, the closed
+forms and invariance results in Section~\ref{sec:mechanism} are not stated in this form for
+LLM agents elsewhere.
+
+% =====================================================================================
+\section{Games, twins and competence probes}\label{sec:design}
+
+\paragraph{Games.} Four games with known, unique equilibrium actions:
+\begin{itemize}
+\item \textbf{Vickrey auction:} three bidders; private value uniform on $[10,100]$; the
+  equilibrium is to bid one's value.
+\item \textbf{Cournot duopoly:} inverse demand $P = a - bQ$ with $b = 1$ and $c = 10$, and $a$
+  drawn per question; equilibrium quantity $(a-c)/3b$.
+\item \textbf{Repeated PD:} 10 rounds, a horizon known to both players, payoffs
+  $(T,R,P,S) = (5,3,1,0)$, asked in round~1; backward induction gives defection throughout.
+\item \textbf{Public goods:} $n$ players, endowment $e$, multiplier $1 < M < n$; the equilibrium
+  is to contribute nothing.
+\end{itemize}
+Numbers are drawn from seeded samplers, so each question can be reproduced exactly.
+
+\paragraph{Twins.} The disguised wording keeps every number, rule and information structure (who
+knows what, and who moves when) and removes the game's vocabulary (``auction'', ``firm'',
+``cooperate''). The PD's labels are counterbalanced, with \texttt{X}/\texttt{Y} randomly assigned
+to cooperation. Each wording has three paraphrases, which reword or reorder but never add or
+drop a fact, so a wording effect can be told apart from a disguise effect. The \emph{extreme}
+disguise (Stage 2C) goes further:
+\begin{itemize}
+\item no story at all;
+\item coded answers (Vickrey offer $= 3x + 5$ with a private prize; Cournot amount $= 2x + 4$
+  with the profit written in expanded form; public goods asks how much to \emph{keep});
+\item PD payoffs transformed to $2u - 4$ and shown as balance changes;
+\item a neutral answer box.
+\end{itemize}
+Each extreme question uses the same seed and paraphrase index as its standard twin, so every
+question exists in three wordings with identical numbers.
+
+\paragraph{Competence probes.} After each answer, the model receives a short calculation in the
+same wording (for example, ``you bid 50, the highest other bid is 60; what is your payoff?'').
+Only answers whose probe is passed are analysed. Verdicts are \textsc{at\_equilibrium},
+\textsc{strategic\_gap} (probe passed, equilibrium missed), \textsc{competence\_gap} (probe
+failed), and parse or format failures. Server refusals are infrastructure failures and are
+re-asked, never scored.
+
+\paragraph{Models.} gpt-oss-120b (via Groq), Nemotron~3~Ultra (NVIDIA), Kimi~K3 (Moonshot, via
+NVIDIA) and Gemini~3.5~Flash~Lite (Google), all with default sampling, collected
+September--November 2026.
+
+\paragraph{Studies.} Three pre-registered studies, 18{,}768 questions in total:
+\begin{itemize}
+\item \textbf{Stage 2A} (pre-registration 1): 4 games $\times$ 2 wordings $\times$ 138 questions
+  $\times$ 4 models $=$ 4{,}416.
+\item \textbf{Stage 2B} (pre-registration 2): 12{,}144 questions in three blocks:
+  \begin{itemize}
+  \item \emph{traps}, variants whose textbook answer is wrong (for example, the winner pays
+    \emph{twice} the second bid, or there are three firms instead of two);
+  \item a \emph{number sweep} that varies one parameter;
+  \item a PD \emph{endgame} asked at rounds 5, 9 and 10 after mutual cooperation.
+  \end{itemize}
+\item \textbf{Stage 2C} (pre-registration 3): the extreme disguise, 2{,}208 questions.
+\end{itemize}
+
+% =====================================================================================
+\section{Pre-registration and analysis}\label{sec:analysis}
+
+\paragraph{Pre-registration.} Pre-registrations 1--3 were locked by SHA-256 fingerprint in git
+and registered on OSF before the corresponding data existed. Each fixes:
+\begin{itemize}
+\item the predictions, written by the author;
+\item the exact sample sizes, as a stopping rule;
+\item exclusions;
+\item the tests.
+\end{itemize}
+The analysis code was fingerprinted too, and it refuses to run on real data unless its
+fingerprint matches. Ten deviations, all found and recorded before the affected analysis, are
+listed in Appendix~\ref{app:deviations}.
+
+\paragraph{Main tests.}
+\begin{itemize}
+\item \textbf{Stage 2A:} equilibrium play, named vs disguised, two-proportion $z$-tests with
+  Holm correction across games \citep{holm1979}. Public goods, the predicted null, uses an
+  equivalence test (TOST, $\pm 13$ points).
+\item \textbf{Stage 2C:} each extreme question is paired with its normal and disguised twins;
+  exact McNemar tests, paired differences with Agresti--Min intervals
+  \citep{agresti2005matched}, and pooling across models by summing discordant pairs (the
+  Mantel--Haenszel test for matched pairs).
+\end{itemize}
+
+\paragraph{QRE fitting.} In a logit QRE a player chooses action $a$ with probability
+proportional to $\exp(\lam\, u(a))$, where $u$ is the expected payoff against the others'
+equilibrium behaviour. $\lam = 0$ is uniform noise and $\lam \to \infty$ is Nash play. The
+game-specific choices were fixed before fitting:
+\begin{itemize}
+\item the PD and Cournot use symmetric fixed points;
+\item in public goods, $u(g) = (M/n - 1)g$;
+\item in the Vickrey auction, rivals are assumed to bid their equilibrium bids, with values
+  uniform on $[10,100]$.
+\end{itemize}
+We compute a posterior on a log-uniform grid $\lam \in [10^{-3}, 10^{3}]$. A cell whose evidence
+keeps rising towards the top of the grid gets a lower bound only, and is flagged as a ceiling.
+Parameter recovery on simulated data gave 93.75\% coverage of nominal 95\% intervals across
+320 fits.
+
+\paragraph{Reasoning codes.} The models' stated reasoning is coded by a fixed, locked codebook.
+The key code is \textsc{names\_game}: the reasoning names the game, using a name that the question
+itself does not use. Agreement with blind hand coding by the author was $\kappa = 1.00$
+on Stage~2A wording, and again on all 40 answers of a blind sample in the extreme wording.
+
+\paragraph{The fraction slip.} With a number-only answer box, Nemotron sometimes derives a
+fraction ($683/60 \approx 11.38$) and writes only part of it (683) into the box. A mechanical
+correction rule was fixed in pre-registration 3, before any Stage 2C data, and is applied
+identically to both stages. It changed 25 of Nemotron's 276 Stage 2A Cournot answers, all to
+correct, and no answer from any other model. Pre-registration 1's own analysis is reported
+uncorrected, as registered.
+
+% =====================================================================================
+\section{Results}\label{sec:results}
+
+\subsection{Stage 2A: standard vs disguised wording}
+
+\begin{table}[h]
+\centering
+\caption{Equilibrium play, named vs disguised (Stage 2A, pre-registration 1), share of
+probe-passed answers.}
+\label{tab:2a}
+\begin{tabular}{llrrrr}
+\toprule
+Model & Game & Named & Disguised & Change & Holm $p$ \\
+\midrule
+Nemotron & Vickrey      & 100\% (138/138) & 100\% (138/138) & $+0$ & 1 \\
+         & Cournot      & 90\% (124/138)  & 88\% (121/138)  & $-2$ & 1 \\
+         & Repeated PD  & 59\% (81/137)   & 59\% (81/137)   & $+0$ & 1 \\
+         & Public goods & 100\% (136/136) & 100\% (138/138) & $+0$ & 1 \\
+\midrule
+gpt-oss-120b & all games & \multicolumn{4}{c}{\tbd{collection ends about late October}} \\
+Kimi K3      & all games & \multicolumn{4}{c}{\tbd{}} \\
+Gemini 3.5 Flash Lite & all games & \multicolumn{4}{c}{\tbd{}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For Nemotron, the disguise changed nothing (Table~\ref{tab:2a}). Public goods was confirmed
+equivalent within $\pm 13$ points (TOST $p < 10^{-30}$). The pre-registered prediction of a
+Cournot drop was not borne out for this model. The fitted precision tells the same story:
+\begin{itemize}
+\item Vickrey and public goods are at the ceiling in both wordings ($\lam \ge 944$ and
+  $\lam \ge 21.8$), so no difference is detectable.
+\item The PD gives $\lam = 0.154$ $[0.0016, 0.47]$ named against $0.188$ $[0.0018, 0.50]$
+  disguised, $P(\Delta\lam > 0) = 0.44$.
+\end{itemize}
+The wording-free reading of these results, however, is not ``Nemotron derives''. The reasoning
+codes show why.
+
+\subsection{The disguise did not hide the game}
+
+Nemotron \emph{named} the disguised game in 100\% (Vickrey), 96\% (Cournot), 81\% (PD) and 54\%
+(public goods) of its disguised answers. A disguise that the model sees through cannot test
+derivation against recall. Two causes were found:
+\begin{itemize}
+\item the disguised answer box still used the named game's field names (``bid'', ``quantity'',
+  ``contribution''), recorded as deviation~8;
+\item strong models recognise the mathematical structure itself.
+\end{itemize}
+This motivated the extreme disguise. In a pilot on practice questions, it cut Nemotron's naming
+of Cournot from 96\% to 14\% and of the PD from 81\% to 50\%, while maths-check pass rates were
+unchanged.
+
+\paragraph{Why the equilibrium was missed.} The misses are informative:
+\begin{itemize}
+\item \textbf{Cournot:} every named-wording miss, and 14 of 17 disguised misses, was a fraction
+  slip, i.e.\ correct reasoning written into the box incorrectly.
+\item \textbf{PD:} every named-wording cooperative choice gave a cooperation-norm reason (trust,
+  mutual benefit), even though 91\% of PD answers mentioned backward induction.
+\end{itemize}
+So Nemotron's departures from equilibrium are not symmetric noise. They are formatting errors
+(Cournot) and a systematic norm (PD).
+
+\subsection{Stage 2B: traps, sweeps and the endgame}
+\tbd{Block B (traps): correct share and the ``recall signature'' (textbook answer given where it
+is wrong), named vs disguised, CMH across models. Block C (sweep): wording $\times$ size
+interaction. Block E (endgame): defection at rounds 5, 9, 10. Analysis is locked; it runs when
+all four models are complete.}
+
+\subsection{Stage 2C: the extreme disguise}
+\tbd{Per model and game: equilibrium play, normal vs extreme (McNemar, Holm), the pooled test,
+recognition extreme vs disguised, conversion slips, decoded $\lam$, and the mechanical check of
+each pre-registered prediction (for example, Cournot drops of at least 35 points for Nemotron,
+20--35 for Gemini, and at most 15 for Kimi and gpt-oss). The analysis is locked; it runs as each
+model completes.}
+
+% =====================================================================================
+\section{Mechanism design for noisy agents}\label{sec:mechanism}
+
+We now treat each player as a logit QRE player with precision $\lam$ and ask how the rules
+should change. Proofs of Theorems~1--3 were worked through by the author (see the contributions statement).
+
+\subsection{Second-price auctions with a reserve and a payment multiplier}
+
+Let $M(r,\alpha)$ be the rule under which the highest bid wins if it is at least $r$, and the
+winner pays $\alpha \cdot \max(\text{second bid}, r)$. $M(0,1)$ is the Vickrey auction. Under
+$M(0,\alpha)$ the dominant strategy is $b = v/\alpha$.
+
+\begin{theorem}[$\alpha$ is irrelevant for QRE bidders]
+If $(B_1,\dots,B_n)$ is a QRE of $M(r,1)$ on bid space $[0,\bar B]$, then
+$(B_1/\alpha,\dots,B_n/\alpha)$ is a QRE of $M(r/\alpha,\alpha)$ on $[0,\bar B/\alpha]$, with
+the same winner, revenue and payoffs.
+\end{theorem}
+\begin{proof}
+Against a highest rival bid $H$,
+$U_\alpha(b\mid v) = \mathbb{E}[(v - \alpha H)\mathbf 1\{H < b\}]$.
+With $H = H_1/\alpha$ and $b = \beta/\alpha$,
+$U_\alpha(\beta/\alpha \mid v) = U_1(\beta\mid v)$. So the $M_\alpha$ bid has density
+$\propto \exp(\lam U_1(\alpha b\mid v))$, and by a change of variables, $\alpha B$ has the
+$M_1$ QRE density. The scaled profile is therefore self-consistent. Dividing every bid by
+$\alpha$ keeps their order, and revenue is $\alpha \cdot B_{(2)}/\alpha = B_{(2)}$.
+\end{proof}
+
+\noindent\textbf{Consequence: $\alpha$ is a test of retrieval.} For a deriving QRE bidder,
+$\alpha \cdot b$ has the same distribution at every $\alpha$. A bidder that recalls ``bid your
+value'' bids $v$ whatever $\alpha$ is. With three such bidders under $\alpha = 2$, the winner
+expects $\mathbb E[v_{(1)}] - 2\,\mathbb E[v_{(2)}] = 77.5 - 110 = -32.5$. Stage 2B's
+``pays twice'' trap is exactly this test: \tbd{trap result}.
+
+\begin{theorem}[a reserve never raises efficiency]
+For any $\lam$, expected efficiency (the winner's value, or 0 if there is no sale) cannot be
+increased by $r > 0$.
+\end{theorem}
+\begin{proof}
+For fixed bids, $r$ never changes who has the highest bid; it can only cancel the sale, which
+replaces a value of at least 10 by 0. Under QRE the bids also respond to $r$. Solving the full
+symmetric QRE numerically, efficiency falls in $r$ at every $\lam$ tested.
+\end{proof}
+
+So the originally planned problem, maximising efficiency over $(r,\alpha)$, has a trivial
+answer. For \emph{revenue}, rational bidders with values uniform on $[10,100]$ have virtual
+value $\varphi(v) = 2v - 100$ and Myerson's reserve $r^* = 50$. Table~\ref{tab:reserve} gives
+$r^*(\lam)$ for QRE bidders, from the full symmetric QRE (each bidder responding to the others'
+noisy bids).
+
+\begin{table}[h]
+\centering
+\caption{Revenue-optimal reserve for three logit-QRE bidders (values uniform on $[10,100]$).}
+\label{tab:reserve}
+\begin{tabular}{rrrr}
+\toprule
+$\lam$ & $r^*(\lam)$ & Revenue at $r^*$ & Revenue at 50 \\
+\midrule
+0.02 & 57.0 & 69.89 & 69.64 \\
+0.1  & 44.0 & 58.68 & 58.37 \\
+0.2  & 41.5 & 56.15 & 55.60 \\
+1    & 45.0 & 55.11 & 54.98 \\
+5    & 48.5 & 56.09 & 56.08 \\
+100  & 49.5 & 56.67 & 56.67 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\linewidth]{figures/reserve_curve.pdf}
+\caption{The revenue-optimal reserve for three logit-QRE bidders (full symmetric QRE, values
+uniform on $[10,100]$). It is U-shaped in precision, and returns to Myerson's 50 as
+$\lam \to \infty$.}
+\label{fig:reserve}
+\end{figure}
+
+$r^*(\lam)$ is U-shaped (Figure~\ref{fig:reserve}):
+\begin{itemize}
+\item \textbf{Moderate noise:} 21\% of bidders with $v > 50$ bid below a reserve of 50 (at
+  $\lam = 0.2$), so lowering $r$ recovers those sales.
+\item \textbf{Extreme noise:} bids barely track values (a bidder worth 20 bids 59 on average at
+  $\lam = 0.02$), and the reserve becomes a floor under random overbids.
+\end{itemize}
+The gain over Myerson's reserve is at most about 1\% of revenue. And for Nemotron, whose auction
+play is at the ceiling, there is nothing to correct. The auction is therefore not where a
+behaviourally derived mechanism can matter for these models.
+
+\subsection{A cooperation subsidy for the prisoner's dilemma}
+
+Under rule $S(\tau)$, every player who cooperates is paid an extra $\tau$ each round. Against
+an opponent who cooperates with probability $p$, defecting pays more by
+$\Delta U(p) = p(T-R) + (1-p)(P-S)$. Under $S(\tau)$ this advantage becomes $\Delta U(p) - \tau$,
+and the symmetric QRE satisfies $p = 1/(1+\exp(\lam(\Delta U(p)-\tau)))$.
+
+\begin{theorem}[closed-form subsidy]
+The subsidy at which the symmetric logit QRE cooperation rate equals $p^*$ is
+\[
+\tau(p^*,\lam) = \Delta U(p^*) + \frac{\logit(p^*)}{\lam}.
+\]
+Since $d\tau/dp = (T-R)-(P-S) + 1/(\lam p(1-p)) > 0$, each $\tau$ gives a unique QRE.
+\end{theorem}
+\begin{proof}
+Rearrange: $(1-p)/p = \exp(\lam(\Delta U(p) - \tau))$, so $-\logit(p) = \lam(\Delta U(p)-\tau)$.
+\end{proof}
+
+\begin{corollary}[a parameter-free halfway point]
+At $\tau_{1/2} = \Delta U(\tfrac12) = \tfrac12[(T-R)+(P-S)]$ (that is, $1.5$ for our payoffs),
+every regular QRE population cooperates with probability exactly $\tfrac12$, whatever its
+precision and whatever the (symmetric) error distribution.
+\end{corollary}
+\begin{proof}
+An indifferent regular quantal responder randomises evenly. Uniqueness follows because
+$\Delta U(p) - \tau$ rises in $p$ while the response falls in it.
+\end{proof}
+
+Rational players defect for $\tau < P - S = 1$ and cooperate for $\tau > T - R = 2$. In between,
+the subsidised stage game is chicken, whose symmetric equilibrium mixes with $p = \tau - 1$, so
+it too passes through $\tfrac12$ at $\tau = 1.5$. The corollary is a statement about the
+\emph{stage} game. Chicken has two pure equilibria that pay each player differently, so in the
+10-round game round-1 cooperation can be subgame-perfect: play $(C,C)$ and punish a deviator in
+the last round \citep{benoit1985finitely}. At $\tau = 1.5$ deviating gains $0.5$, while the
+last-round punishment costs at least $1.5$. Cooperation above 50\% at $\tau = 1.5$ is therefore
+consistent with rational repeated-game play, as well as with a cooperation norm. Noisy players are cheap to nudge towards
+partial cooperation and expensive to push to near-certainty (Figure~\ref{fig:subsidy}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\linewidth]{figures/subsidy_curves.pdf}
+\caption{Cooperation under a subsidy $\tau$ for logit-QRE players. Every precision passes through
+50\% at $\tau = 1.5$ (Corollary~1), as does the rational mixed equilibrium. The dotted line is
+Theorem~3's subsidy for 90\% at Nemotron's fitted $\lam = 0.154$.}
+\label{fig:subsidy}
+\end{figure}
+
+At Nemotron's fitted
+$\lam = 0.154$:
+\begin{itemize}
+\item $\tau = 1.5$ gives 50\%;
+\item $\tau = 2.5$, the ``classical'' choice just above 2, gives only about 54\%;
+\item 90\% needs $\tau \approx 16.2$.
+\end{itemize}
+
+% =====================================================================================
+\section{A confirmatory test of the derived mechanism}\label{sec:stage5}
+
+The original plan's headline comparison is a mechanism derived from the fitted behaviour
+against a naively guessed one. Stage~5 asks each model the Stage~2A PD (round 1, standard
+wording) with the subsidy stated as a separate rule for both players, at four levels:
+\begin{itemize}
+\item $\tau = 0$ (baseline);
+\item $\tau = 1.5$ (Corollary~1);
+\item $\tau = 2.5$ (the classical guess);
+\item $\tau^*(0.9, \hat\lam_m)$, Theorem~3's subsidy for 90\% cooperation at model $m$'s own
+  fitted $\lam$ (the derived mechanism).
+\end{itemize}
+There are 100 questions per level per model, balanced across the three paraphrases, each with a
+maths check that requires applying the subsidy. The design, predictions and tests will be
+pre-registered (pre-registration 4) before any subsidy question is asked.
+
+``More subsidy gives more cooperation'' would test nothing: $\tau^* = 1.9 + \ln 9/\lam > 2.5$
+whenever $\lam < 3.66$. The derived-vs-guessed comparison is therefore between the two theories'
+\emph{predictions}:
+\begin{itemize}
+\item at $\tau = 2.5$, is QRE's prediction closer to the observed rate than classical theory's
+  100\%?
+\item at $\tau^*$, is the observed rate within $90 \pm 15$\%?
+\end{itemize}
+The stage-game halfway point at $\tau = 1.5$ is read with the repeated-game caveat above. The
+reasoning codes separate a cooperation norm (fairness) from repeated-game reasoning (future
+rounds, reciprocity).
+
+\tbd{Results: cooperation by level and model; derived vs guessed; the halfway-point test.}
+
+% =====================================================================================
+\section{Limitations}
+
+\begin{itemize}
+\item \textbf{Disguises can fail.} The standard disguise did not hide the games from the first
+  model analysed. The extreme disguise hides some games (Cournot) better than others (Vickrey
+  and public goods, whose rules are their fingerprint), so a null result under a disguise the
+  model sees through says nothing about derivation.
+\item \textbf{Timing.} Stage 2C was collected weeks after Stage 2A, so a provider updating a
+  model in between would show up as a difference.
+\item \textbf{The behaviour model.} QRE treats every departure from equilibrium as payoff-scaled
+  noise. Nemotron's departures are not: they are formatting slips and a cooperation norm. Fitted
+  $\lam$ should therefore be read as a summary, not as a structural parameter
+  \citep{pechon2026auditing}.
+\item \textbf{The stage-game QRE in the PD.} It ignores continuation play in the 10-round game.
+  That is harmless for rational players when the stage equilibrium is unique ($\tau = 0$,
+  $2.5$, $\tau^*$). It is not harmless at $\tau = 1.5$, where round-1 cooperation can be
+  subgame-perfect.
+\item \textbf{Four models.} With four models, cross-model patterns are rankings, not
+  correlations.
+\item \textbf{Free tiers.} All models were accessed through free tiers with default sampling.
+  Provider-side changes, rate limits and outages were logged, and outages were re-asked rather
+  than scored (Appendix~\ref{app:deviations}).
+\end{itemize}
+
+% =====================================================================================
+\section{Conclusion}
+\tbd{Two paragraphs, once results are in: what the twins show about derive vs recall for each
+model, and whether the theory-derived subsidy beat the guessed one.}
+
+% =====================================================================================
+\section*{Author contributions and use of AI}
+This project was conducted by the author, a sixth-form student, with extensive assistance from
+Claude (Anthropic), an AI model.
+
+\textbf{The author:}
+\begin{itemize}
+\item amended the Stage~5 design (the headline test, and the repeated-game caveat at
+  $\tau = 1.5$), fixed the decision-gate criteria, and fixed the interpretation of each
+  possible result in advance;
+\item chose the research question;
+\item wrote the disguised twin for the PD and checked all prompts;
+\item wrote every pre-registered prediction;
+\item made the design decisions recorded in the pre-registrations;
+\item hand-coded the reasoning samples used for validation;
+\item proved Theorems 1--3 as guided exercises.
+\end{itemize}
+
+\textbf{Claude:}
+\begin{itemize}
+\item wrote the software;
+\item ran the data collection;
+\item implemented the pre-registered analyses;
+\item proposed the mechanism results in Section~\ref{sec:mechanism} and verified them
+  numerically;
+\item proposed the Stage~5 design, which the author adopted;
+\item drafted the text of this paper.
+\end{itemize}
+All claims were checked against the code and data, which are available.
+
+\section*{Data and code availability}
+Code, prompts, seeds, raw answers and analysis outputs are available at
+\tbd{public repository URL}. The pre-registrations are at osf.io/2uqpj, osf.io/6hz8d and
+osf.io/cqnsy.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\appendix
+\section{Deviations from the pre-registrations}\label{app:deviations}
+\begin{enumerate}
+\item \textbf{PD scoring error in practice runs:} named answers were scored against the
+  disguised labels. It was fixed before Stage 2.
+\item \textbf{Gemini~3.8~Flash replaced} by Gemini~3.5~Flash~Lite, because of a 20-request daily
+  cap.
+\item \textbf{Empty replies} (bursts of ``!!!!'') are re-asked, not scored as unreadable.
+\item \textbf{gpt-oss's daily token cap} slows its collection; this does not affect the design.
+\item \textbf{A 10-minute NVIDIA access outage:} its 4{,}454 refused requests were relabelled as
+  infrastructure failures and re-asked.
+\item \textbf{The fraction slip:} recorded as an exploratory observation, and corrected only in
+  the pre-registration-3 comparison.
+\item \textbf{Block~D (reasoning effort) dropped} before any of its data existed, so that all
+  models answer the same questions.
+\item \textbf{The disguised answer boxes} carried the named game's field names (a limitation).
+\item \textbf{Ten questions re-asked} that should have been scored as the model's own (1 Kimi
+  Stage~2A; 2 Nemotron Stage~2A; 7 Nemotron Stage~2B traps). The re-asked answers stand. The
+  cases are \tbd{listed by question ID}.
+\item \textbf{The pilot answer form} sent explanatory text that leaked words; it was fixed before
+  Stage~2C.
+\end{enumerate}
+
+\end{document}
