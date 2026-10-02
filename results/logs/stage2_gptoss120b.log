@@ -806,3 +806,33 @@ gptoss120b: 485/1104 done, 619 to go  -> stage2_gptoss120b.csv
 [ 488/1104] cournot                disguised p2 AT_EQUILIBRIUM       2.8s  ~1400/h
 [ 489/1104] vickrey                disguised p2 AT_EQUILIBRIUM       2.9s  ~1351/h
 [ 490/1104] repeated_pd            disguised p0 STRATEGIC_GAP        1.9s  ~1432/h
+[ 491/1104] vickrey                disguised p2 AT_EQUILIBRIUM      52.2s  ~334/h
+[ 491/1104] cournot                disguised p0 INFRA_FAIL           1.8s  ~379/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~17:28, then resuming.
+
+gptoss120b: 491/1104 done, 613 to go  -> stage2_gptoss120b.csv
+[ 492/1104] cournot                disguised p0 STRATEGIC_GAP        3.4s  ~1049/h
+[ 493/1104] cournot                disguised p2 AT_EQUILIBRIUM       2.9s  ~1141/h
+[ 494/1104] public_goods           named     p1 AT_EQUILIBRIUM       2.4s  ~1243/h
+[ 495/1104] vickrey                disguised p0 PARSE_FAIL           1.9s  ~1356/h
+[ 496/1104] cournot                disguised p1 AT_EQUILIBRIUM      53.1s  ~283/h
+[ 496/1104] cournot                named     p0 INFRA_FAIL           0.1s  ~339/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~18:29, then resuming.
+
+gptoss120b: 496/1104 done, 608 to go  -> stage2_gptoss120b.csv
+[ 497/1104] cournot                named     p0 AT_EQUILIBRIUM       2.5s  ~1406/h
+[ 498/1104] vickrey                named     p0 AT_EQUILIBRIUM       1.6s  ~1707/h
+[ 499/1104] repeated_pd            named     p2 AT_EQUILIBRIUM       1.5s  ~1751/h
+[ 500/1104] vickrey                named     p0 AT_EQUILIBRIUM       2.2s  ~1716/h
+[ 501/1104] cournot                disguised p1 AT_EQUILIBRIUM       2.7s  ~1623/h
+[ 502/1104] cournot                named     p0 AT_EQUILIBRIUM      52.9s  ~338/h
+[ 503/1104] vickrey                named     p0 AT_EQUILIBRIUM       1.6s  ~384/h
+[ 503/1104] public_goods           named     p1 INFRA_FAIL           1.3s  ~430/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~19:30, then resuming.
+

@@ -1997,3 +1997,38 @@ nemotron: 1042/1104 done, 62 to go  -> stage2b_B_nemotron.csv
 [1076/1104] vickrey_trap           disguised p1 AT_EQUILIBRIUM     234.4s  ~19/h
 [1077/1104] cournot_trap           named     p1 AT_EQUILIBRIUM     359.7s  ~18/h
 [1078/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM      35.0s  ~19/h
+[1079/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     124.3s  ~19/h
+[1080/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM     140.5s  ~19/h
+[1081/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM     494.4s  ~18/h
+[1082/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM      52.5s  ~19/h
+[1083/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM     399.2s  ~18/h
+[1084/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     137.8s  ~18/h
+[1085/1104] cournot_trap           disguised p2 AT_EQUILIBRIUM     119.2s  ~18/h
+[1086/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     591.3s  ~18/h
+[1087/1104] cournot_trap           named     p0 AT_EQUILIBRIUM      63.1s  ~18/h
+[1088/1104] cournot_trap           disguised p0 AT_EQUILIBRIUM      97.1s  ~18/h
+[1089/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM      21.2s  ~18/h
+[1090/1104] repeated_pd_trap       named     p2 AT_EQUILIBRIUM     112.0s  ~19/h
+[1091/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     529.4s  ~18/h
+[1092/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM     409.1s  ~18/h
+[1093/1104] vickrey_trap           disguised p1 AT_EQUILIBRIUM     135.1s  ~18/h
+[1094/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM     375.9s  ~17/h
+[1095/1104] cournot_trap           named     p1 AT_EQUILIBRIUM      83.4s  ~18/h
+[1096/1104] cournot_trap           named     p1 AT_EQUILIBRIUM      77.3s  ~18/h
+[1097/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM      81.3s  ~18/h
+[1098/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM     118.8s  ~18/h
+[1099/1104] repeated_pd_trap       named     p2 AT_EQUILIBRIUM     342.9s  ~18/h
+[1100/1104] vickrey_trap           named     p1 AT_EQUILIBRIUM     187.4s  ~18/h
+[1101/1104] repeated_pd_trap       disguised p1 AT_EQUILIBRIUM      60.8s  ~18/h
+[1102/1104] cournot_trap           named     p0 AT_EQUILIBRIUM     156.3s  ~18/h
+
+this session: {'AT_EQUILIBRIUM': 59, 'INFRA_FAIL': 2, 'COMPETENCE_GAP': 1}
+2 questions still to go (server refusals) -- they are re-asked on the next pass.
+waiting until ~18:04, then resuming.
+
+nemotron: 1102/1104 done, 2 to go  -> stage2b_B_nemotron.csv
+[1103/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM     288.0s  ~13/h
+[1104/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     285.8s  ~13/h
+
+this session: {'AT_EQUILIBRIUM': 2}
+complete: every planned question has an answer.
