@@ -105,3 +105,9 @@ def test_real_data_is_refused_until_locked(monkeypatch, capsys):
     monkeypatch.setattr("sys.argv", ["stage2c.py", "--model", "nemotron"])
     assert A.main() == 1
     assert "not locked" in capsys.readouterr().out
+
+
+def test_the_stage2c_analysis_is_locked():
+    """Any edit to analysis/stage2c.py, analysis/slips.py or docs/analysis-plan-2c.md
+    after the lock must be a recorded deviation, never silent."""
+    assert A.stage2c_locked()

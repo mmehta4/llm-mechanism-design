@@ -60,7 +60,7 @@ PLAN = ROOT / "docs" / "analysis-plan-2c.md"
 SLIPS = ROOT / "analysis" / "slips.py"
 
 # --- the lock: this file (fingerprint line blanked), the slip rule and the plan in words
-STAGE2C_ANALYSIS_SHA256 = None
+STAGE2C_ANALYSIS_SHA256 = "37467d48e488ed647f11f08d56f50998c4999c51d7aa6e7b0f1407bee2356bbb"
 
 
 def fingerprint() -> str:
