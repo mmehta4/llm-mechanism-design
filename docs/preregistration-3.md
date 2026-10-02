@@ -44,8 +44,9 @@ derives should not.
 ("The number you choose."), answer first, then reasoning. The PD keeps its already-neutral
 `action` box. Two alternatives were tried in practice and rejected before registration: asking
 for a decimal did not stop Nemotron's fraction slip, and a free-text box drew unreadable template
-text in 6 of 12 answers. The fraction slip (deviation 6) is therefore left exactly as in Stage 2A,
-so it affects both stages alike, and is counted separately (Section 3).
+text in 6 of 12 answers. The box therefore keeps Stage 2A's form, and the fraction slip
+(deviation 6), which turned out to be far more common in the extreme Cournot question, is handled
+by a scoring rule applied to both stages alike (Section 3).
 
 **Questions:** 138 per game per model, all four Stage 2A models (gpt-oss-120b, Nemotron 3 Ultra,
 Kimi K3, Gemini 3.5 Flash Lite). **Question k uses the same seed and the same wording index as
@@ -118,6 +119,20 @@ STRATEGIC_GAP). Server refusals and empty replies are re-asked, never counted.
 **Pairs.** Each Stage 2C question is paired with the Stage 2A question that has the same game,
 seed and wording index. A pair is used when both of its answers count.
 
+**Scoring for the stage comparison: fraction-slip corrected, both stages alike.** In the final
+practice, every one of Nemotron's six extreme-Cournot answers was a fraction cut at the "/" (232
+for 232/15, 683 for 683/60, 23215 for 232/15), because the extreme Cournot answer is almost always
+an awkward fraction; in Stage 2A the same slip is 11% of its Cournot answers. Uncorrected, the
+comparison would measure how often the answer is a fraction. So every Stage 2A and Stage 2C answer
+in this comparison is scored with one mechanical rule (`analysis/slips.py`, fixed now): read the
+answer as the fraction n/d when (1) the box holds n, or n and d written together, for a fraction
+n/d in the model's own reasoning, and (2) the reasoning ends on that fraction (its last number is
+n/d's value within 1%, or its last two numbers are n and d). Otherwise the answer is used as
+written. Checked on existing data before registration: it recovers all six practice slips, changes
+25 of Nemotron's Stage 2A Cournot answers (all to correct), and changes no answer from the other
+three models. Uncorrected results are reported beside the corrected ones. (Pre-registration 1's own
+Stage 2A analysis is unaffected and stays as registered.)
+
 **Main test.** For each model and game: equilibrium play, extreme (2C) vs normal (2A), on paired
 questions — exact McNemar test, Holm-corrected across the four games within each model. Reported
 as the paired difference (normal − extreme) with a 95% interval. Pooled across models: the
@@ -129,9 +144,8 @@ stratified McNemar (Mantel–Haenszel for matched pairs), Holm across the four g
 same paired questions — exact McNemar per model and game. Exploratory: within the extreme
 wording, equilibrium play when the model named the game vs when it did not.
 
-**Fraction slips** (counted separately, as in Stage 2A): Cournot or Vickrey answers that are an
-exact whole multiple (2× to 9×) of the correct answer while the reasoning's last number is the
-correct answer — the numerator of a fraction cut at the "/".
+**Fraction slips** are counted and reported per model and stage (the corrections made by the rule
+above).
 
 **Conversion slips** (counted separately, from the author's prompt review). Vickrey: answer within
 0.5 of the prize, or of prize − 5 (the offer, or the offer without dividing by 3). Cournot: answer

@@ -45,3 +45,14 @@ def test_stage2c_box_is_neutral_and_shaped_like_stage2a():
     assert "description" not in to_strict_json_schema(NumberAction)
     for leak in ("bid", "sealed", "quantity", "produce", "contribut", "endowment", "auction"):
         assert leak not in text
+
+
+def test_fraction_slip_correction():
+    from analysis.slips import corrected, scored
+    r = "x = (80.3/3 - 4)/2 = 68.3/6 = 683/60 ≈ 11.3833."
+    assert abs(corrected(683, r) - 683 / 60) < 1e-9
+    assert abs(corrected(23215, "so x = 232/15 ≈ 15.4667") - 232 / 15) < 1e-9   # slash dropped
+    # a fraction used mid-way, but the reasoning ends elsewhere: left as written
+    assert corrected(30, "best response is (90 - 30)/2, so I choose 30.") is None
+    # an ordinary correct decimal answer is never changed
+    assert corrected(11.3833, "x ≈ 11.3833") is None and scored(11.3833, "x ≈ 11.3833") == 11.3833
