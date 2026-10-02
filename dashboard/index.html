@@ -301,12 +301,12 @@ async function refresh(){
     const alarms = s.models.flatMap(m => (m.alarms||[]).map(a => `<div class="alarm">⚠ <b>${esc((INFO[m.key]||{}).name||m.key)}:</b> ${esc(a)} Ask Claude to check.</div>`));
     document.getElementById("alarms").innerHTML = alarms.join("");
     document.getElementById("pilot").innerHTML = (s.pilot_deep||[]).map(p => `
-      <h2>Stage 2C pilot · deeper disguises · ${esc(NAMES_SHORT[p.model]||p.model)} · practice questions only</h2>
+      <h2>Stage 2C pilot · extreme disguise · ${esc(NAMES_SHORT[p.model]||p.model)} · practice questions only</h2>
       <div class="card">
-        <p class="dim" style="margin:0 0 6px">${p.done} of ${p.planned} answered. Same game, same answer, three wordings. A disguise that works should cut <b>names the game</b> while the <b>maths check</b> stays high. Not Stage 2 data: it only decides how Stage 2C is built.</p>
+        <p class="dim" style="margin:0 0 6px">${p.done} of ${p.planned} answered. No story, a coded answer, a neutral answer box: same game, same right answer. It works if <b>names the game</b> falls well below the Stage 2A disguise while the <b>maths check</b> stays high. Not Stage 2 data: it only decides how Stage 2C is built.</p>
         <div style="overflow-x:auto"><table>
-          <thead><tr><th>Game</th><th>Wording</th><th class="r">Answered</th><th class="r">Names the game</th><th class="r">At equilibrium</th><th class="r">Maths check passed</th></tr></thead>
-          <tbody>${p.cells.map(c => `<tr><td>${esc(c.game)}</td><td>${esc(c.wording)}</td><td class="r">${c.n}/8</td>
+          <thead><tr><th>Game</th><th class="r">Answered</th><th class="r">Names the game: Stage 2A disguise (real)</th><th class="r">Names the game: extreme</th><th class="r">At equilibrium</th><th class="r">Maths check passed</th></tr></thead>
+          <tbody>${p.cells.map(c => `<tr><td>${esc(c.game)}</td><td class="r">${c.n}/8</td><td class="r">${esc((p.real_2a||{})[c.game]||"–")}</td>
             <td class="r">${c.counted ? Math.round(100*c.names/c.counted)+"% ("+c.names+"/"+c.counted+")" : "–"}</td>
             <td class="r">${c.n ? Math.round(100*c.eq/c.n)+"%" : "–"}</td>
             <td class="r">${c.n ? Math.round(100*c.probe/c.n)+"%" : "–"}</td></tr>`).join("")}</tbody>

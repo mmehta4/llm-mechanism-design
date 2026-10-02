@@ -38,10 +38,11 @@ def out_path(model: str) -> Path:
     return ROOT / "results" / "raw" / f"practice2c_{model}.csv"
 
 
-def run(model: str, n: int, workers: int) -> None:
+def run(model: str, n: int, workers: int, only: str | None = None) -> None:
     from games import GAMES
     jobs = [(fam + suffix, SEED_BASE + k) for fam in FAMILIES for suffix in LEVELS.values()
-            for k in range(n) if fam + suffix in GAMES]     # the PD box was already neutral
+            for k in range(n) if fam + suffix in GAMES     # the PD box was already neutral
+            and (only is None or suffix == only)]
     # resumable: skip questions already answered (a server refusal is asked again)
     path = out_path(model)
     if path.exists():
@@ -93,9 +94,10 @@ def main() -> int:
     ap.add_argument("--n", type=int, default=8)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--summary", action="store_true")
+    ap.add_argument("--only", help="run just one wording, e.g. _deep3")
     args = ap.parse_args()
     if not args.summary:
-        run(args.model, args.n, args.workers)
+        run(args.model, args.n, args.workers, args.only)
     text = summary(args.model)
     (ROOT / "results" / "analysis" / f"pilot_deep_{args.model}.md").write_text(text + "\n", encoding="utf-8")
     print(text)

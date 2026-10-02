@@ -197,6 +197,12 @@ def model_state(model: str, spec, procs: list[str]) -> dict:
     }
 
 
+# Validated Stage 3.5 result (NAMES_GAME, κ = 1.00) on the model's complete Stage 2A
+# disguised answers: results/analysis/reasoning_nemotron.md
+REAL_2A_RECOGNITION = {"nemotron": {"cournot": "96%", "vickrey": "100%", "repeated_pd": "81%",
+                                    "public_goods": "54%"}}
+
+
 def pilot_deep() -> list[dict]:
     """Stage 2C pilot (practice questions only): per model, per game, per wording."""
     from analysis.reasoning import code
@@ -207,7 +213,9 @@ def pilot_deep() -> list[dict]:
         rows = [r for r in read_rows(path) if r.get("verdict") != "INFRA_FAIL"]
         cells = []
         for fam in FAMILIES:
-            for label, suffix in LEVELS.items():
+            # the panel shows the extreme disguise; its comparison is the model's REAL
+            # Stage 2A disguised recognition, shown beside it
+            for label, suffix in [("deep3 extreme", "_deep3")]:
                 rs = [r for r in rows if r["game"] == fam + suffix]
                 counted = [r for r in rs if r["verdict"] in ("AT_EQUILIBRIUM", "STRATEGIC_GAP")]
                 cells.append({
@@ -216,8 +224,9 @@ def pilot_deep() -> list[dict]:
                     "eq": sum(r["verdict"] == "AT_EQUILIBRIUM" for r in rs),
                     "probe": sum(r["probe_passed"] == "True" for r in rs),
                 })
-        out.append({"model": model, "done": len(rows), "planned": 8 * len(FAMILIES) * len(LEVELS),
-                    "cells": cells})
+        extreme = [r for r in rows if r["game"].endswith("_deep3")]
+        out.append({"model": model, "done": len(extreme), "planned": 8 * len(FAMILIES),
+                    "cells": cells, "real_2a": REAL_2A_RECOGNITION.get(model, {})})
     return out
 
 
