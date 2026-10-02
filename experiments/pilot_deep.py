@@ -40,6 +40,13 @@ def out_path(model: str) -> Path:
 def run(model: str, n: int, workers: int) -> None:
     jobs = [(fam + suffix, SEED_BASE + k) for fam in FAMILIES for suffix in LEVELS.values()
             for k in range(n)]
+    # resumable: skip questions already answered (a server refusal is asked again)
+    path = out_path(model)
+    if path.exists():
+        done_keys = {(r["game"], int(r["seed"])) for r in csv.DictReader(path.open(encoding="utf-8"))
+                     if r["verdict"] != "INFRA_FAIL"}
+        jobs = [j for j in jobs if j not in done_keys]
+        print(f"{len(done_keys)} already answered, {len(jobs)} to go", flush=True)
     log, lock = TrialLog(out_path(model)), threading.Lock()
     done = 0
 
