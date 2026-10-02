@@ -22,8 +22,10 @@ from games.extreme import EXTREME_GAMES
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--model", default="nemotron")
+ap.add_argument("--games", nargs="*", default=list(EXTREME_GAMES))
+ap.add_argument("--wordings", nargs="*", type=int, default=[1, 2], help="0-based wording indices")
 args = ap.parse_args()
-jobs = [(g, 960_000 + k, w) for g in EXTREME_GAMES for w in (1, 2) for k in range(2)]
+jobs = [(g, 960_000 + k, w) for g in args.games for w in args.wordings for k in range(2)]
 log, lock = TrialLog(ROOT / "results" / "raw" / f"practice2c_wordings_{args.model}.csv"), threading.Lock()
 
 
