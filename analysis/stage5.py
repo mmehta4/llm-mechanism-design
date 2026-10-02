@@ -47,7 +47,7 @@ LOCKED = [ROOT / "analysis" / "gate.py", ROOT / "docs" / "decision-gate.md",
           ROOT / "docs" / "interpretation-key.md", ROOT / "docs" / "stage5-design.md"]
 
 # --- the lock: this file (fingerprint line blanked), the gate code and the three documents
-STAGE5_ANALYSIS_SHA256 = None
+STAGE5_ANALYSIS_SHA256 = "a5257d46757fcc1f3c9375436c7f8be26c3416ef8df764a0c573a4b98b42af82"
 
 
 def fingerprint() -> str:

@@ -19,3 +19,9 @@ def test_refuses_before_lock(monkeypatch, capsys):
     monkeypatch.setattr(A, "STAGE5_ANALYSIS_SHA256", None)
     monkeypatch.setattr("sys.argv", ["stage5.py", "--model", "nemotron"])
     assert A.main() == 1 and "not locked" in capsys.readouterr().out
+
+
+def test_the_stage5_analysis_is_locked():
+    """Edits to analysis/stage5.py, analysis/gate.py or the three design documents after
+    the lock must be recorded deviations."""
+    assert A.stage5_locked()
