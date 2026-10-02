@@ -183,3 +183,23 @@ on the logit form. In any *regular* quantal response with symmetric errors, a pl
 indifferent chooses each action with probability ½. ΔU − τ rises in p, while the response
 falls in ΔU − τ, so the fixed point is unique. At τ = ΔU(½) it is therefore p = ½. A miss at
 τ = 1.5 can't be blamed on having chosen logit: it rejects the whole regular-QRE family.
+
+**Correction: the stage game vs the 10-round game (Meet Mehta, final workbook, Task 1).** The
+halfway-point prediction is for the one-shot *stage* game. For 1 < τ < 2 the subsidised stage
+game is chicken, with two pure equilibria that pay each player differently (5 vs τ). In a
+finitely repeated game with several stage equilibria like this, early cooperation can be
+subgame-perfect (Benoît & Krishna, 1985): play (C, C), and punish a deviator in the last round
+with the equilibrium worst for them. At τ = 1.5:
+- deviating from C gains 5 − 4.5 = 0.5;
+- the last-round punishment costs at least 3 − 1.5 = 1.5 (against the mixed equilibrium) and up
+  to 5 − 1.5 = 3.5.
+
+So mutual cooperation in round 1 is consistent with fully rational play. At τ = 0, 2.5 and τ\*
+the stage equilibrium is unique, so nothing changes there. Stage 5 keeps τ = 1.5, for
+comparability with the stage-game λ fits, and reads a cooperation rate above 50% there as either
+a norm or repeated-game reasoning (`docs/interpretation-key.md`).
+
+**The headline test (author's amendment).** "τ\* gives more cooperation than 2.5" is nearly
+guaranteed, because τ\* = 1.9 + ln 9/λ > 2.5 whenever λ < 3.66. The real test compares the
+theories' predictions: at τ = 2.5, is QRE closer than classical theory's 100%? And at τ\* is the
+observed rate within 90 ± 15?

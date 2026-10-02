@@ -37,8 +37,11 @@ def derived_level(lam: float, target: float = TARGET) -> float:
     return round(float(required_subsidy(target, lam)), 1)
 
 
-RULE = ("On top of these scores, each player is paid an extra {tau:g} points in every round "
-        "in which they choose C.")
+# Author's prompt check (final workbook, Task 2): "that player", not "they" -- everywhere
+# else in the question "they" means the OTHER player, so "they choose C" could be read as
+# "you are paid when your opponent cooperates". One decimal at every level, 0.0 included.
+RULE = ("On top of these scores, each player is paid an extra {tau:.1f} points in every round "
+        "in which that player chooses C.")
 
 
 def _with_rule(template: str, before: str) -> str:

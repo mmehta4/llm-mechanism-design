@@ -15,20 +15,25 @@ osf.io/cqnsy) are unchanged.
 Stages 2A to 2C measure how the models play. Stage 4 derived what rules should do for players
 who are noisy in the logit-QRE sense (`docs/stage4-theory.md`):
 - **Theorem 3:** the subsidy for target cooperation p\* is τ(p\*, λ) = ΔU(p\*) + logit(p\*)/λ.
-- **Corollary 1:** at τ = 1.5, every regular-QRE population cooperates 50%, whatever its λ.
+- **Corollary 1:** at τ = 1.5, every regular-QRE population cooperates 50% in the stage game, whatever its λ.
 
 Stage 5 tests whether a mechanism derived from each model's fitted λ does what the theory says,
 and whether it beats the classical "guess".
 
 ## 1. Design
 
-As in `docs/stage5-design.md`:
-- Stage 2A's named 10-round PD, round 1, with the payoffs (5, 3, 1, 0) and three paraphrases.
-- The subsidy is stated as a separate rule for each player.
-- Four levels per model: τ = 0, 1.5, 2.5, and τ\*ₘ = τ(0.9, λ̂ₘ), where λ̂ₘ is model m's
-  Stage 2A named-wording PD λ (posterior median), rounded to 0.1 and capped at 50.
-- 100 questions per level per model, using new seeds. Fixed shuffled order; exactly the planned
-  count; server refusals re-asked; maths check C-vs-D including the subsidy.
+As in `docs/stage5-design.md` (confirmed by the author, with amendments):
+- Stage 2A's named 10-round PD, round 1.
+- The subsidy is a separate rule line: "each player is paid an extra τ points in every round in
+  which that player chooses C". τ is written to one decimal, 0.0 included.
+- Levels: τ = 0.0, 1.5, 2.5 and τ\*ₘ = 1.9 + ln 9 / λ̂ₘ (rounded to 0.1). Capped at 50 if
+  λ̂ₘ < 0.046; dropped if λ̂ₘ ≥ 3.66 (`docs/decision-gate.md`).
+- 100 per level per model, balanced 34/33/33 across the three paraphrases, with new seeds.
+- The maths check is C against D, including the subsidy.
+
+**Stage-game assumption.** τ = 1.5 makes the stage game chicken. In the 10-round game, round-1
+cooperation is then subgame-perfect (Benoît & Krishna, 1985), so the 50% prediction holds only
+for the stage-game QRE. Stated as a limitation.
 
 [GATE] Fitted λ̂ₘ and τ\*ₘ:
 
@@ -50,26 +55,34 @@ As in `docs/stage5-design.md`:
 
 [GATE] **The other three models:** the author's numbers at τ = 0, 1.5, 2.5 and τ\*ₘ.
 
-**Headline** (proposed; [AUTHOR] to confirm or change). Derived beats guessed: cooperation at τ\*ₘ exceeds cooperation at 2.5 for every
-model. Whether each model is *steeper than QRE* (cooperation norm), *on the QRE curve*, or
-*flatter* (recalled "always defect") is answered by the halfway-point test.
+**Headline (author's amendment).** The comparison is between the two theories'
+*predictions*, not "more subsidy gives more cooperation". At τ = 2.5, QRE's prediction is closer
+to the observed rate than classical theory's 100%; and at τ\*ₘ the observed rate is within
+90 ± 15. [AUTHOR] For which models do you predict each of these holds?
 
 ## 3. How the results will be judged
 
 **Which answers count:** the maths check passed. Refusals are re-asked, never counted.
 
-**Test 1, the halfway point (no free parameter):** per model, an exact binomial test of
-cooperation at τ = 1.5 against 0.5. Holm across the four models.
+**Test 1, derived vs guessed theory, at τ = 2.5:** per model, the absolute error
+of QRE's prediction (at λ̂ₘ) against that of classical theory (100%). QRE wins if its error is
+smaller; a bootstrap 95% interval for the difference in errors is reported.
 
-**Test 2, derived vs guessed:** per model, cooperation at τ\*ₘ vs at τ = 2.5, a two-sided
-two-proportion test with Holm across models. Pooled: Cochran–Mantel–Haenszel across models.
+**Test 2, the derived mechanism, at τ\*ₘ:** per model, is the observed rate within 90 ± 15?
+A 95% interval is reported.
 
-**Test 3, calibration:** per model and level, the observed rate against the QRE prediction at
-λ̂ₘ, with a 95% interval. The prediction's own uncertainty from λ̂ₘ's posterior is reported
-beside it.
+**Test 3, the stage-game halfway point, at τ = 1.5:** an exact binomial test against 0.5, with
+Holm across models. It is read with the interpretation key (`docs/interpretation-key.md`),
+including the repeated-game reading.
+
+**Test 4, calibration:** each level against the QRE curve at λ̂ₘ, with intervals.
+
+**The decision gate** uses the author's criteria in `docs/decision-gate.md` (held-out
+calibration ±10 points in at least 3 of 4 games; λ not compared across games; floor and
+ceiling rules). **Interpretations** follow `docs/interpretation-key.md`.
 
 **What counts as the mechanism failing:** cooperation at τ\*ₘ below 75% (more than 15 points
-short of the 90% target) for a model with a finite, non-ceiling λ̂ₘ.
+short of the 90% target), for a model whose derived level was not dropped.
 
 ## 4. The rules I can't change later
 
@@ -81,5 +94,6 @@ short of the 90% target) for a model with a finite, non-ceiling λ̂ₘ.
 [GATE] Everything seen before writing: all Stage 2A, 2B and 2C results available at the gate,
 and the Stage 4 theory, including that the derived τ\* depends on the fitted λ.
 
-**Authorship.** The Stage 5 design was proposed by Claude and adopted by the author; the
-predictions above are the author's.
+**Authorship.** The Stage 5 design was proposed by Claude and confirmed by the author with two
+amendments: the headline test and the stage-game caveat. The gate criteria, the interpretation
+key and the predictions are the author's.

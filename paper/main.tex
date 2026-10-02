@@ -41,8 +41,8 @@ $\alpha$ is irrelevant for QRE bidders, but not for bidders who recall ``bid you
 so $\alpha$ separates derivation from retrieval. We show that the revenue-optimal reserve for
 QRE bidders is U-shaped in $\lam$, but gains at most about 1\% over Myerson's reserve. And we
 derive in closed form the cooperation subsidy that reaches any target cooperation rate in a PD.
-Its halfway point is free of parameters for the whole regular QRE family. A pre-registered test
-of the derived subsidy against a classically ``guessed'' one is \tbd{Stage 5 result}.
+In the stage game, its halfway point is free of parameters for the whole regular QRE family. A pre-registered test
+compares the derived subsidy's predictions with a classically ``guessed'' one: \tbd{Stage 5 result}.
 \end{abstract}
 
 % =====================================================================================
@@ -417,7 +417,12 @@ $\Delta U(p) - \tau$ rises in $p$ while the response falls in it.
 
 Rational players defect for $\tau < P - S = 1$ and cooperate for $\tau > T - R = 2$. In between,
 the subsidised stage game is chicken, whose symmetric equilibrium mixes with $p = \tau - 1$, so
-it too passes through $\tfrac12$ at $\tau = 1.5$. Noisy players are cheap to nudge towards
+it too passes through $\tfrac12$ at $\tau = 1.5$. The corollary is a statement about the
+\emph{stage} game. Chicken has two pure equilibria that pay each player differently, so in the
+10-round game round-1 cooperation can be subgame-perfect: play $(C,C)$ and punish a deviator in
+the last round \citep{benoit1985finitely}. At $\tau = 1.5$ deviating gains $0.5$, while the
+last-round punishment costs at least $1.5$. Cooperation above 50\% at $\tau = 1.5$ is therefore
+consistent with rational repeated-game play, as well as with a cooperation norm. Noisy players are cheap to nudge towards
 partial cooperation and expensive to push to near-certainty. At Nemotron's fitted
 $\lam = 0.154$:
 \begin{itemize}
@@ -439,14 +444,21 @@ wording) with the subsidy stated as a separate rule for both players, at four le
 \item $\tau^*(0.9, \hat\lam_m)$, Theorem~3's subsidy for 90\% cooperation at model $m$'s own
   fitted $\lam$ (the derived mechanism).
 \end{itemize}
-There are 100 questions per level per model, each with a maths check that requires applying the
-subsidy. The design, predictions and tests will be pre-registered (pre-registration 4) before
-any subsidy question is asked.
+There are 100 questions per level per model, balanced across the three paraphrases, each with a
+maths check that requires applying the subsidy. The design, predictions and tests will be
+pre-registered (pre-registration 4) before any subsidy question is asked.
 
-At the halfway point the test needs no fitted parameter. Cooperation near 50\% at $\tau = 1.5$
-supports the QRE description. Cooperation well above it indicates a cooperation norm, which the
-reasoning codes already suggest for Nemotron. Cooperation near 0\% indicates a recalled
-``always defect''.
+``More subsidy gives more cooperation'' would test nothing: $\tau^* = 1.9 + \ln 9/\lam > 2.5$
+whenever $\lam < 3.66$. The derived-vs-guessed comparison is therefore between the two theories'
+\emph{predictions}:
+\begin{itemize}
+\item at $\tau = 2.5$, is QRE's prediction closer to the observed rate than classical theory's
+  100\%?
+\item at $\tau^*$, is the observed rate within $90 \pm 15$\%?
+\end{itemize}
+The stage-game halfway point at $\tau = 1.5$ is read with the repeated-game caveat above. The
+reasoning codes separate a cooperation norm (fairness) from repeated-game reasoning (future
+rounds, reciprocity).
 
 \tbd{Results: cooperation by level and model; derived vs guessed; the halfway-point test.}
 
@@ -465,7 +477,9 @@ reasoning codes already suggest for Nemotron. Cooperation near 0\% indicates a r
   $\lam$ should therefore be read as a summary, not as a structural parameter
   \citep{pechon2026auditing}.
 \item \textbf{The stage-game QRE in the PD.} It ignores continuation play in the 10-round game.
-  That is harmless for rational players but a modelling choice for noisy ones.
+  That is harmless for rational players when the stage equilibrium is unique ($\tau = 0$,
+  $2.5$, $\tau^*$). It is not harmless at $\tau = 1.5$, where round-1 cooperation can be
+  subgame-perfect.
 \item \textbf{Four models.} With four models, cross-model patterns are rankings, not
   correlations.
 \item \textbf{Free tiers.} All models were accessed through free tiers with default sampling.
@@ -485,6 +499,9 @@ Claude (Anthropic), an AI model.
 
 \textbf{The author:}
 \begin{itemize}
+\item amended the Stage~5 design (the headline test, and the repeated-game caveat at
+  $\tau = 1.5$), fixed the decision-gate criteria, and fixed the interpretation of each
+  possible result in advance;
 \item chose the research question;
 \item wrote the disguised twin for the PD and checked all prompts;
 \item wrote every pre-registered prediction;

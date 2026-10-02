@@ -1,36 +1,47 @@
-# Stage 5 design (draft for pre-registration 4)
+# Stage 5 design (for pre-registration 4)
 
-**Status:** proposed by Claude (Stage 4 workbook, decisions 1–4) and adopted on 2026-10-03 at
-the author's instruction to complete all remaining tasks. The author may revise it before
-pre-registration 4 is locked. No subsidy question has been asked of any model.
+**Status:** proposed by Claude and **confirmed by the author on 2026-10-03** (final workbook,
+Tasks 1–2), with the author's amendments. No subsidy question has been asked of any model.
 
-**Question.** Stage 2A's named 10-round PD, round 1, all three paraphrases. The subsidy is shown
-as a **separate rule line** under the unchanged payoff table, stating that it applies to each
-player (`games/subsidy.py`). Folding it into the table was rejected: for 1 < τ < 2 that table is
-the game of chicken, which brings back the recall confound.
+## Question
 
-**Levels (per model):**
+- Stage 2A's named 10-round PD, round 1.
+- The subsidy is a **separate rule line** under the unchanged table:
+  > On top of these scores, each player is paid an extra τ points in every round in which that player chooses C.
+- **"That player", not "they"** (author's fix): elsewhere in the question "they" means the other
+  player, so "they choose C" could be misread as "you are paid when your opponent cooperates".
+- τ is written to one decimal at every level, including **0.0**. The τ = 0.0 level, compared
+  with Stage 2A (where the line is absent), also tests whether the line itself shifts behaviour.
+- A test checks that each question is Stage 2A's wording plus this one line.
+
+## Levels (per model)
 
 | τ | Role |
 |---|---|
-| 0 | baseline; the rule line is kept ("an extra 0 points") so only the number changes between levels |
-| 1.5 | Corollary 1: every regular-QRE population cooperates 50%, at any λ |
+| 0.0 | baseline |
+| 1.5 | the stage-game halfway point. **Not parameter-free in the 10-round game:** for 1 < τ < 2 the stage game is chicken, with two pure equilibria, so round-1 cooperation can be subgame-perfect (Benoît & Krishna, 1985; author's correction). Kept for comparability with the stage-game λ fits; the assumption is stated as a limitation |
 | 2.5 | the classical "guess": just above the dominance threshold T − R = 2 |
-| τ\*(0.9, λ̂ₘ) | the derived mechanism: Theorem 3 at model m's fitted Stage 2A PD λ (named wording), rounded to 0.1 |
+| τ\* = 1.9 + ln 9 / λ̂ₘ | the derived mechanism: 90% target at model m's fitted λ, rounded to 0.1. Capped at 50 at the floor (λ < 0.046); dropped at the ceiling (λ ≥ 3.66), where it would fall at or below 2.5 (`docs/decision-gate.md`) |
 
-**Size.** 100 questions per level per model, 1,600 in total, normal wording only. Seeds are new,
-from a separate seed block, so no Stage 2A question is repeated.
+## Size
 
-**Maths check.** C against D, including the extra payment: the answer is S + τ.
+- **100 per level per model**, normal wording only.
+- **Balanced across the three Stage 2A paraphrases (34/33/33)**, so wording is not confounded
+  with level.
+- New seeds.
+- **Maths check:** C against D, including the subsidy (answer S + τ). A misreading of the rule
+  gives 0, so the check would catch it.
 
-**Outcome.** The cooperation rate. At τ = 1.5 there's no single equilibrium action (rational
-play mixes), so "equilibrium play" isn't the measure.
+## Outcome and tests (author's amendment to the headline)
 
-**Planned tests (to be fixed in pre-registration 4):**
-1. Halfway point: exact binomial test of the τ = 1.5 cooperation rate against 0.5, per model.
-2. Derived vs guessed: cooperation at τ\* vs τ = 2.5, per model, two-proportion test with Holm
-   across models; plus each level against its QRE prediction at λ̂ₘ.
-3. Calibration: the observed cooperation rate at each level against the QRE curve at λ̂ₘ.
+"Cooperation at τ\* exceeds cooperation at 2.5" would almost certainly pass, since τ\* > 2.5
+whenever λ < 3.66. So it tests nothing. Instead:
 
-**Caveat.** A model whose fitted λ is at the ceiling or the floor makes τ\* extreme. The gate
-records how that is handled: τ\* is capped at 50 points, and that cap is reported.
+1. **Derived vs guessed theory, at τ = 2.5:** is QRE's prediction (at λ̂ₘ) closer to the
+   observed rate than classical theory's 100%? Compare absolute errors.
+2. **The derived mechanism, at τ\*:** is the observed rate within 90 ± 15 (75–100 in practice)?
+   An observed rate of about 100% is reported as "target exceeded: QRE under-predicts
+   responsiveness; the mechanism overpays".
+3. **The stage-game halfway point, at τ = 1.5:** an exact binomial test against 0.5, read with
+   `docs/interpretation-key.md` (the repeated-game caveat applies).
+4. **Calibration:** each level against the QRE curve at λ̂ₘ.
