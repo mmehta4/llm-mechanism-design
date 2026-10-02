@@ -28,8 +28,9 @@ def test_extreme_questions_carry_the_same_numbers_as_2a():
                 assert p2a[k] == p2c[k]
 
 
-def test_not_registered_yet():
-    assert prereg3_locked() is False
+def test_preregistration_3_untouched():
+    """Locked: editing docs/preregistration-3.md now stops every real Stage 2C run."""
+    assert prereg3_locked() is True
 
 
 def test_stage2c_box_is_neutral_and_shaped_like_stage2a():

@@ -1,6 +1,6 @@
 # Pre-registration 3 — Equilibrium or Retrieval: the extreme disguise
 
-**Status:** DRAFT. Not locked.
+**Locked:** 2026-10-02 19:20 UTC, before any Stage 2C data existed.
 **Scope:** the Stage 2C experiment — the four Stage 2A games in an extreme disguise, four
 models, 138 questions per game per model: **2,208 questions**.
 **Relation to earlier registrations:** pre-registration 1 (osf.io/2uqpj) and pre-registration 2
@@ -197,5 +197,5 @@ for each model independently.
 
 ## 6. Materials
 
-Code, prompts and seeds: repository commit **[SET AT LOCK]**. This file's SHA-256 is recorded in
+Code, prompts and seeds: repository commit **49168d4**. Between that commit and the lock commit, only this file and the fingerprint line in `experiments/stage2c.py` changed. This file's SHA-256 is recorded in
 `experiments/stage2c.py`, which refuses to collect real Stage 2C data unless this file matches it.
