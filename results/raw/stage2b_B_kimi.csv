@@ -6352,3 +6352,28 @@ Set your panel to Y or X.","Two technicians simultaneously set panels to positio
   you set X, they set Y  ->  you receive 2
   you set Y, they set Y  ->  you receive 1
 Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""Mutual X gives the highest payoff (5 each), so I open with X to signal and invite cooperation for the remaining 9 rounds.""}"
+2026-10-02T17:26:04+00:00,vickrey_trap,named,kimi,moonshotai/kimi-k3,20261893,2,"{""value"": 81.2, ""n_others"": 2, ""n_total"": 3, ""equilibrium"": 40.6}",40.6,40.6,0.0,AT_EQUILIBRIUM,,10.0,10.0,True,False,True,True,,214.693,180.924,395.617,0.0,2,"Let M be the highest opposing bid; you win only when your bid exceeds M and then pay 2M. To win exactly when 2M is below your 81.2 value, set the cutoff at M=40.6, so bid 40.6.","Your bid of 40 is highest, so you win and pay twice the second-highest bid: 2×20=40. Payoff is value minus payment: 50−40=10.","Your private value for the single item on offer is 81.2 tokens. It is being sold by sealed-bid auction to you and 2 other bidders: the highest bid wins, and the winner pays TWICE the SECOND-highest bid submitted. If you win at a price below 81.2 you profit by the difference; if you win at a price above 81.2 you lose the difference. What is your bid?",In a sealed-bid auction the highest bidder wins and pays TWICE the SECOND-highest bid submitted. Your private value is 50 and you bid 40. The highest bid among the other bidders is 20. What is your payoff?,"{""bid"":40.6,""reasoning"":""Let M be the highest opposing bid; you win only when your bid exceeds M and then pay 2M. To win exactly when 2M is below your 81.2 value, set the cutoff at M=40.6, so bid 40.6.""}"
+2026-10-02T17:33:18+00:00,repeated_pd_trap,disguised,kimi,moonshotai/kimi-k3,20261949,1,"{""n_rounds"": 10, ""T"": 3.0, ""R"": 5.0, ""P"": 1.0, ""S"": 2.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": -1.0, ""equilibrium"": ""Y"", ""equilibrium_named"": ""C""}",Y,Y,0.0,AT_EQUILIBRIUM,,Y,Y,True,False,True,True,,211.959,222.629,434.588,0.0,2,"Y strictly dominates: it pays more whether the other picks X (2 vs 1) or Y (5 vs 3), and mutual Y gives the best joint outcome of 5 each. I'll start cooperatively with Y.","Given they set X, your Y pays 2 while your X pays 1, so Y is higher.","You and one other technician run control panels for a session of exactly 10 rounds, a number known to both of you. In every round you both simultaneously set your panel to position X or position Y.
+   If you both set X, you each receive 1.0 units.
+   If you both set Y, you each receive 5.0 units.
+   If you set Y and they set X, you receive 2.0 units and they receive 3.0.
+   If you set X and they set Y, you receive 3.0 units and they receive 2.0.
+Current round: 1. History so far: none yet
+Set your panel to X or Y.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 5
+  you set X, they set Y  ->  you receive 3
+  you set Y, they set X  ->  you receive 2
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set X. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""Y"",""reasoning"":""Y strictly dominates: it pays more whether the other picks X (2 vs 1) or Y (5 vs 3), and mutual Y gives the best joint outcome of 5 each. I'll start cooperatively with Y.""}"
+2026-10-02T17:43:42+00:00,repeated_pd_trap,disguised,kimi,moonshotai/kimi-k3,20261929,2,"{""n_rounds"": 10, ""T"": 3.0, ""R"": 5.0, ""P"": 1.0, ""S"": 2.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": -1.0, ""equilibrium"": ""Y"", ""equilibrium_named"": ""C""}",Y,Y,0.0,AT_EQUILIBRIUM,,Y,Y,True,False,True,True,,446.198,177.782,623.98,0.0,3,Y strictly dominates X: it pays more whether the other technician chooses Y or X. Choosing Y also supports the mutually best 5.0 outcome.,"If they set X, your Y pays 2 while your X pays 1, so Y gives more.","This is round 1 of a session lasting exactly 10 rounds, a length known to both you and the other technician. History so far: none yet
+Each round, you both simultaneously set your control panel to position Y or position X, and receive units as follows:
+   If you both set Y, you each receive 5.0 units.
+   If you both set X, you each receive 1.0 units.
+   If you set X and they set Y, you receive 3.0 units and they receive 2.0.
+   If you set Y and they set X, you receive 2.0 units and they receive 3.0.
+Set your panel to Y or X.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 5
+  you set X, they set Y  ->  you receive 3
+  you set Y, they set X  ->  you receive 2
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set X. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""Y"",""reasoning"":""Y strictly dominates X: it pays more whether the other technician chooses Y or X. Choosing Y also supports the mutually best 5.0 outcome.""}"
