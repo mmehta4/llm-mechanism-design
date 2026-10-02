@@ -19,21 +19,33 @@ from dataclasses import replace
 from functools import partial
 
 from games import repeated_pd
-from games.deep import (COURNOT_DEEP3, DEEP3_PD, DEEP_GAMES, DEEP_PROBES, PD_DEEP3, PG_DEEP3,
-                        VICKREY_DEEP3)
-from games.probes import PROBES
+from games.deep import COURNOT_DEEP3, DEEP_GAMES, DEEP_PROBES, PD_DEEP3, PG_DEEP3
+from games.probes import PROBES, NumericProbe
 
+# Vickrey: the pilot's deep3 text said "whoever has the largest offer receives {value}
+# points", which makes the prize COMMON and known to all -- a different information
+# structure from Stage 2A's private value ("worth {value} credits to your station").
+# Caught in the prompt check before registration; all three wordings state a private
+# prize. (The pilot itself ran the common-prize text; its Vickrey result is read with
+# that caveat.)
 VICKREY_X = (
-    VICKREY_DEEP3,
+    "You and {n_others} other participants each privately write down a number x. Your "
+    "offer is 3x + 5. Each participant has their own prize, known only to them; yours is "
+    "{value} points. Whoever has the largest offer receives their own prize minus the "
+    "largest offer made by anyone else, which can be negative; everyone else receives 0. "
+    "Every participant's offer is worked out the same way from their own number. What "
+    "number x do you write?",
     "Each of you -- you and {n_others} other participants -- privately picks a number x, "
-    "and your offer is worked out as 3x + 5. The participant with the largest offer gets "
-    "{value} points minus the largest offer made by any other participant, which may be "
-    "negative; all others get 0. Every participant's offer follows the same 3x + 5 rule. "
-    "Which number x do you pick?",
-    "The largest offer receives {value} points minus the largest offer made by anyone else, "
-    "which can be negative; every other participant receives 0. Each participant's offer is "
-    "3x + 5, where x is a number they privately write down, and there are {n_others} "
-    "participants besides you. What number x do you write?",
+    "and your offer is worked out as 3x + 5. Everyone has a private prize that only they "
+    "know; yours is {value} points. The participant with the largest offer gets their own "
+    "prize minus the largest offer made by any other participant, which may be negative; "
+    "all others get 0. Every participant's offer follows the same 3x + 5 rule. Which "
+    "number x do you pick?",
+    "The largest offer receives its owner's private prize minus the largest offer made by "
+    "anyone else, which can be negative; every other participant receives 0. Your prize is "
+    "{value} points, and each of the {n_others} other participants has their own prize, "
+    "known only to them. Each participant's offer is 3x + 5, where x is a number they "
+    "privately write down. What number x do you write?",
 )
 COURNOT_X = (
     COURNOT_DEEP3,
@@ -97,5 +109,11 @@ EXTREME_PROBES = {
     (key, "disguised"): DEEP_PROBES[(key.replace("_extreme", "_deep3"), "disguised")]
     for key in EXTREME_GAMES
 }
+EXTREME_PROBES[("vickrey_extreme", "disguised")] = (
+    "Each participant writes a number x and their offer is 3x + 5. Whoever has the largest "
+    "offer receives their own private prize minus the largest offer made by anyone else. "
+    "Your prize is 70 points. You write 20, so your offer is 65, and the largest offer by "
+    "anyone else is 50. How many points do you receive?",
+    NumericProbe, lambda **_: 20.0)
 assert not set(EXTREME_PROBES) & set(PROBES)
 PROBES.update(EXTREME_PROBES)
