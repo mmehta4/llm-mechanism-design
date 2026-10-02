@@ -50,7 +50,7 @@ As in `docs/stage5-design.md`:
 
 [GATE] **The other three models:** the author's numbers at τ = 0, 1.5, 2.5 and τ\*ₘ.
 
-**Headline.** Derived beats guessed: cooperation at τ\*ₘ exceeds cooperation at 2.5 for every
+**Headline** (proposed; [AUTHOR] to confirm or change). Derived beats guessed: cooperation at τ\*ₘ exceeds cooperation at 2.5 for every
 model. Whether each model is *steeper than QRE* (cooperation norm), *on the QRE curve*, or
 *flatter* (recalled "always defect") is answered by the halfway-point test.
 
