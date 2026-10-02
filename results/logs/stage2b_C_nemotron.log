@@ -116,3 +116,8 @@ nemotron: 0/1104 done, 1104 to go  -> stage2b_C_nemotron.csv
 [ 111/1104] vickrey_n_others7      disguised p0 AT_EQUILIBRIUM      19.0s  ~27/h
 [ 112/1104] cournot_a60            named     p0 AT_EQUILIBRIUM     100.8s  ~28/h
 [ 113/1104] vickrey_n_others3      named     p0 AT_EQUILIBRIUM      22.1s  ~28/h
+[ 114/1104] repeated_pd_n_rounds2  disguised p0 AT_EQUILIBRIUM      76.5s  ~28/h
+[ 115/1104] repeated_pd_n_rounds10 disguised p0 AT_EQUILIBRIUM     645.8s  ~27/h
+[ 116/1104] cournot_a60            disguised p1 STRATEGIC_GAP      568.5s  ~26/h
+[ 117/1104] vickrey_n_others3      disguised p0 AT_EQUILIBRIUM      21.9s  ~26/h
+[ 118/1104] cournot_a60            named     p2 AT_EQUILIBRIUM      44.8s  ~27/h
