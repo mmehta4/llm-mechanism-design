@@ -29,7 +29,8 @@ from experiments.trial import run_trial
 from experiments.trial_log import TrialLog
 
 FAMILIES = ["vickrey", "cournot", "repeated_pd", "public_goods"]
-LEVELS = {"baseline (2A disguise)": "", "deep1 rephrased rule": "_deep1", "deep2 abstract": "_deep2"}
+LEVELS = {"2A disguise (as registered)": "", "2A disguise + neutral answer box": "_neutralbox",
+          "deep1 rephrased rule": "_deep1", "deep2 abstract": "_deep2", "deep3 extreme": "_deep3"}
 SEED_BASE = 950_000
 
 
@@ -38,8 +39,9 @@ def out_path(model: str) -> Path:
 
 
 def run(model: str, n: int, workers: int) -> None:
+    from games import GAMES
     jobs = [(fam + suffix, SEED_BASE + k) for fam in FAMILIES for suffix in LEVELS.values()
-            for k in range(n)]
+            for k in range(n) if fam + suffix in GAMES]     # the PD box was already neutral
     # resumable: skip questions already answered (a server refusal is asked again)
     path = out_path(model)
     if path.exists():

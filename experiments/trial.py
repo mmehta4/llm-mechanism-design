@@ -42,7 +42,7 @@ NUMERIC_TOLERANCE = 0.5
 
 def extract_action(action_obj, game_key: str):
     """Pull the decision out of the game's action schema."""
-    for attr in ("bid", "quantity", "contribution", "action"):
+    for attr in ("bid", "quantity", "contribution", "action", "number"):
         if hasattr(action_obj, attr):
             return getattr(action_obj, attr)
     raise AttributeError(f"no recognised action field on {game_key} response")
