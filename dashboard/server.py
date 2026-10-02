@@ -338,6 +338,13 @@ class Handler(SimpleHTTPRequestHandler):
             return
         super().do_GET()
 
+    def end_headers(self):
+        # never let the browser reuse an old copy of the page: it hid the new Stage 2C
+        # panel behind a cached version once
+        if not self.path.startswith("/api/"):
+            self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
     def log_message(self, *a):
         pass          # polling every 2s would otherwise flood the terminal
 
