@@ -128,3 +128,60 @@ Locked in git commit 2a71eda; materials at commit d3ef924.
 - **Registered file:** `docs/preregistration-2.md`, SHA-256
   `ad378d9158fca7872babc3f024783d98e645c5dd2bb8eb4e26095a4705a9dfc0` (lock commit 2a71eda).
   OSF's own hash of the uploaded file matches.
+
+---
+
+# Registration 3 — Stage 2C extreme disguise
+
+## Title
+
+```
+Equilibrium or Retrieval 3: Does an Extreme Disguise Change How LLM Agents Play Classic Games?
+```
+
+## Description
+
+```
+Third pre-registered study in the Equilibrium or Retrieval project (first: osf.io/2uqpj;
+second: osf.io/6hz8d). Stage 2A's disguised wording did not hide the games from at least one
+model, partly because the answer box leaked the named game's vocabulary. This study re-asks the
+Stage 2A questions, with identical numbers, in an extreme disguise (no story, coded answers, a
+neutral answer box) to four models, and tests whether play changes when a game is genuinely
+hidden.
+```
+
+## Summary box
+
+```
+Pre-registration 3 (Stage 2C), written before any Stage 2C data existed. Pre-registrations 1
+(osf.io/2uqpj) and 2 (osf.io/6hz8d) and their experiments are unchanged.
+
+Design: 4 games (Vickrey, Cournot, repeated prisoner's dilemma, public goods) x 138 questions x
+4 models (gpt-oss-120b, Nemotron 3 Ultra, Kimi K3, Gemini 3.5 Flash Lite) = 2,208 questions, in
+an extreme disguise: no story; coded answers (Vickrey offer = 3x + 5; Cournot amount = 2n + 4;
+public goods asks how much to keep); PD payoffs 2u - 4; a neutral number-only answer box. Each
+question uses the same seed and wording index as its Stage 2A twin, so every question exists in
+normal, disguised and extreme wording with identical numbers.
+
+Main test: equilibrium play, extreme vs normal (Stage 2A), on paired questions; exact McNemar per
+model and game, Holm across games; pooled across models by stratified McNemar. Secondary: extreme
+vs disguised. Recognition (validated game-naming code) compared the same way. Answers in this
+comparison are scored with a fraction-slip correction applied identically to both stages, defined
+in the file; uncorrected results are reported beside them. Predictions, exclusions, stopping rule
+and disclosures are in the attached file.
+
+Attached file: preregistration-3.md
+SHA-256: cda56ed6445045cfc1f7d78a804d22d97cd9bf243139c039520ab57d9054aead
+Locked in git commit 103a7ce; materials at commit 49168d4.
+```
+
+## Registered (registration 3)
+
+- **OSF registration:** https://osf.io/cqnsy
+- **Submitted:** 2026-10-02 19:29:18 UTC, before any Stage 2C data existed (the Stage 2C
+  runner refuses real runs until the lock matches; first Stage 2C question asked after this).
+- **Status at submission:** embargoed (private) until **2027-09-30**, then public automatically.
+- **Registered file:** `docs/preregistration-3.md`, SHA-256
+  `cda56ed6445045cfc1f7d78a804d22d97cd9bf243139c039520ab57d9054aead` (lock commit 103a7ce).
+  OSF's own hash of the uploaded file matches.
+- Licence CC-By 4.0; same subjects and tags as registrations 1 and 2.

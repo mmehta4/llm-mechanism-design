@@ -29,19 +29,25 @@ PY = "./venv/bin/python"
 # chain runs alongside their 2A run.
 A = lambda m: ("stage2.py", f"--model {m}")
 B = lambda block, m: ("stage2b.py", f"--block {block} --model {m}")
+X = lambda m: ("stage2c.py", f"--model {m}")          # Stage 2C, extreme disguise
 
 CHAINS = [
     # Groq. Free tier: 200,000 tokens a day, ~170 questions. Traps (Block B) first.
     # Block D was dropped before any of its data existed (deviation 7), so every model
     # now answers exactly the same set of questions.
-    [A("gptoss120b"), B("B", "gptoss120b"), B("C", "gptoss120b"), B("E", "gptoss120b")],
-    # NVIDIA
+    # Stage 2C (registration 3) right after the traps on the daily-capped providers.
+    [A("gptoss120b"), B("B", "gptoss120b"), X("gptoss120b"), B("C", "gptoss120b"),
+     B("E", "gptoss120b")],
+    # NVIDIA: no daily cap, so Stage 2C runs as its own chain alongside
     [A("nemotron")],
     [B("B", "nemotron"), B("C", "nemotron"), B("E", "nemotron")],
+    [X("nemotron")],
     [A("kimi")],
     [B("B", "kimi"), B("C", "kimi"), B("E", "kimi")],
+    [X("kimi")],
     # Google
-    [A("gemini_lite"), B("B", "gemini_lite"), B("C", "gemini_lite"), B("E", "gemini_lite")],
+    [A("gemini_lite"), B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"),
+     B("E", "gemini_lite")],
 ]
 
 
@@ -55,7 +61,7 @@ def running(step: tuple[str, str]) -> bool:
 
 def label(step: tuple[str, str]) -> str:
     script, args = step
-    return ("2A " if script == "stage2.py" else "2B ") + args.replace("--block ", "").replace("--model ", "")
+    return {"stage2.py": "2A ", "stage2b.py": "2B ", "stage2c.py": "2C "}[script] + args.replace("--block ", "").replace("--model ", "")
 
 
 def dashboard_up() -> bool:

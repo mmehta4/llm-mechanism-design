@@ -121,7 +121,7 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
   <section class="overall">
     <div class="row">
       <span class="num" id="all-n">–</span>
-      <span class="dim" id="all-of">of 16,560 questions answered</span>
+      <span class="dim" id="all-of">of 18,768 questions answered</span>
       <span class="dim" id="all-pct" style="margin-left:auto"></span>
     </div>
     <div class="bar" id="all-bar"></div>
@@ -140,7 +140,7 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
   <h2>How to read this</h2>
   <div class="guide">
     <div class="card">
-      <p><b>What's being run.</b> 16,560 questions in two registered experiments. <b>Stage 2A</b> (osf.io/2uqpj): each model gets 1,104, which is 4 games × normal / disguised words × 138. <b>Stage 2B</b> (osf.io/6hz8d): trap games where the textbook answer is wrong (1,104), the same games at three sizes (1,104), and the prisoner's dilemma at rounds 5, 9 and 10 (828). That's 4,140 questions per model, the same for all four. (A gpt-oss-only "think harder" block was dropped before it started, so every model answers exactly the same questions.)</p>
+      <p><b>What's being run.</b> 18,768 questions in three registered experiments, the same set for every model (4,692 each). <b>Stage 2A</b> (osf.io/2uqpj): 4 games × normal / disguised words × 138. <b>Stage 2B</b> (osf.io/6hz8d): trap games where the textbook answer is wrong, the same games at three sizes, and the prisoner's dilemma at rounds 5, 9 and 10. <b>Stage 2C</b> (registration 3): the Stage 2A questions again, with identical numbers, in an extreme disguise: no story, coded answers, a neutral answer box.</p>
       <p><b>Paired questions.</b> Question #57 in normal words and #57 in disguised words use exactly the same numbers. Only the wording changes.</p>
       <p><b>Each question is two calls.</b> First the model plays the game. Then, separately, it's asked a simple payoff question to check it can do the maths. That check decides which colour the answer gets.</p>
       <p><b>The % table isn't a result yet.</b> It moves as questions come in, and it only counts once every box has all its answers, which is your locked stopping rule. No extra questions ever get added. A block is only marked done when every one of its questions has a real answer: anything the server refused is asked again until it's answered.</p>
@@ -248,7 +248,7 @@ function card(m){
     return `<tr><td>${label}</td><td class="r">${cell(pa,a)}</td><td class="r" style="color:var(--disguised)">${cell(pb,b)}</td>
       <td class="r shift">${d==null?"":(d>0?"+":"")+d}</td></tr>`;
   }).join("");
-  const TAG = {A:"2A", B:"trap", C:"sweep", D:"effort", E:"endgame"};
+  const TAG = {A:"2A", B:"trap", C:"sweep", D:"effort", E:"endgame", X:"2C extreme"};
   const feed = m.recent.slice(0,6).map(r =>
     `<span class="chip"><b class="c-${r.verdict}">●</b> ${TAG[r.block]||""} · ${esc(r.game.replace(/_/g," "))} · ${r.framing==="named"?"normal":"disguised"} · <span class="c-${r.verdict}">${SHORT[r.verdict]||r.verdict}</span> · ${dur(r.age)} ago</span>`
   ).join("");
@@ -288,14 +288,15 @@ async function refresh(){
     const s = await (await fetch("/api/state", {cache:"no-store"})).json();
     const blocks = s.models.flatMap(m => m.blocks);
     const a2 = blocks.filter(b=>b.block==="A").reduce((x,b)=>x+b.done,0), t2 = blocks.filter(b=>b.block==="A").reduce((x,b)=>x+b.total,0);
-    const b2 = blocks.filter(b=>b.block!=="A").reduce((x,b)=>x+b.done,0), tb = blocks.filter(b=>b.block!=="A").reduce((x,b)=>x+b.total,0);
-    const all = a2 + b2, total = t2 + tb;
+    const b2 = blocks.filter(b=>"BCDE".includes(b.block)).reduce((x,b)=>x+b.done,0), tb = blocks.filter(b=>"BCDE".includes(b.block)).reduce((x,b)=>x+b.total,0);
+    const c2 = blocks.filter(b=>b.block==="X").reduce((x,b)=>x+b.done,0), tc = blocks.filter(b=>b.block==="X").reduce((x,b)=>x+b.total,0);
+    const all = a2 + b2 + c2, total = t2 + tb + tc;
     const v = {};
     s.models.forEach(m => ORDER.forEach(k => v[k] = (v[k]||0) + (m.verdicts[k]||0)));
     document.getElementById("all-n").textContent = fmt(all);
     document.getElementById("all-of").textContent = `of ${fmt(total)} questions answered`;
     const live = s.models.filter(m=>m.status==="running").length;
-    document.getElementById("all-pct").textContent = `Stage 2A ${fmt(a2)}/${fmt(t2)} · Stage 2B ${fmt(b2)}/${fmt(tb)} · ${live} of 4 models working right now`;
+    document.getElementById("all-pct").textContent = `Stage 2A ${fmt(a2)}/${fmt(t2)} · Stage 2B ${fmt(b2)}/${fmt(tb)} · Stage 2C ${fmt(c2)}/${fmt(tc)} · ${live} of 4 models working right now`;
     document.getElementById("all-bar").innerHTML = bar(v, total);
     document.getElementById("models").innerHTML = s.models.map(card).join("");
     const alarms = s.models.flatMap(m => (m.alarms||[]).map(a => `<div class="alarm">⚠ <b>${esc((INFO[m.key]||{}).name||m.key)}:</b> ${esc(a)} Ask Claude to check.</div>`));

@@ -64,7 +64,7 @@ def age_s(ts: str) -> float | None:
 
 
 BLOCK_NAMES = {"A": "Stage 2A · confirmatory", "B": "Traps", "C": "Number sweep",
-               "E": "PD endgame", "D": "Think harder"}
+               "E": "PD endgame", "D": "Think harder", "X": "Stage 2C · extreme disguise"}
 
 
 def read_rows(path: Path) -> list[dict]:
@@ -92,6 +92,9 @@ def sources(model: str) -> list[dict]:
             out.append({"block": block, "label": label, "runner": runner,
                         "total": len(PLANS[block]()), "csv": f"stage2b_{block}_{runner}",
                         "cmd": f"stage2b.py --block {block} --model {runner}"})
+    from experiments.stage2c import plan as plan_c
+    out.append({"block": "X", "label": BLOCK_NAMES["X"], "runner": model, "total": len(plan_c()),
+                "csv": f"stage2c_{model}", "cmd": f"stage2c.py --model {model}"})
     return out
 
 

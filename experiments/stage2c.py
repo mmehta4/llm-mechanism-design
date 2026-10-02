@@ -33,7 +33,7 @@ from games.extreme import EXTREME_GAMES
 N = 138
 N_PARAPHRASES = 3
 PREREG3 = ROOT / "docs" / "preregistration-3.md"
-PREREG3_SHA256 = None          # set when pre-registration 3 is locked
+PREREG3_SHA256 = "cda56ed6445045cfc1f7d78a804d22d97cd9bf243139c039520ab57d9054aead"
 
 
 def plan() -> list[tuple]:

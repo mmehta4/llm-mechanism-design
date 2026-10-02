@@ -37,11 +37,15 @@ from games.probes import PROBES, ChoiceProbe, NumericProbe
 DEEP_PD = dict(T=9.5, R=6.5, P=3.5, S=2.0)
 
 
+# A NEUTRAL answer box, in the same form as Stage 2A's (number-only, answer first, then
+# reasoning); only the field's words change. NO DOCSTRING on purpose: a pydantic class
+# docstring is sent to the model as the schema's description. The first version of this
+# box had one that quoted the Stage 2A field texts ("bid: The sealed bid to submit",
+# "quantity to produce", "contribution"), which leaked those words into every pilot
+# deep-disguise question. Asking for "a decimal, not a fraction" did not stop Nemotron's
+# fraction slip, and a free-text box drew template junk in 6 of 12 practice answers, so
+# the slip is left exactly as in Stage 2A and counted separately.
 class NumberAction(BaseModel):
-    """A NEUTRAL answer box. The Stage 2A boxes carried the named game's vocabulary into
-    the disguised questions ("bid: The sealed bid to submit", "quantity: The quantity to
-    produce", "contribution: How much of your endowment to contribute"), and a model
-    writes the field name as it answers. Every deep version uses this instead."""
     number: float = Field(description="The number you choose.")
     reasoning: str = Field(description="One or two sentences explaining the number.")
 

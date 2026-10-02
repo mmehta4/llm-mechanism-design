@@ -183,3 +183,45 @@ Stage 0 isomorphism checks, which compared prompt texts only.
 - The Stage 2C pilot measures the box's effect directly: the Stage 2A disguised wording,
   word for word, asked with a neutral `number` box. Stage 2C itself uses neutral boxes
   throughout.
+
+## 9. Ten answers re-asked that should have been scored (2026-10-03)
+
+Not a change to either plan; a classification error, recorded for the audit.
+
+After the NVIDIA outage (item 5), any failure before a usable reply was classified as
+infrastructure and re-asked. That rule was too broad: a reply that **arrives but fails the
+answer-format check** is the model's own unreadable answer, which the registrations score
+(PARSE_FAIL for the move, PROBE_FORMAT_FAIL for the maths check) rather than re-ask.
+
+**Affected:** 1 Kimi Stage 2A answer (a format-check failure, re-asked and then answered),
+and 9 Nemotron questions (2 in Stage 2A, 7 in Stage 2B traps) where the maths-check call
+failed without its error being recorded, so it cannot be told whether they were format
+failures or genuine server errors. About 10 of roughly 10,000 questions; no result can
+change. The answers obtained on re-asking stand, and these cases are listed in the paper.
+
+**Fixed:** a format-check failure is now always the model's answer (`agents/llm.py`), with a
+test. Found while practising Stage 2C's new answer box, which made such replies common.
+
+## 10. Limitation: explanatory text sent with two answer forms (2026-10-03)
+
+Not a change to either plan; recorded so results are read correctly.
+
+The answer forms are sent to the model as a schema, and a code comment written as a
+class docstring is sent with it as the schema's description. Two Stage 2A/2B forms had one:
+
+- **PD answer form** (both wordings): "Labels are counterbalanced per trial, so this cannot be
+  a static Literal. Validate the returned string against the trial's own two labels."
+- **Maths-check form for the PD** (both wordings): a note that mentions "setting Y would give
+  you more" and answer formatting.
+
+Both reveal that the question is part of an experiment, and the second contains a phrase from
+the disguised PD's vocabulary. Both are **identical in the named and disguised wordings**, so
+they cannot create a difference between wordings, and neither names the game. The other forms
+(Vickrey, Cournot, public goods, numeric maths checks) send no such text.
+
+**Also affected: the Stage 2C pilot.** The first neutral answer box used in the pilot had a
+docstring quoting the Stage 2A field texts ("bid: The sealed bid to submit", "quantity to
+produce", "contribution"), so every pilot deep-disguise question carried those words. The
+pilot's recognition rates (e.g. 100% for the extreme Vickrey and public goods) are therefore
+likely overstated; Cournot's fall from 96% to 14% happened despite the leak. Found by a test
+written before Stage 2C's registration; the Stage 2C box sends no description at all.
