@@ -202,7 +202,8 @@ def interpret(row: dict, data: dict) -> str:
     if derived:
         t = derived[0]; kd, nd, _ = row[t]
         if nd and kd / nd < 0.75:
-            parts.append("the derived mechanism failed")
+            parts.append("the derived mechanism failed (if this model's gate fit is poor, read as "
+                         "expected under option 3, not as the mechanism failing; decision-gate.md)")
         elif nd and wilson(kd, nd)[0] > 0.90 and 2.5 in data and row[2.5][1] and row[2.5][0] / row[2.5][1] >= 0.90:
             parts.append("the mechanism worked but overpaid")
     return "; ".join(parts) + "."

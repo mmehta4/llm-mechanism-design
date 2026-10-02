@@ -39,3 +39,13 @@ tuned to manufacture stability.
 - **Ceiling**, λ ≥ 3.66 (so τ\* ≤ 2.5): QRE already predicts at least 90% at τ = 2.5, so derived
   and guessed coincide. Drop that model's separate derived level and report why; its τ = 2.5
   cell serves both.
+
+## Mixed results (author's decision, 2026-10-03, before any of the three remaining fits existed)
+
+If some models' fits are good and others' are poor, **Stage 5 runs for all four models, at all
+four levels**.
+- **Good-fit models:** the derived subsidy is a genuine test of the mechanism.
+- **Poor-fit models:** the derived level is still asked and reported. A failure there (below 75%)
+  is read as *expected under option 3* for that model, **not** as the mechanism failing.
+
+Every model answers the same questions, and nothing is discarded.
