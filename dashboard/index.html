@@ -135,6 +135,8 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
 
   <div class="grid" id="models"></div>
 
+  <div id="stage5"></div>
+
   <div id="pilot"></div>
 
   <h2>How to read this</h2>
@@ -248,7 +250,7 @@ function card(m){
     return `<tr><td>${label}</td><td class="r">${cell(pa,a)}</td><td class="r" style="color:var(--disguised)">${cell(pb,b)}</td>
       <td class="r shift">${d==null?"":(d>0?"+":"")+d}</td></tr>`;
   }).join("");
-  const TAG = {A:"2A", B:"trap", C:"sweep", D:"effort", E:"endgame", X:"2C extreme"};
+  const TAG = {A:"2A", B:"trap", C:"sweep", D:"effort", E:"endgame", X:"2C extreme", S:"5 subsidy"};
   const feed = m.recent.slice(0,6).map(r =>
     `<span class="chip"><b class="c-${r.verdict}">●</b> ${TAG[r.block]||""} · ${esc(r.game.replace(/_/g," "))} · ${r.framing==="named"?"normal":"disguised"} · <span class="c-${r.verdict}">${SHORT[r.verdict]||r.verdict}</span> · ${dur(r.age)} ago</span>`
   ).join("");
@@ -276,7 +278,7 @@ function card(m){
     </table>
     <div class="feed">${feed || '<span class="dim" style="font-size:.85rem">No answers yet.</span>'}</div>
     <a class="all-q" href="/questions.html?model=${m.key}">See every question and answer (${fmt(m.done)}) →</a>
-    <div class="s2b"><h4>Progress by block · 2A osf.io/2uqpj · 2B osf.io/6hz8d</h4>${m.blocks.map(b =>
+    <div class="s2b"><h4>Progress by block · 2A osf.io/2uqpj · 2B osf.io/6hz8d · 2C osf.io/cqnsy · Stage 5</h4>${m.blocks.map(b =>
       `<div class="row ${b.running?"live":""}"><span class="lbl">${b.running?"● ":(b.waiting?"◐ ":"")}${esc(b.label)}</span>
         <div class="bar"><i style="width:${100*b.done/b.total}%;background:${b.done>=b.total?"var(--eq)":(b.running?"var(--eq)":(b.waiting?"var(--gap)":"var(--ink-2)"))}"></i></div>
         <span class="n">${fmt(b.done)} / ${fmt(b.total)}</span></div>`).join("")}</div>
@@ -290,17 +292,32 @@ async function refresh(){
     const a2 = blocks.filter(b=>b.block==="A").reduce((x,b)=>x+b.done,0), t2 = blocks.filter(b=>b.block==="A").reduce((x,b)=>x+b.total,0);
     const b2 = blocks.filter(b=>"BCDE".includes(b.block)).reduce((x,b)=>x+b.done,0), tb = blocks.filter(b=>"BCDE".includes(b.block)).reduce((x,b)=>x+b.total,0);
     const c2 = blocks.filter(b=>b.block==="X").reduce((x,b)=>x+b.done,0), tc = blocks.filter(b=>b.block==="X").reduce((x,b)=>x+b.total,0);
-    const all = a2 + b2 + c2, total = t2 + tb + tc;
+    const s5 = blocks.filter(b=>b.block==="S").reduce((x,b)=>x+b.done,0), t5 = blocks.filter(b=>b.block==="S").reduce((x,b)=>x+b.total,0);
+    const all = a2 + b2 + c2 + s5, total = t2 + tb + tc + t5;
     const v = {};
     s.models.forEach(m => ORDER.forEach(k => v[k] = (v[k]||0) + (m.verdicts[k]||0)));
     document.getElementById("all-n").textContent = fmt(all);
     document.getElementById("all-of").textContent = `of ${fmt(total)} questions answered`;
     const live = s.models.filter(m=>m.status==="running").length;
-    document.getElementById("all-pct").textContent = `Stage 2A ${fmt(a2)}/${fmt(t2)} · Stage 2B ${fmt(b2)}/${fmt(tb)} · Stage 2C ${fmt(c2)}/${fmt(tc)} · ${live} of 4 models working right now`;
+    document.getElementById("all-pct").textContent = `Stage 2A ${fmt(a2)}/${fmt(t2)} · Stage 2B ${fmt(b2)}/${fmt(tb)} · Stage 2C ${fmt(c2)}/${fmt(tc)} · Stage 5 ${fmt(s5)}/${fmt(t5)} · ${live} of 4 models working right now`;
     document.getElementById("all-bar").innerHTML = bar(v, total);
     document.getElementById("models").innerHTML = s.models.map(card).join("");
     const alarms = s.models.flatMap(m => (m.alarms||[]).map(a => `<div class="alarm">⚠ <b>${esc((INFO[m.key]||{}).name||m.key)}:</b> ${esc(a)} Ask Claude to check.</div>`));
     document.getElementById("alarms").innerHTML = alarms.join("");
+    const s5p = s.stage5 || {rows: []};
+    const tauLbl = t => t === null ? "τ* (derived)" : (t > 2.5 ? `τ* = ${t.toFixed(1)}` : `τ = ${t.toFixed(1)}`);
+    const roleLbl = t => t === null ? "derived mechanism" : (t === 0 ? "baseline" : t === 1.5 ? "halfway point" : t === 2.5 ? "classical guess" : "derived mechanism");
+    const levelsHdr = [0, 1.5, 2.5, null];
+    document.getElementById("stage5").innerHTML = `
+      <h2>Stage 5 · the subsidy test · ${s5p.registered ? "registered (pre-registration 4)" : "not started: waits for the decision gate and pre-registration 4"}</h2>
+      <div class="card">
+        <p class="dim" style="margin:0 0 6px">The Stage 2A prisoner's dilemma, round 1, with every player paid τ extra for each round they cooperate. Each cell: <b>cooperation rate so far</b> (answers counted), then what <b>QRE predicts</b> at the model's fitted λ. Classical theory says 0% at τ = 0, 50% (mixed) at 1.5, and 100% at 2.5 and above. 100 questions per level.</p>
+        <div style="overflow-x:auto"><table>
+          <thead><tr><th>Model</th><th class="r">λ̂</th>${levelsHdr.map(t => `<th class="r">${t===null?"τ* · derived mechanism":"τ = "+t.toFixed(1)+" · "+roleLbl(t)}</th>`).join("")}</tr></thead>
+          <tbody>${s5p.rows.map(r => `<tr><td>${esc((INFO[r.model]||{}).name||r.model)}</td><td class="r">${r.lam===null?"after the gate":r.lam.toPrecision(3)}</td>${r.cells.map(c =>
+            `<td class="r">${c.n ? Math.round(100*c.coop/c.n)+"% ("+c.coop+"/"+c.n+")" : "–"}${c.tau!==null && c.tau>2.5 ? " <span class=dim>at "+c.tau.toFixed(1)+"</span>" : ""}${c.qre!==null ? "<br><span class=dim>QRE "+Math.round(100*c.qre)+"%</span>" : ""}</td>`).join("")}${r.cells.length < 4 ? `<td class="r dim">none (λ̂ ≥ 3.66)</td>` : ""}</tr>`).join("")}</tbody>
+        </table></div>
+      </div>`;
     document.getElementById("pilot").innerHTML = (s.pilot_deep||[]).map(p => `
       <h2>Stage 2C pilot · extreme disguise · ${esc(NAMES_SHORT[p.model]||p.model)} · practice questions only</h2>
       <div class="card">
