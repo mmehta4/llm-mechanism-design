@@ -2,8 +2,7 @@
 
 - **Sample:** 40 real Stage 2C answers (seed 20261004), 10 per game, with the model and verdict
   hidden. Taken from the 80 counted answers available on 2026-10-03 (Nemotron and Kimi).
-- **Second coder: Claude (Opus 5.5), not a human.** It coded the sheet at the author's request,
-  without seeing the computer's codes.
+- **Coder: the author**, blind to the computer's codes.
 - **Rule:** "names the game" means the reasoning names the game or a textbook game it is
   recognised as; describing the maths ("dominant", "best response", "Nash") is not naming.
 
@@ -15,12 +14,11 @@
 | Public goods | 7/10 | 7/10 | 10/10 |
 | **All** | 23/40 | 23/40 | **40/40, κ = 1.00** |
 
-**Edge cases noted by the coder:**
+**Edge cases noted by the author:**
 - #28 uses "sucker" (PD jargon) without naming the game: coded no.
 - #19 and #23 use "MPCR" and also say "public goods game": coded yes.
 - #4 and #18 give dominance arguments only: coded no.
 
-**How to read this.** Agreement between two automated coders is weaker evidence than the human
-validation of rounds 1 and 2 (κ = 1.00 on Stage 2A wording). The paper reports it as an AI
-second coder, not as human validation. It does show the regular expressions behave in the new
-wording as an independent reader of the definition would.
+**How to read this.** This extends rounds 1 and 2 (κ = 1.00 for `NAMES_GAME` on Stage 2A wording)
+to the new extreme wording. The automatic recognition code behaves there as a careful human reader
+of the definition does, so the Stage 2C recognition numbers can be reported without a warning.

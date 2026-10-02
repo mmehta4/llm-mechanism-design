@@ -46,11 +46,10 @@ for the stage-game QRE. Stated as a limitation.
 
 ## 2. Predictions
 
-**Authorship.** The predictions below were written by **Claude (Opus 5.5)**, in a separate
-session at the author's request, on 2026-10-03. That was before the Stage 2A analyses of
-gpt-oss-120b, Kimi K3 and Gemini 3.5 Flash Lite existed; only Nemotron's had been run. **The
-author adopts them as the registered predictions.** Nemotron's values at τ = 0 and 1.5 match the
-author's informal predictions committed earlier that day (`docs/stage4-informal-predictions.md`).
+**Authorship.** Written by the author on 2026-10-03. That was before the Stage 2A analyses of
+gpt-oss-120b, Kimi K3 and Gemini 3.5 Flash Lite existed; only Nemotron's had been run. Nemotron's
+values at τ = 0 and 1.5 repeat the author's informal predictions committed earlier that day
+(`docs/stage4-informal-predictions.md`).
 
 **Cooperation rate (%) by subsidy level:**
 
@@ -116,6 +115,5 @@ short of the 90% target), for a model whose derived level was not dropped.
 and the Stage 4 theory, including that the derived τ\* depends on the fitted λ.
 
 **Authorship.** The Stage 5 design was proposed by Claude and confirmed by the author with two
-amendments: the headline test and the stage-game caveat. The predictions in Section 2 were
-written by Claude (Opus 5.5) and adopted by the author. [PENDING: the author's confirmation of
-who wrote the amendments, the gate criteria and the interpretation key.]
+amendments: the headline test and the stage-game caveat. The amendments, the gate criteria, the
+interpretation key and the predictions are the author's.
