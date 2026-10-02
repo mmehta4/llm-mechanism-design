@@ -177,3 +177,9 @@ After the fraction-slip correction, Nemotron plays the Cournot equilibrium in ab
 counted answers. Its misses were mostly answers cut at a fraction bar, and a mechanism that
 corrects a formatting error isn't mechanism design. The decision gate rechecks this with all
 four models.
+
+**Beyond logit (Meet Mehta, Stage 4A Task 5f).** The halfway-point prediction does not depend
+on the logit form. In any *regular* quantal response with symmetric errors, a player who is
+indifferent chooses each action with probability ½. ΔU − τ rises in p, while the response
+falls in ΔU − τ, so the fixed point is unique. At τ = ΔU(½) it is therefore p = ½. A miss at
+τ = 1.5 can't be blamed on having chosen logit: it rejects the whole regular-QRE family.
