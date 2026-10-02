@@ -791,3 +791,22 @@ kimi: 0/1104 done, 1104 to go  -> stage2b_C_kimi.csv
 [ 790/1104] public_goods_n_others3 named     p1 PARSE_FAIL           0.2s  ~18147/h
 [ 791/1104] cournot_a200           disguised p0 PARSE_FAIL           0.2s  ~18145/h
 [ 792/1104] cournot_a200           named     p0 PARSE_FAIL           2.7s  ~17864/h
+kimi: 0/1104 done, 1104 to go  -> stage2b_C_kimi.csv
+[   1/1104] repeated_pd_n_rounds2  disguised p0 AT_EQUILIBRIUM     277.5s  ~13/h
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2b.py", line 146, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2b.py", line 137, in main
+    code = run_plan(args.model, todo_all, out, limit=args.limit, status=args.status)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2.py", line 193, in run_plan
+    log.write([row])
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/trial_log.py", line 29, in write
+    with self.path.open("a", newline="", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device

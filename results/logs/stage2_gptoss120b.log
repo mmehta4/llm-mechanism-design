@@ -738,3 +738,32 @@ gptoss120b: 447/1104 done, 657 to go  -> stage2_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~11:24, then resuming.
 
+gptoss120b: 453/1104 done, 651 to go  -> stage2_gptoss120b.csv
+[ 454/1104] vickrey                named     p2 AT_EQUILIBRIUM       1.8s  ~1945/h
+[ 455/1104] public_goods           named     p0 AT_EQUILIBRIUM       2.2s  ~1753/h
+[ 456/1104] repeated_pd            named     p2 AT_EQUILIBRIUM       1.8s  ~1829/h
+[ 457/1104] cournot                named     p2 AT_EQUILIBRIUM       2.3s  ~1745/h
+[ 458/1104] repeated_pd            disguised p1 AT_EQUILIBRIUM       2.0s  ~1756/h
+[ 459/1104] vickrey                disguised p2 AT_EQUILIBRIUM      54.2s  ~335/h
+[ 459/1104] public_goods           disguised p1 INFRA_FAIL           1.6s  ~382/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~12:25, then resuming.
+
+gptoss120b: 459/1104 done, 645 to go  -> stage2_gptoss120b.csv
+[ 460/1104] public_goods           disguised p1 AT_EQUILIBRIUM       2.6s  ~1408/h
+[ 461/1104] vickrey                disguised p2 AT_EQUILIBRIUM       2.5s  ~1415/h
+[ 462/1104] repeated_pd            disguised p2 AT_EQUILIBRIUM       2.0s  ~1518/h
+[ 463/1104] cournot                disguised p0 AT_EQUILIBRIUM       3.5s  ~1353/h
+[ 464/1104] cournot                disguised p1 AT_EQUILIBRIUM      53.7s  ~280/h
+[ 465/1104] public_goods           named     p1 STRATEGIC_GAP        2.2s  ~325/h
+[ 465/1104] cournot                disguised p0 INFRA_FAIL           0.1s  ~378/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~13:26, then resuming.
+
+gptoss120b: 465/1104 done, 639 to go  -> stage2_gptoss120b.csv
+[ 466/1104] cournot                disguised p0 AT_EQUILIBRIUM       4.0s  ~889/h
+[ 467/1104] public_goods           disguised p2 AT_EQUILIBRIUM       3.1s  ~1012/h
+[ 468/1104] public_goods           named     p0 AT_EQUILIBRIUM       2.3s  ~1150/h
+[ 469/1104] public_goods           named     p2 AT_EQUILIBRIUM       2.5s  ~1215/h

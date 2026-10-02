@@ -1667,3 +1667,62 @@ kimi: 98/1104 done, 1006 to go  -> stage2_kimi.csv
 [ 649/1104] cournot                disguised p2 AT_EQUILIBRIUM     334.4s  ~17/h
 [ 650/1104] public_goods           disguised p1 AT_EQUILIBRIUM     333.5s  ~17/h
 [ 651/1104] repeated_pd            disguised p0 STRATEGIC_GAP      209.6s  ~17/h
+[ 652/1104] repeated_pd            named     p1 AT_EQUILIBRIUM     216.4s  ~17/h
+[ 653/1104] vickrey                named     p2 AT_EQUILIBRIUM     375.3s  ~17/h
+[ 654/1104] public_goods           named     p1 AT_EQUILIBRIUM     241.4s  ~17/h
+[ 655/1104] cournot                named     p1 AT_EQUILIBRIUM     262.0s  ~17/h
+[ 656/1104] vickrey                disguised p0 AT_EQUILIBRIUM     435.8s  ~17/h
+[ 657/1104] repeated_pd            named     p2 STRATEGIC_GAP      225.3s  ~17/h
+[ 658/1104] public_goods           named     p2 AT_EQUILIBRIUM     234.3s  ~17/h
+[ 659/1104] repeated_pd            named     p2 STRATEGIC_GAP      425.6s  ~16/h
+[ 660/1104] public_goods           disguised p0 STRATEGIC_GAP      316.6s  ~16/h
+[ 661/1104] repeated_pd            disguised p1 STRATEGIC_GAP      268.3s  ~16/h
+[ 662/1104] public_goods           named     p2 AT_EQUILIBRIUM     230.5s  ~16/h
+[ 663/1104] vickrey                named     p2 AT_EQUILIBRIUM     229.2s  ~16/h
+[ 664/1104] vickrey                disguised p2 AT_EQUILIBRIUM     222.0s  ~16/h
+[ 665/1104] cournot                disguised p1 AT_EQUILIBRIUM     168.9s  ~16/h
+[ 666/1104] cournot                named     p2 AT_EQUILIBRIUM     186.7s  ~16/h
+[ 667/1104] public_goods           disguised p1 AT_EQUILIBRIUM     181.2s  ~16/h
+[ 668/1104] vickrey                disguised p2 AT_EQUILIBRIUM     201.3s  ~16/h
+[ 669/1104] cournot                named     p0 AT_EQUILIBRIUM     187.9s  ~16/h
+[ 670/1104] public_goods           named     p1 AT_EQUILIBRIUM     228.7s  ~16/h
+[ 671/1104] vickrey                disguised p0 AT_EQUILIBRIUM     166.9s  ~16/h
+[ 672/1104] repeated_pd            named     p2 AT_EQUILIBRIUM     202.8s  ~16/h
+[ 673/1104] repeated_pd            named     p2 AT_EQUILIBRIUM     156.7s  ~16/h
+[ 674/1104] public_goods           named     p0 AT_EQUILIBRIUM     199.5s  ~17/h
+[ 675/1104] cournot                disguised p1 AT_EQUILIBRIUM     289.7s  ~16/h
+[ 676/1104] repeated_pd            disguised p0 AT_EQUILIBRIUM     178.2s  ~16/h
+[ 677/1104] public_goods           named     p1 AT_EQUILIBRIUM     150.5s  ~17/h
+[ 678/1104] vickrey                disguised p1 AT_EQUILIBRIUM     157.8s  ~17/h
+[ 679/1104] vickrey                disguised p2 AT_EQUILIBRIUM     157.6s  ~17/h
+[ 680/1104] public_goods           named     p1 AT_EQUILIBRIUM     157.5s  ~17/h
+[ 681/1104] repeated_pd            named     p0 AT_EQUILIBRIUM     163.6s  ~17/h
+[ 682/1104] cournot                named     p1 AT_EQUILIBRIUM     161.3s  ~17/h
+[ 683/1104] cournot                named     p2 AT_EQUILIBRIUM     297.3s  ~17/h
+[ 684/1104] cournot                disguised p0 AT_EQUILIBRIUM     168.8s  ~17/h
+[ 685/1104] repeated_pd            named     p1 STRATEGIC_GAP      273.9s  ~17/h
+[ 686/1104] public_goods           disguised p1 AT_EQUILIBRIUM     153.1s  ~17/h
+[ 687/1104] public_goods           disguised p1 AT_EQUILIBRIUM     160.8s  ~17/h
+[ 688/1104] public_goods           named     p1 AT_EQUILIBRIUM     146.0s  ~17/h
+[ 689/1104] repeated_pd            disguised p1 STRATEGIC_GAP      194.6s  ~17/h
+[ 690/1104] public_goods           disguised p0 AT_EQUILIBRIUM     181.5s  ~17/h
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2.py", line 234, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2.py", line 146, in main
+    code = session(args)
+           ^^^^^^^^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2.py", line 157, in session
+    return run_plan(args.model, plan(), out, limit=args.limit, status=args.status)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2.py", line 193, in run_plan
+    log.write([row])
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/trial_log.py", line 29, in write
+    with self.path.open("a", newline="", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
