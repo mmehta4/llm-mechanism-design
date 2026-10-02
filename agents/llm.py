@@ -71,6 +71,11 @@ def infra_kind(exc: Exception | None) -> str | None:
     """
     if exc is None:
         return None
+    # The reply arrived but failed OUR answer format check: that is the model's own,
+    # unreadable answer (PARSE_FAIL as registered), never a server refusal. Treating it
+    # as infrastructure once re-asked one Kimi answer (deviation 9).
+    if type(exc).__name__ == "ValidationError":
+        return None
     if isinstance(exc, EmptyResponse):
         return "empty_response"
     code = getattr(exc, "status_code", None)

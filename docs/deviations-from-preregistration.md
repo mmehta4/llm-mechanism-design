@@ -183,3 +183,21 @@ Stage 0 isomorphism checks, which compared prompt texts only.
 - The Stage 2C pilot measures the box's effect directly: the Stage 2A disguised wording,
   word for word, asked with a neutral `number` box. Stage 2C itself uses neutral boxes
   throughout.
+
+## 9. Ten answers re-asked that should have been scored (2026-10-03)
+
+Not a change to either plan; a classification error, recorded for the audit.
+
+After the NVIDIA outage (item 5), any failure before a usable reply was classified as
+infrastructure and re-asked. That rule was too broad: a reply that **arrives but fails the
+answer-format check** is the model's own unreadable answer, which the registrations score
+(PARSE_FAIL for the move, PROBE_FORMAT_FAIL for the maths check) rather than re-ask.
+
+**Affected:** 1 Kimi Stage 2A answer (a format-check failure, re-asked and then answered),
+and 9 Nemotron questions (2 in Stage 2A, 7 in Stage 2B traps) where the maths-check call
+failed without its error being recorded, so it cannot be told whether they were format
+failures or genuine server errors. About 10 of roughly 10,000 questions; no result can
+change. The answers obtained on re-asking stand, and these cases are listed in the paper.
+
+**Fixed:** a format-check failure is now always the model's answer (`agents/llm.py`), with a
+test. Found while practising Stage 2C's new answer box, which made such replies common.

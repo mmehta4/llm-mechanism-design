@@ -84,3 +84,15 @@ def test_access_refused_is_infrastructure():
 def test_any_failure_before_a_reply_is_infrastructure():
     assert infra_kind(FakeAPIError(418, "something unexpected")) == "api_error"
     assert infra_kind(ValueError("boom")) == "api_error"
+
+
+def test_a_reply_failing_our_format_check_is_the_models_not_infrastructure():
+    """A ValidationError means the model replied, unreadably: PARSE_FAIL, not re-asked."""
+    from pydantic import BaseModel, ValidationError
+
+    class M(BaseModel):
+        x: float
+    try:
+        M(x="not a number")
+    except ValidationError as e:
+        assert infra_kind(e) is None

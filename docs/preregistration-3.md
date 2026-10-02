@@ -43,8 +43,10 @@ derives should not.
 **Answer box:** neutral throughout. `number`, "The number you choose, as a decimal (12.25) or a
 fraction (49/4)", converted to a decimal in code. A number-only box cut Nemotron's fractions at the
 "/" (deviation 6), and asking for a decimal did not stop it in practice; accepting the fraction
-removes the cut-off while keeping Stage 2A's order (answer first, then reasoning). The PD keeps its
-already-neutral `action` box.
+removes the cut-off while keeping Stage 2A's order (answer first, then reasoning). **Reading rule,
+fixed now:** if the box holds an equation, the number after the last "=" is read; otherwise a
+plain decimal or fraction; otherwise exactly one number found in it; anything else is an
+unreadable answer (PARSE_FAIL). The PD keeps its already-neutral `action` box.
 
 **Questions:** 138 per game per model, all four Stage 2A models (gpt-oss-120b, Nemotron 3 Ultra,
 Kimi K3, Gemini 3.5 Flash Lite). **Question k uses the same seed and the same wording index as

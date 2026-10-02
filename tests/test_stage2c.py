@@ -39,3 +39,15 @@ def test_answer_box_accepts_fractions_so_nothing_is_cut_at_the_slash():
     a = NumberAction(number="683/60", reasoning="")
     assert abs(float(a.number) - 683 / 60) < 1e-9
     assert deviation_of(a.number, 683 / 60) == 0.0
+
+
+def test_answer_box_reading_rule():
+    import pytest
+    from games.deep import NumberAction
+    read = lambda v: float(NumberAction(number=v, reasoning="").number)
+    assert read("(33.2 - 5) / 3 = 9.4") == pytest.approx(9.4)
+    assert read("683/60") == pytest.approx(683 / 60)
+    assert read(">${88.4 - 5}{3} = 27.8") == pytest.approx(27.8)
+    for bad in ("", "between 9 and 10"):
+        with pytest.raises(Exception):
+            read(bad)

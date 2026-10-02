@@ -29,6 +29,7 @@ from functools import partial
 
 from games import cournot, public_goods, repeated_pd, vickrey
 from games.base import GameSpec
+import re
 from fractions import Fraction
 
 from pydantic import BaseModel, Field, field_validator
@@ -37,6 +38,9 @@ from games.probes import PROBES, ChoiceProbe, NumericProbe
 
 # PD payoffs 1.5·u + 2 of (T, R, P, S) = (5, 3, 1, 0): same order, same equilibrium
 DEEP_PD = dict(T=9.5, R=6.5, P=3.5, S=2.0)
+
+
+_NUM = re.compile(r"-?\d+(?:\.\d+)?(?:\s*/\s*\d+(?:\.\d+)?)?")
 
 
 class NumberAction(BaseModel):
@@ -58,7 +62,23 @@ class NumberAction(BaseModel):
     @field_validator("number")
     @classmethod
     def _to_decimal(cls, v: str) -> str:
-        return str(float(Fraction(str(v).strip().replace(" ", ""))))
+        """A fixed reading rule, decided before any Stage 2C data:
+        1. if the box holds an equation, read what follows the LAST "=";
+        2. a plain decimal or fraction is taken as it is;
+        3. otherwise, exactly one number (decimal or a/b) anywhere in it is taken;
+        4. anything else is unreadable -- the model's answer, scored PARSE_FAIL."""
+        text = str(v).replace("（", "(").replace("）", ")")
+        if "=" in text:
+            text = text.rsplit("=", 1)[1]
+        text = text.strip().strip("$}{ ")
+        try:
+            return str(float(Fraction(text.replace(" ", ""))))
+        except (ValueError, ZeroDivisionError):
+            pass
+        found = _NUM.findall(text)
+        if len(found) == 1:
+            return str(float(Fraction(found[0].replace(" ", ""))))
+        raise ValueError(f"no single number in the answer box: {v!r}")
 
 
 def _spec(key: str, base: GameSpec, text: str, sampler=None, neutral: bool = True) -> GameSpec:
