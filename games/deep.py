@@ -42,7 +42,11 @@ class NumberAction(BaseModel):
     the disguised questions ("bid: The sealed bid to submit", "quantity: The quantity to
     produce", "contribution: How much of your endowment to contribute"), and a model
     writes the field name as it answers. Every deep version uses this instead."""
-    number: float = Field(description="The number you choose.")
+    # "as a decimal": Nemotron derives answers as fractions ("683/60") and the number-only
+    # box cuts them at the "/", keeping the numerator (deviation 6). Stating the format
+    # removes that measuring error from Stage 2C without hinting at any game.
+    number: float = Field(description="The number you choose, written as a decimal "
+                                      "(for example 12.25), not a fraction.")
     reasoning: str = Field(description="One or two sentences explaining the number.")
 
 
