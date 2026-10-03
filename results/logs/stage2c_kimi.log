@@ -82,3 +82,52 @@ kimi: 0/552 done, 552 to go  -> stage2c_kimi.csv
 [  80/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM     352.6s  ~11/h
 [  81/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM     414.5s  ~11/h
 [  82/552] repeated_pd_extreme    disguised p2 STRATEGIC_GAP      225.0s  ~11/h
+[  83/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM     199.4s  ~11/h
+[  84/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM     206.5s  ~11/h
+[  85/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM     186.6s  ~12/h
+[  86/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM     203.1s  ~12/h
+[  87/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM     204.0s  ~12/h
+[  88/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM     431.9s  ~12/h
+[  89/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM     517.7s  ~11/h
+[  90/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM     326.2s  ~11/h
+[  91/552] cournot_extreme        disguised p1 AT_EQUILIBRIUM     357.0s  ~11/h
+[  92/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM     724.0s  ~11/h
+[  93/552] cournot_extreme        disguised p1 AT_EQUILIBRIUM     649.2s  ~11/h
+[  94/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM     613.0s  ~11/h
+[  95/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM     447.5s  ~11/h
+[  96/552] cournot_extreme        disguised p1 AT_EQUILIBRIUM     383.8s  ~11/h
+[  97/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM     572.8s  ~11/h
+[  98/552] repeated_pd_extreme    disguised p0 STRATEGIC_GAP      303.9s  ~11/h
+[  99/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM     324.9s  ~11/h
+[ 100/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM     201.4s  ~11/h
+[ 101/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM     242.2s  ~11/h
+[ 102/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM     364.3s  ~11/h
+[ 103/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM     368.8s  ~11/h
+[ 104/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM     291.8s  ~11/h
+[ 105/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM     302.4s  ~11/h
+[ 106/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM     278.3s  ~11/h
+[ 107/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM     264.8s  ~11/h
+[ 108/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM     381.3s  ~11/h
+[ 109/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM     205.7s  ~11/h
+[ 110/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM      79.9s  ~11/h
+[ 111/552] repeated_pd_extreme    disguised p2 STRATEGIC_GAP       71.2s  ~11/h
+[ 112/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM     115.1s  ~11/h
+[ 113/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM      72.0s  ~11/h
+[ 113/552] vickrey_extreme        disguised p2 INFRA_FAIL         111.6s  ~11/h  rate_limit
+[ 113/552] public_goods_extreme   disguised p1 INFRA_FAIL          65.6s  ~11/h  rate_limit
+[ 113/552] cournot_extreme        disguised p0 INFRA_FAIL          75.5s  ~12/h  rate_limit
+[ 114/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM      73.4s  ~12/h
+[ 115/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM      41.7s  ~12/h
+[ 116/552] cournot_extreme        disguised p1 AT_EQUILIBRIUM      58.5s  ~12/h
+[ 116/552] cournot_extreme        disguised p0 INFRA_FAIL          46.4s  ~12/h  rate_limit
+[ 116/552] public_goods_extreme   disguised p2 INFRA_FAIL          48.6s  ~12/h  rate_limit
+[ 116/552] repeated_pd_extreme    disguised p2 INFRA_FAIL          86.3s  ~12/h  rate_limit
+[ 117/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM      44.4s  ~12/h
+[ 118/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM      45.5s  ~12/h
+[ 118/552] cournot_extreme        disguised p0 INFRA_FAIL          62.6s  ~12/h  rate_limit
+[ 119/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM      35.1s  ~12/h
+[ 120/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM      46.2s  ~12/h
+[ 121/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM      65.0s  ~13/h
+[ 122/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM      31.1s  ~13/h
+[ 123/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM      86.3s  ~13/h
+[ 124/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM      37.9s  ~13/h

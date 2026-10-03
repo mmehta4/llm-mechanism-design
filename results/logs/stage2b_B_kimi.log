@@ -1847,3 +1847,51 @@ kimi: 704/1104 done, 400 to go  -> stage2b_B_kimi.csv
 [ 798/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM     155.7s  ~12/h
 [ 799/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM     308.1s  ~12/h
 [ 800/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM     194.6s  ~12/h
+[ 801/1104] cournot_trap           disguised p0 AT_EQUILIBRIUM     210.9s  ~12/h
+[ 802/1104] cournot_trap           named     p1 AT_EQUILIBRIUM     166.4s  ~12/h
+[ 803/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM     332.4s  ~12/h
+[ 804/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM     262.8s  ~12/h
+[ 805/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM     514.1s  ~12/h
+[ 806/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM     397.3s  ~12/h
+[ 807/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM     714.1s  ~12/h
+[ 808/1104] repeated_pd_trap       disguised p1 AT_EQUILIBRIUM     557.8s  ~11/h
+[ 809/1104] cournot_trap           named     p2 AT_EQUILIBRIUM     407.7s  ~11/h
+[ 810/1104] cournot_trap           named     p0 AT_EQUILIBRIUM     507.1s  ~11/h
+[ 811/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM     302.8s  ~11/h
+[ 812/1104] public_goods_trap      disguised p2 AT_EQUILIBRIUM     243.0s  ~11/h
+[ 813/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM     281.8s  ~11/h
+[ 814/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM     402.0s  ~11/h
+[ 815/1104] cournot_trap           named     p2 AT_EQUILIBRIUM     263.2s  ~11/h
+[ 816/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM     303.9s  ~11/h
+[ 817/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM     609.0s  ~11/h
+[ 818/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM     242.5s  ~11/h
+[ 819/1104] vickrey_trap           disguised p1 AT_EQUILIBRIUM     227.7s  ~11/h
+[ 820/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM     632.8s  ~11/h
+[ 821/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM     381.5s  ~11/h
+[ 822/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM     550.9s  ~11/h
+[ 823/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM     270.1s  ~11/h
+[ 824/1104] repeated_pd_trap       named     p2 AT_EQUILIBRIUM     260.9s  ~11/h
+[ 825/1104] public_goods_trap      disguised p2 AT_EQUILIBRIUM     436.2s  ~11/h
+[ 826/1104] cournot_trap           disguised p0 AT_EQUILIBRIUM     118.0s  ~11/h
+[ 827/1104] cournot_trap           disguised p2 AT_EQUILIBRIUM      88.8s  ~11/h
+[ 828/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM      77.9s  ~11/h
+[ 829/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM      67.7s  ~11/h
+[ 830/1104] vickrey_trap           named     p1 STRATEGIC_GAP       16.6s  ~12/h
+[ 831/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM      44.5s  ~12/h
+[ 831/1104] repeated_pd_trap       disguised p0 INFRA_FAIL          69.6s  ~12/h  rate_limit
+[ 831/1104] repeated_pd_trap       named     p0 INFRA_FAIL          48.3s  ~12/h  rate_limit
+[ 832/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM     106.9s  ~12/h
+[ 833/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM      28.7s  ~12/h
+[ 833/1104] public_goods_trap      disguised p1 INFRA_FAIL          64.1s  ~12/h  empty_response
+[ 834/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM      41.2s  ~12/h
+[ 834/1104] repeated_pd_trap       named     p0 INFRA_FAIL          83.7s  ~12/h  rate_limit
+[ 834/1104] repeated_pd_trap       named     p1 INFRA_FAIL          48.6s  ~12/h  rate_limit
+[ 834/1104] cournot_trap           named     p0 INFRA_FAIL          65.4s  ~12/h  rate_limit
+[ 834/1104] public_goods_trap      named     p2 INFRA_FAIL         101.6s  ~12/h  rate_limit
+[ 835/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM     109.8s  ~12/h
+[ 836/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM      17.1s  ~12/h
+[ 837/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM      45.6s  ~13/h
+[ 838/1104] cournot_trap           disguised p1 AT_EQUILIBRIUM      44.0s  ~13/h
+[ 839/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM      46.2s  ~13/h
+[ 840/1104] vickrey_trap           disguised p1 STRATEGIC_GAP       59.9s  ~13/h
+[ 841/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM      37.7s  ~13/h
