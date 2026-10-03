@@ -1,0 +1,24 @@
+nemotron: 0/828 done, 828 to go  -> stage2b_E_nemotron.csv
+[   1/828] repeated_pd_round5     disguised p0 STRATEGIC_GAP       78.3s  ~46/h
+[   2/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP      716.1s  ~9/h
+[   3/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM      44.8s  ~13/h
+[   4/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM     322.5s  ~12/h
+[   5/828] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM      23.5s  ~15/h
+[   6/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM      35.9s  ~18/h
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2b.py", line 154, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2b.py", line 145, in main
+    code = run_plan(args.model, todo_all, out, limit=args.limit, status=args.status)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2.py", line 193, in run_plan
+    log.write([row])
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/trial_log.py", line 29, in write
+    with self.path.open("a", newline="", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device

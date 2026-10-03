@@ -558,3 +558,17 @@ this session: {'AT_EQUILIBRIUM': 392, 'STRATEGIC_GAP': 156, 'INFRA_FAIL': 4}
 waiting until ~23:13, then resuming.
 
 nemotron: 548/552 done, 4 to go  -> stage2c_nemotron.csv
+[ 549/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM     377.8s  ~10/h
+[ 549/552] cournot_extreme        disguised p1 INFRA_FAIL        1567.4s  ~4/h  overloaded
+[ 550/552] repeated_pd_extreme    disguised p0 STRATEGIC_GAP       63.7s  ~5/h
+[ 551/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM      42.5s  ~7/h
+
+this session: {'AT_EQUILIBRIUM': 2, 'INFRA_FAIL': 1, 'STRATEGIC_GAP': 1}
+1 questions still to go (server refusals) -- they are re-asked on the next pass.
+waiting until ~00:02, then resuming.
+
+nemotron: 551/552 done, 1 to go  -> stage2c_nemotron.csv
+[ 552/552] cournot_extreme        disguised p1 STRATEGIC_GAP      215.2s  ~17/h
+
+this session: {'STRATEGIC_GAP': 1}
+complete: every planned question has an answer.

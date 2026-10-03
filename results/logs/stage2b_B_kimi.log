@@ -2107,3 +2107,44 @@ kimi: 704/1104 done, 400 to go  -> stage2b_B_kimi.csv
 [1037/1104] vickrey_trap           named     p1 AT_EQUILIBRIUM     704.7s  ~16/h
 [1038/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM     785.5s  ~16/h
 [1039/1104] cournot_trap           named     p2 AT_EQUILIBRIUM     892.9s  ~15/h
+[1040/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM     592.4s  ~15/h
+[1041/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     426.4s  ~15/h
+[1042/1104] cournot_trap           named     p0 AT_EQUILIBRIUM     339.4s  ~15/h
+[1043/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     321.1s  ~15/h
+[1044/1104] cournot_trap           named     p0 AT_EQUILIBRIUM     346.9s  ~15/h
+[1045/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM     345.1s  ~15/h
+[1046/1104] cournot_trap           named     p2 AT_EQUILIBRIUM     510.8s  ~15/h
+[1047/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM     630.0s  ~15/h
+[1048/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM     610.4s  ~15/h
+[1049/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     365.9s  ~15/h
+[1050/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM     508.7s  ~15/h
+[1051/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM     683.4s  ~15/h
+[1052/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM     345.8s  ~15/h
+[1053/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM     726.5s  ~15/h
+[1054/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM     605.5s  ~15/h
+[1055/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM     322.3s  ~15/h
+[1056/1104] cournot_trap           disguised p2 AT_EQUILIBRIUM      55.1s  ~15/h
+[1057/1104] vickrey_trap           disguised p1 STRATEGIC_GAP      141.1s  ~15/h
+[1058/1104] cournot_trap           named     p1 AT_EQUILIBRIUM     249.1s  ~15/h
+[1059/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM     623.2s  ~15/h
+[1060/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     162.6s  ~15/h
+[1061/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM     417.0s  ~15/h
+[1062/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM     355.5s  ~15/h
+[1063/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM     275.8s  ~15/h
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2b.py", line 154, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2b.py", line 145, in main
+    code = run_plan(args.model, todo_all, out, limit=args.limit, status=args.status)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2.py", line 193, in run_plan
+    log.write([row])
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/trial_log.py", line 29, in write
+    with self.path.open("a", newline="", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device

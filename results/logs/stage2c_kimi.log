@@ -327,3 +327,34 @@ kimi: 0/552 done, 552 to go  -> stage2c_kimi.csv
 [ 299/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM     629.6s  ~15/h
 [ 300/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM     381.0s  ~15/h
 [ 301/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM     391.7s  ~15/h
+[ 302/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM     359.1s  ~15/h
+[ 303/552] public_goods_extreme   disguised p1 STRATEGIC_GAP      988.1s  ~15/h
+[ 304/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM    1006.5s  ~14/h
+[ 305/552] public_goods_extreme   disguised p1 STRATEGIC_GAP      803.2s  ~14/h
+[ 306/552] repeated_pd_extreme    disguised p2 STRATEGIC_GAP      764.5s  ~14/h
+[ 307/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM     513.1s  ~14/h
+[ 308/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM     563.7s  ~14/h
+[ 309/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM     466.6s  ~14/h
+[ 310/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM     607.7s  ~14/h
+[ 311/552] repeated_pd_extreme    disguised p2 STRATEGIC_GAP      545.4s  ~14/h
+[ 312/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM     294.6s  ~14/h
+[ 313/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM     331.8s  ~14/h
+[ 314/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM     228.8s  ~14/h
+[ 315/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM     117.6s  ~14/h
+[ 316/552] cournot_extreme        disguised p1 AT_EQUILIBRIUM     310.1s  ~14/h
+[ 317/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM     566.6s  ~14/h
+[ 318/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM     630.3s  ~14/h
+[ 319/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM     108.9s  ~14/h
+[ 320/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM     249.1s  ~14/h
+[ 321/552] cournot_extreme        disguised p1 AT_EQUILIBRIUM     301.8s  ~14/h
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2c.py", line 72, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2c.py", line 63, in main
+object address  : 0x107d11440
+object repr     : 
