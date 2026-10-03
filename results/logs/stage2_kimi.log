@@ -2127,3 +2127,50 @@ kimi: 763/1104 done, 341 to go  -> stage2_kimi.csv
 [1064/1104] cournot                disguised p1 AT_EQUILIBRIUM     131.5s  ~19/h
 [1065/1104] cournot                named     p2 AT_EQUILIBRIUM     223.6s  ~19/h
 [1066/1104] public_goods           disguised p1 AT_EQUILIBRIUM     253.9s  ~19/h
+[1067/1104] cournot                disguised p0 AT_EQUILIBRIUM     232.7s  ~19/h
+[1068/1104] public_goods           named     p0 AT_EQUILIBRIUM     442.5s  ~19/h
+[1069/1104] cournot                disguised p2 AT_EQUILIBRIUM     583.6s  ~19/h
+[1070/1104] public_goods           disguised p0 AT_EQUILIBRIUM     297.4s  ~19/h
+[1071/1104] repeated_pd            named     p1 STRATEGIC_GAP      714.6s  ~19/h
+[1072/1104] repeated_pd            disguised p1 AT_EQUILIBRIUM     259.8s  ~19/h
+[1073/1104] vickrey                disguised p0 AT_EQUILIBRIUM     230.3s  ~19/h
+[1074/1104] public_goods           named     p1 AT_EQUILIBRIUM     161.0s  ~19/h
+[1075/1104] public_goods           named     p0 AT_EQUILIBRIUM     184.4s  ~19/h
+[1076/1104] vickrey                disguised p1 AT_EQUILIBRIUM     134.7s  ~19/h
+[1077/1104] public_goods           named     p1 AT_EQUILIBRIUM     238.1s  ~19/h
+[1078/1104] repeated_pd            named     p2 STRATEGIC_GAP       82.3s  ~19/h
+[1079/1104] public_goods           disguised p1 AT_EQUILIBRIUM     105.4s  ~19/h
+[1080/1104] cournot                named     p2 AT_EQUILIBRIUM     112.6s  ~19/h
+[1081/1104] cournot                named     p0 AT_EQUILIBRIUM     494.2s  ~19/h
+
+this session: {'STRATEGIC_GAP': 41, 'AT_EQUILIBRIUM': 277, 'INFRA_FAIL': 23}
+23 questions still to go (server refusals) -- they are re-asked on the next pass.
+waiting until ~18:41, then resuming.
+
+kimi: 1081/1104 done, 23 to go  -> stage2_kimi.csv
+[1082/1104] public_goods           disguised p0 AT_EQUILIBRIUM     253.8s  ~14/h
+[1083/1104] public_goods           named     p2 AT_EQUILIBRIUM     286.1s  ~13/h
+[1084/1104] public_goods           disguised p1 AT_EQUILIBRIUM      97.0s  ~17/h
+[1085/1104] cournot                named     p2 AT_EQUILIBRIUM     106.2s  ~19/h
+[1086/1104] cournot                named     p0 AT_EQUILIBRIUM      79.0s  ~22/h
+[1087/1104] repeated_pd            named     p2 AT_EQUILIBRIUM     143.3s  ~22/h
+[1088/1104] vickrey                disguised p1 AT_EQUILIBRIUM     119.4s  ~23/h
+[1089/1104] cournot                named     p1 AT_EQUILIBRIUM     227.6s  ~22/h
+[1090/1104] vickrey                disguised p0 AT_EQUILIBRIUM      79.9s  ~23/h
+[1091/1104] cournot                disguised p0 AT_EQUILIBRIUM     125.4s  ~24/h
+[1092/1104] repeated_pd            named     p2 AT_EQUILIBRIUM      77.6s  ~25/h
+[1093/1104] public_goods           disguised p0 AT_EQUILIBRIUM     210.2s  ~24/h
+[1094/1104] vickrey                named     p1 AT_EQUILIBRIUM      66.4s  ~25/h
+[1095/1104] cournot                disguised p0 AT_EQUILIBRIUM     121.9s  ~25/h
+[1096/1104] public_goods           named     p2 AT_EQUILIBRIUM     168.1s  ~25/h
+[1097/1104] cournot                disguised p0 AT_EQUILIBRIUM      91.3s  ~26/h
+[1098/1104] public_goods           disguised p1 AT_EQUILIBRIUM      85.7s  ~26/h
+[1099/1104] cournot                named     p1 AT_EQUILIBRIUM     372.1s  ~24/h
+[1100/1104] public_goods           disguised p1 AT_EQUILIBRIUM     246.4s  ~23/h
+[1101/1104] repeated_pd            disguised p1 STRATEGIC_GAP      159.7s  ~23/h
+[1102/1104] repeated_pd            disguised p2 STRATEGIC_GAP      163.7s  ~23/h
+[1103/1104] repeated_pd            named     p2 STRATEGIC_GAP      182.9s  ~23/h
+[1104/1104] cournot                named     p1 AT_EQUILIBRIUM     793.7s  ~19/h
+
+this session: {'AT_EQUILIBRIUM': 20, 'STRATEGIC_GAP': 3}
+complete: every planned question has an answer.
