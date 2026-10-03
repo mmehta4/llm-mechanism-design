@@ -968,3 +968,41 @@ gptoss120b: 562/1104 done, 542 to go  -> stage2_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~06:05, then resuming.
 
+gptoss120b: 569/1104 done, 535 to go  -> stage2_gptoss120b.csv
+[ 570/1104] public_goods           named     p2 AT_EQUILIBRIUM       2.6s  ~1385/h
+[ 571/1104] repeated_pd            named     p0 AT_EQUILIBRIUM       1.4s  ~1796/h
+[ 572/1104] vickrey                named     p1 AT_EQUILIBRIUM       1.5s  ~1972/h
+[ 573/1104] cournot                named     p1 AT_EQUILIBRIUM       2.4s  ~1820/h
+[ 574/1104] public_goods           named     p0 AT_EQUILIBRIUM       1.9s  ~1829/h
+[ 575/1104] cournot                named     p1 AT_EQUILIBRIUM      52.8s  ~345/h
+[ 576/1104] public_goods           named     p0 AT_EQUILIBRIUM       2.5s  ~387/h
+[ 576/1104] repeated_pd            named     p1 INFRA_FAIL           0.1s  ~442/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~07:06, then resuming.
+
+gptoss120b: 576/1104 done, 528 to go  -> stage2_gptoss120b.csv
+[ 577/1104] repeated_pd            named     p1 AT_EQUILIBRIUM       1.4s  ~2538/h
+[ 578/1104] public_goods           named     p2 AT_EQUILIBRIUM       2.3s  ~1909/h
+[ 579/1104] public_goods           named     p0 AT_EQUILIBRIUM       2.3s  ~1792/h
+[ 580/1104] cournot                named     p2 AT_EQUILIBRIUM       2.1s  ~1769/h
+[ 581/1104] public_goods           named     p2 AT_EQUILIBRIUM       2.6s  ~1674/h
+[ 582/1104] cournot                named     p2 AT_EQUILIBRIUM      52.5s  ~341/h
+[ 583/1104] repeated_pd            disguised p2 AT_EQUILIBRIUM       1.6s  ~388/h
+[ 583/1104] repeated_pd            named     p2 INFRA_FAIL           0.1s  ~443/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~08:07, then resuming.
+
+gptoss120b: 583/1104 done, 521 to go  -> stage2_gptoss120b.csv
+[ 584/1104] repeated_pd            named     p2 AT_EQUILIBRIUM       1.6s  ~2225/h
+[ 585/1104] vickrey                named     p2 AT_EQUILIBRIUM       1.8s  ~2090/h
+[ 586/1104] public_goods           disguised p1 AT_EQUILIBRIUM       2.5s  ~1821/h
+[ 587/1104] cournot                disguised p0 AT_EQUILIBRIUM       3.7s  ~1490/h
+[ 588/1104] repeated_pd            named     p2 AT_EQUILIBRIUM       1.1s  ~1674/h
+[ 589/1104] cournot                disguised p2 AT_EQUILIBRIUM      54.6s  ~331/h
+[ 589/1104] public_goods           named     p2 INFRA_FAIL           1.0s  ~380/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~09:08, then resuming.
+
