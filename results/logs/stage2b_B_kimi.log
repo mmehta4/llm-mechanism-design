@@ -2174,3 +2174,22 @@ kimi: 1063/1104 done, 41 to go  -> stage2b_B_kimi.csv
 [1086/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     588.7s  ~8/h
 [1087/1104] cournot_trap           disguised p2 STRATEGIC_GAP      151.0s  ~8/h
 [1088/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     205.4s  ~8/h
+[1089/1104] cournot_trap           named     p0 AT_EQUILIBRIUM     278.4s  ~9/h
+[1090/1104] cournot_trap           disguised p0 AT_EQUILIBRIUM     117.6s  ~9/h
+[1091/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM     335.0s  ~9/h
+[1092/1104] repeated_pd_trap       named     p2 AT_EQUILIBRIUM     117.7s  ~9/h
+[1093/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     143.4s  ~9/h
+[1094/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM     295.8s  ~9/h
+[1095/1104] vickrey_trap           disguised p1 STRATEGIC_GAP      199.1s  ~10/h
+[1096/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM     393.1s  ~10/h
+[1097/1104] cournot_trap           named     p1 AT_EQUILIBRIUM     118.6s  ~10/h
+[1098/1104] cournot_trap           named     p1 AT_EQUILIBRIUM     256.8s  ~10/h
+[1099/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM     145.7s  ~10/h
+[1100/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM     460.9s  ~10/h
+[1101/1104] repeated_pd_trap       named     p2 AT_EQUILIBRIUM     336.9s  ~10/h
+[1102/1104] vickrey_trap           named     p1 AT_EQUILIBRIUM     138.1s  ~10/h
+[1103/1104] repeated_pd_trap       disguised p1 AT_EQUILIBRIUM      93.3s  ~10/h
+[1104/1104] cournot_trap           named     p0 AT_EQUILIBRIUM     106.5s  ~10/h
+
+this session: {'AT_EQUILIBRIUM': 38, 'STRATEGIC_GAP': 3}
+complete: every planned question has an answer.

@@ -828,3 +828,58 @@ Traceback (most recent call last):
     with self.path.open("a", newline="", encoding="utf-8") as f:
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 OSError: [Errno 28] No space left on device
+kimi: 1/1104 done, 1103 to go  -> stage2b_C_kimi.csv
+[   2/1104] public_goods_n_others2 disguised p1 AT_EQUILIBRIUM     109.5s  ~33/h
+[   2/1104] repeated_pd_n_rounds10 named     p1 INFRA_FAIL         260.3s  ~19/h  empty_response
+[   3/1104] cournot_a100           disguised p2 AT_EQUILIBRIUM     189.7s  ~19/h
+[   4/1104] vickrey_n_others3      named     p0 AT_EQUILIBRIUM      25.1s  ~25/h
+[   5/1104] cournot_a60            disguised p2 AT_EQUILIBRIUM      31.1s  ~29/h
+[   6/1104] vickrey_n_others3      named     p0 AT_EQUILIBRIUM      32.4s  ~33/h
+[   6/1104] cournot_a100           named     p0 INFRA_FAIL         168.1s  ~31/h  empty_response
+[   7/1104] cournot_a100           disguised p2 AT_EQUILIBRIUM      55.8s  ~33/h
+[   8/1104] public_goods_n_others7 named     p2 AT_EQUILIBRIUM      68.0s  ~34/h
+[   9/1104] repeated_pd_n_rounds2  named     p2 AT_EQUILIBRIUM     150.6s  ~33/h
+[  10/1104] vickrey_n_others7      disguised p2 AT_EQUILIBRIUM     140.2s  ~32/h
+[  11/1104] cournot_a200           disguised p2 AT_EQUILIBRIUM     250.6s  ~29/h
+[  12/1104] repeated_pd_n_rounds50 disguised p2 AT_EQUILIBRIUM     184.0s  ~28/h
+[  13/1104] public_goods_n_others3 named     p2 AT_EQUILIBRIUM     127.0s  ~28/h
+[  14/1104] repeated_pd_n_rounds50 disguised p1 STRATEGIC_GAP      273.4s  ~26/h
+[  15/1104] vickrey_n_others1      disguised p0 AT_EQUILIBRIUM     191.1s  ~26/h
+[  16/1104] repeated_pd_n_rounds50 named     p2 STRATEGIC_GAP      222.5s  ~25/h
+[  17/1104] public_goods_n_others7 disguised p0 AT_EQUILIBRIUM     159.8s  ~25/h
+[  18/1104] public_goods_n_others2 named     p0 AT_EQUILIBRIUM     145.6s  ~25/h
+[  19/1104] public_goods_n_others7 disguised p0 AT_EQUILIBRIUM      98.9s  ~25/h
+[  20/1104] repeated_pd_n_rounds50 named     p0 STRATEGIC_GAP       70.1s  ~26/h
+[  21/1104] vickrey_n_others7      named     p0 AT_EQUILIBRIUM     325.9s  ~24/h
+[  22/1104] repeated_pd_n_rounds50 disguised p1 AT_EQUILIBRIUM     388.8s  ~23/h
+[  23/1104] vickrey_n_others7      disguised p2 AT_EQUILIBRIUM     159.2s  ~23/h
+[  24/1104] cournot_a100           named     p2 AT_EQUILIBRIUM      45.9s  ~23/h
+[  25/1104] public_goods_n_others7 disguised p2 AT_EQUILIBRIUM      84.3s  ~24/h
+[  26/1104] cournot_a60            named     p0 AT_EQUILIBRIUM     131.0s  ~24/h
+[  27/1104] public_goods_n_others7 disguised p2 AT_EQUILIBRIUM     127.0s  ~24/h
+[  28/1104] public_goods_n_others2 disguised p0 AT_EQUILIBRIUM      85.5s  ~24/h
+[  29/1104] repeated_pd_n_rounds50 named     p2 STRATEGIC_GAP       85.3s  ~25/h
+[  30/1104] vickrey_n_others3      disguised p2 AT_EQUILIBRIUM      50.4s  ~25/h
+[  31/1104] public_goods_n_others7 disguised p0 AT_EQUILIBRIUM      69.7s  ~26/h
+[  32/1104] cournot_a200           disguised p2 AT_EQUILIBRIUM      46.0s  ~26/h
+[  33/1104] public_goods_n_others7 named     p0 AT_EQUILIBRIUM     144.9s  ~26/h
+[  34/1104] repeated_pd_n_rounds50 named     p0 STRATEGIC_GAP      214.4s  ~26/h
+[  35/1104] repeated_pd_n_rounds50 named     p1 STRATEGIC_GAP      197.8s  ~25/h
+[  36/1104] public_goods_n_others2 disguised p1 AT_EQUILIBRIUM     213.4s  ~25/h
+[  37/1104] vickrey_n_others1      named     p0 AT_EQUILIBRIUM     155.9s  ~25/h
+[  38/1104] public_goods_n_others2 named     p2 AT_EQUILIBRIUM     151.7s  ~25/h
+[  39/1104] public_goods_n_others7 disguised p1 AT_EQUILIBRIUM     171.2s  ~25/h
+[  40/1104] public_goods_n_others7 named     p1 AT_EQUILIBRIUM     108.0s  ~25/h
+[  41/1104] repeated_pd_n_rounds50 disguised p2 AT_EQUILIBRIUM     183.1s  ~25/h
+[  42/1104] public_goods_n_others2 named     p0 AT_EQUILIBRIUM     130.6s  ~25/h
+[  43/1104] repeated_pd_n_rounds50 named     p0 STRATEGIC_GAP       96.5s  ~25/h
+[  44/1104] repeated_pd_n_rounds10 disguised p1 AT_EQUILIBRIUM      95.6s  ~25/h
+[  45/1104] repeated_pd_n_rounds2  disguised p0 AT_EQUILIBRIUM     159.0s  ~25/h
+[  46/1104] repeated_pd_n_rounds2  disguised p1 AT_EQUILIBRIUM      81.4s  ~25/h
+[  47/1104] public_goods_n_others3 named     p0 AT_EQUILIBRIUM      99.7s  ~26/h
+[  48/1104] vickrey_n_others1      named     p2 AT_EQUILIBRIUM      97.4s  ~26/h
+[  48/1104] repeated_pd_n_rounds10 disguised p2 INFRA_FAIL         128.3s  ~26/h  empty_response
+[  49/1104] vickrey_n_others1      disguised p2 AT_EQUILIBRIUM      76.9s  ~26/h
+[  50/1104] public_goods_n_others3 disguised p1 AT_EQUILIBRIUM      63.1s  ~26/h
+[  51/1104] cournot_a200           named     p1 AT_EQUILIBRIUM     242.0s  ~26/h
+[  52/1104] repeated_pd_n_rounds2  named     p1 AT_EQUILIBRIUM      25.1s  ~26/h
