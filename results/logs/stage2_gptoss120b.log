@@ -1216,3 +1216,17 @@ gptoss120b: 691/1104 done, 413 to go  -> stage2_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~02:27, then resuming.
 
+gptoss120b: 697/1104 done, 407 to go  -> stage2_gptoss120b.csv
+[ 698/1104] cournot                disguised p1 AT_EQUILIBRIUM       3.5s  ~1037/h
+[ 699/1104] repeated_pd            disguised p1 STRATEGIC_GAP        1.8s  ~1365/h
+[ 700/1104] cournot                disguised p2 AT_EQUILIBRIUM       3.9s  ~1180/h
+[ 701/1104] cournot                disguised p1 AT_EQUILIBRIUM      54.5s  ~226/h
+[ 702/1104] public_goods           named     p1 AT_EQUILIBRIUM       1.8s  ~275/h
+[ 702/1104] repeated_pd            named     p0 INFRA_FAIL           0.6s  ~327/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:28, then resuming.
+
+gptoss120b: 702/1104 done, 402 to go  -> stage2_gptoss120b.csv
+Traceback (most recent call last):
+

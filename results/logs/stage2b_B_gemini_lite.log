@@ -213,3 +213,29 @@ gemini_lite: 137/1104 done, 967 to go  -> stage2b_B_gemini_lite.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~02:41, then resuming.
 
+gemini_lite: 137/1104 done, 967 to go  -> stage2b_B_gemini_lite.csv
+[ 137/1104] public_goods_trap      disguised p0 INFRA_FAIL           5.0s  ~714/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:41, then resuming.
+
+gemini_lite: 137/1104 done, 967 to go  -> stage2b_B_gemini_lite.csv
+[ 137/1104] public_goods_trap      disguised p0 INFRA_FAIL           5.1s  ~703/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~04:41, then resuming.
+
+gemini_lite: 137/1104 done, 967 to go  -> stage2b_B_gemini_lite.csv
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2b.py", line 154, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2b.py", line 145, in main
+    code = run_plan(args.model, todo_all, out, limit=args.limit, status=args.status)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+object address  : 0x10c4b95c0
+
