@@ -2148,3 +2148,29 @@ Traceback (most recent call last):
     with self.path.open("a", newline="", encoding="utf-8") as f:
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 OSError: [Errno 28] No space left on device
+kimi: 1063/1104 done, 41 to go  -> stage2b_B_kimi.csv
+[1064/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM     367.3s  ~10/h
+[1065/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM     377.1s  ~10/h
+[1066/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM     876.2s  ~7/h
+[1067/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM     421.4s  ~7/h
+[1068/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM     492.1s  ~7/h
+[1069/1104] cournot_trap           named     p0 AT_EQUILIBRIUM     349.8s  ~7/h
+[1070/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM     453.7s  ~8/h
+[1071/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM     621.2s  ~7/h
+[1072/1104] vickrey_trap           disguised p1 STRATEGIC_GAP      285.5s  ~8/h
+[1073/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM     639.4s  ~7/h
+[1074/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM     358.5s  ~8/h
+[1075/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM     735.5s  ~7/h
+[1076/1104] cournot_trap           named     p2 AT_EQUILIBRIUM     478.1s  ~7/h
+[1077/1104] repeated_pd_trap       named     p2 AT_EQUILIBRIUM     283.7s  ~7/h
+[1078/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM     339.7s  ~8/h
+[1079/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM     294.3s  ~8/h
+[1080/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM     305.5s  ~8/h
+[1081/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM     264.4s  ~8/h
+[1082/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM     547.5s  ~8/h
+[1083/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM     274.6s  ~8/h
+[1084/1104] cournot_trap           named     p1 AT_EQUILIBRIUM     535.3s  ~8/h
+[1085/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM     366.3s  ~8/h
+[1086/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     588.7s  ~8/h
+[1087/1104] cournot_trap           disguised p2 STRATEGIC_GAP      151.0s  ~8/h
+[1088/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM     205.4s  ~8/h

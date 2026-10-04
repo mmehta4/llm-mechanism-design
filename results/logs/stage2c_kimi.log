@@ -357,4 +357,27 @@ Traceback (most recent call last):
                      ^^^^^^
   File "/Users/meetmehta/Desktop/_/Research projects/1st/llm-mechanism-design/experiments/stage2c.py", line 63, in main
 object address  : 0x107d11440
-object repr     : 
+object repr     : kimi: 321/552 done, 231 to go  -> stage2c_kimi.csv
+[ 322/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM     691.9s  ~5/h
+[ 323/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM    1158.6s  ~4/h
+[ 324/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM     534.0s  ~5/h
+[ 325/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM     375.4s  ~5/h
+[ 326/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM     615.6s  ~5/h
+[ 327/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM     477.3s  ~6/h
+[ 328/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM     434.5s  ~6/h
+[ 329/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM     296.8s  ~6/h
+[ 330/552] cournot_extreme        disguised p1 AT_EQUILIBRIUM     540.5s  ~6/h
+[ 331/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM     303.3s  ~7/h
+[ 332/552] repeated_pd_extreme    disguised p2 STRATEGIC_GAP      400.7s  ~7/h
+[ 333/552] repeated_pd_extreme    disguised p0 STRATEGIC_GAP      263.3s  ~7/h
+[ 334/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM     343.7s  ~7/h
+[ 335/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM     558.8s  ~7/h
+[ 336/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM     316.6s  ~7/h
+[ 337/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM     548.6s  ~7/h
+[ 338/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM     360.4s  ~7/h
+[ 339/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM     397.2s  ~8/h
+[ 340/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM     785.7s  ~7/h
+[ 341/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM     185.5s  ~8/h
+[ 342/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM     212.4s  ~8/h
+[ 343/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM     376.1s  ~8/h
+[ 343/552] cournot_extreme        disguised p1 INFRA_FAIL         327.5s  ~8/h  empty_response

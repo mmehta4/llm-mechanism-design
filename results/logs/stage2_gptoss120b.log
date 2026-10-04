@@ -1230,3 +1230,166 @@ waiting until ~03:28, then resuming.
 gptoss120b: 702/1104 done, 402 to go  -> stage2_gptoss120b.csv
 Traceback (most recent call last):
 
+gptoss120b: 703/1104 done, 401 to go  -> stage2_gptoss120b.csv
+[ 704/1104] vickrey                named     p0 AT_EQUILIBRIUM       1.7s  ~1962/h
+[ 705/1104] cournot                disguised p2 AT_EQUILIBRIUM       5.4s  ~991/h
+[ 706/1104] cournot                disguised p0 AT_EQUILIBRIUM       3.5s  ~999/h
+[ 707/1104] cournot                named     p2 AT_EQUILIBRIUM      51.6s  ~231/h
+[ 708/1104] cournot                named     p2 AT_EQUILIBRIUM       6.2s  ~263/h
+[ 709/1104] vickrey                disguised p2 AT_EQUILIBRIUM       2.5s  ~304/h
+[ 710/1104] vickrey                disguised p0 AT_EQUILIBRIUM       1.9s  ~345/h
+[ 711/1104] repeated_pd            named     p0 STRATEGIC_GAP        1.5s  ~387/h
+[ 712/1104] repeated_pd            disguised p2 STRATEGIC_GAP        2.0s  ~424/h
+[ 713/1104] repeated_pd            disguised p1 STRATEGIC_GAP       53.2s  ~278/h
+[ 714/1104] vickrey                disguised p1 AT_EQUILIBRIUM       2.7s  ~299/h
+[ 715/1104] vickrey                disguised p1 AT_EQUILIBRIUM       2.3s  ~321/h
+[ 716/1104] cournot                disguised p0 AT_EQUILIBRIUM      57.9s  ~243/h
+[ 717/1104] cournot                disguised p2 AT_EQUILIBRIUM       3.2s  ~257/h
+[ 718/1104] public_goods           named     p2 AT_EQUILIBRIUM       2.4s  ~272/h
+[ 719/1104] repeated_pd            disguised p0 AT_EQUILIBRIUM       4.0s  ~285/h
+[ 720/1104] public_goods           named     p2 AT_EQUILIBRIUM       2.5s  ~299/h
+[ 721/1104] public_goods           named     p2 AT_EQUILIBRIUM      51.3s  ~253/h
+[ 722/1104] public_goods           named     p0 AT_EQUILIBRIUM       2.3s  ~265/h
+[ 723/1104] cournot                disguised p2 STRATEGIC_GAP        4.6s  ~274/h
+[ 724/1104] public_goods           disguised p2 AT_EQUILIBRIUM       2.9s  ~284/h
+[ 725/1104] cournot                disguised p1 AT_EQUILIBRIUM      51.7s  ~249/h
+[ 726/1104] vickrey                disguised p0 AT_EQUILIBRIUM       3.3s  ~258/h
+[ 727/1104] cournot                named     p1 AT_EQUILIBRIUM       3.3s  ~266/h
+[ 728/1104] cournot                named     p0 AT_EQUILIBRIUM       2.1s  ~276/h
+[ 729/1104] repeated_pd            disguised p2 AT_EQUILIBRIUM      50.8s  ~248/h
+[ 730/1104] cournot                named     p2 AT_EQUILIBRIUM       2.3s  ~256/h
+[ 731/1104] vickrey                disguised p0 AT_EQUILIBRIUM       2.6s  ~264/h
+[ 732/1104] vickrey                named     p1 AT_EQUILIBRIUM       2.1s  ~272/h
+[ 733/1104] repeated_pd            disguised p2 AT_EQUILIBRIUM       3.2s  ~279/h
+[ 734/1104] cournot                named     p2 AT_EQUILIBRIUM      50.9s  ~255/h
+[ 735/1104] repeated_pd            disguised p1 AT_EQUILIBRIUM       2.3s  ~261/h
+[ 736/1104] public_goods           named     p1 AT_EQUILIBRIUM       2.7s  ~268/h
+[ 737/1104] repeated_pd            named     p2 AT_EQUILIBRIUM       2.4s  ~275/h
+[ 738/1104] public_goods           disguised p1 AT_EQUILIBRIUM       3.3s  ~281/h
+[ 739/1104] vickrey                disguised p2 AT_EQUILIBRIUM      50.5s  ~259/h
+[ 740/1104] vickrey                named     p0 AT_EQUILIBRIUM       2.0s  ~266/h
+[ 741/1104] public_goods           disguised p2 AT_EQUILIBRIUM       3.3s  ~271/h
+[ 742/1104] public_goods           disguised p1 AT_EQUILIBRIUM       2.6s  ~277/h
+[ 743/1104] cournot                disguised p1 STRATEGIC_GAP        4.2s  ~281/h
+[ 744/1104] cournot                disguised p2 AT_EQUILIBRIUM      51.8s  ~262/h
+[ 745/1104] cournot                named     p0 AT_EQUILIBRIUM       2.4s  ~267/h
+[ 746/1104] repeated_pd            disguised p0 AT_EQUILIBRIUM       2.5s  ~272/h
+[ 747/1104] cournot                disguised p1 STRATEGIC_GAP        4.5s  ~277/h
+[ 748/1104] repeated_pd            named     p2 STRATEGIC_GAP       51.4s  ~259/h
+[ 749/1104] repeated_pd            named     p0 STRATEGIC_GAP        1.9s  ~264/h
+[ 750/1104] vickrey                disguised p2 AT_EQUILIBRIUM       3.5s  ~269/h
+[ 751/1104] vickrey                named     p2 AT_EQUILIBRIUM       3.0s  ~273/h
+[ 752/1104] repeated_pd            named     p0 AT_EQUILIBRIUM       2.0s  ~278/h
+[ 753/1104] vickrey                named     p0 AT_EQUILIBRIUM      50.8s  ~263/h
+[ 754/1104] public_goods           disguised p2 AT_EQUILIBRIUM       2.9s  ~267/h
+[ 755/1104] public_goods           named     p2 AT_EQUILIBRIUM       3.2s  ~271/h
+[ 756/1104] public_goods           disguised p1 AT_EQUILIBRIUM       2.3s  ~275/h
+[ 757/1104] cournot                disguised p1 AT_EQUILIBRIUM      52.5s  ~261/h
+[ 758/1104] vickrey                disguised p1 COMPETENCE_GAP       2.6s  ~264/h
+[ 759/1104] vickrey                named     p1 AT_EQUILIBRIUM       1.9s  ~269/h
+[ 760/1104] cournot                named     p0 AT_EQUILIBRIUM       3.0s  ~272/h
+[ 761/1104] public_goods           named     p0 AT_EQUILIBRIUM       1.8s  ~276/h
+[ 762/1104] vickrey                disguised p0 AT_EQUILIBRIUM       2.7s  ~280/h
+[ 763/1104] repeated_pd            named     p1 STRATEGIC_GAP       49.9s  ~267/h
+[ 764/1104] repeated_pd            disguised p1 STRATEGIC_GAP        3.0s  ~271/h
+[ 765/1104] vickrey                disguised p1 AT_EQUILIBRIUM       3.9s  ~274/h
+[ 766/1104] public_goods           disguised p0 AT_EQUILIBRIUM       2.4s  ~277/h
+[ 767/1104] repeated_pd            disguised p1 AT_EQUILIBRIUM       2.2s  ~281/h
+[ 768/1104] vickrey                disguised p2 AT_EQUILIBRIUM      52.3s  ~268/h
+[ 769/1104] public_goods           named     p1 AT_EQUILIBRIUM       2.1s  ~272/h
+[ 770/1104] public_goods           named     p0 AT_EQUILIBRIUM       3.5s  ~275/h
+[ 771/1104] repeated_pd            disguised p0 STRATEGIC_GAP        2.1s  ~278/h
+[ 772/1104] vickrey                disguised p1 AT_EQUILIBRIUM       2.6s  ~282/h
+[ 773/1104] repeated_pd            disguised p2 AT_EQUILIBRIUM      50.8s  ~270/h
+[ 774/1104] cournot                disguised p0 AT_EQUILIBRIUM       2.9s  ~273/h
+[ 775/1104] cournot                named     p0 AT_EQUILIBRIUM       3.9s  ~276/h
+[ 776/1104] cournot                named     p1 AT_EQUILIBRIUM       2.6s  ~279/h
+[ 777/1104] vickrey                disguised p1 AT_EQUILIBRIUM      48.9s  ~269/h
+[ 778/1104] repeated_pd            named     p0 STRATEGIC_GAP        4.5s  ~271/h
+[ 779/1104] cournot                named     p0 AT_EQUILIBRIUM       2.0s  ~274/h
+[ 780/1104] public_goods           named     p1 AT_EQUILIBRIUM       4.3s  ~277/h
+[ 781/1104] repeated_pd            named     p0 AT_EQUILIBRIUM       1.3s  ~280/h
+[ 782/1104] vickrey                named     p2 AT_EQUILIBRIUM       1.8s  ~283/h
+[ 783/1104] vickrey                disguised p0 PARSE_FAIL          48.5s  ~273/h
+[ 784/1104] repeated_pd            named     p0 AT_EQUILIBRIUM       3.8s  ~276/h
+[ 785/1104] repeated_pd            disguised p1 STRATEGIC_GAP        3.0s  ~278/h
+[ 786/1104] cournot                named     p0 AT_EQUILIBRIUM       4.2s  ~281/h
+[ 787/1104] repeated_pd            named     p2 AT_EQUILIBRIUM       1.8s  ~284/h
+[ 788/1104] public_goods           named     p2 AT_EQUILIBRIUM      48.7s  ~274/h
+[ 789/1104] cournot                named     p1 AT_EQUILIBRIUM       3.9s  ~277/h
+[ 790/1104] vickrey                disguised p1 AT_EQUILIBRIUM       2.6s  ~279/h
+[ 791/1104] cournot                named     p2 AT_EQUILIBRIUM       4.6s  ~281/h
+[ 792/1104] vickrey                named     p1 AT_EQUILIBRIUM       1.7s  ~284/h
+[ 793/1104] vickrey                disguised p0 AT_EQUILIBRIUM       2.4s  ~287/h
+[ 794/1104] public_goods           disguised p2 AT_EQUILIBRIUM      50.4s  ~277/h
+[ 795/1104] public_goods           named     p1 AT_EQUILIBRIUM       2.1s  ~280/h
+[ 796/1104] vickrey                named     p0 AT_EQUILIBRIUM       3.8s  ~282/h
+[ 797/1104] cournot                named     p0 AT_EQUILIBRIUM       2.1s  ~285/h
+[ 798/1104] repeated_pd            named     p2 AT_EQUILIBRIUM       1.4s  ~287/h
+[ 799/1104] repeated_pd            named     p0 AT_EQUILIBRIUM      52.8s  ~278/h
+[ 800/1104] cournot                disguised p1 AT_EQUILIBRIUM       3.7s  ~280/h
+[ 801/1104] cournot                disguised p2 AT_EQUILIBRIUM       4.0s  ~282/h
+[ 802/1104] cournot                disguised p0 AT_EQUILIBRIUM      53.7s  ~273/h
+[ 803/1104] repeated_pd            named     p1 AT_EQUILIBRIUM       2.8s  ~275/h
+[ 804/1104] public_goods           disguised p2 AT_EQUILIBRIUM       2.4s  ~278/h
+[ 805/1104] public_goods           disguised p0 AT_EQUILIBRIUM       2.4s  ~280/h
+[ 806/1104] vickrey                named     p2 AT_EQUILIBRIUM       1.9s  ~282/h
+[ 807/1104] vickrey                disguised p1 AT_EQUILIBRIUM      51.8s  ~274/h
+[ 808/1104] repeated_pd            named     p0 STRATEGIC_GAP        3.7s  ~276/h
+[ 809/1104] cournot                named     p2 AT_EQUILIBRIUM       2.3s  ~278/h
+[ 810/1104] cournot                named     p0 AT_EQUILIBRIUM       2.1s  ~280/h
+[ 811/1104] public_goods           disguised p1 AT_EQUILIBRIUM       2.4s  ~282/h
+[ 812/1104] public_goods           disguised p2 AT_EQUILIBRIUM      51.0s  ~275/h
+[ 813/1104] vickrey                named     p1 AT_EQUILIBRIUM       3.8s  ~277/h
+[ 814/1104] repeated_pd            disguised p1 AT_EQUILIBRIUM       2.8s  ~279/h
+[ 815/1104] repeated_pd            disguised p0 AT_EQUILIBRIUM       1.9s  ~281/h
+[ 816/1104] public_goods           named     p2 AT_EQUILIBRIUM       2.3s  ~283/h
+[ 817/1104] public_goods           disguised p0 AT_EQUILIBRIUM      50.6s  ~276/h
+[ 818/1104] vickrey                disguised p2 AT_EQUILIBRIUM       5.4s  ~277/h
+[ 819/1104] vickrey                named     p2 AT_EQUILIBRIUM       2.0s  ~279/h
+[ 820/1104] vickrey                named     p2 AT_EQUILIBRIUM       1.5s  ~281/h
+[ 821/1104] vickrey                disguised p1 AT_EQUILIBRIUM       2.0s  ~283/h
+[ 822/1104] public_goods           named     p2 AT_EQUILIBRIUM      50.3s  ~276/h
+[ 823/1104] cournot                disguised p2 AT_EQUILIBRIUM       6.8s  ~277/h
+[ 824/1104] public_goods           disguised p1 AT_EQUILIBRIUM       3.6s  ~279/h
+[ 825/1104] vickrey                disguised p1 AT_EQUILIBRIUM       2.1s  ~281/h
+[ 826/1104] public_goods           disguised p2 AT_EQUILIBRIUM      49.0s  ~275/h
+[ 827/1104] public_goods           disguised p0 AT_EQUILIBRIUM       6.9s  ~276/h
+[ 828/1104] cournot                disguised p1 AT_EQUILIBRIUM       3.2s  ~277/h
+[ 829/1104] public_goods           named     p2 AT_EQUILIBRIUM       2.2s  ~279/h
+[ 830/1104] vickrey                named     p0 AT_EQUILIBRIUM       1.6s  ~281/h
+[ 831/1104] cournot                named     p2 AT_EQUILIBRIUM      48.9s  ~275/h
+[ 832/1104] vickrey                named     p1 AT_EQUILIBRIUM       4.6s  ~277/h
+[ 833/1104] repeated_pd            disguised p2 AT_EQUILIBRIUM       2.6s  ~278/h
+[ 834/1104] public_goods           named     p1 AT_EQUILIBRIUM       2.4s  ~280/h
+[ 835/1104] public_goods           named     p2 AT_EQUILIBRIUM       2.1s  ~282/h
+[ 835/1104] repeated_pd            disguised p2 INFRA_FAIL          47.2s  ~276/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~23:44, then resuming.
+
+gptoss120b: 835/1104 done, 269 to go  -> stage2_gptoss120b.csv
+[ 836/1104] repeated_pd            disguised p2 STRATEGIC_GAP        1.9s  ~1894/h
+[ 837/1104] vickrey                disguised p2 AT_EQUILIBRIUM       3.5s  ~1335/h
+[ 838/1104] public_goods           named     p0 AT_EQUILIBRIUM       2.4s  ~1388/h
+[ 839/1104] cournot                named     p1 AT_EQUILIBRIUM       2.4s  ~1420/h
+[ 840/1104] public_goods           named     p0 AT_EQUILIBRIUM      53.2s  ~284/h
+[ 841/1104] cournot                named     p2 AT_EQUILIBRIUM       3.6s  ~323/h
+[ 841/1104] public_goods           named     p0 INFRA_FAIL           0.2s  ~375/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~00:45, then resuming.
+
+gptoss120b: 841/1104 done, 263 to go  -> stage2_gptoss120b.csv
+[ 842/1104] public_goods           named     p0 AT_EQUILIBRIUM       1.9s  ~1913/h
+[ 843/1104] public_goods           disguised p2 STRATEGIC_GAP        2.8s  ~1552/h
+[ 844/1104] vickrey                named     p2 AT_EQUILIBRIUM       1.8s  ~1686/h
+[ 845/1104] public_goods           named     p1 AT_EQUILIBRIUM       2.5s  ~1626/h
+[ 846/1104] public_goods           disguised p2 AT_EQUILIBRIUM       2.9s  ~1534/h
+[ 847/1104] public_goods           disguised p1 AT_EQUILIBRIUM      51.4s  ~342/h
+[ 848/1104] cournot                named     p1 AT_EQUILIBRIUM       2.8s  ~382/h
+[ 848/1104] repeated_pd            named     p2 INFRA_FAIL           0.2s  ~435/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~01:47, then resuming.
+
