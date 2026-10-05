@@ -607,3 +607,8 @@ kimi: 538/552 done, 14 to go  -> stage2c_kimi.csv
 [ 548/552] public_goods_extreme   disguised p1 STRATEGIC_GAP      555.1s  ~9/h
 [ 549/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM     261.0s  ~9/h
 [ 550/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM     210.5s  ~10/h
+[ 551/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM     196.7s  ~10/h
+[ 552/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM     556.3s  ~10/h
+
+this session: {'AT_EQUILIBRIUM': 13, 'STRATEGIC_GAP': 1}
+complete: every planned question has an answer.
