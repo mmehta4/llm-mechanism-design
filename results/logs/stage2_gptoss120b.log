@@ -1467,3 +1467,40 @@ gptoss120b: 879/1104 done, 225 to go  -> stage2_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~07:53, then resuming.
 
+gptoss120b: 886/1104 done, 218 to go  -> stage2_gptoss120b.csv
+[ 887/1104] vickrey                disguised p2 AT_EQUILIBRIUM       3.2s  ~1132/h
+[ 888/1104] vickrey                named     p1 AT_EQUILIBRIUM       2.6s  ~1246/h
+[ 889/1104] cournot                named     p0 STRATEGIC_GAP        2.3s  ~1341/h
+[ 890/1104] vickrey                disguised p0 AT_EQUILIBRIUM       2.1s  ~1420/h
+[ 891/1104] cournot                disguised p0 AT_EQUILIBRIUM      53.3s  ~284/h
+[ 892/1104] repeated_pd            named     p0 STRATEGIC_GAP        1.6s  ~332/h
+[ 892/1104] public_goods           disguised p2 INFRA_FAIL           1.4s  ~379/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~08:54, then resuming.
+
+gptoss120b: 892/1104 done, 212 to go  -> stage2_gptoss120b.csv
+[ 893/1104] public_goods           disguised p2 AT_EQUILIBRIUM       2.6s  ~1379/h
+[ 894/1104] cournot                named     p0 STRATEGIC_GAP        2.4s  ~1437/h
+[ 895/1104] public_goods           disguised p0 STRATEGIC_GAP        2.4s  ~1460/h
+[ 896/1104] cournot                named     p1 AT_EQUILIBRIUM       2.1s  ~1515/h
+[ 897/1104] cournot                disguised p0 AT_EQUILIBRIUM      53.3s  ~287/h
+[ 898/1104] public_goods           named     p1 AT_EQUILIBRIUM       2.2s  ~332/h
+[ 898/1104] public_goods           named     p2 INFRA_FAIL           0.9s  ~382/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~09:55, then resuming.
+
+gptoss120b: 898/1104 done, 206 to go  -> stage2_gptoss120b.csv
+[ 899/1104] public_goods           named     p2 AT_EQUILIBRIUM       3.2s  ~1107/h
+[ 900/1104] vickrey                disguised p1 AT_EQUILIBRIUM       2.3s  ~1302/h
+[ 901/1104] public_goods           disguised p1 AT_EQUILIBRIUM       2.7s  ~1311/h
+[ 902/1104] cournot                named     p2 AT_EQUILIBRIUM       2.7s  ~1312/h
+[ 903/1104] cournot                named     p0 AT_EQUILIBRIUM       2.2s  ~1369/h
+[ 904/1104] repeated_pd            named     p2 AT_EQUILIBRIUM      51.0s  ~337/h
+[ 905/1104] cournot                disguised p2 AT_EQUILIBRIUM       4.0s  ~370/h
+[ 905/1104] public_goods           disguised p0 INFRA_FAIL           0.3s  ~420/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~10:57, then resuming.
+
