@@ -38,12 +38,15 @@ CHAINS = [
     # Stage 2C (registration 3) right after the traps on the daily-capped providers.
     [A("gptoss120b"), B("B", "gptoss120b"), X("gptoss120b"), B("C", "gptoss120b"),
      B("E", "gptoss120b")],
-    # NVIDIA: no daily cap, so Stage 2C runs as its own chain alongside
+    # NVIDIA: no daily cap and ~1 request a minute per run, far under the per-minute cap,
+    # so every block runs as its own chain, side by side (order is not registered; each
+    # block still has exactly one runner, so no question can be asked twice)
     [A("nemotron")],
     [B("B", "nemotron"), B("C", "nemotron"), B("E", "nemotron")],
     [X("nemotron")],
     [A("kimi")],
-    [B("B", "kimi"), B("C", "kimi"), B("E", "kimi")],
+    [B("B", "kimi"), B("C", "kimi")],
+    [B("E", "kimi")],
     [X("kimi")],
     # Google
     [A("gemini_lite"), B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"),
