@@ -1689,3 +1689,33 @@ gptoss120b: 993/1104 done, 111 to go  -> stage2_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~02:13, then resuming.
 
+gptoss120b: 1000/1104 done, 104 to go  -> stage2_gptoss120b.csv
+[1001/1104] repeated_pd            named     p2 AT_EQUILIBRIUM       1.6s  ~2283/h
+[1002/1104] vickrey                named     p1 AT_EQUILIBRIUM       1.4s  ~2418/h
+[1003/1104] public_goods           named     p1 AT_EQUILIBRIUM       3.6s  ~1642/h
+[1004/1104] public_goods           named     p0 AT_EQUILIBRIUM       2.4s  ~1603/h
+[1005/1104] cournot                named     p0 AT_EQUILIBRIUM       2.5s  ~1560/h
+[1006/1104] public_goods           disguised p0 AT_EQUILIBRIUM      51.4s  ~343/h
+[1007/1104] repeated_pd            named     p2 AT_EQUILIBRIUM       1.4s  ~392/h
+[1007/1104] cournot                disguised p2 INFRA_FAIL           3.8s  ~423/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:15, then resuming.
+
+gptoss120b: 1007/1104 done, 97 to go  -> stage2_gptoss120b.csv
+[1008/1104] cournot                disguised p2 STRATEGIC_GAP        3.2s  ~1126/h
+[1009/1104] repeated_pd            disguised p0 AT_EQUILIBRIUM       2.1s  ~1363/h
+[1010/1104] public_goods           disguised p0 AT_EQUILIBRIUM       2.7s  ~1351/h
+[1011/1104] vickrey                disguised p0 AT_EQUILIBRIUM       3.1s  ~1293/h
+[1012/1104] public_goods           disguised p0 AT_EQUILIBRIUM      53.0s  ~281/h
+[1012/1104] cournot                disguised p2 INFRA_FAIL           1.6s  ~328/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~04:16, then resuming.
+
+gptoss120b: 1012/1104 done, 92 to go  -> stage2_gptoss120b.csv
+[1013/1104] cournot                disguised p2 AT_EQUILIBRIUM       3.4s  ~1069/h
+[1014/1104] vickrey                named     p0 AT_EQUILIBRIUM       1.3s  ~1530/h
+[1015/1104] repeated_pd            named     p1 STRATEGIC_GAP        1.7s  ~1697/h
+[1016/1104] cournot                named     p1 AT_EQUILIBRIUM       2.3s  ~1661/h
+[1017/1104] public_goods           disguised p1 STRATEGIC_GAP        2.4s  ~1625/h

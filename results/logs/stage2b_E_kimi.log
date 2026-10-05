@@ -1,1 +1,6 @@
 kimi: 0/828 done, 828 to go  -> stage2b_E_kimi.csv
+[   0/828] repeated_pd_round5     disguised p0 INFRA_FAIL        3092.1s  ~1/h  overloaded
+[   0/828] repeated_pd_round5     disguised p2 INFRA_FAIL        3078.6s  ~1/h  overloaded
+[   0/828] repeated_pd_round10    named     p2 INFRA_FAIL        1831.5s  ~1/h  overloaded
+[   1/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM    1493.1s  ~2/h
+[   2/828] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM     902.4s  ~2/h
