@@ -372,3 +372,43 @@ nemotron: 6/828 done, 822 to go  -> stage2b_E_nemotron.csv
 [ 337/828] repeated_pd_round10    named     p0 INFRA_FAIL         156.0s  ~17/h  overloaded
 [ 337/828] repeated_pd_round10    disguised p1 INFRA_FAIL         717.4s  ~17/h  overloaded
 [ 337/828] repeated_pd_round10    named     p1 INFRA_FAIL          40.7s  ~17/h  overloaded
+[ 337/828] repeated_pd_round5     disguised p1 INFRA_FAIL         346.4s  ~17/h  overloaded
+[ 338/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP      453.9s  ~17/h
+[ 339/828] repeated_pd_round9     named     p1 AT_EQUILIBRIUM     378.6s  ~17/h
+[ 340/828] repeated_pd_round9     disguised p2 AT_EQUILIBRIUM     170.3s  ~17/h
+[ 341/828] repeated_pd_round5     named     p2 STRATEGIC_GAP       52.5s  ~17/h
+[ 342/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM      21.0s  ~17/h
+[ 343/828] repeated_pd_round9     disguised p0 AT_EQUILIBRIUM      94.1s  ~17/h
+[ 344/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM     111.7s  ~17/h
+[ 345/828] repeated_pd_round9     disguised p0 AT_EQUILIBRIUM     501.5s  ~17/h
+[ 346/828] repeated_pd_round9     named     p1 AT_EQUILIBRIUM     217.9s  ~17/h
+[ 347/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM     997.4s  ~16/h
+[ 348/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM    1277.8s  ~16/h
+[ 349/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM      92.6s  ~16/h
+[ 350/828] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM     355.5s  ~16/h
+[ 351/828] repeated_pd_round5     named     p1 STRATEGIC_GAP      445.4s  ~16/h
+[ 352/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP       91.7s  ~16/h
+[ 353/828] repeated_pd_round5     named     p0 STRATEGIC_GAP      278.2s  ~16/h
+[ 354/828] repeated_pd_round9     named     p1 AT_EQUILIBRIUM     331.3s  ~16/h
+[ 355/828] repeated_pd_round5     named     p2 STRATEGIC_GAP      419.0s  ~16/h
+[ 356/828] repeated_pd_round5     named     p0 STRATEGIC_GAP      100.7s  ~16/h
+[ 357/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM      42.9s  ~16/h
+[ 358/828] repeated_pd_round5     disguised p0 STRATEGIC_GAP       73.5s  ~16/h
+[ 359/828] repeated_pd_round9     disguised p0 AT_EQUILIBRIUM      95.4s  ~16/h
+[ 360/828] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM      23.7s  ~16/h
+[ 361/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM     347.5s  ~16/h
+[ 362/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM     390.5s  ~16/h
+[ 363/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM      67.0s  ~16/h
+[ 364/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM      30.0s  ~16/h
+[ 365/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM      30.1s  ~16/h
+[ 366/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM      17.2s  ~16/h
+[ 367/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP      199.9s  ~16/h
+[ 368/828] repeated_pd_round9     disguised p1 STRATEGIC_GAP       56.8s  ~16/h
+[ 369/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM     690.5s  ~16/h
+[ 370/828] repeated_pd_round9     disguised p1 AT_EQUILIBRIUM     218.6s  ~16/h
+[ 371/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM     669.0s  ~16/h
+[ 372/828] repeated_pd_round5     disguised p1 AT_EQUILIBRIUM     157.9s  ~16/h
+[ 373/828] repeated_pd_round9     named     p2 AT_EQUILIBRIUM     494.8s  ~16/h
+[ 374/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM      84.5s  ~16/h
+[ 375/828] repeated_pd_round5     named     p2 STRATEGIC_GAP      409.4s  ~16/h
+[ 376/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM     138.3s  ~16/h
