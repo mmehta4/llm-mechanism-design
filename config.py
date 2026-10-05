@@ -169,6 +169,16 @@ MODELS: dict[str, ModelSpec] = {
 # pilot rows that reference it remain interpretable.
 CAPABILITY_ORDER = ["gptoss120b", "nemotron", "kimi", "gemini_lite"]
 
+# Deviation 11 (docs/deviations-from-preregistration.md): gpt-oss-120b's Stage 2B blocks are
+# served by Cerebras, which hosts the same open weights, because Groq's free daily cap would
+# otherwise delay them to November. Set per process by the launcher (GPTOSS_PROVIDER), so
+# Stage 2A, Stage 2C and Stage 5 -- the paired comparisons -- stay on Groq. reasoning_effort
+# is pinned to "medium", Groq's default, so the setting is identical on both providers.
+if os.getenv("GPTOSS_PROVIDER") == "cerebras":
+    from dataclasses import replace as _replace
+    MODELS["gptoss120b"] = _replace(MODELS["gptoss120b"], provider="cerebras",
+                                    api_id="gpt-oss-120b", reasoning_effort="medium")
+
 # Base URLs by provider. Ollama exposes an OpenAI-compatible endpoint, so one
 # client code path serves local, OpenRouter, and Groq alike.
 BASE_URLS = {
@@ -176,6 +186,7 @@ BASE_URLS = {
     "openrouter": "https://openrouter.ai/api/v1",
     "groq": "https://api.groq.com/openai/v1",
     "nvidia": "https://integrate.api.nvidia.com/v1",
+    "cerebras": "https://api.cerebras.ai/v1",
     # Gemini's OpenAI-compatibility layer. Trailing slash is required.
     "gemini": "https://generativelanguage.googleapis.com/v1beta/openai/",
 }
@@ -209,6 +220,7 @@ def api_key(provider: str) -> str:
         "openrouter": "OPENROUTER_API_KEY",
         "groq": "GROQ_API_KEY",
         "nvidia": "NVIDIA_API_KEY",
+        "cerebras": "CEREBRAS_API_KEY",
     }[provider]
     key = os.getenv(env_var)
     if not key:

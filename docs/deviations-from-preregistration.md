@@ -225,3 +225,34 @@ produce", "contribution"), so every pilot deep-disguise question carried those w
 pilot's recognition rates (e.g. 100% for the extreme Vickrey and public goods) are therefore
 likely overstated; Cournot's fall from 96% to 14% happened despite the leak. Found by a test
 written before Stage 2C's registration; the Stage 2C box sends no description at all.
+
+## 11. gpt-oss-120b's Stage 2B blocks served by a second provider (recorded 2026-10-06, before any affected data)
+
+**A change to where one model is served, not to the design.** Pre-registration 2 lists
+gpt-oss-120b "via Groq". Groq's free tier allows about 155 gpt-oss questions a day, which would
+push the end of collection to about 1 November. gpt-oss-120b is an open-weights model, and
+Cerebras serves the same weights, with a free tier of about 1 million tokens a day.
+
+**What moves:** only gpt-oss-120b's Stage 2B blocks (B traps, C sweep, E endgame).
+
+**What stays on Groq:** gpt-oss-120b's Stage 2A, Stage 2C and Stage 5. Stage 2C and Stage 5
+are compared question by question with Stage 2A, so they must share a provider.
+
+**Why the 2B comparisons are unaffected:** every Stage 2B test compares named with disguised
+wording *within* a block, and each block is served entirely by one provider.
+
+**Settings:** `reasoning_effort` is pinned to `medium` on Cerebras (Groq's default, used for
+everything else).
+
+**Record:** every row records `model_api_id`. Groq rows read `openai/gpt-oss-120b`; Cerebras
+rows read `gpt-oss-120b`.
+
+**Not yet done when this was written:** no gpt-oss Stage 2B question had been asked on either
+provider. A practice check on non-registered seeds confirms that answers fit Cerebras's
+free-tier context cap before any registered question is sent.
+
+**Limitation:** two providers may serve the same weights with different numerical precision or
+inference stacks. The paper reports gpt-oss's Stage 2B results with this caveat.
+
+**Not done:** additional accounts on any provider to multiply free quotas. This was considered
+and rejected, because it breaks the providers' terms.

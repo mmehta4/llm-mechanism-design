@@ -26,7 +26,7 @@ _PACERS: dict[str, TokenPacer] = {}
 
 # Request-per-minute caps that bind before the token cap (AI Studio Rate Limit
 # page, 2026-09-30: Gemini 3.5 Flash Lite free tier = 15 RPM).
-RPM_LIMITS = {"gemini": 15}
+RPM_LIMITS = {"gemini": 15, "cerebras": 5}   # Cerebras free tier: 5 requests a minute
 
 
 def pacer_for(provider: str) -> TokenPacer | None:
