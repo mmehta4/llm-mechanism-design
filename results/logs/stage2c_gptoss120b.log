@@ -79,3 +79,33 @@ gptoss120b: 28/552 done, 524 to go  -> stage2c_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~02:09, then resuming.
 
+gptoss120b: 33/552 done, 519 to go  -> stage2c_gptoss120b.csv
+[  34/552] cournot_extreme        disguised p1 STRATEGIC_GAP        3.3s  ~1091/h
+[  35/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM       3.2s  ~1100/h
+[  36/552] cournot_extreme        disguised p1 STRATEGIC_GAP        4.0s  ~1024/h
+[  37/552] vickrey_extreme        disguised p2 STRATEGIC_GAP       54.8s  ~220/h
+[  37/552] cournot_extreme        disguised p0 INFRA_FAIL           1.2s  ~270/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:10, then resuming.
+
+gptoss120b: 37/552 done, 515 to go  -> stage2c_gptoss120b.csv
+[  38/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM       2.9s  ~1256/h
+[  39/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM       3.1s  ~1208/h
+[  40/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        3.2s  ~1182/h
+[  41/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM      53.2s  ~231/h
+[  41/552] cournot_extreme        disguised p1 INFRA_FAIL           2.8s  ~276/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~04:11, then resuming.
+
+gptoss120b: 41/552 done, 511 to go  -> stage2c_gptoss120b.csv
+[  42/552] cournot_extreme        disguised p1 STRATEGIC_GAP        3.1s  ~1154/h
+[  43/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM       3.4s  ~1106/h
+[  44/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM       4.4s  ~989/h
+[  45/552] cournot_extreme        disguised p0 STRATEGIC_GAP       54.8s  ~219/h
+[  45/552] vickrey_extreme        disguised p0 INFRA_FAIL           1.6s  ~267/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~05:13, then resuming.
+
