@@ -1,0 +1,17 @@
+gptoss120b: 0/552 done, 552 to go  -> stage2c_gptoss120b.csv
+[   0/552] cournot_extreme        disguised p1 INFRA_FAIL           2.0s  ~1797/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~19:01, then resuming.
+
+gptoss120b: 0/552 done, 552 to go  -> stage2c_gptoss120b.csv
+[   1/552] cournot_extreme        disguised p1 STRATEGIC_GAP        4.2s  ~852/h
+[   2/552] vickrey_extreme        disguised p1 STRATEGIC_GAP        3.0s  ~995/h
+[   3/552] cournot_extreme        disguised p2 STRATEGIC_GAP        3.7s  ~990/h
+[   4/552] vickrey_extreme        disguised p2 STRATEGIC_GAP       52.8s  ~226/h
+[   5/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM       4.6s  ~263/h
+[   5/552] cournot_extreme        disguised p1 INFRA_FAIL           0.1s  ~316/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~20:02, then resuming.
+
