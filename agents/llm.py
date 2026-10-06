@@ -35,10 +35,9 @@ def pacer_for(provider: str) -> TokenPacer | None:
     if provider in config.NO_KEY_PROVIDERS:
         return None
     if provider not in _PACERS:
-        rpm = RPM_LIMITS.get(provider)
-        if provider == "gemini" and os.getenv("GEMINI_KEY_SLOT") == "2":
-            rpm = 60          # paid tier: far above this; 60 a minute per run keeps it polite
-        _PACERS[provider] = TokenPacer(requests_per_minute=rpm)
+        # each Gemini key is a separate free-tier account with its own 15-a-minute limit, and
+        # each key is used by exactly one run at a time, so one pacer per process is right
+        _PACERS[provider] = TokenPacer(requests_per_minute=RPM_LIMITS.get(provider))
     return _PACERS[provider]
 
 

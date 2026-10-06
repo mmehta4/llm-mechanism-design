@@ -283,3 +283,28 @@ The answers already collected on the second key stay in the data: they are genui
 the same model, through the same provider, with the same settings. Their timestamps lie between
 the two restarts on 2026-10-06. The key will be used again only if Google reports it on the paid
 tier.
+
+**Item 12, reinstated (2026-10-06).** The second Gemini key belongs to a second person (the
+author's brother), who gave it with his consent. The author asked Google Support whether this
+is permitted and forwarded the reply, which reads in part: "using API keys associated with two
+different individuals is permitted, provided that each API key belongs to its respective
+account and is used in accordance with our applicable API terms and policies."
+
+On that basis the key is used again. Each key serves exactly one sequential run, so each stays
+inside its own account's free limits:
+- your key: Block B, then Block C;
+- the second key: Stage 2C, then Block E.
+
+## 13. A second Groq key for gpt-oss-120b (2026-10-06)
+
+**Operational, not a change to the design.** A second free-tier Groq key, from a second
+person's account given with consent, now serves gpt-oss-120b alongside the original. The author
+asked Groq Support and forwarded the reply: "using two API keys associated with two different
+people is acceptable, provided the accounts and keys are being used appropriately."
+
+- **Same provider:** both keys are Groq, as registered, with the same model and settings.
+- **Deviation 11 not used:** the Cerebras route was not needed, so no gpt-oss question was
+  served elsewhere.
+- **The split, one sequential run per key:**
+  - key 1: Stage 2A, then Stage 2C, then Block E;
+  - key 2: Block B, then Block C.

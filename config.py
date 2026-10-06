@@ -222,10 +222,15 @@ def api_key(provider: str) -> str:
         "nvidia": "NVIDIA_API_KEY",
         "cerebras": "CEREBRAS_API_KEY",
     }[provider]
-    # Gemini's remaining blocks run on a second, paid-tier key (same model, same provider;
-    # recorded in docs/deviations-from-preregistration.md, item 12). Chosen per process.
+    # A second Gemini key (a second person's free-tier account, with his consent; Google
+    # Support confirmed this is permitted -- docs/deviations-from-preregistration.md, item 12).
+    # Chosen per process, so each key serves exactly one run at a time.
     if provider == "gemini" and os.getenv("GEMINI_KEY_SLOT") == "2":
         env_var = "GEMINI_API_KEY_2"
+    # A second Groq key (a second person's free-tier account, with consent; Groq Support
+    # confirmed this is permitted -- item 13). Same provider, so no change to the design.
+    if provider == "groq" and os.getenv("GROQ_KEY_SLOT") == "2":
+        env_var = "GROQ_API_KEY_2"
     key = os.getenv(env_var)
     if not key:
         raise RuntimeError(

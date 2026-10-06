@@ -40,7 +40,16 @@ X = lambda m: ("stage2c.py", f"--model {m}")          # Stage 2C, extreme disgui
 # weights, 1M free tokens a day); Stage 2A, Stage 2C and Stage 5 stay on Groq, because they are
 # compared question by question. Without the key, everything stays on Groq as registered.
 CEREBRAS_ENV = "GPTOSS_PROVIDER=cerebras"
-if os.getenv("CEREBRAS_API_KEY"):
+# Item 13: two Groq keys (two people's free-tier accounts; Groq Support confirmed this is
+# permitted). Everything stays on Groq as registered; each key serves one sequential chain,
+# balanced so both finish about together. This takes precedence over the Cerebras route.
+GROQ_ENV = "GROQ_KEY_SLOT=2"
+if os.getenv("GROQ_API_KEY_2"):
+    GPTOSS_CHAINS = [
+        [A("gptoss120b"), X("gptoss120b"), B("E", "gptoss120b")],
+        [(GROQ_ENV,), B("B", "gptoss120b"), B("C", "gptoss120b")],
+    ]
+elif os.getenv("CEREBRAS_API_KEY"):
     GPTOSS_CHAINS = [
         [A("gptoss120b")],
         [X("gptoss120b")],
@@ -50,12 +59,14 @@ else:
     GPTOSS_CHAINS = [[A("gptoss120b"), B("B", "gptoss120b"), X("gptoss120b"),
                       B("C", "gptoss120b"), B("E", "gptoss120b")]]
 
-# Item 12: with a paid-tier Gemini key, each remaining Gemini block runs as its own chain on it
-# (same model, same provider; one runner per block, so no question can be asked twice).
+# Item 12: two Gemini keys (two people's free-tier accounts; Google Support confirmed this is
+# permitted). Each key serves one sequential chain, so each stays inside its own free limits:
+# key 1 runs the traps then the sweep; key 2 runs the extreme disguise then the endgame.
 GEMINI_ENV = "GEMINI_KEY_SLOT=2"
 if os.getenv("GEMINI_API_KEY_2"):
-    GEMINI_CHAINS = [[A("gemini_lite")]] + [[(GEMINI_ENV,), step] for step in
-                     (B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"), B("E", "gemini_lite"))]
+    GEMINI_CHAINS = [[A("gemini_lite")],
+                     [B("B", "gemini_lite"), B("C", "gemini_lite")],
+                     [(GEMINI_ENV,), X("gemini_lite"), B("E", "gemini_lite")]]
 else:
     GEMINI_CHAINS = [[A("gemini_lite"), B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"),
                       B("E", "gemini_lite")]]
