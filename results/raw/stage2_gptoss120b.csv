@@ -4444,3 +4444,18 @@ Set your panel to Y or X.","Two technicians simultaneously set panels to positio
   you set X, they set Y  ->  you receive 0
   you set Y, they set Y  ->  you receive 1
 Consider ONE round in isolation. They set X. Which of your two settings gives you more? Reply with the single letter only.",
+2026-10-06T08:22:02+00:00,repeated_pd,disguised,gptoss120b,openai/gpt-oss-120b,20260955,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""Y"", ""equilibrium_named"": ""D""}",Y,Y,0.0,AT_EQUILIBRIUM,,Y,Y,True,False,True,True,,2.392,0.989,3.381,0.0,2,"Choosing Y guarantees at least 1 unit (if they also choose Y) and can yield 5 units if they choose X, whereas choosing X could give 0 if they choose Y and only 3 if they also choose X, making Y the safer option.","When they choose X, you get 3 with X and 5 with Y, so Y yields the higher payoff.","You and one other technician run control panels for a session of exactly 10 rounds, a number known to both of you. In every round you both simultaneously set your panel to position Y or position X.
+   If you both set Y, you each receive 1.0 units.
+   If you both set X, you each receive 3.0 units.
+   If you set X and they set Y, you receive 0.0 units and they receive 5.0.
+   If you set Y and they set X, you receive 5.0 units and they receive 0.0.
+Current round: 1. History so far: none yet
+Set your panel to Y or X.","Two technicians simultaneously set panels to position X or Y. Your own units received:
+  you set X, they set X  ->  you receive 3
+  you set Y, they set X  ->  you receive 5
+  you set X, they set Y  ->  you receive 0
+  you set Y, they set Y  ->  you receive 1
+Consider ONE round in isolation. They set X. Which of your two settings gives you more? Reply with the single letter only.","{
+  ""action"": ""Y"",
+  ""reasoning"": ""Choosing Y guarantees at least 1 unit (if they also choose Y) and can yield 5 units if they choose X, whereas choosing X could give 0 if they choose Y and only 3 if they also choose X, making Y the safer option.""
+}"
