@@ -4,3 +4,9 @@ kimi: 0/828 done, 828 to go  -> stage2b_E_kimi.csv
 [   0/828] repeated_pd_round10    named     p2 INFRA_FAIL        1831.5s  ~1/h  overloaded
 [   1/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM    1493.1s  ~2/h
 [   2/828] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM     902.4s  ~2/h
+[   2/828] repeated_pd_round9     named     p0 INFRA_FAIL        3055.2s  ~2/h  overloaded
+[   3/828] repeated_pd_round5     named     p0 STRATEGIC_GAP     1492.2s  ~2/h
+[   3/828] repeated_pd_round10    disguised p1 INFRA_FAIL        2420.0s  ~2/h  overloaded
+[   4/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM    1197.0s  ~2/h
+[   5/828] repeated_pd_round5     named     p2 STRATEGIC_GAP     1494.6s  ~2/h
+[   5/828] repeated_pd_round5     disguised p2 INFRA_FAIL        1836.3s  ~2/h  overloaded

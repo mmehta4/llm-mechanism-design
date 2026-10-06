@@ -14,8 +14,13 @@ account, but at ~1 request a minute each they sit far under its per-minute cap.
 """
 from __future__ import annotations
 
+import os
 import subprocess
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 ROOT = Path(__file__).resolve().parent.parent
 PY = "./venv/bin/python"
@@ -31,13 +36,47 @@ A = lambda m: ("stage2.py", f"--model {m}")
 B = lambda block, m: ("stage2b.py", f"--block {block} --model {m}")
 X = lambda m: ("stage2c.py", f"--model {m}")          # Stage 2C, extreme disguise
 
+# Deviation 11: with a Cerebras key, gpt-oss-120b's Stage 2B blocks run on Cerebras (same open
+# weights, 1M free tokens a day); Stage 2A, Stage 2C and Stage 5 stay on Groq, because they are
+# compared question by question. Without the key, everything stays on Groq as registered.
+CEREBRAS_ENV = "GPTOSS_PROVIDER=cerebras"
+# Item 13: two Groq keys (two people's free-tier accounts; Groq Support confirmed this is
+# permitted). Everything stays on Groq as registered; each key serves one sequential chain,
+# balanced so both finish about together. This takes precedence over the Cerebras route.
+GROQ_ENV = "GROQ_KEY_SLOT=2"
+if os.getenv("GROQ_API_KEY_2"):
+    GPTOSS_CHAINS = [
+        [A("gptoss120b"), X("gptoss120b"), B("E", "gptoss120b")],
+        [(GROQ_ENV,), B("B", "gptoss120b"), B("C", "gptoss120b")],
+    ]
+elif os.getenv("CEREBRAS_API_KEY"):
+    GPTOSS_CHAINS = [
+        [A("gptoss120b")],
+        [X("gptoss120b")],
+        [(CEREBRAS_ENV,), B("B", "gptoss120b"), B("C", "gptoss120b"), B("E", "gptoss120b")],
+    ]
+else:
+    GPTOSS_CHAINS = [[A("gptoss120b"), B("B", "gptoss120b"), X("gptoss120b"),
+                      B("C", "gptoss120b"), B("E", "gptoss120b")]]
+
+# Item 12: two Gemini keys (two people's free-tier accounts; Google Support confirmed this is
+# permitted). Each key serves one sequential chain, so each stays inside its own free limits:
+# key 1 runs the traps then the sweep; key 2 runs the extreme disguise then the endgame.
+GEMINI_ENV = "GEMINI_KEY_SLOT=2"
+if os.getenv("GEMINI_API_KEY_2"):
+    GEMINI_CHAINS = [[A("gemini_lite")],
+                     [B("B", "gemini_lite"), B("C", "gemini_lite")],
+                     [(GEMINI_ENV,), X("gemini_lite"), B("E", "gemini_lite")]]
+else:
+    GEMINI_CHAINS = [[A("gemini_lite"), B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"),
+                      B("E", "gemini_lite")]]
+
 CHAINS = [
     # Groq. Free tier: 200,000 tokens a day, ~170 questions. Traps (Block B) first.
     # Block D was dropped before any of its data existed (deviation 7), so every model
     # now answers exactly the same set of questions.
     # Stage 2C (registration 3) right after the traps on the daily-capped providers.
-    [A("gptoss120b"), B("B", "gptoss120b"), X("gptoss120b"), B("C", "gptoss120b"),
-     B("E", "gptoss120b")],
+    *GPTOSS_CHAINS,
     # NVIDIA: no daily cap and ~1 request a minute per run, far under the per-minute cap,
     # so every block runs as its own chain, side by side (order is not registered; each
     # block still has exactly one runner, so no question can be asked twice)
@@ -49,8 +88,7 @@ CHAINS = [
     [B("E", "kimi")],
     [X("kimi")],
     # Google
-    [A("gemini_lite"), B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"),
-     B("E", "gemini_lite")],
+    *GEMINI_CHAINS,
 ]
 
 
@@ -88,13 +126,16 @@ def main() -> None:
                      stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("backup to GitHub   running every 3 hours (results/logs/backup.log)")
     for chain in CHAINS:
-        name = " -> ".join(label(step) for step in chain)
+        env = ""
+        if len(chain[0]) == 1:                      # a leading (ENV,) marker: per-chain env
+            env, chain = chain[0][0] + " ", chain[1:]
+        name = " -> ".join(label(step) for step in chain) + (f"  [{env.strip()}]" if env else "")
         live = [step for step in chain if running(step)]
         if live:
             print(f"{name}\n    already running ({label(live[0])})")
             continue
         script = "; ".join(
-            f"{PY} experiments/{s} {a} --wait "
+            f"{env}{PY} experiments/{s} {a} --wait "
             f">> results/logs/{s.split('.')[0]}_{a.replace('--block ', '').replace('--model ', '').replace(' ', '_')}.log 2>&1"
             for s, a in chain
         )

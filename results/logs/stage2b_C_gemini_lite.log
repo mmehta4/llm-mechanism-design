@@ -1,0 +1,15 @@
+gemini_lite: 0/1104 done, 1104 to go  -> stage2b_C_gemini_lite.csv
+[   1/1104] repeated_pd_n_rounds2  disguised p0 AT_EQUILIBRIUM       2.3s  ~1517/h
+[   2/1104] public_goods_n_others2 disguised p1 STRATEGIC_GAP        2.8s  ~1391/h
+[   3/1104] repeated_pd_n_rounds10 named     p1 STRATEGIC_GAP       40.1s  ~239/h
+[   4/1104] cournot_a100           disguised p2 STRATEGIC_GAP        2.5s  ~302/h
+[   4/1104] vickrey_n_others3      named     p0 INFRA_FAIL          53.6s  ~178/h  rate_limit
+[   5/1104] cournot_a60            disguised p2 AT_EQUILIBRIUM       2.5s  ~208/h
+[   5/1104] vickrey_n_others3      named     p0 INFRA_FAIL          39.3s  ~176/h  rate_limit
+[   5/1104] cournot_a100           named     p0 INFRA_FAIL          71.2s  ~134/h  rate_limit
+[   6/1104] cournot_a100           disguised p2 STRATEGIC_GAP       11.0s  ~144/h
+[   7/1104] public_goods_n_others7 named     p2 AT_EQUILIBRIUM       2.3s  ~158/h
+[   7/1104] repeated_pd_n_rounds2  named     p2 INFRA_FAIL          61.0s  ~137/h  rate_limit
+[   8/1104] vickrey_n_others7      disguised p2 AT_EQUILIBRIUM      18.2s  ~141/h
+[   9/1104] cournot_a200           disguised p2 STRATEGIC_GAP       15.2s  ~145/h
+[  10/1104] repeated_pd_n_rounds50 disguised p2 AT_EQUILIBRIUM      56.7s  ~133/h

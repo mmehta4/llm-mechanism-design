@@ -10,6 +10,7 @@ coerced to a number we would learn something false.
 """
 from __future__ import annotations
 
+import os
 import random
 import time
 from typing import Type
@@ -26,7 +27,7 @@ _PACERS: dict[str, TokenPacer] = {}
 
 # Request-per-minute caps that bind before the token cap (AI Studio Rate Limit
 # page, 2026-09-30: Gemini 3.5 Flash Lite free tier = 15 RPM).
-RPM_LIMITS = {"gemini": 15}
+RPM_LIMITS = {"gemini": 15, "cerebras": 5}   # Cerebras free tier: 5 requests a minute
 
 
 def pacer_for(provider: str) -> TokenPacer | None:
@@ -34,6 +35,8 @@ def pacer_for(provider: str) -> TokenPacer | None:
     if provider in config.NO_KEY_PROVIDERS:
         return None
     if provider not in _PACERS:
+        # each Gemini key is a separate free-tier account with its own 15-a-minute limit, and
+        # each key is used by exactly one run at a time, so one pacer per process is right
         _PACERS[provider] = TokenPacer(requests_per_minute=RPM_LIMITS.get(provider))
     return _PACERS[provider]
 

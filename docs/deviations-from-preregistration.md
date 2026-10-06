@@ -225,3 +225,86 @@ produce", "contribution"), so every pilot deep-disguise question carried those w
 pilot's recognition rates (e.g. 100% for the extreme Vickrey and public goods) are therefore
 likely overstated; Cournot's fall from 96% to 14% happened despite the leak. Found by a test
 written before Stage 2C's registration; the Stage 2C box sends no description at all.
+
+## 11. gpt-oss-120b's Stage 2B blocks served by a second provider (recorded 2026-10-06, before any affected data)
+
+**A change to where one model is served, not to the design.** Pre-registration 2 lists
+gpt-oss-120b "via Groq". Groq's free tier allows about 155 gpt-oss questions a day, which would
+push the end of collection to about 1 November. gpt-oss-120b is an open-weights model, and
+Cerebras serves the same weights, with a free tier of about 1 million tokens a day.
+
+**What moves:** only gpt-oss-120b's Stage 2B blocks (B traps, C sweep, E endgame).
+
+**What stays on Groq:** gpt-oss-120b's Stage 2A, Stage 2C and Stage 5. Stage 2C and Stage 5
+are compared question by question with Stage 2A, so they must share a provider.
+
+**Why the 2B comparisons are unaffected:** every Stage 2B test compares named with disguised
+wording *within* a block, and each block is served entirely by one provider.
+
+**Settings:** `reasoning_effort` is pinned to `medium` on Cerebras (Groq's default, used for
+everything else).
+
+**Record:** every row records `model_api_id`. Groq rows read `openai/gpt-oss-120b`; Cerebras
+rows read `gpt-oss-120b`.
+
+**Not yet done when this was written:** no gpt-oss Stage 2B question had been asked on either
+provider. A practice check on non-registered seeds confirms that answers fit Cerebras's
+free-tier context cap before any registered question is sent.
+
+**Limitation:** two providers may serve the same weights with different numerical precision or
+inference stacks. The paper reports gpt-oss's Stage 2B results with this caveat.
+
+**Not done:** additional accounts on any provider to multiply free quotas. This was considered
+and rejected, because it breaks the providers' terms.
+
+## 12. Gemini's remaining questions on a paid-tier key (2026-10-06)
+
+**Operational, not a change to the design.** On 2026-10-06 the author added a paid
+(pay-as-you-go) Gemini API key. Gemini 3.5 Flash Lite's remaining Stage 2B and Stage 2C
+questions run on it, each block as its own run.
+
+- **What is the same:** the model (`gemini-3.5-flash-lite`), the provider (Google) and every
+  setting. Only the account's rate limits differ.
+- **Already collected:** Stage 2A is complete, on the free key; 638 of Block B's questions
+  were answered on the free key and the rest on the paid one.
+- **Why no result can depend on this:** the model and settings are identical on both keys, so
+  the key changes nothing but speed.
+- **Rejected:** a second *free* Groq key from another account was offered the same day. It was
+  checked (free-tier limits, separate quota) and not used, because multiplying free quotas
+  across accounts breaks the provider's terms.
+
+**Correction to item 12 (same day).** Google's own rate-limit replies showed that the second
+key was on the **free tier** (quota metric `generate_content_free_tier_requests`, limit 15
+requests a minute), not the paid tier. As soon as this was seen, about 25 minutes after the
+switch, the runs on that key were stopped and Gemini returned to its original key and its
+original single sequential run.
+
+The answers already collected on the second key stay in the data: they are genuine answers from
+the same model, through the same provider, with the same settings. Their timestamps lie between
+the two restarts on 2026-10-06. The key will be used again only if Google reports it on the paid
+tier.
+
+**Item 12, reinstated (2026-10-06).** The second Gemini key belongs to a second person (the
+author's brother), who gave it with his consent. The author asked Google Support whether this
+is permitted and forwarded the reply, which reads in part: "using API keys associated with two
+different individuals is permitted, provided that each API key belongs to its respective
+account and is used in accordance with our applicable API terms and policies."
+
+On that basis the key is used again. Each key serves exactly one sequential run, so each stays
+inside its own account's free limits:
+- your key: Block B, then Block C;
+- the second key: Stage 2C, then Block E.
+
+## 13. A second Groq key for gpt-oss-120b (2026-10-06)
+
+**Operational, not a change to the design.** A second free-tier Groq key, from a second
+person's account given with consent, now serves gpt-oss-120b alongside the original. The author
+asked Groq Support and forwarded the reply: "using two API keys associated with two different
+people is acceptable, provided the accounts and keys are being used appropriately."
+
+- **Same provider:** both keys are Groq, as registered, with the same model and settings.
+- **Deviation 11 not used:** the Cerebras route was not needed, so no gpt-oss question was
+  served elsewhere.
+- **The split, one sequential run per key:**
+  - key 1: Stage 2A, then Stage 2C, then Block E;
+  - key 2: Block B, then Block C.

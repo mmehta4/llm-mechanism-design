@@ -913,3 +913,43 @@ gemini_lite: 637/1104 done, 467 to go  -> stage2b_B_gemini_lite.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~04:39, then resuming.
 
+gemini_lite: 637/1104 done, 467 to go  -> stage2b_B_gemini_lite.csv
+[ 637/1104] vickrey_trap           disguised p0 INFRA_FAIL           5.1s  ~709/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~05:39, then resuming.
+
+gemini_lite: 637/1104 done, 467 to go  -> stage2b_B_gemini_lite.csv
+[ 638/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM       2.6s  ~1385/h
+[ 639/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       2.6s  ~1374/h
+[ 640/1104] repeated_pd_trap       named     p2 COMPETENCE_GAP      38.1s  ~249/h
+[ 641/1104] vickrey_trap           disguised p1 STRATEGIC_GAP        2.2s  ~317/h
+[ 641/1104] public_goods_trap      named     p2 INFRA_FAIL          39.1s  ~213/h  rate_limit
+[ 642/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP      18.2s  ~210/h
+[ 643/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       2.6s  ~239/h
+[ 643/1104] cournot_trap           disguised p1 INFRA_FAIL          72.8s  ~162/h  rate_limit
+[ 643/1104] vickrey_trap           disguised p2 INFRA_FAIL          44.1s  ~146/h  rate_limit
+[ 644/1104] cournot_trap           named     p0 COMPETENCE_GAP       2.4s  ~160/h
+[ 645/1104] cournot_trap           named     p2 COMPETENCE_GAP       2.8s  ~174/h
+[ 645/1104] public_goods_trap      named     p1 INFRA_FAIL          61.6s  ~149/h  rate_limit
+[ 646/1104] cournot_trap           disguised p2 COMPETENCE_GAP      19.0s  ~152/h
+[ 647/1104] vickrey_trap           disguised p1 COMPETENCE_GAP      59.0s  ~137/h
+[ 648/1104] repeated_pd_trap       disguised p1 COMPETENCE_GAP      19.0s  ~140/h
+gemini_lite: 648/1104 done, 456 to go  -> stage2b_B_gemini_lite.csv
+[ 648/1104] public_goods_trap      named     p2 INFRA_FAIL           5.1s  ~706/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~06:35, then resuming.
+
+gemini_lite: 648/1104 done, 456 to go  -> stage2b_B_gemini_lite.csv
+[ 648/1104] public_goods_trap      named     p2 INFRA_FAIL           5.1s  ~696/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~06:44, then resuming.
+
+gemini_lite: 648/1104 done, 456 to go  -> stage2b_B_gemini_lite.csv
+[ 648/1104] public_goods_trap      named     p2 INFRA_FAIL           5.1s  ~712/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~07:44, then resuming.
+

@@ -1,0 +1,23 @@
+gemini_lite: 0/828 done, 828 to go  -> stage2b_E_gemini_lite.csv
+[   1/828] repeated_pd_round5     disguised p0 STRATEGIC_GAP        2.6s  ~1381/h
+[   2/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP        2.5s  ~1402/h
+[   3/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM      38.3s  ~249/h
+[   4/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM       2.4s  ~314/h
+[   5/828] repeated_pd_round10    disguised p0 STRATEGIC_GAP        2.6s  ~372/h
+[   5/828] repeated_pd_round9     named     p0 INFRA_FAIL          52.7s  ~214/h  rate_limit
+[   6/828] repeated_pd_round5     named     p0 STRATEGIC_GAP        2.1s  ~244/h
+[   7/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM       2.4s  ~273/h
+[   7/828] repeated_pd_round10    named     p1 INFRA_FAIL          56.9s  ~199/h  rate_limit
+[   8/828] repeated_pd_round5     named     p2 STRATEGIC_GAP        2.3s  ~218/h
+[   9/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP        2.5s  ~237/h
+[  10/828] repeated_pd_round9     named     p2 AT_EQUILIBRIUM       2.3s  ~255/h
+[  11/828] repeated_pd_round9     named     p0 STRATEGIC_GAP        2.5s  ~272/h
+[  12/828] repeated_pd_round5     disguised p1 AT_EQUILIBRIUM       2.5s  ~289/h
+[  13/828] repeated_pd_round9     disguised p2 STRATEGIC_GAP        2.6s  ~305/h
+[  13/828] repeated_pd_round9     named     p0 INFRA_FAIL          37.9s  ~268/h  rate_limit
+[  14/828] repeated_pd_round9     disguised p2 STRATEGIC_GAP        9.7s  ~272/h
+[  15/828] repeated_pd_round5     named     p2 STRATEGIC_GAP        2.7s  ~285/h
+[  15/828] repeated_pd_round9     disguised p2 INFRA_FAIL          77.8s  ~224/h  rate_limit
+[  16/828] repeated_pd_round10    named     p0 AT_EQUILIBRIUM      23.7s  ~219/h
+[  17/828] repeated_pd_round9     named     p0 STRATEGIC_GAP       35.3s  ~208/h
+[  18/828] repeated_pd_round9     named     p1 STRATEGIC_GAP       19.6s  ~206/h
