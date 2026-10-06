@@ -1241,3 +1241,18 @@ kimi: 1/1104 done, 1103 to go  -> stage2b_C_kimi.csv
 [ 387/1104] cournot_a200           disguised p2 INFRA_FAIL        2431.7s  ~13/h  empty_response
 [ 388/1104] repeated_pd_n_rounds50 disguised p0 STRATEGIC_GAP      876.2s  ~13/h
 [ 388/1104] public_goods_n_others3 disguised p2 INFRA_FAIL        1708.4s  ~13/h  overloaded
+kimi: 388/1104 done, 716 to go  -> stage2b_C_kimi.csv
+[ 389/1104] repeated_pd_n_rounds10 named     p1 AT_EQUILIBRIUM     836.4s  ~4/h
+[ 390/1104] cournot_a100           named     p0 AT_EQUILIBRIUM     713.3s  ~5/h
+[ 391/1104] repeated_pd_n_rounds10 disguised p2 AT_EQUILIBRIUM     693.6s  ~5/h
+[ 392/1104] cournot_a100           named     p2 AT_EQUILIBRIUM     398.8s  ~5/h
+[ 393/1104] cournot_a200           disguised p1 AT_EQUILIBRIUM     422.3s  ~6/h
+[ 394/1104] public_goods_n_others3 named     p1 AT_EQUILIBRIUM    1321.8s  ~5/h
+[ 395/1104] cournot_a60            disguised p1 PARSE_FAIL         439.0s  ~5/h
+[ 396/1104] public_goods_n_others3 named     p0 AT_EQUILIBRIUM     744.9s  ~5/h
+[ 397/1104] vickrey_n_others7      disguised p0 AT_EQUILIBRIUM     495.2s  ~5/h
+[ 398/1104] public_goods_n_others2 named     p1 AT_EQUILIBRIUM     496.4s  ~5/h
+[ 399/1104] vickrey_n_others7      named     p1 AT_EQUILIBRIUM     689.6s  ~5/h
+[ 400/1104] repeated_pd_n_rounds50 named     p0 AT_EQUILIBRIUM     401.2s  ~6/h
+[ 401/1104] public_goods_n_others2 disguised p2 AT_EQUILIBRIUM     894.9s  ~5/h
+[ 401/1104] public_goods_n_others7 named     p2 INFRA_FAIL        1829.7s  ~5/h  overloaded
