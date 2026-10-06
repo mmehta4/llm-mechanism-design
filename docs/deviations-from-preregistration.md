@@ -272,3 +272,14 @@ questions run on it, each block as its own run.
 - **Rejected:** a second *free* Groq key from another account was offered the same day. It was
   checked (free-tier limits, separate quota) and not used, because multiplying free quotas
   across accounts breaks the provider's terms.
+
+**Correction to item 12 (same day).** Google's own rate-limit replies showed that the second
+key was on the **free tier** (quota metric `generate_content_free_tier_requests`, limit 15
+requests a minute), not the paid tier. As soon as this was seen, about 25 minutes after the
+switch, the runs on that key were stopped and Gemini returned to its original key and its
+original single sequential run.
+
+The answers already collected on the second key stay in the data: they are genuine answers from
+the same model, through the same provider, with the same settings. Their timestamps lie between
+the two restarts on 2026-10-06. The key will be used again only if Google reports it on the paid
+tier.
