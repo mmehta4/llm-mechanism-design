@@ -1235,3 +1235,8 @@ kimi: 1/1104 done, 1103 to go  -> stage2b_C_kimi.csv
 [ 385/1104] repeated_pd_n_rounds50 disguised p0 STRATEGIC_GAP      892.0s  ~15/h
 [ 386/1104] repeated_pd_n_rounds50 named     p1 AT_EQUILIBRIUM    1792.9s  ~14/h
 [ 386/1104] repeated_pd_n_rounds2  disguised p1 INFRA_FAIL        3085.1s  ~14/h  overloaded
+[ 386/1104] repeated_pd_n_rounds10 disguised p2 INFRA_FAIL        1833.1s  ~14/h  overloaded
+[ 386/1104] cournot_a100           disguised p0 INFRA_FAIL        2745.3s  ~14/h  overloaded
+[ 387/1104] cournot_a200           disguised p1 AT_EQUILIBRIUM    2421.7s  ~13/h
+[ 387/1104] cournot_a200           disguised p2 INFRA_FAIL        2431.7s  ~13/h  empty_response
+[ 388/1104] repeated_pd_n_rounds50 disguised p0 STRATEGIC_GAP      876.2s  ~13/h

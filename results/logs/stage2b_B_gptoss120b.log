@@ -144,3 +144,36 @@ gptoss120b: 0/1104 done, 1104 to go  -> stage2b_B_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~07:22, then resuming.
 
+gptoss120b: 140/1104 done, 964 to go  -> stage2b_B_gptoss120b.csv
+[ 141/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM       2.2s  ~1650/h
+[ 142/1104] vickrey_trap           disguised p1 AT_EQUILIBRIUM       4.4s  ~1087/h
+[ 143/1104] cournot_trap           named     p0 AT_EQUILIBRIUM      56.8s  ~170/h
+[ 144/1104] cournot_trap           disguised p1 STRATEGIC_GAP        4.0s  ~213/h
+[ 144/1104] repeated_pd_trap       named     p1 INFRA_FAIL           0.1s  ~267/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~08:23, then resuming.
+
+gptoss120b: 144/1104 done, 960 to go  -> stage2b_B_gptoss120b.csv
+[ 145/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM       2.2s  ~1671/h
+[ 146/1104] vickrey_trap           named     p1 AT_EQUILIBRIUM       2.3s  ~1614/h
+[ 147/1104] public_goods_trap      disguised p2 AT_EQUILIBRIUM       3.3s  ~1392/h
+[ 148/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM       2.7s  ~1383/h
+[ 149/1104] vickrey_trap           disguised p2 AT_EQUILIBRIUM      54.7s  ~277/h
+[ 150/1104] vickrey_trap           named     p1 STRATEGIC_GAP        2.1s  ~321/h
+[ 150/1104] public_goods_trap      disguised p2 INFRA_FAIL           1.3s  ~368/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~09:24, then resuming.
+
+gptoss120b: 150/1104 done, 954 to go  -> stage2b_B_gptoss120b.csv
+[ 151/1104] public_goods_trap      disguised p2 AT_EQUILIBRIUM       3.6s  ~1009/h
+[ 152/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM       2.7s  ~1155/h
+[ 153/1104] cournot_trap           named     p2 STRATEGIC_GAP        2.3s  ~1261/h
+[ 154/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM       2.6s  ~1289/h
+[ 155/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM      54.4s  ~274/h
+[ 155/1104] cournot_trap           disguised p2 INFRA_FAIL           2.1s  ~319/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~10:25, then resuming.
+
