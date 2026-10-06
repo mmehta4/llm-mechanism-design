@@ -256,3 +256,19 @@ inference stacks. The paper reports gpt-oss's Stage 2B results with this caveat.
 
 **Not done:** additional accounts on any provider to multiply free quotas. This was considered
 and rejected, because it breaks the providers' terms.
+
+## 12. Gemini's remaining questions on a paid-tier key (2026-10-06)
+
+**Operational, not a change to the design.** On 2026-10-06 the author added a paid
+(pay-as-you-go) Gemini API key. Gemini 3.5 Flash Lite's remaining Stage 2B and Stage 2C
+questions run on it, each block as its own run.
+
+- **What is the same:** the model (`gemini-3.5-flash-lite`), the provider (Google) and every
+  setting. Only the account's rate limits differ.
+- **Already collected:** Stage 2A is complete, on the free key; 638 of Block B's questions
+  were answered on the free key and the rest on the paid one.
+- **Why no result can depend on this:** the model and settings are identical on both keys, so
+  the key changes nothing but speed.
+- **Rejected:** a second *free* Groq key from another account was offered the same day. It was
+  checked (free-tier limits, separate quota) and not used, because multiplying free quotas
+  across accounts breaks the provider's terms.

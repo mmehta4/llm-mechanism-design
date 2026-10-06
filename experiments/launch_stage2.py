@@ -50,6 +50,16 @@ else:
     GPTOSS_CHAINS = [[A("gptoss120b"), B("B", "gptoss120b"), X("gptoss120b"),
                       B("C", "gptoss120b"), B("E", "gptoss120b")]]
 
+# Item 12: with a paid-tier Gemini key, each remaining Gemini block runs as its own chain on it
+# (same model, same provider; one runner per block, so no question can be asked twice).
+GEMINI_ENV = "GEMINI_KEY_SLOT=2"
+if os.getenv("GEMINI_API_KEY_2"):
+    GEMINI_CHAINS = [[A("gemini_lite")]] + [[(GEMINI_ENV,), step] for step in
+                     (B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"), B("E", "gemini_lite"))]
+else:
+    GEMINI_CHAINS = [[A("gemini_lite"), B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"),
+                      B("E", "gemini_lite")]]
+
 CHAINS = [
     # Groq. Free tier: 200,000 tokens a day, ~170 questions. Traps (Block B) first.
     # Block D was dropped before any of its data existed (deviation 7), so every model
@@ -67,8 +77,7 @@ CHAINS = [
     [B("E", "kimi")],
     [X("kimi")],
     # Google
-    [A("gemini_lite"), B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"),
-     B("E", "gemini_lite")],
+    *GEMINI_CHAINS,
 ]
 
 

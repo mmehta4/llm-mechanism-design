@@ -222,6 +222,10 @@ def api_key(provider: str) -> str:
         "nvidia": "NVIDIA_API_KEY",
         "cerebras": "CEREBRAS_API_KEY",
     }[provider]
+    # Gemini's remaining blocks run on a second, paid-tier key (same model, same provider;
+    # recorded in docs/deviations-from-preregistration.md, item 12). Chosen per process.
+    if provider == "gemini" and os.getenv("GEMINI_KEY_SLOT") == "2":
+        env_var = "GEMINI_API_KEY_2"
     key = os.getenv(env_var)
     if not key:
         raise RuntimeError(

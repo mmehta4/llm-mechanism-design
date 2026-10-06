@@ -10,6 +10,7 @@ coerced to a number we would learn something false.
 """
 from __future__ import annotations
 
+import os
 import random
 import time
 from typing import Type
@@ -34,7 +35,10 @@ def pacer_for(provider: str) -> TokenPacer | None:
     if provider in config.NO_KEY_PROVIDERS:
         return None
     if provider not in _PACERS:
-        _PACERS[provider] = TokenPacer(requests_per_minute=RPM_LIMITS.get(provider))
+        rpm = RPM_LIMITS.get(provider)
+        if provider == "gemini" and os.getenv("GEMINI_KEY_SLOT") == "2":
+            rpm = 60          # paid tier: far above this; 60 a minute per run keeps it polite
+        _PACERS[provider] = TokenPacer(requests_per_minute=rpm)
     return _PACERS[provider]
 
 
