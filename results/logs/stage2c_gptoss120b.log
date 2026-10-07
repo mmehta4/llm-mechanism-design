@@ -238,3 +238,34 @@ gptoss120b: 98/552 done, 454 to go  -> stage2c_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~17:26, then resuming.
 
+gptoss120b: 102/552 done, 450 to go  -> stage2c_gptoss120b.csv
+[ 103/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       4.1s  ~877/h
+[ 104/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.6s  ~933/h
+[ 105/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       3.9s  ~927/h
+[ 106/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM      55.0s  ~216/h
+[ 106/552] repeated_pd_extreme    disguised p0 INFRA_FAIL           1.5s  ~264/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~18:27, then resuming.
+
+gptoss120b: 106/552 done, 446 to go  -> stage2c_gptoss120b.csv
+[ 107/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       2.2s  ~1613/h
+[ 108/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM       4.7s  ~1036/h
+[ 109/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM       4.4s  ~950/h
+[ 110/552] cournot_extreme        disguised p2 STRATEGIC_GAP       52.7s  ~225/h
+[ 110/552] repeated_pd_extreme    disguised p2 INFRA_FAIL           2.6s  ~270/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~19:28, then resuming.
+
+gptoss120b: 110/552 done, 442 to go  -> stage2c_gptoss120b.csv
+[ 111/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       2.3s  ~1564/h
+[ 112/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM       3.9s  ~1153/h
+[ 113/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        3.7s  ~1084/h
+[ 114/552] vickrey_extreme        disguised p2 STRATEGIC_GAP       52.4s  ~231/h
+[ 115/552] public_goods_extreme   disguised p1 STRATEGIC_GAP        4.1s  ~271/h
+[ 115/552] cournot_extreme        disguised p0 INFRA_FAIL           2.0s  ~315/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~20:29, then resuming.
+
