@@ -920,3 +920,14 @@ nemotron: 789/828 done, 39 to go  -> stage2b_E_nemotron.csv
 [ 824/828] repeated_pd_round5     disguised p2 AT_EQUILIBRIUM     524.5s  ~16/h
 [ 825/828] repeated_pd_round9     named     p2 AT_EQUILIBRIUM     373.8s  ~16/h
 [ 826/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP       76.4s  ~16/h
+[ 827/828] repeated_pd_round5     named     p1 AT_EQUILIBRIUM      39.3s  ~16/h
+
+this session: {'AT_EQUILIBRIUM': 24, 'STRATEGIC_GAP': 13, 'COMPETENCE_GAP': 1, 'INFRA_FAIL': 1}
+1 questions still to go (server refusals) -- they are re-asked on the next pass.
+waiting until ~08:08, then resuming.
+
+nemotron: 827/828 done, 1 to go  -> stage2b_E_nemotron.csv
+[ 828/828] repeated_pd_round10    named     p0 AT_EQUILIBRIUM      26.3s  ~137/h
+
+this session: {'AT_EQUILIBRIUM': 1}
+complete: every planned question has an answer.

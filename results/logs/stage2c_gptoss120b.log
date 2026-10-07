@@ -142,3 +142,36 @@ gptoss120b: 55/552 done, 497 to go  -> stage2c_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~08:16, then resuming.
 
+gptoss120b: 60/552 done, 492 to go  -> stage2c_gptoss120b.csv
+[  61/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       1.9s  ~1883/h
+[  62/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.0s  ~1452/h
+[  63/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM       3.9s  ~1222/h
+[  64/552] cournot_extreme        disguised p0 STRATEGIC_GAP       53.6s  ~231/h
+[  65/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       1.9s  ~280/h
+[  65/552] cournot_extreme        disguised p0 INFRA_FAIL           4.0s  ~316/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~09:17, then resuming.
+
+gptoss120b: 65/552 done, 487 to go  -> stage2c_gptoss120b.csv
+[  66/552] cournot_extreme        disguised p0 AT_EQUILIBRIUM       3.8s  ~938/h
+[  67/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       2.6s  ~1114/h
+[  68/552] cournot_extreme        disguised p1 STRATEGIC_GAP        3.7s  ~1060/h
+[  69/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM      53.5s  ~226/h
+[  70/552] public_goods_extreme   disguised p1 STRATEGIC_GAP        2.9s  ~270/h
+[  70/552] public_goods_extreme   disguised p2 INFRA_FAIL           0.1s  ~324/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~10:18, then resuming.
+
+gptoss120b: 70/552 done, 482 to go  -> stage2c_gptoss120b.csv
+[  71/552] public_goods_extreme   disguised p2 STRATEGIC_GAP        2.5s  ~1441/h
+[  72/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM       3.3s  ~1237/h
+[  73/552] cournot_extreme        disguised p0 STRATEGIC_GAP        3.2s  ~1193/h
+[  74/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       2.5s  ~1247/h
+[  75/552] cournot_extreme        disguised p1 STRATEGIC_GAP       55.0s  ~271/h
+[  75/552] cournot_extreme        disguised p0 INFRA_FAIL           0.1s  ~324/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~11:19, then resuming.
+
