@@ -109,3 +109,36 @@ gptoss120b: 41/552 done, 511 to go  -> stage2c_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~05:13, then resuming.
 
+gptoss120b: 45/552 done, 507 to go  -> stage2c_gptoss120b.csv
+[  46/552] vickrey_extreme        disguised p0 STRATEGIC_GAP        2.6s  ~1372/h
+[  47/552] repeated_pd_extreme    disguised p1 STRATEGIC_GAP        1.9s  ~1602/h
+[  48/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.7s  ~1323/h
+[  49/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM      55.2s  ~227/h
+[  50/552] cournot_extreme        disguised p1 STRATEGIC_GAP        3.0s  ~271/h
+[  50/552] repeated_pd_extreme    disguised p2 INFRA_FAIL           0.1s  ~325/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~06:14, then resuming.
+
+gptoss120b: 50/552 done, 502 to go  -> stage2c_gptoss120b.csv
+[  51/552] repeated_pd_extreme    disguised p2 STRATEGIC_GAP        2.1s  ~1709/h
+[  52/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM       3.1s  ~1382/h
+[  53/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       2.5s  ~1391/h
+[  54/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.5s  ~1280/h
+[  55/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM      52.3s  ~283/h
+[  55/552] public_goods_extreme   disguised p0 INFRA_FAIL           2.6s  ~327/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~07:15, then resuming.
+
+gptoss120b: 55/552 done, 497 to go  -> stage2c_gptoss120b.csv
+[  56/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.5s  ~1034/h
+[  57/552] repeated_pd_extreme    disguised p0 STRATEGIC_GAP        3.0s  ~1113/h
+[  58/552] cournot_extreme        disguised p0 STRATEGIC_GAP        3.0s  ~1145/h
+[  59/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM      53.6s  ~228/h
+[  60/552] vickrey_extreme        disguised p1 STRATEGIC_GAP        3.6s  ~270/h
+[  60/552] repeated_pd_extreme    disguised p1 INFRA_FAIL           0.1s  ~324/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~08:16, then resuming.
+
