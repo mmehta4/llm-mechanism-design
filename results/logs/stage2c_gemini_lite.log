@@ -610,3 +610,114 @@ gemini_lite: 451/552 done, 101 to go  -> stage2c_gemini_lite.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~11:33, then resuming.
 
+gemini_lite: 451/552 done, 101 to go  -> stage2c_gemini_lite.csv
+[ 451/552] public_goods_extreme   disguised p0 INFRA_FAIL           5.2s  ~691/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~12:33, then resuming.
+
+gemini_lite: 451/552 done, 101 to go  -> stage2c_gemini_lite.csv
+[ 452/552] public_goods_extreme   disguised p0 COMPETENCE_GAP      19.1s  ~189/h
+[ 453/552] public_goods_extreme   disguised p1 COMPETENCE_GAP       9.5s  ~252/h
+[ 454/552] cournot_extreme        disguised p0 COMPETENCE_GAP      16.8s  ~238/h
+[ 455/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM      22.8s  ~211/h
+[ 456/552] cournot_extreme        disguised p1 COMPETENCE_GAP      24.8s  ~194/h
+[ 457/552] public_goods_extreme   disguised p2 STRATEGIC_GAP        6.8s  ~217/h
+[ 458/552] vickrey_extreme        disguised p2 STRATEGIC_GAP       41.6s  ~178/h
+[ 459/552] cournot_extreme        disguised p2 COMPETENCE_GAP       8.6s  ~192/h
+[ 460/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM      31.4s  ~179/h
+[ 461/552] cournot_extreme        disguised p1 COMPETENCE_GAP       6.1s  ~192/h
+[ 462/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       9.5s  ~201/h
+[ 463/552] cournot_extreme        disguised p2 COMPETENCE_GAP      12.2s  ~206/h
+[ 464/552] cournot_extreme        disguised p1 COMPETENCE_GAP       6.6s  ~217/h
+[ 465/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       9.6s  ~224/h
+[ 466/552] repeated_pd_extreme    disguised p0 STRATEGIC_GAP        9.0s  ~230/h
+[ 467/552] public_goods_extreme   disguised p1 COMPETENCE_GAP      10.3s  ~235/h
+[ 468/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       8.5s  ~242/h
+[ 469/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       9.4s  ~247/h
+[ 470/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM       9.5s  ~251/h
+[ 471/552] vickrey_extreme        disguised p1 STRATEGIC_GAP       10.1s  ~255/h
+[ 472/552] public_goods_extreme   disguised p2 COMPETENCE_GAP       9.1s  ~259/h
+[ 473/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       9.3s  ~263/h
+[ 474/552] repeated_pd_extreme    disguised p0 STRATEGIC_GAP        9.1s  ~267/h
+[ 475/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        9.4s  ~271/h
+[ 476/552] cournot_extreme        disguised p2 COMPETENCE_GAP      10.6s  ~273/h
+[ 477/552] public_goods_extreme   disguised p0 COMPETENCE_GAP       8.8s  ~276/h
+[ 478/552] public_goods_extreme   disguised p1 COMPETENCE_GAP       9.4s  ~279/h
+[ 479/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        8.6s  ~283/h
+[ 480/552] cournot_extreme        disguised p0 COMPETENCE_GAP       9.6s  ~285/h
+[ 481/552] public_goods_extreme   disguised p2 COMPETENCE_GAP       9.7s  ~287/h
+[ 482/552] repeated_pd_extreme    disguised p0 STRATEGIC_GAP        9.6s  ~290/h
+[ 483/552] cournot_extreme        disguised p2 COMPETENCE_GAP       9.4s  ~292/h
+[ 484/552] public_goods_extreme   disguised p1 COMPETENCE_GAP       9.0s  ~294/h
+[ 485/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       9.2s  ~296/h
+[ 486/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       9.7s  ~298/h
+[ 487/552] public_goods_extreme   disguised p0 COMPETENCE_GAP       9.9s  ~300/h
+[ 488/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       8.9s  ~302/h
+[ 489/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM       9.6s  ~303/h
+[ 490/552] public_goods_extreme   disguised p2 COMPETENCE_GAP       9.5s  ~305/h
+[ 491/552] public_goods_extreme   disguised p0 COMPETENCE_GAP       9.5s  ~306/h
+[ 492/552] cournot_extreme        disguised p0 COMPETENCE_GAP      10.4s  ~307/h
+[ 493/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       9.8s  ~308/h
+[ 494/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM      14.6s  ~307/h
+[ 495/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       5.8s  ~310/h
+[ 496/552] public_goods_extreme   disguised p0 COMPETENCE_GAP      10.2s  ~311/h
+[ 497/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       9.0s  ~312/h
+[ 498/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       9.4s  ~314/h
+[ 499/552] public_goods_extreme   disguised p0 COMPETENCE_GAP       9.4s  ~315/h
+[ 500/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       9.2s  ~316/h
+[ 501/552] public_goods_extreme   disguised p2 COMPETENCE_GAP      10.5s  ~317/h
+[ 502/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       8.3s  ~318/h
+[ 503/552] cournot_extreme        disguised p1 COMPETENCE_GAP       9.9s  ~319/h
+[ 504/552] public_goods_extreme   disguised p1 COMPETENCE_GAP       9.4s  ~320/h
+[ 505/552] vickrey_extreme        disguised p1 STRATEGIC_GAP        9.7s  ~321/h
+[ 506/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        8.9s  ~322/h
+[ 507/552] public_goods_extreme   disguised p1 STRATEGIC_GAP        9.8s  ~323/h
+[ 508/552] public_goods_extreme   disguised p1 COMPETENCE_GAP       9.1s  ~324/h
+[ 509/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM       9.1s  ~325/h
+[ 510/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       9.9s  ~326/h
+[ 511/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       9.0s  ~327/h
+[ 512/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        9.6s  ~327/h
+[ 513/552] cournot_extreme        disguised p1 COMPETENCE_GAP       9.8s  ~328/h
+[ 514/552] public_goods_extreme   disguised p2 COMPETENCE_GAP       9.4s  ~329/h
+[ 515/552] public_goods_extreme   disguised p0 COMPETENCE_GAP       9.2s  ~329/h
+[ 516/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        9.6s  ~330/h
+[ 517/552] cournot_extreme        disguised p2 COMPETENCE_GAP       8.7s  ~331/h
+[ 518/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       9.7s  ~331/h
+[ 519/552] public_goods_extreme   disguised p1 COMPETENCE_GAP       9.9s  ~332/h
+[ 520/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       8.7s  ~333/h
+[ 521/552] cournot_extreme        disguised p2 COMPETENCE_GAP       9.4s  ~333/h
+[ 522/552] cournot_extreme        disguised p0 COMPETENCE_GAP       9.3s  ~334/h
+[ 523/552] cournot_extreme        disguised p0 COMPETENCE_GAP       9.9s  ~334/h
+[ 524/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       8.9s  ~335/h
+[ 525/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       9.3s  ~336/h
+[ 526/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       9.6s  ~336/h
+[ 527/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       9.5s  ~337/h
+[ 528/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        9.2s  ~337/h
+[ 529/552] public_goods_extreme   disguised p2 COMPETENCE_GAP       9.7s  ~338/h
+[ 530/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM      17.5s  ~335/h
+[ 531/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM       6.2s  ~337/h
+[ 532/552] cournot_extreme        disguised p1 COMPETENCE_GAP      10.1s  ~337/h
+[ 533/552] cournot_extreme        disguised p0 COMPETENCE_GAP      11.2s  ~337/h
+[ 534/552] public_goods_extreme   disguised p2 COMPETENCE_GAP       8.9s  ~338/h
+[ 535/552] cournot_extreme        disguised p2 COMPETENCE_GAP       7.6s  ~339/h
+[ 536/552] public_goods_extreme   disguised p1 COMPETENCE_GAP      10.1s  ~339/h
+[ 537/552] vickrey_extreme        disguised p1 STRATEGIC_GAP        9.0s  ~340/h
+[ 538/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM       9.1s  ~340/h
+[ 539/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       9.6s  ~340/h
+[ 540/552] vickrey_extreme        disguised p0 STRATEGIC_GAP        9.3s  ~341/h
+[ 541/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       9.5s  ~341/h
+[ 542/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        9.3s  ~342/h
+[ 543/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        9.6s  ~342/h
+[ 544/552] public_goods_extreme   disguised p0 COMPETENCE_GAP      12.3s  ~341/h
+[ 545/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       6.4s  ~343/h
+[ 546/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        9.2s  ~343/h
+[ 547/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       9.4s  ~344/h
+[ 548/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       9.9s  ~344/h
+[ 549/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       9.6s  ~344/h
+[ 550/552] cournot_extreme        disguised p1 COMPETENCE_GAP       9.4s  ~345/h
+[ 551/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       9.5s  ~345/h
+[ 552/552] vickrey_extreme        disguised p1 STRATEGIC_GAP        9.8s  ~345/h
+
+this session: {'COMPETENCE_GAP': 43, 'AT_EQUILIBRIUM': 38, 'STRATEGIC_GAP': 20}
+complete: every planned question has an answer.

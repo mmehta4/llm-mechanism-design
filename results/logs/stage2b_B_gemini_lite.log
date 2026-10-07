@@ -1347,3 +1347,219 @@ gemini_lite: 898/1104 done, 206 to go  -> stage2b_B_gemini_lite.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~11:33, then resuming.
 
+gemini_lite: 898/1104 done, 206 to go  -> stage2b_B_gemini_lite.csv
+[ 898/1104] cournot_trap           disguised p2 INFRA_FAIL           5.0s  ~713/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~12:33, then resuming.
+
+gemini_lite: 898/1104 done, 206 to go  -> stage2b_B_gemini_lite.csv
+[ 899/1104] cournot_trap           disguised p2 COMPETENCE_GAP       7.4s  ~489/h
+[ 900/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.5s  ~427/h
+[ 901/1104] cournot_trap           named     p0 COMPETENCE_GAP       9.7s  ~406/h
+[ 902/1104] public_goods_trap      disguised p2 STRATEGIC_GAP        9.1s  ~403/h
+[ 903/1104] cournot_trap           named     p1 COMPETENCE_GAP       9.9s  ~395/h
+[ 904/1104] vickrey_trap           named     p1 COMPETENCE_GAP      18.0s  ~340/h
+[ 905/1104] repeated_pd_trap       disguised p1 COMPETENCE_GAP       5.9s  ~363/h
+[ 906/1104] cournot_trap           named     p2 COMPETENCE_GAP      43.9s  ~254/h
+[ 907/1104] repeated_pd_trap       disguised p1 AT_EQUILIBRIUM      30.7s  ~225/h
+[ 908/1104] vickrey_trap           disguised p2 COMPETENCE_GAP      20.4s  ~219/h
+[ 909/1104] public_goods_trap      named     p2 STRATEGIC_GAP        7.8s  ~230/h
+[ 910/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM      11.7s  ~235/h
+[ 911/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       7.0s  ~245/h
+[ 912/1104] repeated_pd_trap       disguised p1 COMPETENCE_GAP      12.8s  ~247/h
+[ 913/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       9.2s  ~253/h
+[ 914/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.4s  ~259/h
+[ 915/1104] repeated_pd_trap       disguised p1 COMPETENCE_GAP      10.4s  ~263/h
+[ 916/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       8.2s  ~269/h
+[ 917/1104] repeated_pd_trap       disguised p1 COMPETENCE_GAP       9.9s  ~272/h
+[ 918/1104] cournot_trap           named     p0 COMPETENCE_GAP       9.5s  ~276/h
+[ 919/1104] repeated_pd_trap       disguised p1 COMPETENCE_GAP       9.4s  ~280/h
+[ 920/1104] vickrey_trap           named     p2 COMPETENCE_GAP      10.7s  ~282/h
+[ 921/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM       7.3s  ~288/h
+[ 922/1104] cournot_trap           disguised p0 COMPETENCE_GAP      10.5s  ~289/h
+[ 923/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM      11.3s  ~290/h
+[ 924/1104] vickrey_trap           named     p1 COMPETENCE_GAP       7.2s  ~295/h
+[ 925/1104] repeated_pd_trap       named     p2 COMPETENCE_GAP       8.8s  ~298/h
+[ 926/1104] vickrey_trap           named     p2 COMPETENCE_GAP       9.3s  ~301/h
+[ 927/1104] public_goods_trap      named     p2 STRATEGIC_GAP        9.3s  ~303/h
+[ 928/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       9.4s  ~305/h
+[ 929/1104] repeated_pd_trap       disguised p1 COMPETENCE_GAP       9.9s  ~307/h
+[ 930/1104] cournot_trap           disguised p2 COMPETENCE_GAP       9.1s  ~309/h
+[ 931/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       9.4s  ~311/h
+[ 932/1104] cournot_trap           disguised p2 COMPETENCE_GAP       9.4s  ~312/h
+[ 933/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM       9.7s  ~314/h
+[ 934/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       9.2s  ~316/h
+[ 935/1104] vickrey_trap           named     p1 COMPETENCE_GAP       9.7s  ~317/h
+[ 936/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       9.2s  ~318/h
+[ 937/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP      11.7s  ~318/h
+[ 938/1104] public_goods_trap      disguised p2 STRATEGIC_GAP        8.0s  ~321/h
+[ 939/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM      10.0s  ~321/h
+[ 940/1104] repeated_pd_trap       disguised p1 AT_EQUILIBRIUM       9.1s  ~323/h
+[ 941/1104] public_goods_trap      disguised p2 STRATEGIC_GAP        9.8s  ~324/h
+[ 942/1104] vickrey_trap           disguised p1 COMPETENCE_GAP      15.8s  ~321/h
+[ 943/1104] public_goods_trap      disguised p2 STRATEGIC_GAP        8.9s  ~322/h
+[ 944/1104] cournot_trap           disguised p1 COMPETENCE_GAP       6.8s  ~325/h
+[ 945/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM       8.9s  ~326/h
+[ 946/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.6s  ~327/h
+[ 947/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       9.2s  ~328/h
+[ 948/1104] cournot_trap           named     p1 COMPETENCE_GAP      10.0s  ~329/h
+[ 949/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.0s  ~330/h
+[ 950/1104] cournot_trap           named     p1 COMPETENCE_GAP       9.5s  ~331/h
+[ 951/1104] cournot_trap           named     p0 COMPETENCE_GAP       9.6s  ~332/h
+[ 952/1104] cournot_trap           named     p2 COMPETENCE_GAP       9.6s  ~332/h
+[ 953/1104] vickrey_trap           disguised p2 COMPETENCE_GAP       9.6s  ~333/h
+[ 954/1104] cournot_trap           disguised p1 COMPETENCE_GAP       8.9s  ~334/h
+[ 955/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM       9.3s  ~335/h
+[ 956/1104] repeated_pd_trap       named     p2 COMPETENCE_GAP       9.3s  ~336/h
+[ 957/1104] cournot_trap           named     p0 COMPETENCE_GAP       9.6s  ~336/h
+[ 958/1104] vickrey_trap           disguised p2 AT_EQUILIBRIUM       9.4s  ~337/h
+[ 959/1104] vickrey_trap           disguised p2 COMPETENCE_GAP       9.8s  ~337/h
+[ 960/1104] vickrey_trap           disguised p1 COMPETENCE_GAP       9.1s  ~338/h
+[ 961/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.3s  ~339/h
+[ 962/1104] cournot_trap           disguised p2 COMPETENCE_GAP       9.9s  ~339/h
+[ 963/1104] public_goods_trap      named     p2 STRATEGIC_GAP        9.0s  ~340/h
+[ 964/1104] public_goods_trap      named     p2 STRATEGIC_GAP        9.2s  ~341/h
+[ 965/1104] repeated_pd_trap       disguised p2 COMPETENCE_GAP       9.7s  ~341/h
+[ 966/1104] vickrey_trap           disguised p1 COMPETENCE_GAP       9.8s  ~341/h
+[ 967/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM       8.9s  ~342/h
+[ 968/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       9.6s  ~343/h
+[ 969/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.4s  ~343/h
+[ 970/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.0s  ~344/h
+[ 971/1104] vickrey_trap           disguised p0 COMPETENCE_GAP      10.6s  ~344/h
+[ 972/1104] cournot_trap           named     p1 COMPETENCE_GAP       8.3s  ~345/h
+[ 973/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM       9.4s  ~345/h
+[ 974/1104] vickrey_trap           disguised p2 COMPETENCE_GAP       9.9s  ~345/h
+[ 975/1104] cournot_trap           disguised p2 COMPETENCE_GAP      10.7s  ~345/h
+[ 976/1104] cournot_trap           disguised p1 COMPETENCE_GAP      13.7s  ~344/h
+[ 977/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM      14.2s  ~342/h
+[ 978/1104] cournot_trap           named     p0 COMPETENCE_GAP      10.0s  ~343/h
+[ 979/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM       5.9s  ~344/h
+[ 980/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.6s  ~345/h
+[ 981/1104] vickrey_trap           named     p2 COMPETENCE_GAP       8.9s  ~345/h
+[ 982/1104] vickrey_trap           named     p2 COMPETENCE_GAP       9.5s  ~346/h
+[ 983/1104] vickrey_trap           disguised p2 STRATEGIC_GAP        9.4s  ~346/h
+[ 984/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM       9.4s  ~346/h
+[ 985/1104] repeated_pd_trap       named     p2 COMPETENCE_GAP      10.2s  ~347/h
+[ 986/1104] vickrey_trap           disguised p1 STRATEGIC_GAP        9.0s  ~347/h
+[ 987/1104] vickrey_trap           disguised p2 COMPETENCE_GAP      10.3s  ~347/h
+[ 988/1104] cournot_trap           disguised p2 COMPETENCE_GAP       8.5s  ~348/h
+[ 989/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.5s  ~348/h
+[ 990/1104] vickrey_trap           named     p2 COMPETENCE_GAP       9.7s  ~348/h
+[ 991/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       8.9s  ~349/h
+[ 992/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.3s  ~349/h
+[ 993/1104] cournot_trap           disguised p0 COMPETENCE_GAP      11.0s  ~349/h
+[ 994/1104] vickrey_trap           disguised p2 AT_EQUILIBRIUM       8.0s  ~350/h
+[ 995/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.6s  ~350/h
+[ 996/1104] repeated_pd_trap       named     p2 COMPETENCE_GAP       9.5s  ~350/h
+[ 997/1104] vickrey_trap           named     p2 COMPETENCE_GAP       9.0s  ~351/h
+[ 998/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       9.3s  ~351/h
+[ 999/1104] cournot_trap           disguised p2 COMPETENCE_GAP       9.6s  ~351/h
+[1000/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       9.4s  ~352/h
+[1001/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM       9.7s  ~352/h
+[1002/1104] cournot_trap           disguised p0 COMPETENCE_GAP       9.6s  ~352/h
+[1003/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM       8.7s  ~352/h
+[1004/1104] public_goods_trap      disguised p0 STRATEGIC_GAP       10.0s  ~353/h
+[1005/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM       8.6s  ~353/h
+[1006/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM       9.6s  ~353/h
+[1007/1104] public_goods_trap      named     p2 STRATEGIC_GAP        9.4s  ~354/h
+[1008/1104] public_goods_trap      disguised p0 STRATEGIC_GAP        9.5s  ~354/h
+[1009/1104] cournot_trap           named     p1 COMPETENCE_GAP       9.4s  ~354/h
+[1010/1104] vickrey_trap           named     p0 COMPETENCE_GAP       9.4s  ~354/h
+[1011/1104] vickrey_trap           disguised p0 COMPETENCE_GAP       9.9s  ~354/h
+[1012/1104] public_goods_trap      named     p2 STRATEGIC_GAP        9.0s  ~355/h
+[1013/1104] vickrey_trap           disguised p0 COMPETENCE_GAP      10.7s  ~354/h
+[1014/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       8.3s  ~355/h
+[1015/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM       9.5s  ~355/h
+[1016/1104] cournot_trap           disguised p0 COMPETENCE_GAP       9.7s  ~355/h
+[1017/1104] vickrey_trap           disguised p1 COMPETENCE_GAP       9.1s  ~356/h
+[1018/1104] cournot_trap           named     p0 COMPETENCE_GAP       9.9s  ~356/h
+[1019/1104] vickrey_trap           disguised p1 COMPETENCE_GAP      10.0s  ~356/h
+[1020/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM       8.3s  ~356/h
+[1021/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.2s  ~357/h
+[1022/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.8s  ~357/h
+[1023/1104] vickrey_trap           named     p1 COMPETENCE_GAP       9.8s  ~357/h
+[1024/1104] cournot_trap           named     p2 COMPETENCE_GAP       9.5s  ~357/h
+[1025/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM       8.8s  ~357/h
+[1026/1104] cournot_trap           named     p1 COMPETENCE_GAP       9.5s  ~357/h
+[1027/1104] cournot_trap           disguised p1 COMPETENCE_GAP       9.3s  ~358/h
+[1028/1104] cournot_trap           named     p1 COMPETENCE_GAP       9.4s  ~358/h
+[1029/1104] cournot_trap           disguised p2 COMPETENCE_GAP       9.2s  ~358/h
+[1030/1104] repeated_pd_trap       disguised p1 AT_EQUILIBRIUM      10.3s  ~358/h
+[1031/1104] vickrey_trap           named     p0 COMPETENCE_GAP       8.9s  ~358/h
+[1032/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM       9.4s  ~358/h
+[1033/1104] vickrey_trap           named     p0 COMPETENCE_GAP       9.3s  ~359/h
+[1034/1104] cournot_trap           disguised p0 COMPETENCE_GAP       9.4s  ~359/h
+[1035/1104] vickrey_trap           named     p0 COMPETENCE_GAP       9.3s  ~359/h
+[1036/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.7s  ~359/h
+[1037/1104] public_goods_trap      disguised p2 STRATEGIC_GAP        8.8s  ~359/h
+[1038/1104] cournot_trap           disguised p2 COMPETENCE_GAP       9.5s  ~360/h
+[1039/1104] cournot_trap           named     p0 COMPETENCE_GAP       9.5s  ~360/h
+[1040/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.5s  ~360/h
+[1041/1104] public_goods_trap      disguised p0 STRATEGIC_GAP        9.1s  ~360/h
+[1042/1104] repeated_pd_trap       disguised p1 COMPETENCE_GAP       9.7s  ~360/h
+[1043/1104] repeated_pd_trap       named     p2 COMPETENCE_GAP       9.8s  ~360/h
+[1044/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM       9.3s  ~360/h
+[1045/1104] public_goods_trap      disguised p0 STRATEGIC_GAP        9.3s  ~360/h
+[1046/1104] repeated_pd_trap       named     p2 COMPETENCE_GAP       9.0s  ~361/h
+[1047/1104] vickrey_trap           disguised p1 COMPETENCE_GAP       9.8s  ~361/h
+[1048/1104] cournot_trap           disguised p1 COMPETENCE_GAP       9.3s  ~361/h
+[1049/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.2s  ~361/h
+[1050/1104] repeated_pd_trap       disguised p2 COMPETENCE_GAP       9.7s  ~361/h
+[1051/1104] vickrey_trap           disguised p0 COMPETENCE_GAP       9.4s  ~361/h
+[1052/1104] cournot_trap           named     p2 COMPETENCE_GAP       9.5s  ~361/h
+[1053/1104] vickrey_trap           disguised p2 COMPETENCE_GAP      10.5s  ~361/h
+[1054/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM       8.3s  ~362/h
+[1055/1104] cournot_trap           disguised p2 COMPETENCE_GAP       9.6s  ~362/h
+[1056/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.1s  ~362/h
+[1057/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       9.5s  ~362/h
+[1058/1104] vickrey_trap           named     p1 COMPETENCE_GAP       9.1s  ~362/h
+[1059/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.3s  ~362/h
+[1060/1104] cournot_trap           named     p2 COMPETENCE_GAP      10.0s  ~362/h
+[1061/1104] public_goods_trap      named     p2 STRATEGIC_GAP        9.1s  ~363/h
+[1062/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       9.1s  ~363/h
+[1063/1104] cournot_trap           named     p0 COMPETENCE_GAP      10.9s  ~363/h
+[1064/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       8.0s  ~363/h
+[1065/1104] cournot_trap           named     p0 COMPETENCE_GAP       9.8s  ~363/h
+[1066/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.0s  ~363/h
+[1067/1104] cournot_trap           named     p2 COMPETENCE_GAP       9.7s  ~363/h
+[1068/1104] vickrey_trap           named     p0 COMPETENCE_GAP      10.3s  ~363/h
+[1069/1104] repeated_pd_trap       disguised p2 COMPETENCE_GAP       8.5s  ~363/h
+[1070/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       9.3s  ~364/h
+[1071/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP      10.2s  ~363/h
+[1072/1104] public_goods_trap      named     p2 STRATEGIC_GAP        8.6s  ~364/h
+[1073/1104] vickrey_trap           disguised p0 COMPETENCE_GAP      10.1s  ~364/h
+[1074/1104] public_goods_trap      named     p1 AT_EQUILIBRIUM       8.7s  ~364/h
+[1075/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.7s  ~364/h
+[1076/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.3s  ~364/h
+[1077/1104] cournot_trap           disguised p2 COMPETENCE_GAP      10.0s  ~364/h
+[1078/1104] vickrey_trap           disguised p1 COMPETENCE_GAP       9.3s  ~364/h
+[1079/1104] cournot_trap           named     p1 COMPETENCE_GAP       9.0s  ~364/h
+[1080/1104] repeated_pd_trap       named     p1 COMPETENCE_GAP       9.4s  ~365/h
+[1081/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       9.8s  ~365/h
+[1082/1104] vickrey_trap           named     p0 COMPETENCE_GAP       9.9s  ~365/h
+[1083/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM       8.4s  ~365/h
+[1084/1104] repeated_pd_trap       disguised p0 COMPETENCE_GAP      10.2s  ~365/h
+[1085/1104] vickrey_trap           named     p0 COMPETENCE_GAP       9.1s  ~365/h
+[1086/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       9.3s  ~365/h
+[1087/1104] cournot_trap           disguised p2 COMPETENCE_GAP       9.3s  ~365/h
+[1088/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       9.2s  ~365/h
+[1089/1104] cournot_trap           named     p0 COMPETENCE_GAP       9.9s  ~365/h
+[1090/1104] cournot_trap           disguised p0 COMPETENCE_GAP       9.6s  ~365/h
+[1091/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM       8.6s  ~366/h
+[1092/1104] repeated_pd_trap       named     p2 COMPETENCE_GAP       9.8s  ~366/h
+[1093/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       9.3s  ~366/h
+[1094/1104] public_goods_trap      disguised p1 AT_EQUILIBRIUM       9.4s  ~366/h
+[1095/1104] vickrey_trap           disguised p1 STRATEGIC_GAP        9.4s  ~366/h
+[1096/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM       9.8s  ~366/h
+[1097/1104] cournot_trap           named     p1 COMPETENCE_GAP       9.1s  ~366/h
+[1098/1104] cournot_trap           named     p1 COMPETENCE_GAP       9.5s  ~366/h
+[1099/1104] repeated_pd_trap       named     p0 COMPETENCE_GAP       9.5s  ~366/h
+[1100/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM       9.1s  ~366/h
+[1101/1104] repeated_pd_trap       named     p2 COMPETENCE_GAP       9.6s  ~366/h
+[1102/1104] vickrey_trap           named     p1 COMPETENCE_GAP       9.3s  ~366/h
+[1103/1104] repeated_pd_trap       disguised p1 AT_EQUILIBRIUM       9.5s  ~366/h
+[1104/1104] cournot_trap           named     p0 COMPETENCE_GAP       9.7s  ~366/h
+
+this session: {'COMPETENCE_GAP': 131, 'AT_EQUILIBRIUM': 55, 'STRATEGIC_GAP': 20}
+complete: every planned question has an answer.
