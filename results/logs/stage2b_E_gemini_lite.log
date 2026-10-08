@@ -535,3 +535,50 @@ gemini_lite: 167/828 done, 661 to go  -> stage2b_E_gemini_lite.csv
 [ 385/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM       9.8s  ~354/h
 [ 386/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP        9.1s  ~354/h
 [ 387/828] repeated_pd_round9     disguised p1 STRATEGIC_GAP        9.4s  ~355/h
+[ 388/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM       9.8s  ~355/h
+[ 389/828] repeated_pd_round9     disguised p1 AT_EQUILIBRIUM       9.0s  ~355/h
+[ 390/828] repeated_pd_round9     named     p0 STRATEGIC_GAP        9.6s  ~355/h
+[ 391/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP        9.5s  ~355/h
+[ 392/828] repeated_pd_round9     named     p2 AT_EQUILIBRIUM      10.0s  ~355/h
+[ 393/828] repeated_pd_round10    disguised p1 STRATEGIC_GAP        8.4s  ~355/h
+[ 394/828] repeated_pd_round5     named     p2 STRATEGIC_GAP        9.5s  ~355/h
+[ 395/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM       9.3s  ~356/h
+[ 396/828] repeated_pd_round9     named     p1 AT_EQUILIBRIUM       9.7s  ~356/h
+[ 397/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM       9.5s  ~356/h
+[ 398/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP        9.5s  ~356/h
+[ 399/828] repeated_pd_round10    disguised p0 STRATEGIC_GAP        9.2s  ~356/h
+[ 400/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM       9.3s  ~356/h
+[ 401/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP        9.4s  ~356/h
+[ 402/828] repeated_pd_round5     named     p0 STRATEGIC_GAP        9.7s  ~356/h
+[ 403/828] repeated_pd_round10    disguised p0 STRATEGIC_GAP        9.4s  ~356/h
+[ 404/828] repeated_pd_round5     disguised p0 STRATEGIC_GAP        9.4s  ~356/h
+[ 405/828] repeated_pd_round5     named     p1 STRATEGIC_GAP        9.1s  ~357/h
+[ 406/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM       9.7s  ~357/h
+[ 407/828] repeated_pd_round9     named     p1 STRATEGIC_GAP        9.1s  ~357/h
+[ 408/828] repeated_pd_round9     named     p1 AT_EQUILIBRIUM       9.6s  ~357/h
+[ 409/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM       9.5s  ~357/h
+[ 410/828] repeated_pd_round9     disguised p2 STRATEGIC_GAP        9.4s  ~357/h
+[ 411/828] repeated_pd_round5     named     p1 STRATEGIC_GAP        9.6s  ~357/h
+[ 412/828] repeated_pd_round10    disguised p1 STRATEGIC_GAP        9.6s  ~357/h
+[ 413/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP        9.1s  ~357/h
+[ 414/828] repeated_pd_round9     named     p1 AT_EQUILIBRIUM       9.2s  ~357/h
+[ 415/828] repeated_pd_round10    disguised p0 STRATEGIC_GAP        9.3s  ~358/h
+[ 416/828] repeated_pd_round5     named     p2 STRATEGIC_GAP        9.5s  ~358/h
+[ 417/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP        9.3s  ~358/h
+[ 417/828] repeated_pd_round9     named     p2 INFRA_FAIL           8.8s  ~358/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~14:58, then resuming.
+
+gemini_lite: 417/828 done, 411 to go  -> stage2b_E_gemini_lite.csv
+[ 417/828] repeated_pd_round9     named     p2 INFRA_FAIL           5.1s  ~704/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~15:58, then resuming.
+
+gemini_lite: 417/828 done, 411 to go  -> stage2b_E_gemini_lite.csv
+[ 417/828] repeated_pd_round9     named     p2 INFRA_FAIL           5.0s  ~717/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~16:58, then resuming.
+
