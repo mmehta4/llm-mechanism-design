@@ -1591,3 +1591,10 @@ kimi: 431/1104 done, 673 to go  -> stage2b_C_kimi.csv
 [ 710/1104] cournot_a60            disguised p0 INFRA_FAIL        3088.5s  ~8/h  overloaded
 [ 711/1104] cournot_a100           named     p2 AT_EQUILIBRIUM    2141.6s  ~8/h
 [ 712/1104] vickrey_n_others1      named     p1 AT_EQUILIBRIUM    2111.2s  ~7/h
+[ 712/1104] repeated_pd_n_rounds10 named     p1 INFRA_FAIL        2776.4s  ~7/h  overloaded
+[ 712/1104] repeated_pd_n_rounds50 disguised p2 INFRA_FAIL        1809.0s  ~7/h  overloaded
+[ 712/1104] public_goods_n_others7 disguised p1 INFRA_FAIL        2450.1s  ~7/h  overloaded
+[ 712/1104] cournot_a60            disguised p2 INFRA_FAIL        2453.6s  ~7/h  overloaded
+[ 713/1104] repeated_pd_n_rounds10 named     p0 AT_EQUILIBRIUM     577.6s  ~7/h
+[ 714/1104] public_goods_n_others7 named     p2 AT_EQUILIBRIUM     556.5s  ~7/h
+[ 715/1104] vickrey_n_others1      disguised p2 AT_EQUILIBRIUM     839.6s  ~7/h
