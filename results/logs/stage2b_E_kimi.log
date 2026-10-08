@@ -371,3 +371,15 @@ kimi: 8/828 done, 820 to go  -> stage2b_E_kimi.csv
 [ 341/828] repeated_pd_round5     named     p2 PROBE_FORMAT_FAIL  549.3s  ~7/h
 [ 342/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM     527.6s  ~7/h
 [ 343/828] repeated_pd_round9     disguised p0 AT_EQUILIBRIUM    1135.8s  ~7/h
+[ 344/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM    1062.7s  ~7/h
+[ 345/828] repeated_pd_round9     disguised p0 STRATEGIC_GAP      683.8s  ~7/h
+[ 346/828] repeated_pd_round9     named     p1 PARSE_FAIL         514.3s  ~7/h
+[ 347/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM     507.4s  ~7/h
+[ 348/828] repeated_pd_round10    named     p1 PROBE_FORMAT_FAIL  503.9s  ~7/h
+[ 349/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM     759.0s  ~7/h
+[ 350/828] repeated_pd_round10    disguised p0 STRATEGIC_GAP      597.9s  ~7/h
+[ 350/828] repeated_pd_round5     named     p1 INFRA_FAIL        2887.3s  ~6/h  overloaded
+[ 351/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP      549.2s  ~6/h
+[ 352/828] repeated_pd_round5     named     p0 STRATEGIC_GAP     2091.0s  ~6/h
+[ 353/828] repeated_pd_round9     named     p1 AT_EQUILIBRIUM     751.3s  ~6/h
+[ 354/828] repeated_pd_round5     named     p2 PROBE_FORMAT_FAIL  412.6s  ~6/h
