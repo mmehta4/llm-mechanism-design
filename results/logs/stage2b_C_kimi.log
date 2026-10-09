@@ -2032,3 +2032,8 @@ kimi: 1054/1104 done, 50 to go  -> stage2b_C_kimi.csv
 [1100/1104] cournot_a200           named     p1 AT_EQUILIBRIUM     292.6s  ~10/h
 [1101/1104] cournot_a100           named     p2 AT_EQUILIBRIUM     395.8s  ~10/h
 [1102/1104] cournot_a200           named     p0 AT_EQUILIBRIUM     590.1s  ~10/h
+[1103/1104] vickrey_n_others1      named     p1 AT_EQUILIBRIUM     924.7s  ~9/h
+[1104/1104] vickrey_n_others1      named     p1 AT_EQUILIBRIUM     323.3s  ~9/h
+
+this session: {'AT_EQUILIBRIUM': 38, 'STRATEGIC_GAP': 6, 'PARSE_FAIL': 3, 'PROBE_FORMAT_FAIL': 3}
+complete: every planned question has an answer.

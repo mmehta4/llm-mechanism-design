@@ -1148,3 +1148,56 @@ gptoss120b: 617/1104 done, 487 to go  -> stage2b_B_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~02:24, then resuming.
 
+gptoss120b: 622/1104 done, 482 to go  -> stage2b_B_gptoss120b.csv
+[ 622/1104] vickrey_trap           disguised p0 INFRA_FAIL           1.9s  ~1922/h  auth
+
+The provider is refusing access (401/403). Pausing; nothing is lost.
+waiting until ~02:39, then resuming.
+
+gptoss120b: 622/1104 done, 482 to go  -> stage2b_B_gptoss120b.csv
+[ 623/1104] vickrey_trap           disguised p0 STRATEGIC_GAP        5.8s  ~618/h
+[ 624/1104] repeated_pd_trap       disguised p1 AT_EQUILIBRIUM     429.1s  ~17/h
+[ 625/1104] public_goods_trap      disguised p0 COMPETENCE_GAP       3.0s  ~25/h
+[ 626/1104] cournot_trap           disguised p0 AT_EQUILIBRIUM       4.5s  ~33/h
+[ 627/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM      52.5s  ~36/h
+[ 628/1104] vickrey_trap           named     p1 AT_EQUILIBRIUM       3.0s  ~43/h
+[ 629/1104] cournot_trap           disguised p2 STRATEGIC_GAP        5.5s  ~50/h
+[ 629/1104] repeated_pd_trap       named     p1 INFRA_FAIL           1.0s  ~57/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:48, then resuming.
+
+gptoss120b: 629/1104 done, 475 to go  -> stage2b_B_gptoss120b.csv
+[ 629/1104] repeated_pd_trap       named     p1 INFRA_FAIL           2.0s  ~1771/h  auth
+
+The provider is refusing access (401/403). Pausing; nothing is lost.
+waiting until ~04:03, then resuming.
+
+gptoss120b: 629/1104 done, 475 to go  -> stage2b_B_gptoss120b.csv
+[ 629/1104] repeated_pd_trap       named     p1 INFRA_FAIL           2.0s  ~1811/h  auth
+
+The provider is refusing access (401/403). Pausing; nothing is lost.
+waiting until ~04:18, then resuming.
+
+gptoss120b: 629/1104 done, 475 to go  -> stage2b_B_gptoss120b.csv
+[ 629/1104] repeated_pd_trap       named     p1 INFRA_FAIL           2.2s  ~1657/h  auth
+
+The provider is refusing access (401/403). Pausing; nothing is lost.
+waiting until ~04:33, then resuming.
+
+gptoss120b: 629/1104 done, 475 to go  -> stage2b_B_gptoss120b.csv
+[ 630/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM       1.1s  ~3273/h
+[ 631/1104] vickrey_trap           disguised p2 STRATEGIC_GAP        3.1s  ~1719/h
+[ 632/1104] cournot_trap           named     p0 AT_EQUILIBRIUM       2.1s  ~1714/h
+[ 633/1104] vickrey_trap           named     p2 STRATEGIC_GAP        2.4s  ~1652/h
+[ 634/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM      53.6s  ~289/h
+[ 635/1104] vickrey_trap           disguised p2 AT_EQUILIBRIUM       3.8s  ~327/h
+[ 636/1104] vickrey_trap           named     p0 AT_EQUILIBRIUM       3.1s  ~364/h
+[ 637/1104] cournot_trap           disguised p1 STRATEGIC_GAP        3.0s  ~399/h
+[ 638/1104] vickrey_trap           disguised p0 STRATEGIC_GAP       53.8s  ~257/h
+[ 639/1104] public_goods_trap      disguised p0 COMPETENCE_GAP       2.7s  ~280/h
+[ 639/1104] repeated_pd_trap       named     p2 INFRA_FAIL           0.1s  ~307/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~05:35, then resuming.
+
