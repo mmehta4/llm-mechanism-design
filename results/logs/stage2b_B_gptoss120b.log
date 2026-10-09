@@ -1082,3 +1082,33 @@ gptoss120b: 586/1104 done, 518 to go  -> stage2b_B_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~20:19, then resuming.
 
+gptoss120b: 592/1104 done, 512 to go  -> stage2b_B_gptoss120b.csv
+[ 593/1104] public_goods_trap      disguised p0 AT_EQUILIBRIUM       2.8s  ~1269/h
+[ 594/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM       2.0s  ~1485/h
+[ 595/1104] cournot_trap           disguised p0 STRATEGIC_GAP        3.2s  ~1335/h
+[ 596/1104] cournot_trap           disguised p0 STRATEGIC_GAP       56.5s  ~223/h
+[ 596/1104] public_goods_trap      named     p0 INFRA_FAIL           0.1s  ~278/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~21:20, then resuming.
+
+gptoss120b: 596/1104 done, 508 to go  -> stage2b_B_gptoss120b.csv
+[ 597/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM       2.6s  ~1393/h
+[ 598/1104] vickrey_trap           named     p1 AT_EQUILIBRIUM       2.9s  ~1304/h
+[ 599/1104] cournot_trap           named     p0 AT_EQUILIBRIUM       2.3s  ~1377/h
+[ 600/1104] cournot_trap           disguised p0 AT_EQUILIBRIUM      54.9s  ~229/h
+[ 601/1104] public_goods_trap      named     p1 COMPETENCE_GAP       2.1s  ~277/h
+[ 602/1104] public_goods_trap      named     p0 STRATEGIC_GAP        2.2s  ~322/h
+[ 602/1104] vickrey_trap           disguised p0 INFRA_FAIL           0.1s  ~375/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~22:21, then resuming.
+
+gptoss120b: 602/1104 done, 502 to go  -> stage2b_B_gptoss120b.csv
+[ 603/1104] vickrey_trap           disguised p0 STRATEGIC_GAP        2.5s  ~1437/h
+[ 604/1104] vickrey_trap           disguised p2 STRATEGIC_GAP        2.7s  ~1388/h
+[ 604/1104] vickrey_trap           named     p1 INFRA_FAIL           2.5s  ~1401/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~23:21, then resuming.
+

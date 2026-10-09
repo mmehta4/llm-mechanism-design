@@ -1970,3 +1970,39 @@ kimi: 431/1104 done, 673 to go  -> stage2b_C_kimi.csv
 [1044/1104] public_goods_n_others3 disguised p2 AT_EQUILIBRIUM     656.5s  ~12/h
 [1045/1104] cournot_a60            disguised p0 AT_EQUILIBRIUM     454.0s  ~12/h
 [1046/1104] public_goods_n_others7 disguised p1 AT_EQUILIBRIUM     420.8s  ~12/h
+[1047/1104] cournot_a60            disguised p0 AT_EQUILIBRIUM     293.0s  ~12/h
+[1048/1104] vickrey_n_others1      named     p2 AT_EQUILIBRIUM     217.0s  ~12/h
+[1049/1104] vickrey_n_others1      disguised p0 AT_EQUILIBRIUM     186.2s  ~12/h
+[1050/1104] cournot_a60            disguised p0 AT_EQUILIBRIUM     201.8s  ~12/h
+[1051/1104] cournot_a200           disguised p2 AT_EQUILIBRIUM     491.5s  ~12/h
+[1052/1104] public_goods_n_others7 named     p1 AT_EQUILIBRIUM     204.2s  ~12/h
+[1053/1104] vickrey_n_others3      named     p0 AT_EQUILIBRIUM     228.0s  ~12/h
+[1054/1104] cournot_a200           disguised p1 AT_EQUILIBRIUM     323.6s  ~12/h
+
+this session: {'PROBE_FORMAT_FAIL': 43, 'AT_EQUILIBRIUM': 464, 'PARSE_FAIL': 50, 'STRATEGIC_GAP': 58, 'COMPETENCE_GAP': 8, 'INFRA_FAIL': 50}
+50 questions still to go (server refusals) -- they are re-asked on the next pass.
+waiting until ~20:41, then resuming.
+
+kimi: 1054/1104 done, 50 to go  -> stage2b_C_kimi.csv
+[1055/1104] cournot_a200           named     p0 AT_EQUILIBRIUM     575.6s  ~6/h
+[1056/1104] vickrey_n_others3      named     p2 AT_EQUILIBRIUM     217.9s  ~9/h
+[1057/1104] repeated_pd_n_rounds50 named     p0 AT_EQUILIBRIUM     262.5s  ~10/h
+[1058/1104] repeated_pd_n_rounds50 disguised p2 STRATEGIC_GAP      229.1s  ~11/h
+[1059/1104] cournot_a60            disguised p0 PARSE_FAIL         280.5s  ~11/h
+[1060/1104] repeated_pd_n_rounds10 named     p1 PROBE_FORMAT_FAIL  326.3s  ~11/h
+[1061/1104] repeated_pd_n_rounds50 disguised p2 AT_EQUILIBRIUM     300.4s  ~11/h
+[1062/1104] public_goods_n_others7 disguised p1 AT_EQUILIBRIUM     296.2s  ~12/h
+[1063/1104] cournot_a60            disguised p2 AT_EQUILIBRIUM     269.0s  ~12/h
+[1064/1104] repeated_pd_n_rounds50 disguised p2 STRATEGIC_GAP      302.3s  ~12/h
+[1065/1104] vickrey_n_others3      disguised p1 AT_EQUILIBRIUM     265.8s  ~12/h
+[1066/1104] cournot_a60            disguised p1 AT_EQUILIBRIUM     264.3s  ~12/h
+[1067/1104] public_goods_n_others3 named     p2 AT_EQUILIBRIUM     581.4s  ~11/h
+[1068/1104] vickrey_n_others7      disguised p2 AT_EQUILIBRIUM     438.7s  ~11/h
+[1069/1104] vickrey_n_others1      disguised p1 AT_EQUILIBRIUM     685.5s  ~10/h
+[1070/1104] vickrey_n_others3      disguised p0 AT_EQUILIBRIUM     256.4s  ~10/h
+[1071/1104] repeated_pd_n_rounds50 disguised p1 STRATEGIC_GAP      561.8s  ~10/h
+[1072/1104] vickrey_n_others3      disguised p2 AT_EQUILIBRIUM     279.0s  ~10/h
+[1073/1104] vickrey_n_others3      disguised p1 AT_EQUILIBRIUM     328.3s  ~10/h
+[1074/1104] public_goods_n_others2 named     p1 AT_EQUILIBRIUM     275.7s  ~10/h
+[1075/1104] cournot_a60            named     p1 AT_EQUILIBRIUM     247.2s  ~10/h
+[1076/1104] repeated_pd_n_rounds10 named     p1 AT_EQUILIBRIUM     623.5s  ~10/h
