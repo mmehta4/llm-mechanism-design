@@ -1598,3 +1598,14 @@ kimi: 431/1104 done, 673 to go  -> stage2b_C_kimi.csv
 [ 713/1104] repeated_pd_n_rounds10 named     p0 AT_EQUILIBRIUM     577.6s  ~7/h
 [ 714/1104] public_goods_n_others7 named     p2 AT_EQUILIBRIUM     556.5s  ~7/h
 [ 715/1104] vickrey_n_others1      disguised p2 AT_EQUILIBRIUM     839.6s  ~7/h
+[ 716/1104] repeated_pd_n_rounds2  named     p2 PARSE_FAIL        1125.3s  ~7/h
+[ 717/1104] public_goods_n_others2 named     p2 AT_EQUILIBRIUM     471.1s  ~7/h
+[ 718/1104] vickrey_n_others3      disguised p2 AT_EQUILIBRIUM     413.3s  ~7/h
+[ 719/1104] public_goods_n_others2 named     p0 AT_EQUILIBRIUM     312.2s  ~7/h
+[ 720/1104] public_goods_n_others7 named     p1 AT_EQUILIBRIUM     367.3s  ~7/h
+[ 721/1104] cournot_a60            disguised p1 AT_EQUILIBRIUM     406.4s  ~7/h
+[ 722/1104] public_goods_n_others2 disguised p0 AT_EQUILIBRIUM     720.4s  ~7/h
+[ 723/1104] cournot_a100           named     p0 PARSE_FAIL         838.4s  ~7/h
+[ 723/1104] repeated_pd_n_rounds50 disguised p2 INFRA_FAIL        2111.6s  ~7/h  overloaded
+[ 723/1104] vickrey_n_others3      disguised p1 INFRA_FAIL        1514.5s  ~7/h  overloaded
+[ 723/1104] cournot_a60            disguised p1 INFRA_FAIL        2789.9s  ~7/h  overloaded
