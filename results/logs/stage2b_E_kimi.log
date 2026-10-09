@@ -671,3 +671,81 @@ kimi: 8/828 done, 820 to go  -> stage2b_E_kimi.csv
 [ 597/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM      59.9s  ~9/h
 [ 598/828] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM      70.4s  ~9/h
 [ 599/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP       51.5s  ~9/h
+[ 600/828] repeated_pd_round9     named     p2 AT_EQUILIBRIUM     364.2s  ~9/h
+[ 601/828] repeated_pd_round9     disguised p1 STRATEGIC_GAP       82.9s  ~9/h
+[ 602/828] repeated_pd_round5     disguised p0 STRATEGIC_GAP       38.4s  ~9/h
+[ 603/828] repeated_pd_round5     disguised p0 STRATEGIC_GAP       66.1s  ~9/h
+[ 604/828] repeated_pd_round9     named     p2 STRATEGIC_GAP       44.4s  ~9/h
+[ 605/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM      18.6s  ~9/h
+[ 606/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP      101.5s  ~9/h
+[ 607/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM      46.2s  ~9/h
+[ 608/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP      111.3s  ~9/h
+[ 608/828] repeated_pd_round10    named     p0 INFRA_FAIL          86.8s  ~9/h  rate_limit
+[ 608/828] repeated_pd_round5     disguised p2 INFRA_FAIL          68.7s  ~9/h  rate_limit
+[ 609/828] repeated_pd_round9     named     p1 STRATEGIC_GAP       53.4s  ~9/h
+[ 609/828] repeated_pd_round5     disguised p2 INFRA_FAIL          49.0s  ~9/h  rate_limit
+[ 609/828] repeated_pd_round9     named     p0 INFRA_FAIL          88.3s  ~9/h  rate_limit
+[ 610/828] repeated_pd_round5     named     p1 AT_EQUILIBRIUM      70.5s  ~9/h
+[ 611/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP       36.6s  ~9/h
+[ 612/828] repeated_pd_round5     named     p2 STRATEGIC_GAP       32.0s  ~9/h
+[ 612/828] repeated_pd_round9     disguised p1 INFRA_FAIL          46.6s  ~9/h  rate_limit
+[ 613/828] repeated_pd_round9     named     p2 AT_EQUILIBRIUM      18.6s  ~9/h
+[ 613/828] repeated_pd_round10    disguised p2 INFRA_FAIL         350.0s  ~9/h  overloaded
+[ 614/828] repeated_pd_round9     disguised p0 AT_EQUILIBRIUM      46.7s  ~9/h
+[ 615/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM      33.8s  ~9/h
+[ 616/828] repeated_pd_round5     named     p2 STRATEGIC_GAP       40.3s  ~9/h
+[ 617/828] repeated_pd_round9     disguised p1 PARSE_FAIL         106.3s  ~9/h
+[ 618/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM      27.1s  ~9/h
+[ 619/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM      18.2s  ~9/h
+[ 620/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM     388.5s  ~9/h
+[ 621/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM      78.9s  ~9/h
+[ 622/828] repeated_pd_round10    named     p0 AT_EQUILIBRIUM      43.5s  ~9/h
+[ 623/828] repeated_pd_round9     disguised p1 AT_EQUILIBRIUM      36.7s  ~9/h
+[ 624/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM      43.1s  ~9/h
+[ 625/828] repeated_pd_round9     disguised p2 STRATEGIC_GAP       13.3s  ~9/h
+[ 626/828] repeated_pd_round5     named     p1 STRATEGIC_GAP       11.4s  ~9/h
+[ 626/828] repeated_pd_round10    disguised p1 INFRA_FAIL          46.3s  ~9/h  rate_limit
+[ 626/828] repeated_pd_round5     disguised p2 INFRA_FAIL          43.9s  ~9/h  rate_limit
+[ 627/828] repeated_pd_round5     named     p0 STRATEGIC_GAP      315.7s  ~9/h
+[ 628/828] repeated_pd_round9     named     p1 STRATEGIC_GAP       25.4s  ~9/h
+[ 629/828] repeated_pd_round9     named     p1 STRATEGIC_GAP       45.5s  ~9/h
+[ 630/828] repeated_pd_round5     named     p0 PROBE_FORMAT_FAIL  137.1s  ~9/h
+[ 631/828] repeated_pd_round5     named     p2 PARSE_FAIL          31.3s  ~9/h
+[ 631/828] repeated_pd_round5     named     p1 INFRA_FAIL          43.9s  ~9/h  rate_limit
+[ 631/828] repeated_pd_round5     disguised p2 INFRA_FAIL          45.7s  ~9/h  rate_limit
+[ 632/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM      58.0s  ~9/h
+[ 632/828] repeated_pd_round10    disguised p2 INFRA_FAIL          69.2s  ~9/h  rate_limit
+[ 633/828] repeated_pd_round5     named     p0 STRATEGIC_GAP       57.4s  ~9/h
+[ 634/828] repeated_pd_round5     named     p2 STRATEGIC_GAP       98.9s  ~9/h
+[ 635/828] repeated_pd_round5     disguised p1 PARSE_FAIL          53.4s  ~9/h
+[ 636/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP       80.8s  ~9/h
+[ 637/828] repeated_pd_round5     named     p1 STRATEGIC_GAP       45.7s  ~9/h
+[ 638/828] repeated_pd_round9     named     p1 AT_EQUILIBRIUM     423.5s  ~9/h
+[ 639/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM      73.8s  ~9/h
+[ 640/828] repeated_pd_round9     disguised p2 PARSE_FAIL         150.6s  ~9/h
+[ 641/828] repeated_pd_round5     named     p2 STRATEGIC_GAP       92.3s  ~9/h
+[ 642/828] repeated_pd_round9     named     p2 STRATEGIC_GAP      124.7s  ~9/h
+[ 643/828] repeated_pd_round5     disguised p0 STRATEGIC_GAP      124.1s  ~9/h
+[ 644/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP       66.3s  ~9/h
+[ 645/828] repeated_pd_round5     named     p2 STRATEGIC_GAP       60.1s  ~9/h
+[ 646/828] repeated_pd_round10    named     p0 AT_EQUILIBRIUM      69.7s  ~9/h
+[ 647/828] repeated_pd_round5     named     p1 STRATEGIC_GAP       98.3s  ~9/h
+[ 648/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM      81.0s  ~9/h
+[ 649/828] repeated_pd_round5     named     p2 AT_EQUILIBRIUM     121.0s  ~9/h
+[ 650/828] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM      79.3s  ~9/h
+[ 651/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM      66.6s  ~9/h
+[ 652/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM      88.5s  ~9/h
+[ 653/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP       63.8s  ~9/h
+[ 654/828] repeated_pd_round5     named     p1 STRATEGIC_GAP       75.8s  ~9/h
+[ 655/828] repeated_pd_round5     disguised p2 AT_EQUILIBRIUM     420.3s  ~9/h
+[ 656/828] repeated_pd_round5     disguised p0 STRATEGIC_GAP      179.7s  ~9/h
+[ 657/828] repeated_pd_round9     named     p1 PARSE_FAIL         184.7s  ~9/h
+[ 658/828] repeated_pd_round9     named     p2 AT_EQUILIBRIUM     172.4s  ~9/h
+[ 659/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM     156.7s  ~9/h
+[ 660/828] repeated_pd_round9     disguised p1 AT_EQUILIBRIUM     303.6s  ~9/h
+[ 661/828] repeated_pd_round5     named     p2 AT_EQUILIBRIUM     561.8s  ~9/h
+[ 662/828] repeated_pd_round5     named     p2 STRATEGIC_GAP      534.6s  ~9/h
+[ 663/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM     221.9s  ~9/h
+[ 664/828] repeated_pd_round5     named     p2 STRATEGIC_GAP      871.8s  ~9/h
+[ 665/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM     771.9s  ~9/h
+[ 666/828] repeated_pd_round9     named     p0 STRATEGIC_GAP      424.3s  ~9/h
