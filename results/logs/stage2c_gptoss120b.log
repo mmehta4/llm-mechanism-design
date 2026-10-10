@@ -1118,3 +1118,31 @@ gptoss120b: 485/552 done, 67 to go  -> stage2c_gptoss120b.csv
 [ 487/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.3s  ~1420/h
 [ 488/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       1.9s  ~1553/h
 [ 489/552] vickrey_extreme        disguised p0 STRATEGIC_GAP        3.4s  ~1393/h
+[ 490/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM      54.9s  ~276/h
+[ 490/552] public_goods_extreme   disguised p0 INFRA_FAIL           1.6s  ~323/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~02:56, then resuming.
+
+gptoss120b: 490/552 done, 62 to go  -> stage2c_gptoss120b.csv
+[ 491/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       4.3s  ~832/h
+[ 492/552] cournot_extreme        disguised p0 STRATEGIC_GAP        4.3s  ~836/h
+[ 493/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       1.9s  ~1032/h
+[ 494/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       1.8s  ~1175/h
+[ 495/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM      52.9s  ~276/h
+[ 495/552] public_goods_extreme   disguised p0 INFRA_FAIL           1.9s  ~322/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:57, then resuming.
+
+gptoss120b: 495/552 done, 57 to go  -> stage2c_gptoss120b.csv
+[ 496/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       4.3s  ~831/h
+[ 497/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       4.0s  ~859/h
+[ 498/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       3.5s  ~908/h
+[ 499/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM      52.9s  ~222/h
+[ 500/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       2.8s  ~266/h
+[ 500/552] public_goods_extreme   disguised p2 INFRA_FAIL           2.8s  ~307/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~04:58, then resuming.
+
