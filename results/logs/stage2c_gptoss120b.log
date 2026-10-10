@@ -996,3 +996,35 @@ gptoss120b: 428/552 done, 124 to go  -> stage2c_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~14:42, then resuming.
 
+gptoss120b: 434/552 done, 118 to go  -> stage2c_gptoss120b.csv
+[ 435/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM       4.4s  ~812/h
+[ 436/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM       3.7s  ~885/h
+[ 437/552] cournot_extreme        disguised p1 STRATEGIC_GAP       55.8s  ~169/h
+[ 438/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM       3.4s  ~214/h
+[ 438/552] repeated_pd_extreme    disguised p0 INFRA_FAIL           1.6s  ~261/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~15:43, then resuming.
+
+gptoss120b: 438/552 done, 114 to go  -> stage2c_gptoss120b.csv
+[ 439/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       1.7s  ~2152/h
+[ 440/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.4s  ~1416/h
+[ 441/552] vickrey_extreme        disguised p0 AT_EQUILIBRIUM       2.8s  ~1369/h
+[ 442/552] cournot_extreme        disguised p0 STRATEGIC_GAP       54.4s  ~231/h
+[ 443/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM       2.7s  ~277/h
+[ 443/552] public_goods_extreme   disguised p1 INFRA_FAIL           0.4s  ~330/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~16:45, then resuming.
+
+gptoss120b: 443/552 done, 109 to go  -> stage2c_gptoss120b.csv
+[ 444/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM       3.8s  ~948/h
+[ 445/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.3s  ~1015/h
+[ 446/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM       2.6s  ~1114/h
+[ 447/552] vickrey_extreme        disguised p0 STRATEGIC_GAP       53.2s  ~229/h
+[ 448/552] cournot_extreme        disguised p0 STRATEGIC_GAP        4.0s  ~269/h
+[ 448/552] repeated_pd_extreme    disguised p1 INFRA_FAIL           0.1s  ~323/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~17:46, then resuming.
+
