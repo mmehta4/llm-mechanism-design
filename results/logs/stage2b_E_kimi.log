@@ -829,3 +829,20 @@ kimi: 8/828 done, 820 to go  -> stage2b_E_kimi.csv
 [ 744/828] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM     135.4s  ~9/h
 [ 745/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP      107.7s  ~9/h
 [ 746/828] repeated_pd_round10    disguised p2 PROBE_FORMAT_FAIL  167.3s  ~9/h
+[ 747/828] repeated_pd_round9     disguised p2 STRATEGIC_GAP      349.8s  ~9/h
+[ 748/828] repeated_pd_round9     disguised p0 AT_EQUILIBRIUM    1355.3s  ~9/h
+[ 749/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP     1717.9s  ~9/h
+[ 750/828] repeated_pd_round5     disguised p0 STRATEGIC_GAP     1036.0s  ~9/h
+[ 751/828] repeated_pd_round5     named     p1 STRATEGIC_GAP      765.2s  ~9/h
+[ 751/828] repeated_pd_round10    named     p1 INFRA_FAIL        1771.5s  ~9/h  overloaded
+[ 752/828] repeated_pd_round5     disguised p0 PROBE_FORMAT_FAIL  475.9s  ~9/h
+[ 753/828] repeated_pd_round5     named     p0 STRATEGIC_GAP      774.6s  ~9/h
+
+this session: {'STRATEGIC_GAP': 294, 'AT_EQUILIBRIUM': 326, 'INFRA_FAIL': 75, 'PROBE_FORMAT_FAIL': 69, 'PARSE_FAIL': 56}
+75 questions still to go (server refusals) -- they are re-asked on the next pass.
+waiting until ~07:23, then resuming.
+
+kimi: 753/828 done, 75 to go  -> stage2b_E_kimi.csv
+[ 754/828] repeated_pd_round5     disguised p1 STRATEGIC_GAP      532.1s  ~7/h
+[ 755/828] repeated_pd_round5     named     p2 STRATEGIC_GAP      792.1s  ~5/h
+[ 756/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM     534.4s  ~6/h
