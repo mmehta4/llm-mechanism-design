@@ -1091,3 +1091,30 @@ gptoss120b: 472/552 done, 80 to go  -> stage2c_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~23:52, then resuming.
 
+gptoss120b: 475/552 done, 77 to go  -> stage2c_gptoss120b.csv
+[ 476/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM       4.1s  ~878/h
+[ 477/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.9s  ~895/h
+[ 478/552] public_goods_extreme   disguised p1 STRATEGIC_GAP        3.1s  ~970/h
+[ 479/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM      52.4s  ~227/h
+[ 480/552] cournot_extreme        disguised p0 STRATEGIC_GAP        4.6s  ~264/h
+[ 480/552] public_goods_extreme   disguised p2 INFRA_FAIL           1.7s  ~309/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~00:54, then resuming.
+
+gptoss120b: 480/552 done, 72 to go  -> stage2c_gptoss120b.csv
+[ 481/552] public_goods_extreme   disguised p2 AT_EQUILIBRIUM       3.4s  ~1044/h
+[ 482/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       2.7s  ~1177/h
+[ 483/552] cournot_extreme        disguised p2 STRATEGIC_GAP        2.7s  ~1220/h
+[ 484/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM       2.6s  ~1259/h
+[ 485/552] vickrey_extreme        disguised p1 STRATEGIC_GAP       53.5s  ~277/h
+[ 485/552] repeated_pd_extreme    disguised p2 INFRA_FAIL           1.9s  ~323/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~01:55, then resuming.
+
+gptoss120b: 485/552 done, 67 to go  -> stage2c_gptoss120b.csv
+[ 486/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       1.7s  ~2073/h
+[ 487/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.3s  ~1420/h
+[ 488/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       1.9s  ~1553/h
+[ 489/552] vickrey_extreme        disguised p0 STRATEGIC_GAP        3.4s  ~1393/h
