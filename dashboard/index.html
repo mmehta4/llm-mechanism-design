@@ -208,9 +208,10 @@ function eta(m){
   const left = m.total - m.done;
   if (!left) return 0;
   if (m.key === "kimi" && m.status === "queued") return null;
+  // measured pace over the last 3 hours when there is one; it already includes slow servers
   const per = m.sec_per_q || m.median_latency;
-  let perHour = per ? 3600 / per : 0;
-  if (DAILY_CAP[m.key]) perHour = Math.min(perHour, DAILY_CAP[m.key] / 24);
+  let perHour = m.per_hour_3h >= 3 ? m.per_hour_3h : (per ? 3600 / per : 0);
+  if (DAILY_CAP[m.key] && !m.uncapped) perHour = Math.min(perHour, DAILY_CAP[m.key] / 24);
   return perHour ? left / perHour * 3600 : null;
 }
 

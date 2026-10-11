@@ -194,6 +194,9 @@ def model_state(model: str, spec, procs: list[str]) -> dict:
         "pause_reason": waiting[0]["pause_reason"] if status == "paused" else "",
         "resume_at": waiting[0]["resume_at"] if status == "paused" else "",
         "since_last_s": age_s(rows_all[-1]["timestamp"]) if rows_all else None,
+        # a paid-tier key lifts the free daily cap the time estimate would otherwise assume
+        "uncapped": model == "gemini_lite" and bool(__import__("os").getenv("GEMINI_API_KEY_2")),
+        "per_hour_3h": round(sum(1 for r in answered_all if (age_s(r["timestamp"]) or 1e9) < 3 * 3600) / 3, 1),
         "last_hour": sum(1 for r in answered_all if (age_s(r["timestamp"]) or 1e9) < 3600),
         "median_latency": round(statistics.median(lat), 1) if lat else None,
         "sec_per_q": round(statistics.mean(gaps), 1) if len(gaps) >= 2 else None,
