@@ -1179,3 +1179,34 @@ gptoss120b: 510/552 done, 42 to go  -> stage2c_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~08:02, then resuming.
 
+gptoss120b: 515/552 done, 37 to go  -> stage2c_gptoss120b.csv
+[ 516/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM       3.3s  ~1100/h
+[ 517/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM       4.5s  ~925/h
+[ 518/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       2.3s  ~1074/h
+[ 519/552] public_goods_extreme   disguised p1 AT_EQUILIBRIUM      54.4s  ~224/h
+[ 519/552] vickrey_extreme        disguised p1 INFRA_FAIL           2.5s  ~269/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~09:03, then resuming.
+
+gptoss120b: 519/552 done, 33 to go  -> stage2c_gptoss120b.csv
+[ 520/552] vickrey_extreme        disguised p1 STRATEGIC_GAP        3.0s  ~1185/h
+[ 521/552] cournot_extreme        disguised p2 AT_EQUILIBRIUM       3.6s  ~1085/h
+[ 522/552] cournot_extreme        disguised p0 STRATEGIC_GAP        3.2s  ~1101/h
+[ 522/552] cournot_extreme        disguised p0 INFRA_FAIL          53.4s  ~228/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~10:04, then resuming.
+
+gptoss120b: 522/552 done, 30 to go  -> stage2c_gptoss120b.csv
+[ 523/552] cournot_extreme        disguised p0 STRATEGIC_GAP        2.5s  ~1466/h
+[ 524/552] vickrey_extreme        disguised p1 STRATEGIC_GAP        3.0s  ~1312/h
+[ 525/552] vickrey_extreme        disguised p1 STRATEGIC_GAP        2.6s  ~1337/h
+[ 526/552] vickrey_extreme        disguised p1 STRATEGIC_GAP        2.6s  ~1342/h
+[ 527/552] vickrey_extreme        disguised p1 STRATEGIC_GAP       53.5s  ~280/h
+[ 528/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        3.4s  ~319/h
+[ 528/552] public_goods_extreme   disguised p2 INFRA_FAIL           1.8s  ~363/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~11:05, then resuming.
+
