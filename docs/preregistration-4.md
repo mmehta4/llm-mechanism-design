@@ -1,8 +1,7 @@
-# Pre-registration 4: a mechanism derived for noisy agents (DRAFT, not locked)
+# Pre-registration 4: a mechanism derived for noisy agents
 
-**Status:** draft. To be completed at the decision gate (once all Stage 2A fits are in), then
-locked and registered on OSF **before any subsidy question is asked**. Items marked
-[GATE] need the Stage 2A fits.
+**Status:** completed at the decision gate on 2026-10-11; locked before any Stage 5 question is
+asked.
 **Scope:** Stage 5, the prisoner's dilemma with a cooperation subsidy, four models,
 1,600 questions.
 **Relation to earlier registrations:** pre-registrations 1–3 (osf.io/2uqpj, osf.io/6hz8d,
@@ -35,14 +34,49 @@ As in `docs/stage5-design.md` (confirmed by the author, with amendments):
 cooperation is then subgame-perfect (Benoît & Krishna, 1985), so the 50% prediction holds only
 for the stage-game QRE. Stated as a limitation.
 
-[GATE] Fitted λ̂ₘ and τ\*ₘ:
+**Fitted λ̂ₘ and τ\*ₘ** (`analysis/gate.py`, posterior median of each model's Stage 2A
+named-wording PD fit):
 
-| Model | λ̂ (PD, named) | τ\* for 90% |
-|---|---:|---:|
-| Nemotron | 0.154 | 16.2 |
-| gpt-oss-120b | | |
-| Kimi K3 | | |
-| Gemini 3.5 Flash Lite | | |
+| Model | λ̂ (PD, named) | τ\* for 90% | Note |
+|---|---:|---:|---|
+| gpt-oss-120b | 0.579 | 5.7 | |
+| Nemotron 3 Ultra | 0.154 | 16.2 | |
+| Kimi K3 | 0.0075 | 50.0 | floor rule: λ̂ < 0.046, so τ\* is capped at 50 (uncapped: 294.9) |
+| Gemini 3.5 Flash Lite | 0.0032 | 50.0 | floor rule: capped at 50 (uncapped: 697.2); λ̂ is at the lower edge of the grid |
+
+The exact values used by the runner are in `experiments/stage5.py` (`LAMBDA_HAT`).
+
+## 1b. The decision gate (run 2026-10-11)
+
+**Result** (`results/analysis/gate.md`), by the author's criteria in `docs/decision-gate.md`:
+fits are **poor for all four models**, so pre-registration 1's gate gives **option 3**.
+
+| Model | Games calibrated (held-out ±10 points) |
+|---|---:|
+| gpt-oss-120b | 0 of 4 |
+| Nemotron | 1 of 4 |
+| Kimi | 1 of 4 (PD hard fail: cooperation above 50%) |
+| Gemini | 1 of 4 (PD hard fail) |
+
+**Disclosed with the result: a grid artifact in the Vickrey cells.**
+- At the top of the registered λ grid (λ = 1000), QRE predicts 82–90% equilibrium play, while
+  every model plays it 100%. So the Vickrey cells cannot pass the ±10 rule at any precision.
+- Counting Vickrey as calibrated for every model would not change the verdict: no model would
+  reach 3 of 4.
+- The remaining failures are substantive. The models' departures from equilibrium are rare,
+  large and discrete (fraction slips, collusive quantities, cooperation norms), not
+  payoff-scaled logit noise.
+
+**What the author decided, after seeing the gate (2026-10-11).** The registered gate text says
+that under option 3 "Stage 4 is about why". The author's mixed-results rule (decision-gate.md),
+written before the fits, already committed to running Stage 5 for every model and reading a
+derived-level failure of a poor-fit model as expected under option 3, not as the mechanism
+failing. The author applies the same rule here, where every model has a poor fit. Stage 5 runs
+for all four models, as designed, as the direct test of *why* QRE fails.
+
+- **Tests 1 and 3 are the informative ones:** QRE vs classical at τ = 2.5, and the stage-game
+  halfway point at τ = 1.5.
+- **A Test 2 failure** (cooperation below 75% at τ\*) is reported as "expected under option 3".
 
 ## 2. Predictions
 
@@ -111,8 +145,21 @@ short of the 90% target), for a model whose derived level was not dropped.
 
 ## 5. What I'm disclosing
 
-[GATE] Everything seen before writing: all Stage 2A, 2B and 2C results available at the gate,
-and the Stage 4 theory, including that the derived τ\* depends on the fitted λ.
+**What had been seen when this was completed (2026-10-11):**
+- **Stage 2A results for all four models:** the complete registered analyses, including the PD
+  fits that set λ̂ and τ\*.
+- **Stage 2C results for all four models:** the complete registered analyses.
+- **The decision gate output.**
+- **Stage 2B:** the live board showed answers for every block. The registered Stage 2B analyses
+  had not been run, and no block was complete for every model.
+- **The Stage 4 theory,** including that τ\* depends on λ̂.
+
+**Written before those results:**
+- the predictions in Section 2 (2026-10-03, before three of the four models' Stage 2A fits);
+- the gate criteria and the interpretation key (`docs/decision-gate.md`,
+  `docs/interpretation-key.md`).
+
+**Written after them:** the decision to run Stage 5 under option 3 (Section 1b).
 
 **Authorship.** The Stage 5 design was proposed by Claude and confirmed by the author with two
 amendments: the headline test and the stage-game caveat. The amendments, the gate criteria, the
