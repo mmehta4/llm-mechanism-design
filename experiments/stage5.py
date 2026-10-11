@@ -52,7 +52,7 @@ LAMBDA_HAT: dict[str, float] = {
 }
 
 PREREG4 = ROOT / "docs" / "preregistration-4.md"
-PREREG4_SHA256 = None
+PREREG4_SHA256 = "f70c9c016bb812c9b4c6fe6fbd96b9152917306f93e41cde0f1e103ce5219f2a"
 
 
 def levels_for(model: str) -> tuple[float, ...]:
