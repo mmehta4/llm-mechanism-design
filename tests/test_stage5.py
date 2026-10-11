@@ -55,6 +55,7 @@ def test_registered_questions_render_with_the_right_maths_check(lam, clean_regis
 
 def test_refuses_without_lambda_or_lock(monkeypatch, capsys):
     monkeypatch.setattr("sys.argv", ["stage5.py", "--model", "gemini_lite"])
+    monkeypatch.delitem(S5.LAMBDA_HAT, "gemini_lite", raising=False)
     assert S5.main() == 1 and "no fitted" in capsys.readouterr().out
     monkeypatch.setitem(S5.LAMBDA_HAT, "gemini_lite", 0.5)
     monkeypatch.setattr(S5, "PREREG4_SHA256", None)

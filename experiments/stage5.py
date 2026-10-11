@@ -42,8 +42,14 @@ SEED0 = MASTER_SEED + 50_000          # a block no earlier stage uses
 TAU_CAP = 50.0
 LAMBDA_CEILING = math.log(9) / (2.5 - 1.9)    # = 3.66: at or above it, τ* ≤ 2.5
 
-# Filled at the decision gate from each model's Stage 2A fit, then locked with prereg 4.
-LAMBDA_HAT: dict[str, float] = {}
+# Filled at the decision gate (2026-10-11) from each model's Stage 2A named-PD fit, posterior
+# median (analysis/gate.py, analysis/stage5.stage2a_pd); locked with pre-registration 4.
+LAMBDA_HAT: dict[str, float] = {
+    "gptoss120b": 0.5787619883491204,      # tau* = 5.7
+    "nemotron": 0.15399265260594916,       # tau* = 16.2
+    "kimi": 0.007498942093324564,          # tau* capped at 50 (floor rule)
+    "gemini_lite": 0.003162277660168379,   # tau* capped at 50 (floor rule)
+}
 
 PREREG4 = ROOT / "docs" / "preregistration-4.md"
 PREREG4_SHA256 = None
