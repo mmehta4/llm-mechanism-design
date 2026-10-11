@@ -1533,3 +1533,39 @@ gptoss120b: 792/1104 done, 312 to go  -> stage2b_B_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~11:08, then resuming.
 
+gptoss120b: 797/1104 done, 307 to go  -> stage2b_B_gptoss120b.csv
+[ 798/1104] public_goods_trap      named     p2 COMPETENCE_GAP       3.1s  ~1156/h
+[ 799/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM       1.4s  ~1601/h
+[ 800/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM       2.4s  ~1554/h
+[ 801/1104] cournot_trap           disguised p0 STRATEGIC_GAP        2.7s  ~1486/h
+[ 802/1104] cournot_trap           named     p1 AT_EQUILIBRIUM      52.8s  ~288/h
+[ 803/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM       1.9s  ~335/h
+[ 803/1104] repeated_pd_trap       disguised p0 INFRA_FAIL           1.7s  ~381/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~12:09, then resuming.
+
+gptoss120b: 803/1104 done, 301 to go  -> stage2b_B_gptoss120b.csv
+[ 804/1104] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM       1.9s  ~1933/h
+[ 805/1104] public_goods_trap      named     p0 AT_EQUILIBRIUM       2.2s  ~1782/h
+[ 806/1104] vickrey_trap           disguised p0 STRATEGIC_GAP        3.2s  ~1499/h
+[ 807/1104] vickrey_trap           named     p2 AT_EQUILIBRIUM       2.8s  ~1445/h
+[ 808/1104] repeated_pd_trap       disguised p1 AT_EQUILIBRIUM      51.8s  ~291/h
+[ 809/1104] cournot_trap           named     p2 AT_EQUILIBRIUM       2.3s  ~337/h
+[ 809/1104] cournot_trap           named     p0 INFRA_FAIL           2.1s  ~380/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~13:10, then resuming.
+
+gptoss120b: 809/1104 done, 295 to go  -> stage2b_B_gptoss120b.csv
+[ 810/1104] cournot_trap           named     p0 AT_EQUILIBRIUM       2.1s  ~1722/h
+[ 811/1104] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM       2.1s  ~1732/h
+[ 812/1104] public_goods_trap      disguised p2 AT_EQUILIBRIUM       3.4s  ~1423/h
+[ 813/1104] repeated_pd_trap       named     p1 AT_EQUILIBRIUM       1.9s  ~1517/h
+[ 814/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM      53.2s  ~287/h
+[ 815/1104] cournot_trap           named     p2 STRATEGIC_GAP        2.8s  ~330/h
+[ 815/1104] public_goods_trap      disguised p1 INFRA_FAIL           0.5s  ~382/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~14:11, then resuming.
+
