@@ -1586,3 +1586,56 @@ gemini_lite: 804/1104 done, 300 to go  -> stage2b_C_gemini_lite.csv
 [1016/1104] cournot_a60            named     p1 AT_EQUILIBRIUM       9.6s  ~383/h
 [1017/1104] cournot_a60            named     p2 AT_EQUILIBRIUM       9.8s  ~383/h
 [1018/1104] public_goods_n_others2 disguised p2 AT_EQUILIBRIUM       9.3s  ~383/h
+[1019/1104] repeated_pd_n_rounds2  named     p0 AT_EQUILIBRIUM       8.9s  ~383/h
+[1020/1104] vickrey_n_others3      named     p1 AT_EQUILIBRIUM       9.9s  ~383/h
+[1021/1104] public_goods_n_others2 disguised p2 AT_EQUILIBRIUM       9.1s  ~383/h
+[1022/1104] cournot_a60            named     p2 AT_EQUILIBRIUM       9.5s  ~383/h
+[1023/1104] cournot_a200           disguised p0 STRATEGIC_GAP        9.8s  ~383/h
+[1024/1104] repeated_pd_n_rounds50 named     p0 STRATEGIC_GAP        9.1s  ~383/h
+[1025/1104] cournot_a100           named     p2 AT_EQUILIBRIUM       9.4s  ~383/h
+[1026/1104] cournot_a60            named     p2 AT_EQUILIBRIUM       9.5s  ~383/h
+[1027/1104] cournot_a100           named     p1 AT_EQUILIBRIUM       9.5s  ~383/h
+[1028/1104] vickrey_n_others3      disguised p0 COMPETENCE_GAP      10.1s  ~383/h
+[1029/1104] vickrey_n_others3      named     p1 AT_EQUILIBRIUM       8.3s  ~383/h
+[1030/1104] cournot_a200           named     p0 STRATEGIC_GAP        9.5s  ~383/h
+[1031/1104] public_goods_n_others7 disguised p1 AT_EQUILIBRIUM       9.4s  ~383/h
+[1032/1104] vickrey_n_others1      named     p1 AT_EQUILIBRIUM       9.3s  ~383/h
+[1033/1104] public_goods_n_others2 disguised p1 AT_EQUILIBRIUM       9.7s  ~383/h
+[1034/1104] public_goods_n_others2 disguised p0 STRATEGIC_GAP        9.2s  ~383/h
+[1035/1104] public_goods_n_others2 named     p0 AT_EQUILIBRIUM       9.3s  ~383/h
+[1036/1104] repeated_pd_n_rounds10 named     p2 STRATEGIC_GAP       10.1s  ~383/h
+[1037/1104] repeated_pd_n_rounds10 named     p1 STRATEGIC_GAP        9.0s  ~383/h
+[1038/1104] public_goods_n_others3 disguised p2 AT_EQUILIBRIUM       9.6s  ~383/h
+[1039/1104] vickrey_n_others3      named     p0 AT_EQUILIBRIUM       9.3s  ~383/h
+[1040/1104] repeated_pd_n_rounds50 named     p2 STRATEGIC_GAP        9.2s  ~383/h
+[1041/1104] vickrey_n_others1      named     p2 AT_EQUILIBRIUM       9.7s  ~383/h
+[1042/1104] vickrey_n_others7      disguised p1 COMPETENCE_GAP       9.1s  ~383/h
+[1043/1104] public_goods_n_others3 named     p2 AT_EQUILIBRIUM       9.9s  ~383/h
+[1044/1104] cournot_a100           disguised p2 AT_EQUILIBRIUM       9.2s  ~383/h
+[1045/1104] public_goods_n_others3 named     p0 AT_EQUILIBRIUM       9.4s  ~383/h
+[1046/1104] repeated_pd_n_rounds2  disguised p0 AT_EQUILIBRIUM       9.0s  ~383/h
+[1047/1104] vickrey_n_others3      named     p1 AT_EQUILIBRIUM      10.1s  ~383/h
+[1048/1104] public_goods_n_others2 disguised p0 STRATEGIC_GAP        9.4s  ~383/h
+[1049/1104] cournot_a60            disguised p0 STRATEGIC_GAP        9.3s  ~383/h
+[1050/1104] cournot_a100           disguised p0 STRATEGIC_GAP        8.8s  ~383/h
+[1051/1104] repeated_pd_n_rounds10 named     p1 STRATEGIC_GAP        9.7s  ~383/h
+[1052/1104] cournot_a200           disguised p0 STRATEGIC_GAP        9.5s  ~383/h
+[1053/1104] vickrey_n_others1      disguised p0 COMPETENCE_GAP      10.1s  ~383/h
+[1054/1104] vickrey_n_others3      named     p2 AT_EQUILIBRIUM       9.2s  ~383/h
+[1054/1104] repeated_pd_n_rounds50 disguised p1 INFRA_FAIL           8.1s  ~383/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~15:02, then resuming.
+
+gemini_lite: 1054/1104 done, 50 to go  -> stage2b_C_gemini_lite.csv
+[1054/1104] repeated_pd_n_rounds50 disguised p1 INFRA_FAIL           5.1s  ~703/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~16:02, then resuming.
+
+gemini_lite: 1054/1104 done, 50 to go  -> stage2b_C_gemini_lite.csv
+[1054/1104] repeated_pd_n_rounds50 disguised p1 INFRA_FAIL           5.0s  ~712/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~17:02, then resuming.
+

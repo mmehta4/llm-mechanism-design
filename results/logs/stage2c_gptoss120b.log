@@ -1242,3 +1242,23 @@ gptoss120b: 537/552 done, 15 to go  -> stage2c_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~14:08, then resuming.
 
+gptoss120b: 542/552 done, 10 to go  -> stage2c_gptoss120b.csv
+[ 543/552] vickrey_extreme        disguised p2 AT_EQUILIBRIUM       2.8s  ~1281/h
+[ 544/552] public_goods_extreme   disguised p0 AT_EQUILIBRIUM       3.0s  ~1247/h
+[ 545/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM       3.0s  ~1237/h
+[ 546/552] vickrey_extreme        disguised p2 STRATEGIC_GAP        2.7s  ~1259/h
+[ 547/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM      52.6s  ~281/h
+[ 547/552] repeated_pd_extreme    disguised p0 INFRA_FAIL           2.8s  ~323/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~15:09, then resuming.
+
+gptoss120b: 547/552 done, 5 to go  -> stage2c_gptoss120b.csv
+[ 548/552] repeated_pd_extreme    disguised p0 AT_EQUILIBRIUM       3.0s  ~1193/h
+[ 549/552] repeated_pd_extreme    disguised p1 AT_EQUILIBRIUM       1.7s  ~1521/h
+[ 550/552] cournot_extreme        disguised p1 STRATEGIC_GAP        2.5s  ~1490/h
+[ 551/552] repeated_pd_extreme    disguised p2 AT_EQUILIBRIUM       2.0s  ~1558/h
+[ 552/552] vickrey_extreme        disguised p1 AT_EQUILIBRIUM      54.2s  ~284/h
+
+this session: {'AT_EQUILIBRIUM': 4, 'STRATEGIC_GAP': 1}
+complete: every planned question has an answer.

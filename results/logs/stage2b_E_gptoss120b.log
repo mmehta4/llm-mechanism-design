@@ -1,0 +1,20 @@
+gptoss120b: 0/828 done, 828 to go  -> stage2b_E_gptoss120b.csv
+[   1/828] repeated_pd_round5     disguised p0 AT_EQUILIBRIUM       2.3s  ~1564/h
+[   1/828] repeated_pd_round5     disguised p2 INFRA_FAIL           0.1s  ~2995/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~16:10, then resuming.
+
+gptoss120b: 1/828 done, 827 to go  -> stage2b_E_gptoss120b.csv
+[   2/828] repeated_pd_round5     disguised p2 STRATEGIC_GAP        2.2s  ~1648/h
+[   3/828] repeated_pd_round10    named     p2 AT_EQUILIBRIUM       1.5s  ~1953/h
+[   4/828] repeated_pd_round10    named     p1 AT_EQUILIBRIUM       1.7s  ~1989/h
+[   5/828] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM       2.1s  ~1914/h
+[   6/828] repeated_pd_round9     named     p0 STRATEGIC_GAP        1.5s  ~1999/h
+[   7/828] repeated_pd_round5     named     p0 STRATEGIC_GAP       54.2s  ~342/h
+[   8/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM       1.8s  ~388/h
+[   8/828] repeated_pd_round10    named     p1 INFRA_FAIL           0.6s  ~439/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~17:11, then resuming.
+
