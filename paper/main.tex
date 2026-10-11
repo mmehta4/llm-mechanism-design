@@ -45,16 +45,23 @@ misreading. Four models from four providers answer 18{,}768 questions across a V
 a Cournot duopoly, a finitely repeated prisoner's dilemma and a public goods game, under three
 pre-registrations.
 
-The models differ sharply. Nemotron~3~Ultra and Kimi~K3 play identically across the standard
-twins. In the extreme disguise, Nemotron's recognition of the Cournot game falls from 96\% to
-10\% while its equilibrium play stays at 99\%, the pattern our pre-registered key reads as
-consistent with derivation. Gemini~3.5
-Flash~Lite shows the opposite signature. It plays the Cournot equilibrium in 96\% of standard
-questions but in only 4\% of disguised ones, despite passing every competence probe, and its
-prisoner's-dilemma play flips from 91\% cooperation to 70\% defection once the game's name is
-gone. Recognition does not only retrieve equilibria: for the prisoner's dilemma it retrieves a
-cultural script of cooperation. \tbd{gpt-oss-120b; Stage 2B traps; Stage 2C for the remaining
-models.}
+The four models split into three patterns:
+\begin{itemize}
+\item \textbf{Hidden but still solved.} When the extreme disguise removes recognition of the
+  Cournot game (Nemotron~3~Ultra: 96\%$\to$10\%; Kimi~K3: 72\%$\to$20\%), their equilibrium play
+  stays at 99--100\%, the pattern our pre-registered key reads as consistent with derivation.
+\item \textbf{Graded retrieval.} gpt-oss-120b's Cournot recognition (96\%$\to$9\%$\to$1\%) and
+  equilibrium play (96\%$\to$80\%$\to$30\%) fall together across the three wordings, with every
+  competence probe passed. Its errors become the collusive quantity.
+\item \textbf{Retrieval and comprehension limits.} Gemini~3.5~Flash~Lite plays the Cournot
+  equilibrium in 96\% of standard questions but in only 4\% of disguised ones, and it cannot read
+  the coded extreme rules at all.
+\end{itemize}
+In the prisoner's dilemma, recognition retrieves a cultural script of cooperation rather than
+the equilibrium: removing the familiar frame raises defection in every model (pooled
+46\%$\to$83\%). Fitted to the data, logit QRE fails our pre-registered calibration test for all
+four models, because LLM errors are rare, large and discrete rather than payoff-scaled noise.
+\tbd{Stage~2B traps.}
 
 We then ask what noisy, quantal-response agents imply for mechanism design. We prove three
 results:
@@ -112,15 +119,19 @@ changes the rules, which is the only reason to design a mechanism at all.
   by cryptographic fingerprint.
 \end{enumerate}
 
-\paragraph{Findings so far.}
+\paragraph{Findings.}
 \begin{itemize}
-\item \textbf{Nemotron and Kimi} show no disguise effect in any game. The extreme disguise hides
-  Cournot from Nemotron (recognition 96\%$\to$10\%) without changing its play (98\%$\to$99\%).
-\item \textbf{Gemini} shows a large retrieval signature: Cournot equilibrium play falls from 96\%
-  to 4\% under disguise, with every competence probe passed.
-\item \textbf{In the prisoner's dilemma, recognition pulls \emph{away} from equilibrium.} Named,
-  Gemini cooperates in 91\% of first rounds; disguised, it defects in 70\%. Removing all game
-  cues raises Nemotron's defection from 59\% to 93\%.
+\item \textbf{Derive or recall differs by model.} Nemotron and Kimi solve a Cournot game they no
+  longer recognise. gpt-oss's play tracks recognition across three wordings. Gemini loses the
+  Cournot equilibrium as soon as the game's name goes.
+\item \textbf{Competence predicts robustness.} The pre-registered ranking held exactly: the higher
+  a model's competence-probe pass rate, the smaller its Cournot drop under disguise.
+\item \textbf{Recognition can pull \emph{away} from equilibrium.} In the prisoner's dilemma, the
+  familiar frame triggers cooperation. Removing it raises defection in all four models, by
+  17--76 points.
+\item \textbf{Quantal response does not fit LLM play.} It fails held-out calibration for every
+  model, which motivates testing directly whether the models respond to incentives as QRE or as
+  classical theory predicts (Stage~5).
 \end{itemize}
 
 \paragraph{Contributions.}
@@ -374,23 +385,27 @@ reported alongside. Pre-registration~1's own analysis is reported uncorrected, a
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/stage2a.pdf}
-\caption{Stage~2A, normal vs disguised wording, with identical numbers. Top: equilibrium play
-among probe-passed answers. Bottom: the share of answers whose reasoning names the game. Bars
-are 95\% Wilson intervals. Gemini's disguised Vickrey cell has $n=11$: the model failed the
-disguised competence probe on 127 of 138 questions. \tbd{gpt-oss-120b, collection ends in late
-October.}}
+\caption{Stage~2A, normal vs disguised wording, with identical numbers, for all four models.
+Top: equilibrium play among probe-passed answers. Bottom: the share of answers whose reasoning
+names the game. Bars are 95\% Wilson intervals. Gemini's disguised Vickrey cell keeps only 11
+answers: the model failed the disguised competence probe on 127 of 138 questions.}
 \label{fig:2a}
 \end{figure}
 
 \begin{table}[t]
 \centering
 \caption{Stage~2A main test (pre-registration~1): equilibrium play among probe-passed answers,
-named vs disguised. Holm correction across four games within each model.}
+named vs disguised. Holm correction across the four games within each model.}
 \label{tab:2a}
 \small
 \begin{tabular}{@{}llrrrr@{}}
 \toprule
 Model & Game & Named & Disguised & Change & Holm $p$ \\
+\midrule
+gpt-oss-120b & Vickrey      & 100\% (138/138) & 98\% (129/131)  & $-2$ & 0.30 \\
+             & Cournot      & 96\% (130/135)  & \textbf{80\% (110/138)} & $\mathbf{-17}$ & $1\times10^{-4}$ \\
+             & Repeated PD  & 69\% (95/138)   & 73\% (101/138)  & $+4$ & 0.43 \\
+             & Public goods & 97\% (134/138)  & 93\% (128/138)  & $-4$ & 0.30 \\
 \midrule
 Nemotron & Vickrey      & 100\% (138/138) & 100\% (138/138) & $+0$ & 1 \\
          & Cournot      & 90\% (124/138)  & 88\% (121/138)  & $-2$ & 1 \\
@@ -406,82 +421,93 @@ Gemini   & Vickrey      & 100\% (138/138) & 91\% (10/11)    & $-9$ & $4\times10^
          & Cournot      & 96\% (132/137)  & \textbf{4\% (6/138)} & $\mathbf{-92}$ & $6\times10^{-52}$ \\
          & Repeated PD  & 9\% (12/138)    & \textbf{70\% (97/138)} & $\mathbf{+62}$ & $4\times10^{-25}$ \\
          & Public goods & 100\% (138/138) & 80\% (110/138)  & $-20$ & $5\times10^{-8}$ \\
-\midrule
-gpt-oss-120b & all & \multicolumn{4}{c}{\tbd{in collection}} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:2a} and Figure~\ref{fig:2a} give the registered test. Three patterns stand out.
+Table~\ref{tab:2a} and Figure~\ref{fig:2a} give the registered test for all four models.
 
-\paragraph{Two models are invariant.} Nemotron and Kimi play the same in both wordings in every
-game:
+\paragraph{Two models are invariant; two are not.}
 \begin{itemize}
-\item both are at or near 100\% in the auction and public goods;
-\item both are at 90--100\% in Cournot;
-\item public goods is confirmed equivalent within $\pm13$ points (TOST $p<10^{-30}$ and
-  $p=2\times10^{-6}$).
+\item \textbf{Nemotron and Kimi} play identically in both wordings in every game. Public goods is
+  confirmed equivalent within $\pm13$ points for both (TOST $p<10^{-30}$ and $p=2\times10^{-6}$).
+  By Proposition~\ref{prop:invariance} this is consistent with derivation. It is not proof,
+  however: both models often name the disguised game (Figure~\ref{fig:2a}, bottom). Nemotron
+  names it in 96\% of disguised Cournot answers and 100\% of disguised auctions, so for these
+  models the standard disguise does not hide the game, which motivates Stage~2C.
+\item \textbf{gpt-oss-120b} loses 17 points of Cournot equilibrium play under disguise
+  ($96\%\to80\%$, Holm $p=10^{-4}$), with all other games unchanged and public goods confirmed
+  equivalent (TOST $p=8\times10^{-4}$). This falls inside the range pre-registration~1 committed
+  to for this model ($-15$ to $-25$). The fits agree: $\lam$ falls from 0.173 to 0.027
+  ($\Delta\lam=+0.146$, $P(\Delta\lam>0)=1.00$).
+\item \textbf{Gemini} shows the largest effects, described next.
 \end{itemize}
-By Proposition~\ref{prop:invariance} this is consistent with derivation. It is not proof, however:
-both models name the disguised game often (Figure~\ref{fig:2a}, bottom). Nemotron names it in 96\%
-of disguised Cournot answers and in 100\% of disguised auctions. For these models the standard
-disguise does not hide the game, which motivates Stage~2C.
 
 \paragraph{Gemini shows a retrieval signature in Cournot.} Gemini plays the Cournot equilibrium
 in 96\% of named questions and in 4\% of disguised ones, a 92-point drop, yet passes the
 disguised competence probe in all 138 questions. It can compute profits in the disguised
 wording; it does not find the equilibrium there. Its disguised misses are mostly coded as a
-claimed but incorrect Nash calculation (44) or the collusive (joint-monopoly) quantity (31), so
-without the name it reasons towards the group optimum or mis-derives. The precision fits agree:
-$\lam$ falls from 0.649 $[0.50,0.82]$ to 0.0047 $[0.0036,0.0060]$, $\Delta\lam = +0.645$,
-$P(\Delta\lam>0)=1.00$. This is the pattern pre-registration~1 predicted for every model (a
-Cournot drop). It appears in one model of three.
+claimed but incorrect Nash calculation (44) or the collusive (joint-monopoly) quantity (31). The
+fits agree: $\lam$ falls from 0.649 $[0.50,0.82]$ to 0.0047 $[0.0036,0.0060]$.
 
-\paragraph{The auction drop is a reading failure, not a strategic one.} Gemini's disguised Vickrey
-cell keeps only 11 answers: it failed the disguised probe in 127 of 138 questions. The design
-classifies this correctly, as a competence gap, so it does not count as evidence about strategy.
-Without the probes, it would have looked like a 92-point strategic collapse.
+\paragraph{The auction drop is a reading failure, not a strategic one.} Gemini's disguised
+Vickrey cell keeps only 11 answers, because it failed the disguised probe in 127 of 138
+questions. The design classifies this correctly, as a competence gap, so it is not evidence
+about strategy. Without the probes it would read as a 92-point strategic collapse.
 
 \paragraph{In the prisoner's dilemma, recognition pulls away from equilibrium.}
 \begin{itemize}
 \item \textbf{Gemini:} with the game named, it cooperates in round~1 of a known 10-round game in
-  91\% of questions; disguised, it defects in 70\%. Every one of its 126 named-wording cooperative
-  answers gives a cooperation-norm reason (trust, mutual benefit, establishing cooperation).
-\item \textbf{Kimi:} it moves the same way, by $+12$ points (Holm $p=0.22$).
+  91\% of questions; disguised, it defects in 70\%. Every one of its 126 named-wording
+  cooperative answers gives a cooperation-norm reason.
+\item \textbf{Kimi and gpt-oss} move the same way, by $+12$ and $+4$ points (not significant).
 \end{itemize}
-Recognition retrieves a \emph{cultural} script, the folk wisdom of cooperation in repeated
-dilemmas, rather than the backward-induction equilibrium. Pre-registration~1 predicted this
-direction (equilibrium play rises under disguise), and named Gemini as the model with the
-largest swing. Both predictions held.
+Recognition retrieves a \emph{cultural} script of cooperation in repeated dilemmas, not the
+backward-induction solution. Pre-registration~1 predicted this direction and named Gemini as the
+model with the largest swing; both predictions held.
 
-\paragraph{Public goods.} Gemini contributes more when the game is disguised (equilibrium play
-100\%$\to$80\%; equivalence not shown). Most of its disguised misses argue for the group optimum.
-Kimi shows the small effect that pre-registration~1 hedged for: a slightly lower named-wording
-precision, $\Delta\lam = -1.51$, 95\% interval $[-2.36,-0.73]$.
+\paragraph{Public goods.} Gemini contributes more when the game is disguised (100\%$\to$80\%;
+equivalence not shown), and most of its disguised misses argue for the group optimum (20 of 28).
+
+\paragraph{Pre-registration~1, scored.}
+\begin{itemize}
+\item \textbf{Cournot drop in every model:} the direction holds for gpt-oss and Gemini, but not
+  for Nemotron ($-2$) or Kimi (0).
+\item \textbf{PD rise under disguise:} significant only for Gemini; Gemini having the largest
+  swing was predicted correctly.
+\item \textbf{Public goods flat:} met for three of four models (not Gemini).
+\item \textbf{Ranking prediction:} the model with the highest competence-probe pass rate shows
+  the smallest Cournot drop. This held \emph{exactly}: Kimi 100\% and 0 points, Nemotron 99.6\%
+  and $-2$, gpt-oss 99.4\% and $-17$, Gemini 88.4\% and $-92$.
+\end{itemize}
 
 \subsection{The extreme disguise (Stage 2C)}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/stage2c.pdf}
-\caption{The same questions in three wordings, for each model whose Stage~2C is complete. Top:
-equilibrium play (fraction-slip corrected, both stages alike). Bottom: recognition. For
-Nemotron and Kimi, the extreme disguise largely removes recognition of the Cournot game
-(96\%$\to$10\%; 72\%$\to$20\%) and leaves play unchanged. \tbd{gpt-oss-120b and Gemini.}}
+\caption{The same questions in three wordings, for all four models. Top: equilibrium play
+(fraction-slip corrected, both stages alike). Bottom: recognition. Gemini's extreme Cournot cell
+is empty: it failed the extreme competence probe in all 138 questions.}
 \label{fig:2c}
 \end{figure}
 
 \begin{table}[t]
 \centering
 \caption{Stage~2C (pre-registration~3): equilibrium play, normal (2A) vs extreme (2C), on paired
-questions with identical numbers. Exact McNemar test, Holm across games within each model.
-\tbd{gpt-oss-120b and Gemini; the pooled test.}}
+questions with identical numbers. Exact McNemar test, Holm across games within each model; the
+pooled rows sum discordant pairs over models (Mantel--Haenszel for matched pairs).}
 \label{tab:2c}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}llrrrrrr@{}}
 \toprule
 Model & Game & Pairs & Normal & Extreme & Normal $-$ extreme [95\% CI] & Holm $p$ & Names game$^\dagger$ \\
+\midrule
+gpt-oss  & Vickrey      & 138 & 100\% & 54\% & $+46$ $[+37,+54]$ & $3\times10^{-19}$ & 89\%$\to$10\% \\
+         & Cournot      & 134 & 96\%  & 30\% & $+66$ $[+57,+74]$ & $4\times10^{-24}$ & 9\%$\to$1\% \\
+         & Repeated PD  & 138 & 69\%  & 86\% & $-17$ $[-28,-7]$ & $3\times10^{-3}$ & 1\%$\to$2\% \\
+         & Public goods & 138 & 97\%  & 86\% & $+12$ $[+5,+18]$ & $3\times10^{-3}$ & 0\%$\to$0\% \\
 \midrule
 Nemotron & Vickrey      & 138 & 100\% & 99\% & $+1$ $[-1,+4]$ & 1 & 100\%$\to$100\% \\
          & Cournot      & 138 & 98\%  & 99\% & $-1$ $[-5,+2]$ & 1 & 96\%$\to$\textbf{10\%} \\
@@ -492,53 +518,143 @@ Kimi     & Vickrey      & 137 & 100\% & 99\% & $+1$ $[-1,+4]$ & 1 & 100\%$\to$93
          & Cournot      & 138 & 100\% & 100\% & $+0$ $[-1,+1]$ & 1 & 72\%$\to$\textbf{20\%} \\
          & Repeated PD  & 138 & 46\%  & 70\% & $-24$ $[-34,-13]$ & $3\times10^{-4}$ & 3\%$\to$1\% \\
          & Public goods & 138 & 96\%  & 96\% & $-1$ $[-5,+4]$ & 1 & 11\%$\to$4\% \\
+\midrule
+Gemini   & Vickrey      & 138 & 100\% & 45\% & $+55$ $[+46,+63]$ & $5\times10^{-23}$ & 73\%$\to$27\%$^\ddagger$ \\
+         & Cournot      & 0   & \multicolumn{5}{l}{no extreme answer passed the probe (0/138)} \\
+         & Repeated PD  & 138 & 9\%   & 85\% & $-76$ $[-83,-67]$ & $4\times10^{-27}$ & 33\%$\to$0\% \\
+         & Public goods & 22  & 100\% & 0\%  & $+100$ $[+78,+100]$ & $5\times10^{-7}$ & 50\%$\to$100\%$^\ddagger$ \\
+\midrule
+\textbf{All models} & Vickrey      & 551 & 100\% & 74\% & $+26$ $[+22,+30]$ & $4\times10^{-43}$ & 96\%$\to$67\% \\
+         & Cournot      & 410 & 98\%  & 77\% & $+21$ $[+17,+25]$ & $2\times10^{-21}$ & 59\%$\to$10\% \\
+         & Repeated PD  & 551 & 46\%  & 83\% & $-38$ $[-43,-33]$ & $1\times10^{-36}$ & 30\%$\to$17\% \\
+         & Public goods & 434 & 98\%  & 89\% & $+9$ $[+5,+12]$ & $3\times10^{-7}$ & 23\%$\to$37\% \\
 \bottomrule
-\multicolumn{8}{@{}l}{\footnotesize $^\dagger$ disguised (2A) $\to$ extreme (2C), on the same paired questions.}
+\multicolumn{8}{@{}p{0.97\linewidth}@{}}{\footnotesize $^\dagger$ disguised (2A) $\to$ extreme (2C), on the same paired questions.
+$^\ddagger$ small $n$ (11 and 22 pairs): most of Gemini's disguised or extreme answers failed the probe.}
 \end{tabular}
 \end{table}
 
-The extreme disguise was built because the standard one did not hide the games from strong
-models. Two models are complete so far, and they agree (Table~\ref{tab:2c},
-Figure~\ref{fig:2c}):
-\begin{itemize}
-\item \textbf{Cournot:} recognition falls from 96\% to 10\% for Nemotron ($p=3\times10^{-36}$)
-  and from 72\% to 20\% for Kimi ($p=5\times10^{-16}$), while equilibrium play stays at 99--100\%.
-  Under the pre-registered interpretation key this is \emph{consistent with derivation}: both
-  models solve the game they no longer name. Within Nemotron's extreme wording, play is the same
-  whether or not the game is named (100\% vs 99\%).
-\item \textbf{Prisoner's dilemma:} defection rises from 59\% to 93\% for Nemotron
-  ($p=6\times10^{-11}$) and from 46\% to 70\% for Kimi ($p=7\times10^{-5}$), with $\lam$ rising
-  from 0.154 to 2.59 and from 0.0075 to 0.60. Kimi almost never \emph{names} the game in any
-  wording (1--3\%), so the cooperation pull is carried by the familiar frame (cooperate/defect
-  labels and a scored, stated payoff table), not by the explicit label ``prisoner's dilemma''.
-  As with Gemini's standard disguise, stripping that frame removes the pull.
-\item \textbf{Vickrey and public goods:} the disguise fails. Recognition stays at 99--100\%,
-  because the rules themselves identify the games. Play is unchanged, which the key classifies
-  as inconclusive for derivation.
-\end{itemize}
+The extreme disguise removes the story, codes the answer and neutralises the answer box.
+Table~\ref{tab:2c} and Figure~\ref{fig:2c} give the registered comparison with the same
+questions in standard wording. Pooled over models, play changes in every game. The pooled
+figures conceal three distinct patterns, however, and the pre-registered interpretation key
+reads each one differently.
 
-\paragraph{The fraction slip was not a detail.} In the extreme wording, the coded answers are
-usually awkward fractions, so the slip becomes common: 50\% of Nemotron's extreme Vickrey
-answers and 55\% of its Cournot answers were written as a numerator or a concatenation. Without
-the correction fixed in advance, the comparison would report spurious drops of 51 and 46 points
-(both $p<10^{-18}$). With it, the drops vanish. This illustrates why the scoring rule was
-registered before the data.
-
-\paragraph{Pre-registered predictions.} Pre-registration~3 predicted, among other things:
+\paragraph{Pattern 1: hidden but still solved (Nemotron, Kimi).} The extreme wording largely
+removes recognition of the Cournot game:
 \begin{itemize}
-\item a Cournot drop of at least 35 points for Nemotron: \emph{not met} ($-1$); for Kimi, at
-  most 15 points: met ($+0$);
-\item recognition of 20--35\% for Cournot: \emph{not met} (10\%, which is lower);
-\item recognition of 45--65\% for the PD: met (65\%);
-\item flat public goods: met.
+\item Nemotron: 96\%$\to$10\% ($p=3\times10^{-36}$);
+\item Kimi: 72\%$\to$20\% ($p=5\times10^{-16}$).
 \end{itemize}
-The author's predicted mechanism, that Nemotron recalled Cournot, is contradicted by the data.
+Equilibrium play nevertheless stays at 99--100\%. The key reads this as \emph{consistent with
+derivation}: both models solve a game they no longer name.
+
+\paragraph{Pattern 2: graded retrieval (gpt-oss).} gpt-oss passes the competence probe in the
+extreme wording, yet its play falls sharply: Vickrey $100\%\to54\%$, Cournot $96\%\to30\%$. In
+Cournot, recognition and play fall together across the three wordings:
+
+\begin{center}
+\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+ & Normal & Disguised & Extreme \\
+\midrule
+Names the game & 96\% & 9\% & 1\% \\
+Equilibrium play & 96\% & 80\% & 30\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Within the extreme auction, gpt-oss plays the equilibrium in 14 of 14 answers that
+name the game, against 60 of 124 that do not (Fisher $p=10^{-4}$, exploratory). Its errors are
+systematic, not noisy:
+\begin{itemize}
+\item 67 of its 97 Cournot misses are the \emph{collusive} quantity, the joint optimum: without
+  the textbook cue, it treats the game as cooperative;
+\item its auction misses are corner bids (0, $\pm1000$).
+\end{itemize}
+No miss is a conversion slip (a strategy left in the wrong unit). The key reads this as
+\emph{recall}: the play depends on recognising the game, and the competence checks rule out a
+reading failure.
+
+\paragraph{Pattern 3: the coded rules defeat comprehension (Gemini).} Gemini failed the extreme
+competence probe in all 138 Cournot questions and in 116 of 138 public-goods questions. These
+cells say nothing about strategy. The key reads them as a comprehension cost, which the design
+was built to detect.
+
+\paragraph{The prisoner's dilemma, in every model.} Removing the familiar frame raises defection
+for all four models:
+\begin{itemize}
+\item Nemotron $+34$ points;
+\item Kimi $+24$;
+\item gpt-oss $+17$;
+\item Gemini $+76$;
+\item pooled: $46\%\to83\%$, $p=10^{-36}$.
+\end{itemize}
+Kimi almost never \emph{names} the game in any wording (1--3\%), so the cooperation pull is
+carried by the frame itself (cooperate/defect labels and a scored payoff table), not by the label
+``prisoner's dilemma''. The only pre-registered pooled prediction that held exactly was this one
+(extreme defection 80--90\%, above the normal-wording rate).
+
+\paragraph{The fraction slip was not a detail.} In the extreme wording, coded answers are usually
+awkward fractions, so the slip becomes common. For Nemotron, 50\% of extreme Vickrey answers and
+55\% of Cournot answers were written as a numerator or a concatenation. Without the correction
+fixed in advance, Nemotron would show spurious drops of 51 and 46 points (both $p<10^{-18}$);
+with it, the drops vanish.
+
+\paragraph{Pre-registration~3, scored.} The author's predictions were mostly wrong, and wrong in
+an informative direction:
+\begin{itemize}
+\item \textbf{Pooled recognition:} predicted ranges were not met for any game.
+\item \textbf{Pooled play:} the Vickrey and Cournot drops were real, but of different sizes from
+  the predictions.
+\item \textbf{Per-model Cournot drops:} the author expected Nemotron to lose Cournot ($\ge35$
+  points) and gpt-oss and Kimi to be stable. Nemotron and Kimi were stable ($-1$ and $0$), while
+  gpt-oss lost 66 points; Gemini could not be tested.
+\end{itemize}
+The model the author believed was recalling is the one that derives, and vice versa.
+
+\subsection{Does quantal response describe the models? The decision gate}
+
+Pre-registration~1's gate asks whether the QRE fits are good enough to design mechanisms on. Its
+criteria were fixed by the author before three of the four models' fits existed:
+\begin{itemize}
+\item fit $\lam$ on two of the three normal-wording paraphrases;
+\item predict the held-out paraphrase's equilibrium-play rate;
+\item call a game calibrated if the prediction is within $\pm10$ points in at least two of three
+  rotations;
+\item call a model's fits good if at least three of its four games are calibrated.
+\end{itemize}
+\textbf{By these criteria, fits are poor for all four models}: 0, 1, 1 and 1 of 4 games
+calibrated. The Vickrey cells fail for an artifactual reason: at the top of the registered
+$\lam$ grid, QRE predicts only 82--90\% equilibrium play, while every model plays it 100\%. The
+verdict does not depend on this, though: counting Vickrey as calibrated, no model reaches three
+games.
+
+The substantive reason is visible in the data. LLM departures from equilibrium are \emph{rare,
+large and discrete}:
+\begin{itemize}
+\item fraction slips;
+\item collusive quantities;
+\item corner bids;
+\item a norm-driven preference for cooperation.
+\end{itemize}
+They are not the frequent, small, payoff-scaled deviations that logit QRE describes. A handful
+of far-off answers drags the fitted $\lam$ down, and the fitted model then badly under-predicts
+the exact-equilibrium rate (for example, 27--51\% predicted against 91--100\% observed for
+gpt-oss in Cournot). Two models also fail a hard check in the prisoner's dilemma: they cooperate
+more than 50\% of the time with no subsidy, which no stage-game QRE can produce.
+
+The gate therefore selects option~3: the behavioural model does not describe the agents, and the
+mechanism stage studies why. Stage~5 (Section~\ref{sec:stage5}) does this directly, by asking
+whether the agents respond to incentives as QRE or as classical theory predicts.
 
 \subsection{Stage 2B: traps, number sweeps and the endgame}
-\tbd{Block~B (traps): correct share and the recall signature (the textbook answer where it is
-wrong), named vs disguised, CMH across models. Block~C (sweep): the wording$\times$size
-interaction. Block~E (endgame): defection at rounds 5, 9 and 10. Nemotron's Blocks B and C are
-complete; the registered analysis runs once all four models are.}
+\tbd{Block~B (traps): the correct share and the recall signature (the textbook answer where it
+is wrong), named vs disguised, CMH across models. Block~C (sweep): the wording$\times$size
+interaction. Block~E (endgame): defection at rounds 5, 9 and 10. Complete for three models;
+gpt-oss-120b's blocks are still in collection.}
+
 
 % =====================================================================================
 \section{Mechanism design for noisy agents}\label{sec:mechanism}
@@ -712,19 +828,30 @@ mechanism at $\tau^*$; the halfway-point test.}
 \paragraph{``Derive or recall'' has no single answer.} The same question receives different
 answers across models and games:
 \begin{itemize}
-\item Nemotron's Cournot play survives the removal of every cue that could trigger recall;
+\item Nemotron's and Kimi's Cournot play survives the removal of every cue that could trigger
+  recall;
+\item gpt-oss's play degrades step by step as the cues are removed, and its errors become the
+  cooperative (collusive) answer;
 \item Gemini's Cournot play does not survive the removal of the game's name;
 \item for games whose rules are their fingerprint (the second-price auction, public goods), no
-  wording we tried could hide the game from strong models, so derivation and recall remain
-  observationally equivalent there.
+  wording hid the game from the strongest models, so derivation and recall remain observationally
+  equivalent there.
 \end{itemize}
-This last point is a limit of the method, not a failure of it, and it is worth stating plainly:
-recognition of a game's structure is itself a form of reasoning.
+The last point is a limit of the method, not a failure of it: recognising a game's structure is
+itself a form of reasoning. More striking is that the author's own pre-registered expectations
+about \emph{which} models recall were reversed. Intuition about which LLMs ``really reason'' is
+unreliable, and that is a reason to measure it.
+
+\paragraph{Competence buys robustness.} The pre-registered ranking held exactly: models that pass
+more competence probes lose less when the game is disguised. A model that can reliably execute
+the rules has less need to lean on recognising them. This suggests a practical screen for agents
+that will face unfamiliar rules: probe pass rates under paraphrase are a cheap proxy for
+robustness to rule changes.
 
 \paragraph{Recognition can pull away from equilibrium.} The usual worry is that recall makes
 models look more rational than they are. In the prisoner's dilemma we find the reverse.
-Recognising the game lowers equilibrium play: Gemini by 62 points, and Nemotron by 34 points
-relative to the extreme wording. The retrieved content is the folk lesson of repeated dilemmas
+Recognising the game lowers equilibrium play: Gemini by 62 points under the standard disguise,
+and every model by 17--76 points relative to the extreme wording. The retrieved content is the folk lesson of repeated dilemmas
 (trust, reciprocity, establishing cooperation), not the backward-induction solution. For
 mechanism design this matters directly: an agent's behaviour depends on which famous game the
 designer's rules resemble.
@@ -738,9 +865,11 @@ argument for building them in before the data.
 \paragraph{Implications for designing mechanisms for AI agents.} Theorem~\ref{thm:alpha} gives a
 cheap diagnostic: rescale the payment rule and check whether bids rescale. Theorem~\ref{thm:subsidy}
 shows that noise makes high compliance expensive, so subsidies should be set from measured
-responsiveness rather than from dominance thresholds. And the Stage~2A results warn that a fitted
-$\lam$ can encode a norm rather than noise: a low prisoner's-dilemma precision may reflect
-cooperative dispositions that respond sharply to incentives. Stage~5 tests exactly this.
+responsiveness rather than from dominance thresholds. And the decision gate warns against borrowing the
+behavioural model wholesale. Logit QRE fails held-out calibration for every model, because LLM
+errors are rare, large and discrete: slips, collusive answers and norms. A fitted $\lam$ then
+encodes a norm or a slip rate rather than noise, and a mechanism tuned to it may systematically
+over- or under-pay. Stage~5 tests this directly.
 
 % =====================================================================================
 \section{Limitations}\label{sec:limitations}
@@ -757,6 +886,9 @@ cooperative dispositions that respond sharply to incentives. Stage~5 tests exact
 \item \textbf{The behaviour model.} QRE treats every departure from equilibrium as payoff-scaled
   noise. Our models' departures are often slips or norms instead, so $\lam$ is a summary, not a
   structural parameter \citep{pechon2026auditing}, and it is never compared across games.
+\item \textbf{The $\lam$ grid.} The registered grid tops out at $\lam = 1000$, where QRE cannot
+  reproduce 100\% equilibrium play in the auction. This affects the calibration of those cells,
+  but not the gate's verdict.
 \item \textbf{The stage-game QRE in the prisoner's dilemma.} It ignores continuation play, which
   is harmless when the stage equilibrium is unique but not at $\tau=1.5$.
 \item \textbf{Scope.} Four models, four games and free API tiers with default sampling.
@@ -768,13 +900,20 @@ cooperative dispositions that respond sharply to incentives. Stage~5 tests exact
 
 Whether an LLM agent derives or recalls a game's equilibrium is an empirical property of the
 model and the game, and it can be measured. Isomorphic twins with same-wording competence
-probes, measured recognition and an extreme disguise separate the two where the game can be
-hidden at all. On that evidence, one model solves a Cournot game it no longer recognises, while
-another loses the Cournot equilibrium when the name goes. In the prisoner's dilemma, recognising
-the game pulls models away from equilibrium, towards cooperation. For mechanism design, these
-are not curiosities: they determine whether a rule tuned to observed play will survive a change
-in the rules. \tbd{one sentence on Stage~5 once available.}
+probes, measured recognition and an extreme disguise separate the two wherever the game can be
+hidden at all. On that evidence:
+\begin{itemize}
+\item two frontier models solve a Cournot game they no longer recognise;
+\item a third loses the equilibrium step by step as the cues are removed;
+\item a fourth loses it as soon as the name goes;
+\item in the prisoner's dilemma, recognising the game pulls every model away from equilibrium,
+  towards cooperation;
+\item the standard behavioural model, logit QRE, does not describe any of them.
+\end{itemize}
+For mechanism design these are not curiosities. They determine whether a rule tuned to observed
+play will survive a change in the rules. \tbd{one sentence on Stage~5 once available.}
 
+% =====================================================================================
 \section*{Acknowledgements}
 Software development, data collection and drafting were assisted by Claude (Anthropic).
 
@@ -820,6 +959,10 @@ payoff scale and is not comparable across games.}
 \toprule
 Model & Game & $\lam$ named & $\lam$ disguised & $\Delta\lam$ \\
 \midrule
+gpt-oss & Vickrey & $\ge944$ & 1.12 $[0.87,1.45]$ & $\ge+943$ \\
+ & Cournot & 0.173 $[0.13,0.22]$ & 0.027 $[0.022,0.035]$ & $+0.146$, $P(>0)=1.00$ \\
+ & PD & 0.579 $[0.27,0.92]$ & 0.772 $[0.45,1.12]$ & $-0.19$, $P(>0)=0.20$ \\
+ & Public goods & 3.76 $[3.07,4.34]$ & 1.19 $[1.00,1.37]$ & $+2.53$, $P(>0)=1.00$ \\
 Nemotron & Vickrey & $\ge944$ & $\ge944$ & both at ceiling \\
  & Cournot & 0.0012 & 0.0010 & $+0.0001$, $P(>0)=0.82$ \\
  & PD & 0.154 $[0.002,0.47]$ & 0.188 $[0.002,0.50]$ & $-0.02$, $P(>0)=0.44$ \\
