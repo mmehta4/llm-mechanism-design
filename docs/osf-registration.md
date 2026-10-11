@@ -200,3 +200,35 @@ Locked in git commit 103a7ce; materials at commit 49168d4.
   cqnsy. Registration timestamps are unchanged (29 Sep, 30 Sep and 2 Oct 2026).
 - An empty, unsubmitted "update" draft on registration 1 (created 2026-10-02 19:41 UTC) is not
   part of the public record.
+
+---
+
+# Registration 4 — Stage 5: a mechanism derived for noisy agents
+
+## Title
+
+```
+Equilibrium or Retrieval 4: Does a Subsidy Derived from Fitted Quantal Response Beat a Classical Guess for LLM Agents?
+```
+
+## Description
+
+```
+Fourth pre-registered study in the Equilibrium or Retrieval project (osf.io/2uqpj, osf.io/6hz8d, osf.io/cqnsy). Four LLMs play round 1 of a known 10-round prisoner's dilemma in which every player who cooperates is paid an extra tau points. Subsidy levels: 0, 1.5 (the stage-game halfway point predicted by quantal response at any precision), 2.5 (the classical "guess" just above the dominance threshold) and a subsidy derived in closed form from each model's fitted precision to reach 90% cooperation. The study tests whether the derived mechanism, or classical theory, better predicts how the models respond to incentives.
+```
+
+## Summary box
+
+```
+Pre-registration 4 (Stage 5), completed at the decision gate on 2026-10-11 and locked before any Stage 5 question was asked. Pre-registrations 1-3 (osf.io/2uqpj, osf.io/6hz8d, osf.io/cqnsy) are unchanged.
+
+Design: Stage 2A's named 10-round prisoner's dilemma, round 1; a separate rule pays each player tau extra per round in which that player cooperates. Levels per model: 0.0, 1.5, 2.5 and tau* = 1.9 + ln 9 / lambda-hat (gpt-oss-120b 5.7; Nemotron 3 Ultra 16.2; Kimi K3 and Gemini 3.5 Flash Lite capped at 50). 100 questions per level per model, balanced across three paraphrases; a maths check requiring the subsidy.
+
+Decision gate: by the author's pre-set held-out calibration criteria, fits were poor for all four models (option 3); the result and a grid artifact in the auction cells are disclosed in the file. Stage 5 runs for all four models as the direct test of why quantal response fails.
+
+Tests: (1) at tau = 2.5, is quantal response closer to observed cooperation than classical theory's 100%; (2) at tau*, is cooperation within 90 +/- 15; (3) exact binomial test of 50% at tau = 1.5 (stage-game prediction), Holm across models; (4) calibration at every level. Predictions, interpretation key and disclosures are in the attached file.
+
+Attached file: preregistration-4.md
+SHA-256: f70c9c016bb812c9b4c6fe6fbd96b9152917306f93e41cde0f1e103ce5219f2a
+Locked in git commit 6789234; completed text at commit 9d5b344.
+```
