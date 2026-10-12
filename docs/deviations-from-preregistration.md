@@ -345,3 +345,30 @@ days.
   function cannot be invoked" (HTTP 400). The model never ran, so it is relabelled INFRA_FAIL
   and re-asked, as registered for server refusals.
 - **Code:** `agents/llm.py` now classifies that NVIDIA error as infrastructure.
+
+## 16. Kimi's unreadable answers from NVIDIA's degraded days, re-asked (2026-10-13)
+
+**A deviation from the registered scoring rule, at the author's decision.** Item 15 found that
+NVIDIA served Kimi K3 in a degraded state on 7–9 October:
+- 219 of Kimi's 236 unreadable Stage 2B answers fall on those three days (16% of that window's
+  answers, against about 3% on other days);
+- they are spread evenly across normal and disguised wording and across games;
+- NVIDIA also refused requests with "DEGRADED function cannot be invoked".
+
+The author chose to re-ask those 219 unreadable answers, and only those. The 17 unreadable answers
+from other days stand as registered.
+
+- **How:** `analysis/relabel_degraded_kimi.py` relabels each affected row INFRA_FAIL, with
+  `infra = degraded_server:<original verdict>`. The runner then re-asks exactly those questions,
+  the same question each time. The original rows stay in the files.
+- **Known limitation, reported in the paper:** only the unreadable answers get a second attempt.
+  The readable answers from the same three days stand, so the re-ask is selective. A wider
+  option was considered and declined: re-asking every Kimi answer from 7–9 October (1,378
+  questions), independent of outcome.
+- **Paper:** Kimi's Block C and E results are reported both ways:
+  1. with the re-asked answers;
+  2. with the registered scoring, where the original unreadable answers count as unreadable.
+
+  The same item also reports the result with 7–9 October excluded.
+- **Timing:** decided before the Stage 2B analysis was run for any model. It was not run because
+  gpt-oss's Stage 2B was still incomplete.

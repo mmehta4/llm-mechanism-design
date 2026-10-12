@@ -96,8 +96,10 @@ CHAINS = [
     [B("B", "nemotron"), B("C", "nemotron"), B("E", "nemotron")],
     [X("nemotron")],
     [A("kimi")],
-    [B("B", "kimi"), B("C", "kimi")],
-    [B("E", "kimi")],
+    [B("B", "kimi")],
+    # deviation 16: Kimi's unreadable answers from NVIDIA's degraded days, re-asked four ways at once
+    *[[("stage2b.py", f"--block C --model kimi --shard {i}/4"),
+       ("stage2b.py", f"--block E --model kimi --shard {i}/4")] for i in range(1, 5)],
     [X("kimi")],
     # Stage 5 (pre-registration 4): one runner per model, on the NVIDIA account alongside 2B
     [S("nemotron")],
