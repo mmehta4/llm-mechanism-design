@@ -308,7 +308,7 @@ Study & Registration & Questions per model \\
 Stage 2A (named vs disguised) & osf.io/2uqpj & 4 games $\times$ 2 wordings $\times$ 138 $=1{,}104$ \\
 Stage 2B (traps, sweep, endgame) & osf.io/6hz8d & 3{,}036 \\
 Stage 2C (extreme disguise) & osf.io/cqnsy & 4 games $\times$ 138 $=552$ \\
-Stage 5 (subsidy test) & pre-registration 4 & 300--400 \\
+Stage 5 (subsidy test) & osf.io/qg43y & 4 levels $\times$ 100 $=400$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -819,6 +819,19 @@ fixed before the remaining fits existed. The pre-registered prediction is that c
 will predict better than QRE at $\tau=2.5$ for Nemotron and Kimi, because their low prisoner's
 dilemma $\lam$ reflects a cooperation norm, not insensitivity to payoffs.
 
+\IfFileExists{figures/stage5.pdf}{%
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/stage5.pdf}
+\caption{Stage 5: round-1 cooperation against the subsidy $\tau$, one panel per model. Orange:
+observed rate with 95\% Wilson interval (100 questions per level). Blue: logit QRE at the model's
+fitted Stage 2A precision $\hat\lam$ (posterior median), with the 95\% band over $\lam$'s posterior.
+Dashed: the classical stage-game equilibrium (all defect below $\tau=1$, the mixed equilibrium
+$p=\tau-1$ of the chicken game between 1 and 2, all cooperate above 2). Dotted: the 90\% target
+and the derived subsidy $\tau^*$ (capped at 50).}
+\label{fig:stage5}
+\end{figure}}{}
+
 \tbd{Results: cooperation by level and model; QRE vs classical at $\tau=2.5$; the derived
 mechanism at $\tau^*$; the halfway-point test.}
 
@@ -919,7 +932,7 @@ Software development, data collection and drafting were assisted by Claude (Anth
 
 \section*{Data and code availability}
 Code, prompts, seeds, raw answers, analysis outputs and the locked analysis plans are available at
-\tbd{public repository URL}. Pre-registrations: osf.io/2uqpj, osf.io/6hz8d, osf.io/cqnsy.
+\tbd{public repository URL}. Pre-registrations: osf.io/2uqpj, osf.io/6hz8d, osf.io/cqnsy, osf.io/qg43y.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}

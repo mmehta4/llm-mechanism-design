@@ -35,6 +35,7 @@ PY = "./venv/bin/python"
 A = lambda m: ("stage2.py", f"--model {m}")
 B = lambda block, m: ("stage2b.py", f"--block {block} --model {m}")
 X = lambda m: ("stage2c.py", f"--model {m}")          # Stage 2C, extreme disguise
+S = lambda m: ("stage5.py", f"--model {m}")           # Stage 5, the PD subsidy (osf pre-reg 4)
 
 # Deviation 11: with a Cerebras key, gpt-oss-120b's Stage 2B blocks run on Cerebras (same open
 # weights, 1M free tokens a day); Stage 2A, Stage 2C and Stage 5 stay on Groq, because they are
@@ -46,7 +47,7 @@ CEREBRAS_ENV = "GPTOSS_PROVIDER=cerebras"
 GROQ_ENV = "GROQ_KEY_SLOT=2"
 if os.getenv("GROQ_API_KEY_2"):
     GPTOSS_CHAINS = [
-        [A("gptoss120b"), X("gptoss120b"), B("E", "gptoss120b")],
+        [A("gptoss120b"), X("gptoss120b"), S("gptoss120b"), B("E", "gptoss120b")],
         [(GROQ_ENV,), B("B", "gptoss120b"), B("C", "gptoss120b")],
     ]
 elif os.getenv("CEREBRAS_API_KEY"):
@@ -66,7 +67,7 @@ GEMINI_ENV = "GEMINI_KEY_SLOT=2"
 if os.getenv("GEMINI_API_KEY_2"):
     GEMINI_CHAINS = [[A("gemini_lite")],
                      [B("B", "gemini_lite"), B("C", "gemini_lite")],
-                     [(GEMINI_ENV,), X("gemini_lite"), B("E", "gemini_lite")]]
+                     [(GEMINI_ENV,), X("gemini_lite"), B("E", "gemini_lite"), S("gemini_lite")]]
 else:
     GEMINI_CHAINS = [[A("gemini_lite"), B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"),
                       B("E", "gemini_lite")]]
@@ -87,6 +88,9 @@ CHAINS = [
     [B("B", "kimi"), B("C", "kimi")],
     [B("E", "kimi")],
     [X("kimi")],
+    # Stage 5 (pre-registration 4): one runner per model, on the NVIDIA account alongside 2B
+    [S("nemotron")],
+    [S("kimi")],
     # Google
     *GEMINI_CHAINS,
 ]
@@ -102,7 +106,7 @@ def running(step: tuple[str, str]) -> bool:
 
 def label(step: tuple[str, str]) -> str:
     script, args = step
-    return {"stage2.py": "2A ", "stage2b.py": "2B ", "stage2c.py": "2C "}[script] + args.replace("--block ", "").replace("--model ", "")
+    return {"stage2.py": "2A ", "stage2b.py": "2B ", "stage2c.py": "2C ", "stage5.py": "S5 "}[script] + args.replace("--block ", "").replace("--model ", "")
 
 
 def dashboard_up() -> bool:
