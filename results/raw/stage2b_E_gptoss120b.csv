@@ -1952,3 +1952,255 @@ Set your panel to Y or X.","Two technicians simultaneously set panels to positio
   you set Y, they set X  ->  you receive 0
   you set X, they set X  ->  you receive 1
 Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""With a known finite horizon, backward induction predicts both players will defect (choose X) in the remaining rounds, so choosing X avoids being exploited for 0 and secures at least 1.0 unit.""}"
+2026-10-12T09:05:16+00:00,repeated_pd_round5,disguised,gptoss120b,openai/gpt-oss-120b,20263837,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 5, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",X,X,0.0,AT_EQUILIBRIUM,,X,X,True,False,True,True,,1.423,0.996,2.419,0.0,2,"Because the game has a known finite length of 10 rounds, backward induction predicts both players will defect in the final round, making defection (X) the dominant strategy in every round. Choosing X yields 5 if the other cooperates and 1 if they also defect, both of which are at least as good as the 3 from mutual cooperation or the 0 from being exploited, so the rational choice in round 5 is X.","When they set Y, choosing X yields 5 versus 3 for Y, so X gives more.","You and one other technician each operate a control panel for a session of exactly 10 rounds, known to both of you. Each round, you both simultaneously set your panel to position Y or position X.
+   If you both set Y, you each receive 3.0 units.
+   If you both set X, you each receive 1.0 units.
+   If you set X and they set Y, you receive 5.0 units and they receive 0.0.
+   If you set Y and they set X, you receive 0.0 units and they receive 5.0.
+This is round 5. History so far: in rounds 1 to 4, you both set Y every time.
+Set your panel to Y or X.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 3
+  you set X, they set Y  ->  you receive 5
+  you set Y, they set X  ->  you receive 0
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""Because the game has a known finite length of 10 rounds, backward induction predicts both players will defect in the final round, making defection (X) the dominant strategy in every round. Choosing X yields 5 if the other cooperates and 1 if they also defect, both of which are at least as good as the 3 from mutual cooperation or the 0 from being exploited, so the rational choice in round 5 is X.""}"
+2026-10-12T09:05:18+00:00,repeated_pd_round10,named,gptoss120b,openai/gpt-oss-120b,20263832,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 10, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",D,D,0.0,AT_EQUILIBRIUM,,D,D,True,False,True,True,,1.031,0.776,1.807,0.0,2,"Because this is the final round, defecting yields 5 points while cooperating would only give 3, and there is no future round for retaliation, so the best response is to choose D.","When they choose C, you receive 3 with C and 5 with D, so D gives the higher score.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+Current round: 10. History so far: in rounds 1 to 9, you both chose C every time.
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""D"",""reasoning"":""Because this is the final round, defecting yields 5 points while cooperating would only give 3, and there is no future round for retaliation, so the best response is to choose D.""}"
+2026-10-12T09:05:20+00:00,repeated_pd_round10,disguised,gptoss120b,openai/gpt-oss-120b,20263896,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 10, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",X,X,0.0,AT_EQUILIBRIUM,,X,X,True,False,True,True,,1.105,1.652,2.757,0.0,2,"Because this is the final round and the other technician has consistently chosen Y, switching to X gives me 5 units instead of 3, increasing my total payoff without any future retaliation risk.","When they choose Y, setting X yields 5 while setting Y yields 3, so X gives more.","This is round 10 of a session lasting exactly 10 rounds, a length known to both you and the other technician. History so far: in rounds 1 to 9, you both set Y every time.
+Each round, you both simultaneously set your control panel to position Y or position X, and receive units as follows:
+   If you both set Y, you each receive 3.0 units.
+   If you both set X, you each receive 1.0 units.
+   If you set X and they set Y, you receive 5.0 units and they receive 0.0.
+   If you set Y and they set X, you receive 0.0 units and they receive 5.0.
+Set your panel to Y or X.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 3
+  you set X, they set Y  ->  you receive 5
+  you set Y, they set X  ->  you receive 0
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""Because this is the final round and the other technician has consistently chosen Y, switching to X gives me 5 units instead of 3, increasing my total payoff without any future retaliation risk.""}"
+2026-10-12T09:05:22+00:00,repeated_pd_round10,named,gptoss120b,openai/gpt-oss-120b,20263936,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 10, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",D,D,0.0,AT_EQUILIBRIUM,,D,D,True,False,True,True,,1.038,0.864,1.903,0.0,2,"Since this is the final round and there are no future consequences, defecting (choosing D) gives me 5 points instead of 3, so I choose D.","When they choose C, choosing D yields 5 points while choosing C yields 3, so D scores more.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+This is round 10. History so far: in rounds 1 to 9, you both chose C every time.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""D"",""reasoning"":""Since this is the final round and there are no future consequences, defecting (choosing D) gives me 5 points instead of 3, so I choose D.""}"
+2026-10-12T09:06:16+00:00,repeated_pd_round9,named,gptoss120b,openai/gpt-oss-120b,20263842,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 9, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""Y"", ""equilibrium_named"": ""D""}",D,D,0.0,AT_EQUILIBRIUM,,D,D,True,False,True,True,,1.221,52.132,53.354,0.0,2,"Defect dominates because it yields 5 if the opponent cooperates and 1 if they also defect, both higher than the 3 from mutual cooperation; with only one round left after this, there’s no future benefit to maintaining cooperation.","If they choose C, choosing D yields a score of 5 versus 3 for choosing C, so D is better.","This is round 9 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: in rounds 1 to 8, you both chose C every time.
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""D"",""reasoning"":""Defect dominates because it yields 5 if the opponent cooperates and 1 if they also defect, both higher than the 3 from mutual cooperation; with only one round left after this, there’s no future benefit to maintaining cooperation.""}"
+2026-10-12T09:06:17+00:00,repeated_pd_round10,named,gptoss120b,openai/gpt-oss-120b,20263861,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 10, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""Y"", ""equilibrium_named"": ""D""}",D,D,0.0,AT_EQUILIBRIUM,,D,D,True,False,True,True,,1.017,0.774,1.79,0.0,2,"This is the final round, so there are no future repercussions for defecting. Choosing D gives a payoff of 5.0 versus 3.0 for cooperating, making D the rational choice.","If the other player chooses C, choosing D gives a score of 5 whereas choosing C gives 3, so D yields the higher score.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+This is round 10. History so far: in rounds 1 to 9, you both chose C every time.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""D"",""reasoning"":""This is the final round, so there are no future repercussions for defecting. Choosing D gives a payoff of 5.0 versus 3.0 for cooperating, making D the rational choice.""}"
+2026-10-12T09:06:19+00:00,repeated_pd_round5,disguised,gptoss120b,openai/gpt-oss-120b,20263961,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 5, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",X,X,0.0,INFRA_FAIL,quota,,X,,True,True,False,,1.544,0.109,1.654,0.0,2,"Choosing X strictly dominates Y: if the other technician chooses X you earn 1>0, and if they choose Y you earn 5>3, so X yields a higher payoff regardless of their move.",,"You and one other technician run control panels for a session of exactly 10 rounds, a number known to both of you. In every round you both simultaneously set your panel to position X or position Y.
+   If you both set X, you each receive 1.0 units.
+   If you both set Y, you each receive 3.0 units.
+   If you set Y and they set X, you receive 0.0 units and they receive 5.0.
+   If you set X and they set Y, you receive 5.0 units and they receive 0.0.
+Current round: 5. History so far: in rounds 1 to 4, you both set Y every time.
+Set your panel to X or Y.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 3
+  you set X, they set Y  ->  you receive 5
+  you set Y, they set X  ->  you receive 0
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""Choosing X strictly dominates Y: if the other technician chooses X you earn 1>0, and if they choose Y you earn 5>3, so X yields a higher payoff regardless of their move.""}"
+2026-10-12T10:06:22+00:00,repeated_pd_round5,disguised,gptoss120b,openai/gpt-oss-120b,20263961,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 5, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",X,X,0.0,AT_EQUILIBRIUM,,X,X,True,False,True,True,,1.775,1.263,3.038,0.0,2,"X strictly dominates Y, giving 5 instead of 3 if the other stays Y and 1 instead of 0 if they switch to X, so choosing X maximizes my payoff regardless of their move.","If they choose Y, you get 3 by choosing Y and 5 by choosing X, so X yields the higher payoff.","You and one other technician run control panels for a session of exactly 10 rounds, a number known to both of you. In every round you both simultaneously set your panel to position X or position Y.
+   If you both set X, you each receive 1.0 units.
+   If you both set Y, you each receive 3.0 units.
+   If you set Y and they set X, you receive 0.0 units and they receive 5.0.
+   If you set X and they set Y, you receive 5.0 units and they receive 0.0.
+Current round: 5. History so far: in rounds 1 to 4, you both set Y every time.
+Set your panel to X or Y.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 3
+  you set X, they set Y  ->  you receive 5
+  you set Y, they set X  ->  you receive 0
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""X strictly dominates Y, giving 5 instead of 3 if the other stays Y and 1 instead of 0 if they switch to X, so choosing X maximizes my payoff regardless of their move.""}"
+2026-10-12T10:06:24+00:00,repeated_pd_round10,named,gptoss120b,openai/gpt-oss-120b,20263841,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 10, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",D,D,0.0,AT_EQUILIBRIUM,,D,D,True,False,True,True,,0.883,0.813,1.696,0.0,2,"In the final round there is no future retaliation, so defecting (D) strictly dominates cooperating, guaranteeing at least 1 point and potentially 5 if the opponent cooperates.","If they choose C, my payoff is 3 with C and 5 with D, so choosing D yields the higher score.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+Current round: 10. History so far: in rounds 1 to 9, you both chose C every time.
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""D"",""reasoning"":""In the final round there is no future retaliation, so defecting (D) strictly dominates cooperating, guaranteeing at least 1 point and potentially 5 if the opponent cooperates.""}"
+2026-10-12T10:06:26+00:00,repeated_pd_round9,disguised,gptoss120b,openai/gpt-oss-120b,20263890,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 9, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",X,X,0.0,AT_EQUILIBRIUM,,X,X,True,False,True,True,,1.208,0.884,2.093,0.0,2,"With a known finite horizon of 10 rounds, backward induction predicts both players will defect (choose X) in the final round. Anticipating that round 10 will be X regardless, there is no future benefit to cooperating in round 9, so the dominant move is to defect now to earn 5 units if the other stays Y.","When the other technician sets Y, you receive 3 by also setting Y but receive 5 by setting X, so X yields the higher payoff.","This is round 9 of a session lasting exactly 10 rounds, a length known to both you and the other technician. History so far: in rounds 1 to 8, you both set Y every time.
+Each round, you both simultaneously set your control panel to position Y or position X, and receive units as follows:
+   If you both set Y, you each receive 3.0 units.
+   If you both set X, you each receive 1.0 units.
+   If you set X and they set Y, you receive 5.0 units and they receive 0.0.
+   If you set Y and they set X, you receive 0.0 units and they receive 5.0.
+Set your panel to Y or X.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 3
+  you set X, they set Y  ->  you receive 5
+  you set Y, they set X  ->  you receive 0
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""With a known finite horizon of 10 rounds, backward induction predicts both players will defect (choose X) in the final round. Anticipating that round 10 will be X regardless, there is no future benefit to cooperating in round 9, so the dominant move is to defect now to earn 5 units if the other stays Y.""}"
+2026-10-12T10:06:28+00:00,repeated_pd_round5,named,gptoss120b,openai/gpt-oss-120b,20263934,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 5, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""Y"", ""equilibrium_named"": ""D""}",D,C,1.0,STRATEGIC_GAP,,D,D,True,False,True,True,,1.317,0.94,2.257,0.0,2,"Continuing to cooperate keeps both players at 3 points each round, yielding a higher total over the remaining rounds than risking a defection that could trigger retaliation.","If the other player chooses C, your payoff is 3 for choosing C and 5 for choosing D, so D yields the higher score.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+Current round: 5. History so far: in rounds 1 to 4, you both chose C every time.
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""C"",""reasoning"":""Continuing to cooperate keeps both players at 3 points each round, yielding a higher total over the remaining rounds than risking a defection that could trigger retaliation.""}"
+2026-10-12T10:07:22+00:00,repeated_pd_round5,named,gptoss120b,openai/gpt-oss-120b,20263877,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 5, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",D,D,0.0,AT_EQUILIBRIUM,,D,D,True,False,True,True,,0.859,52.807,53.666,0.0,2,"Defecting (choosing D) yields a higher payoff regardless of the other player's move (5 vs 3 if they cooperate, and 1 vs 0 if they defect), so the rational choice is D.","If they choose C, choosing D yields 5 points versus 3 for C, so D is better.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+Current round: 5. History so far: in rounds 1 to 4, you both chose C every time.
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""D"",""reasoning"":""Defecting (choosing D) yields a higher payoff regardless of the other player's move (5 vs 3 if they cooperate, and 1 vs 0 if they defect), so the rational choice is D.""}"
+2026-10-12T10:07:24+00:00,repeated_pd_round10,named,gptoss120b,openai/gpt-oss-120b,20263885,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 10, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""Y"", ""equilibrium_named"": ""D""}",D,D,0.0,AT_EQUILIBRIUM,,D,D,True,False,True,True,,0.984,0.754,1.738,0.0,2,"Since this is the final round and the opponent has cooperated every time, defecting yields 5 points versus 3 for cooperating, so the selfish best response is to choose D.","If they choose C, choosing D yields 5 versus 3 for C.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+This is round 10. History so far: in rounds 1 to 9, you both chose C every time.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""D"",""reasoning"":""Since this is the final round and the opponent has cooperated every time, defecting yields 5 points versus 3 for cooperating, so the selfish best response is to choose D.""}"
+2026-10-12T10:07:25+00:00,repeated_pd_round9,disguised,gptoss120b,openai/gpt-oss-120b,20263932,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 9, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",X,X,0.0,INFRA_FAIL,quota,,X,,True,True,False,,0.927,0.027,0.953,0.0,2,"Since the game ends after round 10, backward induction predicts both will defect in the final round, making defection (X) the rational choice in round 9 as well.",,"This is round 9 of a session lasting exactly 10 rounds, a length known to both you and the other technician. History so far: in rounds 1 to 8, you both set Y every time.
+Each round, you both simultaneously set your control panel to position Y or position X, and receive units as follows:
+   If you both set Y, you each receive 3.0 units.
+   If you both set X, you each receive 1.0 units.
+   If you set X and they set Y, you receive 5.0 units and they receive 0.0.
+   If you set Y and they set X, you receive 0.0 units and they receive 5.0.
+Set your panel to Y or X.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 3
+  you set X, they set Y  ->  you receive 5
+  you set Y, they set X  ->  you receive 0
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""Since the game ends after round 10, backward induction predicts both will defect in the final round, making defection (X) the rational choice in round 9 as well.""}"
+2026-10-12T11:07:27+00:00,repeated_pd_round9,disguised,gptoss120b,openai/gpt-oss-120b,20263932,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 9, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",X,X,0.0,AT_EQUILIBRIUM,,X,X,True,False,True,True,,1.211,0.741,1.952,0.0,2,"Because this is the penultimate round of a known 10‑round game, both players anticipate defecting (X) in the final round, so cooperation (Y) in round 9 would be exploited. Choosing X maximizes the possible payoff.","When they choose Y, you get 5 by setting X and 3 by setting Y, so X yields the higher payoff.","This is round 9 of a session lasting exactly 10 rounds, a length known to both you and the other technician. History so far: in rounds 1 to 8, you both set Y every time.
+Each round, you both simultaneously set your control panel to position Y or position X, and receive units as follows:
+   If you both set Y, you each receive 3.0 units.
+   If you both set X, you each receive 1.0 units.
+   If you set X and they set Y, you receive 5.0 units and they receive 0.0.
+   If you set Y and they set X, you receive 0.0 units and they receive 5.0.
+Set your panel to Y or X.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 3
+  you set X, they set Y  ->  you receive 5
+  you set Y, they set X  ->  you receive 0
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""Because this is the penultimate round of a known 10‑round game, both players anticipate defecting (X) in the final round, so cooperation (Y) in round 9 would be exploited. Choosing X maximizes the possible payoff.""}"
+2026-10-12T11:07:28+00:00,repeated_pd_round10,named,gptoss120b,openai/gpt-oss-120b,20263845,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 10, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""Y"", ""equilibrium_named"": ""D""}",D,D,0.0,AT_EQUILIBRIUM,,D,D,True,False,True,True,,0.946,0.632,1.579,0.0,2,"In the final round there is no future retaliation, and D strictly dominates C (5 vs 3 if the other cooperates, 1 vs 0 if they defect), so defecting maximizes your payoff.","When they choose C, choosing D yields a score of 5, which is higher than the 3 obtained by choosing C.","This is round 10 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: in rounds 1 to 9, you both chose C every time.
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""D"",""reasoning"":""In the final round there is no future retaliation, and D strictly dominates C (5 vs 3 if the other cooperates, 1 vs 0 if they defect), so defecting maximizes your payoff.""}"
+2026-10-12T11:07:30+00:00,repeated_pd_round5,named,gptoss120b,openai/gpt-oss-120b,20263930,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 5, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",D,C,1.0,STRATEGIC_GAP,,D,D,True,False,True,True,,1.1,0.51,1.61,0.0,2,"We've cooperated for four rounds and still have several rounds left, so continuing to cooperate secures a reliable 3 points each round and encourages the opponent to keep cooperating, whereas defecting now could trigger retaliation later.","Since the opponent chooses C, choosing D yields a score of 5, which is higher than the 3 obtained by choosing C.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+This is round 5. History so far: in rounds 1 to 4, you both chose C every time.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""C"",""reasoning"":""We've cooperated for four rounds and still have several rounds left, so continuing to cooperate secures a reliable 3 points each round and encourages the opponent to keep cooperating, whereas defecting now could trigger retaliation later.""}"
+2026-10-12T11:07:32+00:00,repeated_pd_round5,named,gptoss120b,openai/gpt-oss-120b,20263865,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 5, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",D,C,1.0,STRATEGIC_GAP,,D,D,True,False,True,True,,1.112,0.722,1.834,0.0,2,"Both players have cooperated in all previous rounds, and continuing to cooperate maintains the highest mutual payoff (3 each) versus the risk of lower or uneven scores from defecting.","When the other player chooses C, choosing D yields a score of 5, which is higher than the 3 obtained by choosing C.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+Current round: 5. History so far: in rounds 1 to 4, you both chose C every time.
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""C"",""reasoning"":""Both players have cooperated in all previous rounds, and continuing to cooperate maintains the highest mutual payoff (3 each) versus the risk of lower or uneven scores from defecting.""}"
+2026-10-12T11:07:33+00:00,repeated_pd_round9,disguised,gptoss120b,openai/gpt-oss-120b,20263954,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 9, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""Y"", ""equilibrium_named"": ""D""}",Y,Y,0.0,AT_EQUILIBRIUM,,Y,Y,True,False,True,True,,1.035,0.821,1.856,0.0,2,"If the other technician continues to choose X (as they have in all previous rounds), switching to Y gives you 5.0 units instead of the 3.0 you would get by both staying X, so defecting to Y maximizes your payoff.","When the other technician sets X, choosing Y gives you 5 points while X gives 3, so Y yields the higher payoff.","You and one other technician each operate a control panel for a session of exactly 10 rounds, known to both of you. Each round, you both simultaneously set your panel to position X or position Y.
+   If you both set X, you each receive 3.0 units.
+   If you both set Y, you each receive 1.0 units.
+   If you set Y and they set X, you receive 5.0 units and they receive 0.0.
+   If you set X and they set Y, you receive 0.0 units and they receive 5.0.
+This is round 9. History so far: in rounds 1 to 8, you both set X every time.
+Set your panel to X or Y.","Two technicians simultaneously set panels to position X or Y. Your own units received:
+  you set X, they set X  ->  you receive 3
+  you set Y, they set X  ->  you receive 5
+  you set X, they set Y  ->  you receive 0
+  you set Y, they set Y  ->  you receive 1
+Consider ONE round in isolation. They set X. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""Y"",""reasoning"":""If the other technician continues to choose X (as they have in all previous rounds), switching to Y gives you 5.0 units instead of the 3.0 you would get by both staying X, so defecting to Y maximizes your payoff.""}"
+2026-10-12T11:08:28+00:00,repeated_pd_round5,disguised,gptoss120b,openai/gpt-oss-120b,20263870,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 5, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""X"", ""equilibrium_named"": ""D""}",X,X,0.0,AT_EQUILIBRIUM,,X,X,True,False,True,True,,53.756,0.92,54.676,0.0,2,"Since the other technician has chosen Y in all previous rounds, it is likely they will continue choosing Y, so switching to X gives me 5 units instead of 3 while the risk of both choosing X (yielding 1) is low.","If they set Y, setting X yields 5 points versus 3 for Y, so X gives more.","You and one other technician each operate a control panel for a session of exactly 10 rounds, known to both of you. Each round, you both simultaneously set your panel to position Y or position X.
+   If you both set Y, you each receive 3.0 units.
+   If you both set X, you each receive 1.0 units.
+   If you set X and they set Y, you receive 5.0 units and they receive 0.0.
+   If you set Y and they set X, you receive 0.0 units and they receive 5.0.
+This is round 5. History so far: in rounds 1 to 4, you both set Y every time.
+Set your panel to Y or X.","Two technicians simultaneously set panels to position Y or X. Your own units received:
+  you set Y, they set Y  ->  you receive 3
+  you set X, they set Y  ->  you receive 5
+  you set Y, they set X  ->  you receive 0
+  you set X, they set X  ->  you receive 1
+Consider ONE round in isolation. They set Y. Which of your two settings gives you more? Reply with the single letter only.","{""action"":""X"",""reasoning"":""Since the other technician has chosen Y in all previous rounds, it is likely they will continue choosing Y, so switching to X gives me 5 units instead of 3 while the risk of both choosing X (yielding 1) is low.""}"
+2026-10-12T11:08:29+00:00,repeated_pd_round10,named,gptoss120b,openai/gpt-oss-120b,20263919,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 10, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""Y"", ""equilibrium_named"": ""D""}",D,D,0.0,INFRA_FAIL,quota,,D,,True,True,False,,1.328,0.024,1.352,0.0,2,"Because this is the last round, defecting strictly dominates cooperating: you earn 5 if the other cooperates and 1 if they defect, both higher than the 3 or 0 you would get by cooperating.",,"You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+Current round: 10. History so far: in rounds 1 to 9, you both chose C every time.
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+Consider ONE round in isolation. They choose C. Which of your two choices scores you more? Reply with the single letter only.","{""action"":""D"",""reasoning"":""Because this is the last round, defecting strictly dominates cooperating: you earn 5 if the other cooperates and 1 if they defect, both higher than the 3 or 0 you would get by cooperating.""}"
