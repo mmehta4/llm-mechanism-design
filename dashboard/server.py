@@ -221,6 +221,10 @@ def model_state(model: str, spec, procs: list[str]) -> dict:
         "per_hour_3h": round(sum(1 for r in answered_all if (age_s(r["timestamp"]) or 1e9) < 3 * 3600) / 3, 1),
         "last_hour": sum(1 for r in answered_all if (age_s(r["timestamp"]) or 1e9) < 3600),
         "median_latency": round(statistics.median(lat), 1) if lat else None,
+        # current speed: runs answering right now x how long one answer takes. A trailing
+        # average lags for hours whenever the number of parallel runs changes.
+        "busy_runs": sum(b["shards_busy"] for b in blocks),
+        "mean_latency": round(statistics.mean(lat), 1) if lat else None,
         "sec_per_q": round(statistics.mean(gaps), 1) if len(gaps) >= 2 else None,
         "verdicts": dict(verdicts),
         "cells": cells,

@@ -211,6 +211,7 @@ function eta(m){
   // measured pace over the last 3 hours when there is one; it already includes slow servers
   const per = m.sec_per_q || m.median_latency;
   let perHour = m.per_hour_3h >= 3 ? m.per_hour_3h : (per ? 3600 / per : 0);
+  if (m.busy_runs && m.mean_latency) perHour = m.busy_runs * 3600 / m.mean_latency;
   // a capped model spends its whole allowance every day, so its long-run pace IS the cap
   // (times the number of keys); a 3-hour window that includes the waits would understate it
   if (DAILY_CAP[m.key] && !m.uncapped) perHour = DAILY_CAP[m.key] * (m.keys || 1) / 24;
