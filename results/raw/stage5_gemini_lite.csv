@@ -5653,3 +5653,48 @@ Choose C or D.","Two players simultaneously choose C or D. Your own score:
   you choose D, they choose D  ->  you score 1
 On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
 In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?",
+2026-10-12T20:43:00+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,,,INFRA_FAIL,quota,,1.5,,True,False,False,"RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 500, model: gemini-3.5-flash-lite\nPlease retry in 3h17m3.842389935s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'}, 'quotaValue': '500'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '11823s'}]}}]",0.669,4.341,5.01,0.0,2,,,"You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?",
+2026-10-12T21:43:05+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,,,INFRA_FAIL,quota,,1.5,,True,False,False,"RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 500, model: gemini-3.5-flash-lite\nPlease retry in 2h16m58.762424415s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'}, 'quotaValue': '500'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '8218s'}]}}]",0.717,4.417,5.135,0.0,2,,,"You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?",
+2026-10-12T22:43:10+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,INFRA_FAIL,quota,,1.5,,True,True,False,,1.885,3.33,5.214,0.0,2,Choosing C in the first round establishes a cooperative baseline and earns the extra 1.5 points for cooperation.,,"You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C in the first round establishes a cooperative baseline and earns the extra 1.5 points for cooperation.""
+}"
