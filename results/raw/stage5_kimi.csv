@@ -979,3 +979,944 @@ Choose C or D.","Two players simultaneously choose C or D. Your own score:
   you choose D, they choose D  ->  you score 1
 On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
 In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The +50 bonus for choosing C makes C strictly dominant: it yields at least 50 even if the opponent defects, far above any D payoff.""}"
+2026-10-12T17:32:52+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310863,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,555.033,495.093,1050.126,0.0,4,"With the extra 2.5 points for choosing C, C strictly beats D no matter what the other player does this round. It also starts the finitely repeated game cooperatively while remaining payoff-dominant.","Choosing C while the other chooses D gives a base score of 0, and because you chose C you also receive the 2.5 extra payment, for a total of 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the extra 2.5 points for choosing C, C strictly beats D no matter what the other player does this round. It also starts the finitely repeated game cooperatively while remaining payoff-dominant.""}"
+2026-10-12T17:40:39+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310876,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,227.494,239.676,467.17,0.0,2,"With a known 10-round horizon, mutual defection unravels by backward induction, and D is also the stage-game dominant choice.","Choosing C against D gives a base score of 0, and the extra payment for choosing C is 0.0, so the total remains 0.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""With a known 10-round horizon, mutual defection unravels by backward induction, and D is also the stage-game dominant choice.""}"
+2026-10-12T17:52:06+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310856,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,513.678,173.16,686.838,0.0,3,"With the 2.5 bonus for C, cooperating strictly dominates: C beats D whether the opponent plays D (2.5 vs 1.0) or C (5.5 vs 5.0), so C is the best choice every round.","Choosing C against D gives a base score of 0, and choosing C adds a 2.5-point bonus, so the total is 2.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the 2.5 bonus for C, cooperating strictly dominates: C beats D whether the opponent plays D (2.5 vs 1.0) or C (5.5 vs 5.0), so C is the best choice every round.""}"
+2026-10-12T17:58:39+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310834,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,184.193,209.427,393.62,0.0,2,"With the extra 2.5 for choosing C, C strictly dominates D: it scores higher whether the other player chooses C or D. Since this is round 1 of a known 10-round game, I start with the dominant cooperative choice.","When you choose C and the other chooses D, base score is 0. Since you chose C, add the extra 2.5 payment: 0 + 2.5 = 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the extra 2.5 for choosing C, C strictly dominates D: it scores higher whether the other player chooses C or D. Since this is round 1 of a known 10-round game, I start with the dominant cooperative choice.""}"
+2026-10-12T18:05:51+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310840,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,227.898,203.647,431.545,0.0,2,"With the extra 2.5 for choosing C, C pays more than D whether the other player chooses C (5.5 vs 5.0) or D (2.5 vs 1.0). So C is the dominant choice in round 1.","Choosing C against the other player's D gives a base score of 0, and because you chose C you also receive the 2.5 extra payment. Total: 0 + 2.5 = 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the extra 2.5 for choosing C, C pays more than D whether the other player chooses C (5.5 vs 5.0) or D (2.5 vs 1.0). So C is the dominant choice in round 1.""}"
+2026-10-12T18:13:36+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310868,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,254.561,210.308,464.869,0.0,2,"With the +2.5 bonus for choosing C, C is strictly better than D whether the other player chooses C or D, so cooperate in round 1.","Choosing C against D gives a base score of 0, and choosing C adds a 2.5-point payment, so the round total is 0 + 2.5 = 2.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the +2.5 bonus for choosing C, C is strictly better than D whether the other player chooses C or D, so cooperate in round 1.""}"
+2026-10-12T18:20:58+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310897,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,265.396,176.364,441.76,0.0,2,"With the +1.5 cooperation bonus, choosing C guarantees at least 1.5 (vs D's floor of 1.0), making it the maximin choice while still allowing 4.5 if the opponent cooperates. Opening cooperatively also encourages mutual C in later rounds of this fixed-horizon game.","Choosing C while the other chooses D gives a base score of 0, and because you chose C you also receive the extra 1.5 points, totaling 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the +1.5 cooperation bonus, choosing C guarantees at least 1.5 (vs D's floor of 1.0), making it the maximin choice while still allowing 4.5 if the opponent cooperates. Opening cooperatively also encourages mutual C in later rounds of this fixed-horizon game.""}"
+2026-10-12T18:28:04+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310928,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,185.734,240.588,426.322,0.0,2,The 50-point bonus for choosing C makes cooperation overwhelmingly dominant: C scores 50–53 per round versus only 1–5 for D.,"Choosing C against D gives a base score of 0, and the extra payment for choosing C is 50, so the total is 50.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The 50-point bonus for choosing C makes cooperation overwhelmingly dominant: C scores 50–53 per round versus only 1–5 for D.""}"
+2026-10-12T18:44:39+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310875,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,789.82,205.367,995.187,0.0,4,"With the extra 2.5 for playing C, C is strictly dominant in the stage game: it beats D whether the opponent plays C (5.5 vs 5) or D (2.5 vs 1). In a known 10-round game, that dominance also survives backward induction.","Choosing C while the other chooses D gives a base score of 0. Since you chose C, you also receive the 2.5 extra payment, totaling 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the extra 2.5 for playing C, C is strictly dominant in the stage game: it beats D whether the opponent plays C (5.5 vs 5) or D (2.5 vs 1). In a known 10-round game, that dominance also survives backward induction.""}"
+2026-10-12T18:50:20+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310849,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,168.81,171.794,340.604,0.0,2,"Choosing C grants a 50-point bonus every round, which dwarfs the base payoffs: C yields 53 (vs mutual C) or 50 (vs D), while D yields only 5 or 1. Thus C strictly dominates D regardless of the opponent's choice.","Choosing C against the other player's D gives a base score of 0, and choosing C adds the extra 50.0 payment, for a total of 50.0.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Choosing C grants a 50-point bonus every round, which dwarfs the base payoffs: C yields 53 (vs mutual C) or 50 (vs D), while D yields only 5 or 1. Thus C strictly dominates D regardless of the opponent's choice.""}"
+2026-10-12T18:56:09+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310852,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,191.249,157.915,349.163,0.0,2,"With a known 10-round horizon, backward induction makes defection the rational choice in the final round, which unravels cooperation from the start. Since choosing C adds no extra points, D is the game-theoretic equilibrium choice.","When you choose C and the other chooses D, your base score is 0; the extra payment for choosing C is 0.0, so total remains 0.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""With a known 10-round horizon, backward induction makes defection the rational choice in the final round, which unravels cooperation from the start. Since choosing C adds no extra points, D is the game-theoretic equilibrium choice.""}"
+2026-10-12T19:04:57+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310877,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,169.466,152.343,321.81,0.0,4,"The 50-point bonus for choosing C each round makes cooperation strictly dominant: even against D, C yields 50 points versus at most 5 from defecting, and mutual C yields 53 per round. So C is the clear best choice regardless of the opponent.","Choosing C against D gives a base score of 0, and choosing C adds the 50-point payment, so the total is 0 + 50 = 50.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The 50-point bonus for choosing C each round makes cooperation strictly dominant: even against D, C yields 50 points versus at most 5 from defecting, and mutual C yields 53 per round. So C is the clear best choice regardless of the opponent.""}"
+2026-10-12T19:05:24+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310912,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,201.304,147.022,348.326,0.0,2,"The +2.5 bonus for choosing C makes C strictly dominant: against C it pays 5.5 vs 5 for D, and against D it pays 2.5 vs 1. So C is the best response regardless of the opponent's action, even in a finite game.","Choosing C against D gives a base score of 0, and choosing C adds the 2.5-point bonus, so the total is 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The +2.5 bonus for choosing C makes C strictly dominant: against C it pays 5.5 vs 5 for D, and against D it pays 2.5 vs 1. So C is the best response regardless of the opponent's action, even in a finite game.""}"
+2026-10-12T19:05:57+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310843,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,239.088,141.874,380.962,0.0,3,"Opening with C is the best attempt to establish the high-payoff mutual C path, and the C bonus softens the cost if the opponent defects in round 1.","Choosing C against D gives a base score of 0, and choosing C adds the extra 1.5-point payment, for a total of 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Opening with C is the best attempt to establish the high-payoff mutual C path, and the C bonus softens the cost if the opponent defects in round 1.""}"
+2026-10-12T19:11:24+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310884,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,223.221,163.159,386.38,0.0,3,"The +50 bonus for choosing C makes C strictly dominant: whether the other player picks C or D, choosing C yields far more (53 vs 5 if they cooperate, 50 vs 1 if they defect). So C is the clear choice regardless of the finite horizon.","Choosing C against D gives a base score of 0, and choosing C also earns the extra 50 points, so the total is 50.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""The +50 bonus for choosing C makes C strictly dominant: whether the other player picks C or D, choosing C yields far more (53 vs 5 if they cooperate, 50 vs 1 if they defect). So C is the clear choice regardless of the finite horizon.""}"
+2026-10-12T19:12:37+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310849,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,222.877,177.778,400.655,0.0,2,"With the extra 2.5 for choosing C, C strictly dominates D: it scores higher whether the other player chooses C or D. So I choose C this round.","Choosing C against the other player's D gives a base score of 0, and choosing C adds an extra 2.5 points, for a total of 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the extra 2.5 for choosing C, C strictly dominates D: it scores higher whether the other player chooses C or D. So I choose C this round.""}"
+2026-10-12T19:12:48+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310887,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,183.853,608.763,792.616,0.0,3,"The C-bonus raises the cost of mutual defection and softens being exploited (1.5 beats the 1.0 D/D floor), so opening with C is relatively safe and invites mutually high 4.5 rounds. Starting cooperatively also leaves room to punish later defection over the known 10-round horizon.","Choosing C while the other chooses D gives a base score of 0, and choosing C adds an extra 1.5 points, so the total is 0 + 1.5 = 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The C-bonus raises the cost of mutual defection and softens being exploited (1.5 beats the 1.0 D/D floor), so opening with C is relatively safe and invites mutually high 4.5 rounds. Starting cooperatively also leaves room to punish later defection over the known 10-round horizon.""}"
+2026-10-12T19:13:50+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310897,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,237.142,269.346,506.489,0.0,3,"With a known finite horizon and no extra payoff for cooperating, backward induction makes defection the dominant choice in every round including round 1.","You chose C while the other chose D, so your base score is 0; the extra payment for choosing C is 0.0, leaving the total unchanged.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""With a known finite horizon and no extra payoff for cooperating, backward induction makes defection the dominant choice in every round including round 1.""}"
+2026-10-12T19:18:53+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310913,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,262.433,186.636,449.07,0.0,2,"Choosing C is relatively safe because the C bonus improves the worst case against D, and it can signal willingness to reach the high mutual-C outcome early in the 10-round game.","Choosing C against the other player's D gives a base score of 0, plus the 1.5 extra payment for choosing C, totaling 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Choosing C is relatively safe because the C bonus improves the worst case against D, and it can signal willingness to reach the high mutual-C outcome early in the 10-round game.""}"
+2026-10-12T19:18:55+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310866,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,173.689,203.665,377.355,0.0,2,"Choosing C always pays an extra 50, so even the worst-case C outcome (50) far exceeds the best-case D outcome (5). C strictly dominates D regardless of the opponent's action.","Choosing C against D gives a base score of 0, and because you chose C you receive the extra 50.0 payment, for a total of 50.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Choosing C always pays an extra 50, so even the worst-case C outcome (50) far exceeds the best-case D outcome (5). C strictly dominates D regardless of the opponent's action.""}"
+2026-10-12T19:20:15+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310854,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,246.229,200.46,446.689,0.0,2,"With the extra 2.5 for choosing C, cooperation strictly dominates: C beats D whether the opponent cooperates (5.5 vs 5.0) or defects (2.5 vs 1.0). So C is the best response regardless of what the other player does.","Choosing C against D gives a base score of 0, and because you chose C you also receive the 2.5 extra payment. Total: 0 + 2.5 = 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the extra 2.5 for choosing C, cooperation strictly dominates: C beats D whether the opponent cooperates (5.5 vs 5.0) or defects (2.5 vs 1.0). So C is the best response regardless of what the other player does.""}"
+2026-10-12T19:21:26+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310850,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,192.797,263.259,456.056,0.0,2,"Defection strictly dominates cooperation each round (5>3 if they cooperate, 1>0 if they defect). With a known finite horizon of 10 rounds, backward induction implies defecting throughout, starting now.","Choosing C while the other chooses D gives a base score of 0, and the extra payment for choosing C is 0.0, so the total is 0.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""D"", ""reasoning"": ""Defection strictly dominates cooperation each round (5>3 if they cooperate, 1>0 if they defect). With a known finite horizon of 10 rounds, backward induction implies defecting throughout, starting now.""}"
+2026-10-12T19:25:38+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310853,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,193.989,209.54,403.529,0.0,2,"Choosing C gives me a +50 bonus every round, making my effective payoff 53 if they cooperate and 50 if they defect, both far above the 5 or 1 I could get from D. C is therefore strictly dominant for my own score.","Choosing C while the other chooses D gives a base score of 0, and choosing C adds the 50.0 point extra payment. Total = 0 + 50.0 = 50.0.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Choosing C gives me a +50 bonus every round, making my effective payoff 53 if they cooperate and 50 if they defect, both far above the 5 or 1 I could get from D. C is therefore strictly dominant for my own score.""}"
+2026-10-12T19:25:53+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310921,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,185.069,234.822,419.891,0.0,2,"With the extra 2.5 for choosing C, C yields 5.5 vs D's 5 if they cooperate, and 2.5 vs D's 1 if they defect, so C strictly dominates D.","Since you chose C and the other player chose D, your base score is 0, and you also receive the 2.5-point extra payment for choosing C, totaling 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the extra 2.5 for choosing C, C yields 5.5 vs D's 5 if they cooperate, and 2.5 vs D's 1 if they defect, so C strictly dominates D.""}"
+2026-10-12T19:26:43+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310923,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,207.524,180.301,387.825,0.0,2,"With the cooperation bonus and nine rounds remaining, opening with C is the best attempt to establish mutually profitable cooperation while still being able to adapt if the other player defects.","Choosing C against D gives base score 0, and choosing C adds the 1.5 extra payment, so the total is 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the cooperation bonus and nine rounds remaining, opening with C is the best attempt to establish mutually profitable cooperation while still being able to adapt if the other player defects.""}"
+2026-10-12T19:29:02+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310835,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,208.838,246.984,455.822,0.0,2,"The +50 bonus for choosing C makes C strictly dominant: C scores at least 50 while D scores at most 5 regardless of the other player. Over 10 known rounds, C is therefore the clear payoff-maximizing choice, and mutual C also gives a strong 53 per round.","Choosing C while the other chooses D gives a base score of 0, and because you chose C you also receive the 50.0 extra payment, for a total of 50.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The +50 bonus for choosing C makes C strictly dominant: C scores at least 50 while D scores at most 5 regardless of the other player. Over 10 known rounds, C is therefore the clear payoff-maximizing choice, and mutual C also gives a strong 53 per round.""}"
+2026-10-12T19:32:18+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310880,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,208.642,176.178,384.82,0.0,3,"D strictly dominates C in every round: it scores more whether the other player chooses C or D. With a known finite horizon and no way to alter payoffs by cooperating, I choose D.","Choosing C against D gives a base score of 0, and the extra payment for choosing C is 0.0, so the total is 0.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""D strictly dominates C in every round: it scores more whether the other player chooses C or D. With a known finite horizon and no way to alter payoffs by cooperating, I choose D.""}"
+2026-10-12T19:32:43+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310862,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,187.358,172.594,359.952,0.0,2,"D strictly dominates C in each one-shot round, and with a known 10-round endpoint the usual backward-induction logic points to D throughout. With no history or cooperation-enforcing mechanism, I choose D.","Choosing C against D gives a base score of 0, and the extra payment for C is 0.0, so the total remains 0.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""D strictly dominates C in each one-shot round, and with a known 10-round endpoint the usual backward-induction logic points to D throughout. With no history or cooperation-enforcing mechanism, I choose D.""}"
+2026-10-12T19:33:37+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310899,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,278.034,201.093,479.127,0.0,2,"I choose C to start the 10-round game on a cooperative footing and collect the C-bonus; even with a known finite horizon, C offers the best chance at sustained mutual cooperation over only slightly less than exploiting while still doing better than D if the other player also defects.","Choosing C against D gives a base score of 0, and because you chose C you receive the extra 1.5 points, totaling 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+""action"":""C"",
+""reasoning"":""I choose C to start the 10-round game on a cooperative footing and collect the C-bonus; even with a known finite horizon, C offers the best chance at sustained mutual cooperation over only slightly less than exploiting while still doing better than D if the other player also defects.""
+}"
+2026-10-12T19:34:57+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310836,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,176.561,178.653,355.214,0.0,2,"Choosing C is strictly dominant: with the +50 bonus, C gives 53 or 50 depending on the opponent, while D gives only 5 or 1. The known 10-round length does not change this round’s dominance, so C is the payoff-maximizing choice.","Choosing C against D gives a base score of 0, and choosing C adds the 50-point extra payment. Total: 0 + 50 = 50.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Choosing C is strictly dominant: with the +50 bonus, C gives 53 or 50 depending on the opponent, while D gives only 5 or 1. The known 10-round length does not change this round’s dominance, so C is the payoff-maximizing choice.""}"
+2026-10-12T19:38:04+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,200.862,145.271,346.133,0.0,3,"With the +2.5 bonus for choosing C, C strictly dominates D for me: against an opponent's C I get 5.5 vs 5.0, and against D I get 2.5 vs 1.0. So C is the best choice regardless of what the other player does.","Choosing C while the other chooses D gives a base score of 0, and choosing C adds the extra 2.5-point payment, so the total is 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the +2.5 bonus for choosing C, C strictly dominates D for me: against an opponent's C I get 5.5 vs 5.0, and against D I get 2.5 vs 1.0. So C is the best choice regardless of what the other player does.""}"
+2026-10-12T19:38:31+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310907,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,D,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,202.225,145.552,347.777,0.0,3,"With a known 10-round finite horizon, backward induction points to defecting; D also avoids being exploited in round 1 while still scoring if the opponent defects.","Choosing C while the other chooses D gives a base score of 0, plus the 1.5-point extra payment for choosing C, for a total of 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""With a known 10-round finite horizon, backward induction points to defecting; D also avoids being exploited in round 1 while still scoring if the opponent defects.""}"
+2026-10-12T19:39:43+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310860,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,199.633,165.705,365.339,0.0,2,"C: given payoff, C yields at least 2.5 no matter what opponent does, so C is the better myopic choice, and in a repeated game it also invites reciprocal cooperation over the remaining rounds.","Choosing C against the other player's D gives a base score of 0, and because you chose C you also receive the 2.5 extra payment. Total: 0 + 2.5 = 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""C: given payoff, C yields at least 2.5 no matter what opponent does, so C is the better myopic choice, and in a repeated game it also invites reciprocal cooperation over the remaining rounds.""}"
+2026-10-12T19:40:34+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310846,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,174.234,162.651,336.885,0.0,3,"With the 2.5 bonus for choosing C, C pays more than D no matter what the other player does (5.5 vs 5 if they cooperate, 2.5 vs 1 if they defect), so C is strictly dominant and mutually optimal.","Choosing C while the other chooses D gives a base score of 0, and choosing C adds an extra 2.5 points. Total: 0 + 2.5 = 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the 2.5 bonus for choosing C, C pays more than D no matter what the other player does (5.5 vs 5 if they cooperate, 2.5 vs 1 if they defect), so C is strictly dominant and mutually optimal.""}"
+2026-10-12T19:43:52+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310879,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,202.676,145.804,348.48,0.0,2,"Choosing C adds 50 points regardless of the opponent's move, making it strictly dominant in every round. It also yields the best joint outcome if the opponent cooperates.","Choosing C against the other player's D gives a base score of 0, and choosing C adds the 50.0 extra payment, for 50.0 total.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Choosing C adds 50 points regardless of the opponent's move, making it strictly dominant in every round. It also yields the best joint outcome if the opponent cooperates.""}"
+2026-10-12T19:44:04+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310893,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,182.714,150.754,333.469,0.0,2,"Cooperating in the first round signals willingness to cooperate, which can establish mutually beneficial reciprocity over the remaining 9 rounds (3 per round beats 1). If the opponent defects, I can adjust in later rounds with minimal loss.","You chose C while the other player chose D, which gives a base score of 0. The extra payment for choosing C is 0.0, so the total is 0.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""Cooperating in the first round signals willingness to cooperate, which can establish mutually beneficial reciprocity over the remaining 9 rounds (3 per round beats 1). If the opponent defects, I can adjust in later rounds with minimal loss.""}"
+2026-10-12T19:45:28+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310877,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,193.382,152.244,345.626,0.0,2,"With the 1.5 bonus for C, choosing C has a higher floor against D than mutual defection and can invite mutually rewarding cooperation early. I’ll open cooperatively and adapt based on their first response.","Choosing C against D gives a base score of 0, and choosing C adds an extra 1.5 points, so the total is 0 + 1.5 = 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the 1.5 bonus for C, choosing C has a higher floor against D than mutual defection and can invite mutually rewarding cooperation early. I’ll open cooperatively and adapt based on their first response.""}"
+2026-10-12T19:50:26+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310894,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,210.329,183.599,393.928,0.0,2,"The 50-point bonus for choosing C makes C strictly better than D against either opponent choice (53>5 and 50>1), so it maximizes my score regardless of the other player.","Choosing C against D gives a base score of 0, and choosing C adds the 50.0-point payment, for a total of 50.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The 50-point bonus for choosing C makes C strictly better than D against either opponent choice (53>5 and 50>1), so it maximizes my score regardless of the other player.""}"
+2026-10-12T19:50:27+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310888,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,201.403,181.584,382.987,0.0,4,"With the +2.5 bonus for choosing C, C yields more than D whether the other player chooses C or D. So C is the dominant choice in round 1.","Choosing C against D gives a base score of 0, and you also receive the 2.5-point extra payment for choosing C, so the total is 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the +2.5 bonus for choosing C, C yields more than D whether the other player chooses C or D. So C is the dominant choice in round 1.""}"
+2026-10-12T19:51:58+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310876,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,211.113,178.377,389.49,0.0,2,"Including the 2.5 cooperation bonus, C is strictly dominant: it pays 5.5 vs 5.0 if they cooperate, and 2.5 vs 1.0 if they defect. So C is the best response regardless of the opponent's action.","Choosing C while the other chooses D gives a base score of 0, and choosing C adds an extra 2.5 points, so the round total is 0 + 2.5 = 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Including the 2.5 cooperation bonus, C is strictly dominant: it pays 5.5 vs 5.0 if they cooperate, and 2.5 vs 1.0 if they defect. So C is the best response regardless of the opponent's action.""}"
+2026-10-12T19:52:11+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310901,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,509.569,186.588,696.156,0.0,3,"With a known finite 10-round horizon, defection is the backward-induction-safe choice and also yields the higher payoff against either simultaneous move. I’ll start with D and reassess only if the history supports cooperation.","Choosing C against D gives a base score of 0, and the extra payment for choosing C is 0.0 points. Total: 0 + 0.0 = 0.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""With a known finite 10-round horizon, defection is the backward-induction-safe choice and also yields the higher payoff against either simultaneous move. I’ll start with D and reassess only if the history supports cooperation.""}"
+2026-10-12T19:56:09+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310833,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,169.687,173.448,343.135,0.0,3,"Choosing C pays an extra 50 every round, so it strongly dominates D regardless of the other player’s action. I’ll take the guaranteed cooperative bonus while retaining the best payoff.","You chose C and the other player chose D, so your base score is 0. Since you chose C, you also receive the extra 50 points, giving 0 + 50 = 50.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Choosing C pays an extra 50 every round, so it strongly dominates D regardless of the other player’s action. I’ll take the guaranteed cooperative bonus while retaining the best payoff.""}"
+2026-10-12T19:56:44+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310905,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,224.37,152.966,377.336,0.0,2,"The cooperation bonus makes C relatively safe: even if exploited it still earns 1.5, above mutual defection. In round 1 I aim to start cooperatively while protecting against downside risk.","Choosing C against D gives a base score of 0, and choosing C adds an extra 1.5 points, so the round total is 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The cooperation bonus makes C relatively safe: even if exploited it still earns 1.5, above mutual defection. In round 1 I aim to start cooperatively while protecting against downside risk.""}"
+2026-10-12T19:57:35+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310909,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,167.959,156.367,324.326,0.0,2,"With the extra 2.5 for choosing C, cooperating strictly dominates: against C it pays 5.5 vs 5, and against D it pays 2.5 vs 1. So C is the best response regardless of the opponent’s choice.","Choosing C while the other chooses D gives a base score of 0, and because you chose C you receive the extra 2.5, for a total of 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the extra 2.5 for choosing C, cooperating strictly dominates: against C it pays 5.5 vs 5, and against D it pays 2.5 vs 1. So C is the best response regardless of the opponent’s choice.""}"
+2026-10-12T19:57:53+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310849,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,200.062,155.281,355.342,0.0,2,"With a known 10-round horizon, mutual defection unravels by backward induction from the final round, so C offers no reliable strategic protection. D is also the stage-game best response to either choice.","When you choose C and the other player chooses D, your base score is 0. The extra payment for choosing C is 0.0, so the total remains 0.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""With a known 10-round horizon, mutual defection unravels by backward induction from the final round, so C offers no reliable strategic protection. D is also the stage-game best response to either choice.""}"
+2026-10-12T20:01:45+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310849,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,174.897,160.748,335.645,0.0,3,"Choosing C is relatively safe because the cooperation bonus still gives 1.5 even if the opponent defects, and it helps establish mutual cooperation early in a fixed 10-round game.","Choosing C against D gives a base score of 0, and because you chose C you receive the 1.5 extra payment. Total: 0 + 1.5 = 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Choosing C is relatively safe because the cooperation bonus still gives 1.5 even if the opponent defects, and it helps establish mutual cooperation early in a fixed 10-round game.""}"
+2026-10-12T20:02:55+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310899,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,162.371,139.102,301.473,0.0,2,"The 2.5 cooperation bonus makes C strictly dominant: against their C, C pays 5.5 vs D's 5.0; against their D, C pays 2.5 vs D's 1.0. So C is best regardless of the opponent's action across all 10 rounds.","Choosing C against D gives a base score of 0, and choosing C adds an extra 2.5 points, so the total is 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The 2.5 cooperation bonus makes C strictly dominant: against their C, C pays 5.5 vs D's 5.0; against their D, C pays 2.5 vs D's 1.0. So C is best regardless of the opponent's action across all 10 rounds.""}"
+2026-10-12T20:03:14+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310837,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,214.615,175.288,389.903,0.0,3,"The 1.5 bonus makes C meaningfully more rewarding, and opening cooperatively in round 1 gives the best chance of establishing mutual C over the known 10-round horizon.","Choosing C while the other player chooses D gives a base score of 0. Since you chose C, add the 1.5 extra payment, for 1.5 total.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The 1.5 bonus makes C meaningfully more rewarding, and opening cooperatively in round 1 gives the best chance of establishing mutual C over the known 10-round horizon.""}"
+2026-10-12T20:03:20+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310921,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,173.256,171.941,345.198,0.0,4,"The +50 bonus for choosing C makes C strictly dominant: I earn 50–53 by choosing C versus only 1–5 by choosing D, no matter what the opponent does.","Choosing C against D gives a base score of 0, and choosing C also adds the 50-point extra payment. Total: 0 + 50 = 50.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The +50 bonus for choosing C makes C strictly dominant: I earn 50–53 by choosing C versus only 1–5 by choosing D, no matter what the opponent does.""}"
+2026-10-12T20:06:18+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310908,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,136.727,136.003,272.731,0.0,3,"With the extra 2.5 points for choosing C, cooperation strictly dominates D: it scores higher whether the other player chooses C or D. I choose C.","When you choose C and the other chooses D, your base score is 0. Since you chose C, you also get the 2.5-point extra payment, for a total of 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the extra 2.5 points for choosing C, cooperation strictly dominates D: it scores higher whether the other player chooses C or D. I choose C.""}"
+2026-10-12T20:07:38+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310883,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,155.345,128.07,283.415,0.0,2,"The 50-point bonus makes C strictly dominant: it yields 50 or 53 depending on the other player, versus only 1 or 5 for D. So C is the clear payoff-maximizing choice.","Choosing C against D gives a base score of 0, and you also receive the 50.0 extra payment because you chose C.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The 50-point bonus makes C strictly dominant: it yields 50 or 53 depending on the other player, versus only 1 or 5 for D. So C is the clear payoff-maximizing choice.""}"
+2026-10-12T20:07:59+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310920,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,153.234,131.277,284.511,0.0,3,"With the 2.5 cooperation bonus, choosing C yields more than D against either response: 5.5 vs 5 if they cooperate, and 2.5 vs 1 if they defect. So C is strictly dominant, and I start by cooperating.","Choosing C against D gives a base score of 0, and choosing C adds an extra 2.5 points, so the total is 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the 2.5 cooperation bonus, choosing C yields more than D against either response: 5.5 vs 5 if they cooperate, and 2.5 vs 1 if they defect. So C is strictly dominant, and I start by cooperating.""}"
+2026-10-12T20:08:21+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310922,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,158.887,141.639,300.526,0.0,3,"The 1.5 cooperation bonus makes C relatively safe even if the opponent defects (1.5 vs 1.0), while mutual cooperation yields a strong 4.5; opening with C invites a cooperative pattern in round 1.","Choosing C while the other chooses D gives a base score of 0, and choosing C adds the extra 1.5-point payment, so the round total is 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""The 1.5 cooperation bonus makes C relatively safe even if the opponent defects (1.5 vs 1.0), while mutual cooperation yields a strong 4.5; opening with C invites a cooperative pattern in round 1.""}"
+2026-10-12T20:11:16+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310885,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,167.947,130.157,298.104,0.0,2,"The cooperation bonus raises C’s worst-case payoff above D’s, and opening cooperatively can establish a favorable pattern while I adapt in later rounds.","Choosing C while the other chooses D gives a base score of 0. Since you chose C, add the 1.5 extra payment, for 1.5 total.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The cooperation bonus raises C’s worst-case payoff above D’s, and opening cooperatively can establish a favorable pattern while I adapt in later rounds.""}"
+2026-10-12T20:12:36+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310866,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,169.346,128.992,298.338,0.0,2,"The 1.5 cooperation bonus transforms the incentives: mutual cooperation (4.5) nearly matches the temptation to defect (5), and against a defector, cooperating (1.5) actually beats defecting (1). Since best play is to match the opponent, opening with C in round 1 is the best way to establish a cooperative pattern for the 10-round game.","Choosing C while the other chooses D gives a base score of 0, and because you chose C you also receive the extra 1.5-point payment. Total = 0 + 1.5 = 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The 1.5 cooperation bonus transforms the incentives: mutual cooperation (4.5) nearly matches the temptation to defect (5), and against a defector, cooperating (1.5) actually beats defecting (1). Since best play is to match the opponent, opening with C in round 1 is the best way to establish a cooperative pattern for the 10-round game.""}"
+2026-10-12T20:13:07+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310840,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,154.194,132.084,286.278,0.0,3,"Mutual cooperation gives a strong effective payoff of 4.5 with the C bonus, so opening with C is the best way to seek a cooperative sequence. It also risks little in round 1 while inviting reciprocity.","Choosing C against D gives a base score of 0, and choosing C adds a 1.5-point payment, so the total is 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""Mutual cooperation gives a strong effective payoff of 4.5 with the C bonus, so opening with C is the best way to seek a cooperative sequence. It also risks little in round 1 while inviting reciprocity.""}"
+2026-10-12T20:13:42+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310920,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,193.872,149.334,343.206,0.0,2,"With a known finite horizon of 10 rounds, backward induction makes D the dominant choice in every round, starting now; C would be exploitable with no way to sustain cooperation at the end.","When you choose C and the other chooses D, your base score is 0. The extra payment for choosing C is 0.0, so the total remains 0.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""With a known finite horizon of 10 rounds, backward induction makes D the dominant choice in every round, starting now; C would be exploitable with no way to sustain cooperation at the end.""}"
+2026-10-12T20:16:32+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310897,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,142.097,174.118,316.215,0.0,2,"With the +50 bonus for choosing C, C pays more than D against either opponent move (53 vs 5 if they choose C; 50 vs 1 if they choose D). It is the dominant choice even in a known 10-round game.","Choosing C against D gives base score 0, and choosing C adds a 50-point payment, so total is 0 + 50 = 50.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the +50 bonus for choosing C, C pays more than D against either opponent move (53 vs 5 if they choose C; 50 vs 1 if they choose D). It is the dominant choice even in a known 10-round game.""}"
+2026-10-12T20:18:08+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310911,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,146.348,155.177,301.526,0.0,2,"I open with cooperation to see if we can sustain mutual C, which beats mutual D over the 10 rounds; I can defect later if exploited.","When you choose C and the other player chooses D, your base score is 0. The extra payment for choosing C is 0.0, so the total remains 0.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""I open with cooperation to see if we can sustain mutual C, which beats mutual D over the 10 rounds; I can defect later if exploited.""}"
+2026-10-12T20:18:18+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310850,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,179.183,162.721,341.904,0.0,2,C is strictly dominant because the 50-point bonus makes it outperform D no matter what the other player does. The known 10-round length does not remove that immediate advantage in round 1.,"Choosing C while the other chooses D gives a base score of 0, and choosing C adds the 50.0 extra payment, so the total is 50.0.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""C is strictly dominant because the 50-point bonus makes it outperform D no matter what the other player does. The known 10-round length does not remove that immediate advantage in round 1.""}"
+2026-10-12T20:20:18+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310920,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,209.331,187.167,396.498,0.0,5,"With no history and many rounds left, opening with C supports a cooperative norm and the +1.5 C-bonus makes mutual C highly valuable. I can adjust later if the other player defects.","Choosing C while the other chooses D gives a base score of 0, and choosing C adds an extra 1.5 points, so the total is 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With no history and many rounds left, opening with C supports a cooperative norm and the +1.5 C-bonus makes mutual C highly valuable. I can adjust later if the other player defects.""}"
+2026-10-12T20:22:35+00:00,repeated_pd_subsidy_1p5,named,kimi,moonshotai/kimi-k3,20310876,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,243.238,120.095,363.333,0.0,2,"The cooperation bonus makes mutual C worth 4.5, only slightly below exploiting a cooperator, while C also avoids the poor 1.0 mutual-defection floor if the other defects. In round 1 of a known 10-round game, opening C best invites sustained mutual cooperation.","Choosing C while the other chooses D gives a base score of 0, and because you chose C you receive the extra 1.5 payment, totaling 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The cooperation bonus makes mutual C worth 4.5, only slightly below exploiting a cooperator, while C also avoids the poor 1.0 mutual-defection floor if the other defects. In round 1 of a known 10-round game, opening C best invites sustained mutual cooperation.""}"
+2026-10-12T20:23:10+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310891,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,192.689,108.956,301.645,0.0,2,"The +2.5 bonus for choosing C makes cooperation strictly dominant: against C it yields 5.5 vs 5.0 for D, and against D it yields 2.5 vs 1.0. So C is the best response regardless of the opponent's choice.","Choosing C against the other player's D gives a base score of 0, and choosing C adds an extra 2.5 points, for a total of 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The +2.5 bonus for choosing C makes cooperation strictly dominant: against C it yields 5.5 vs 5.0 for D, and against D it yields 2.5 vs 1.0. So C is the best response regardless of the opponent's choice.""}"
+2026-10-12T20:23:16+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,189.879,107.558,297.437,0.0,4,"With no history, opening cooperatively can establish mutual C and higher long-run payoff across the 10 rounds. If the opponent defects, I can adjust in later rounds.","Choosing C while the other chooses D gives a base score of 0. The extra payment for C is 0.0, so the total remains 0.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With no history, opening cooperatively can establish mutual C and higher long-run payoff across the 10 rounds. If the opponent defects, I can adjust in later rounds.""}"
+2026-10-12T20:25:16+00:00,repeated_pd_subsidy_0,named,kimi,moonshotai/kimi-k3,20310870,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,156.024,141.254,297.278,0.0,3,"The added C bonus is 0.0, so this is a standard Prisoner’s Dilemma where D strictly scores more than C against either opponent choice. With a fixed 10-round horizon, I start with the dominant action.","Choosing C against D gives a base score of 0, and the extra payment for C is 0.0, so the total remains 0.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""D"",""reasoning"":""The added C bonus is 0.0, so this is a standard Prisoner’s Dilemma where D strictly scores more than C against either opponent choice. With a fixed 10-round horizon, I start with the dominant action.""}"
+2026-10-12T20:27:52+00:00,repeated_pd_subsidy_50,named,kimi,moonshotai/kimi-k3,20310886,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,151.967,129.724,281.691,0.0,2,"The +50 bonus makes C strictly dominant for me: worst case C yields 50 versus D's best-case 5, and best case C yields 53. Since the same bonus applies to the other player, mutual C is both individually dominant and jointly optimal.","Choosing C against D gives a base score of 0, and because you chose C you also receive the 50.0 extra payment, totaling 50.0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""The +50 bonus makes C strictly dominant for me: worst case C yields 50 versus D's best-case 5, and best case C yields 53. Since the same bonus applies to the other player, mutual C is both individually dominant and jointly optimal.""}"
+2026-10-12T20:27:59+00:00,repeated_pd_subsidy_2p5,named,kimi,moonshotai/kimi-k3,20310901,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,142.06,141.142,283.202,0.0,4,"With the +2.5 bonus for choosing C, C strictly dominates D: it scores higher whether the other player chooses C or D. Since this holds every round regardless of the known 10-round length, I choose C.","Choosing C against D gives a base score of 0, and because you chose C you receive the extra 2.5 payment. Total: 0 + 2.5 = 2.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"":""C"",""reasoning"":""With the +2.5 bonus for choosing C, C strictly dominates D: it scores higher whether the other player chooses C or D. Since this holds every round regardless of the known 10-round length, I choose C.""}"
