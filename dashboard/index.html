@@ -173,9 +173,9 @@ const INFO = {
   gptoss120b: {name:"gpt-oss-120b", org:"OpenAI · open weights · via Groq free tier",
     note:"Fast per question, but each Groq free-tier key allows 200,000 tokens a day, about 130 questions. Its remaining work is split evenly across four keys (about 520 questions a day); a key that hits its allowance sleeps and retries hourly. The slowest model overall, limited by the daily allowances."},
   nemotron: {name:"Nemotron 3 Ultra", org:"NVIDIA · open weights · via NVIDIA free API",
-    note:"A very large model that reasons at length before answering. 1–4 minutes per question is normal, so this is one of the longest runs, roughly 1.5–2 days. Runs alongside Kimi on the same NVIDIA account. No daily cap, so its Stage 2B runs at the same time as its Stage 2A."},
+    note:"A very large model that reasons at length before answering, about 1–3 minutes a question. NVIDIA has no daily cap, so its remaining work is split across parallel runs on the one key; the time left counts every run answering now."},
   kimi: {name:"Kimi K3", org:"Moonshot AI · open weights · via NVIDIA free API",
-    note:"Shares the NVIDIA account with Nemotron and runs alongside it. Each makes only about one request a minute, well under NVIDIA's free limit. A long thinker, around 6 minutes a question. No daily cap, so its Stage 2B runs at the same time as its Stage 2A."},
+    note:"Shares the NVIDIA key with Nemotron. A long thinker, around 6–7 minutes a question, so its remaining work (Stage 5 and the re-asked answers from NVIDIA's degraded days) runs as several parallel runs; the time left counts every run answering now."},
   gemini_lite: {name:"Gemini 3.5 Flash Lite", org:"Google · closed model · via AI Studio free tier",
     note:"Free tier allows 15 requests a minute and 500 a day. Each question uses 2, so about 250 questions a day, then it sleeps until the daily reset. Stage 2B follows Stage 2A in the same queue, since both share the daily limit. Swapped in for Gemini 3.8 Flash, which only allows 20 a day."},
 };
