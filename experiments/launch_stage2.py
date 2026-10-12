@@ -102,8 +102,10 @@ CHAINS = [
        ("stage2b.py", f"--block E --model kimi --shard {i}/4")] for i in range(1, 5)],
     [X("kimi")],
     # Stage 5 (pre-registration 4): one runner per model, on the NVIDIA account alongside 2B
-    [S("nemotron")],
-    [S("kimi")],
+    # NVIDIA has no daily cap and these runs are far under its per-minute limit; the limit is
+    # how long each answer takes, so Stage 5 is split across parallel runs on the one key
+    *[[("stage5.py", f"--model nemotron --shard {i}/2")] for i in range(1, 3)],
+    *[[("stage5.py", f"--model kimi --shard {i}/4")] for i in range(1, 5)],
     # Google
     *GEMINI_CHAINS,
 ]
