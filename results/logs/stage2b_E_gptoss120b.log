@@ -164,3 +164,39 @@ gptoss120b: 76/828 done, 752 to go  -> stage2b_E_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~05:25, then resuming.
 
+gptoss120b: 82/828 done, 746 to go  -> stage2b_E_gptoss120b.csv
+[  83/828] repeated_pd_round5     disguised p2 AT_EQUILIBRIUM       3.2s  ~1120/h
+[  84/828] repeated_pd_round5     named     p0 AT_EQUILIBRIUM       2.5s  ~1269/h
+[  85/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM       3.2s  ~1214/h
+[  86/828] repeated_pd_round5     disguised p2 AT_EQUILIBRIUM       3.3s  ~1176/h
+[  87/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM      51.4s  ~283/h
+[  88/828] repeated_pd_round9     disguised p0 AT_EQUILIBRIUM       2.6s  ~326/h
+[  88/828] repeated_pd_round5     disguised p0 INFRA_FAIL           1.0s  ~375/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~06:26, then resuming.
+
+gptoss120b: 88/828 done, 740 to go  -> stage2b_E_gptoss120b.csv
+[  89/828] repeated_pd_round5     disguised p0 AT_EQUILIBRIUM       2.5s  ~1455/h
+[  90/828] repeated_pd_round10    named     p0 AT_EQUILIBRIUM       2.2s  ~1533/h
+[  91/828] repeated_pd_round9     named     p2 AT_EQUILIBRIUM       2.5s  ~1510/h
+[  92/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM       2.0s  ~1571/h
+[  93/828] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM       2.8s  ~1502/h
+[  94/828] repeated_pd_round5     disguised p2 AT_EQUILIBRIUM      53.0s  ~332/h
+[  94/828] repeated_pd_round9     disguised p1 INFRA_FAIL           2.4s  ~374/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~07:27, then resuming.
+
+gptoss120b: 94/828 done, 734 to go  -> stage2b_E_gptoss120b.csv
+[  95/828] repeated_pd_round9     disguised p1 AT_EQUILIBRIUM       2.6s  ~1368/h
+[  96/828] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM       2.8s  ~1321/h
+[  97/828] repeated_pd_round9     named     p2 AT_EQUILIBRIUM       2.4s  ~1374/h
+[  98/828] repeated_pd_round5     disguised p2 AT_EQUILIBRIUM       2.7s  ~1364/h
+[  99/828] repeated_pd_round9     named     p0 AT_EQUILIBRIUM      52.3s  ~286/h
+[ 100/828] repeated_pd_round5     disguised p1 AT_EQUILIBRIUM       2.7s  ~330/h
+[ 100/828] repeated_pd_round9     disguised p2 INFRA_FAIL           1.7s  ~375/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~08:28, then resuming.
+
