@@ -45,11 +45,11 @@ CEREBRAS_ENV = "GPTOSS_PROVIDER=cerebras"
 # permitted). Everything stays on Groq as registered; each key serves one sequential chain,
 # balanced so both finish about together. This takes precedence over the Cerebras route.
 GROQ_ENV = "GROQ_KEY_SLOT=2"
-# With three or more Groq keys (each a different person's account, as item 13), every remaining
+# With two or more Groq keys (each a different person's account, as item 13), every remaining
 # gpt-oss block is split evenly across all keys (--shard i/k: disjoint slices of the registered
 # plan, same order), so the keys finish together. Still Groq for everything, as registered.
 GROQ_KEYS = 1 + next(n for n in range(2, 50) if not os.getenv(f"GROQ_API_KEY_{n}")) - 2
-if GROQ_KEYS >= 3:
+if GROQ_KEYS >= 2:
     GPTOSS_CHAINS = [
         [(f"GROQ_KEY_SLOT={i}",)]
         + [(script, f"{args} --shard {i}/{GROQ_KEYS}") for script, args in
@@ -136,7 +136,7 @@ def unsharded_gptoss_running() -> bool:
 
 def main() -> None:
     (ROOT / "results" / "logs").mkdir(parents=True, exist_ok=True)
-    blocked = GROQ_KEYS >= 3 and unsharded_gptoss_running()
+    blocked = GROQ_KEYS >= 2 and unsharded_gptoss_running()
     if blocked:
         print("gpt-oss: unsplit runs still alive -- stop them first; split runs not started")
     # the live console, detached like the runs so it outlives the app that started it
