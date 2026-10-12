@@ -232,3 +232,15 @@ Attached file: preregistration-4.md
 SHA-256: f70c9c016bb812c9b4c6fe6fbd96b9152917306f93e41cde0f1e103ce5219f2a
 Locked in git commit 6789234; completed text at commit 9d5b344.
 ```
+
+## Registered (registration 4)
+
+- **OSF registration:** https://osf.io/qg43y
+- **Submitted:** 2026-10-12 11:28:32 UTC, made **public immediately** (no embargo).
+- **Before any Stage 5 data:** the Stage 5 runner refuses real runs until the lock matches. It was
+  first launched after submission. The first Stage 5 answer is timestamped 2026-10-12 11:30:24 UTC.
+- **Registered file:** `docs/preregistration-4.md`, SHA-256
+  `f70c9c016bb812c9b4c6fe6fbd96b9152917306f93e41cde0f1e103ce5219f2a` (materials commit 9d5b344,
+  lock commit 6789234). OSF's own hash of the uploaded file matches (checked through the OSF API
+  before submitting).
+- Licence CC-By 4.0. Subjects and tags are the same as registrations 1–3.
