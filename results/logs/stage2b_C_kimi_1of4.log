@@ -15,3 +15,12 @@ kimi: 254/276 done, 22 to go  -> stage2b_C_kimi.csv
 [ 268/276] cournot_a200           disguised p0 AT_EQUILIBRIUM     313.9s  ~10/h
 [ 269/276] repeated_pd_n_rounds50 named     p1 STRATEGIC_GAP      298.7s  ~10/h
 [ 270/276] public_goods_n_others2 disguised p0 AT_EQUILIBRIUM     281.7s  ~10/h
+[ 271/276] repeated_pd_n_rounds10 disguised p0 AT_EQUILIBRIUM     656.8s  ~10/h
+[ 272/276] vickrey_n_others3      named     p1 AT_EQUILIBRIUM     347.3s  ~10/h
+[ 273/276] public_goods_n_others3 named     p0 AT_EQUILIBRIUM     337.7s  ~10/h
+[ 274/276] public_goods_n_others3 disguised p1 AT_EQUILIBRIUM     381.8s  ~10/h
+[ 275/276] repeated_pd_n_rounds2  disguised p2 AT_EQUILIBRIUM     475.0s  ~10/h
+[ 276/276] repeated_pd_n_rounds2  disguised p0 AT_EQUILIBRIUM     298.7s  ~10/h
+
+this session: {'AT_EQUILIBRIUM': 20, 'STRATEGIC_GAP': 2}
+complete: every planned question has an answer.

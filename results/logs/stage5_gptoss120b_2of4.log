@@ -14,3 +14,46 @@ gptoss120b: 225/100 done, 89 to go  -> stage5_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~02:11, then resuming.
 
+gptoss120b: 234/100 done, 86 to go  -> stage5_gptoss120b.csv
+[ 235/100] repeated_pd_subsidy_0  named     p0 AT_EQUILIBRIUM       2.1s  ~1690/h
+[ 236/100] repeated_pd_subsidy_0  named     p2 AT_EQUILIBRIUM       1.7s  ~1887/h
+[ 237/100] repeated_pd_subsidy_5p7 named     p2 AT_EQUILIBRIUM       2.0s  ~1863/h
+[ 238/100] repeated_pd_subsidy_5p7 named     p0 AT_EQUILIBRIUM       1.8s  ~1907/h
+[ 239/100] repeated_pd_subsidy_2p5 named     p0 AT_EQUILIBRIUM       1.7s  ~1952/h
+[ 240/100] repeated_pd_subsidy_5p7 named     p1 AT_EQUILIBRIUM      54.3s  ~340/h
+[ 241/100] repeated_pd_subsidy_1p5 named     p2 STRATEGIC_GAP        2.5s  ~381/h
+[ 241/100] repeated_pd_subsidy_2p5 named     p2 INFRA_FAIL           1.7s  ~425/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:12, then resuming.
+
+gptoss120b: 247/100 done, 79 to go  -> stage5_gptoss120b.csv
+[ 248/100] repeated_pd_subsidy_2p5 named     p2 AT_EQUILIBRIUM       2.6s  ~1365/h
+[ 249/100] repeated_pd_subsidy_1p5 named     p2 STRATEGIC_GAP        1.8s  ~1618/h
+[ 250/100] repeated_pd_subsidy_0  named     p1 AT_EQUILIBRIUM       1.7s  ~1759/h
+[ 251/100] repeated_pd_subsidy_1p5 named     p1 STRATEGIC_GAP        2.1s  ~1748/h
+[ 252/100] repeated_pd_subsidy_0  named     p2 AT_EQUILIBRIUM      54.0s  ~289/h
+[ 253/100] repeated_pd_subsidy_2p5 named     p0 AT_EQUILIBRIUM       2.6s  ~333/h
+[ 253/100] repeated_pd_subsidy_1p5 named     p2 INFRA_FAIL           1.0s  ~382/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~04:13, then resuming.
+
+gptoss120b: 259/100 done, 73 to go  -> stage5_gptoss120b.csv
+[ 259/100] repeated_pd_subsidy_1p5 named     p2 INFRA_FAIL           1.2s  ~2992/h  auth
+
+The provider is refusing access (401/403). Pausing; nothing is lost.
+waiting until ~04:28, then resuming.
+
+gptoss120b: 259/100 done, 73 to go  -> stage5_gptoss120b.csv
+[ 259/100] repeated_pd_subsidy_1p5 named     p2 INFRA_FAIL           1.4s  ~2517/h  auth
+
+The provider is refusing access (401/403). Pausing; nothing is lost.
+waiting until ~04:43, then resuming.
+
+gptoss120b: 259/100 done, 73 to go  -> stage5_gptoss120b.csv
+[ 259/100] repeated_pd_subsidy_1p5 named     p2 INFRA_FAIL           1.1s  ~3194/h  auth
+
+The provider is refusing access (401/403). Pausing; nothing is lost.
+waiting until ~04:58, then resuming.
+

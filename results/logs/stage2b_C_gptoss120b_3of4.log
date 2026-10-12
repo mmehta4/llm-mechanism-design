@@ -75,3 +75,35 @@ gptoss120b: 57/276 done, 219 to go  -> stage2b_C_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~02:49, then resuming.
 
+gptoss120b: 65/276 done, 211 to go  -> stage2b_C_gptoss120b.csv
+[  66/276] repeated_pd_n_rounds10 disguised p2 STRATEGIC_GAP        1.8s  ~1968/h
+[  67/276] repeated_pd_n_rounds10 named     p0 STRATEGIC_GAP        1.8s  ~1956/h
+[  68/276] repeated_pd_n_rounds2  named     p0 AT_EQUILIBRIUM       1.9s  ~1950/h
+[  69/276] public_goods_n_others3 named     p2 AT_EQUILIBRIUM       2.2s  ~1851/h
+[  70/276] vickrey_n_others7      disguised p2 AT_EQUILIBRIUM       2.1s  ~1828/h
+[  71/276] cournot_a200           named     p2 AT_EQUILIBRIUM      53.1s  ~343/h
+[  72/276] vickrey_n_others3      disguised p0 AT_EQUILIBRIUM       1.9s  ~388/h
+[  72/276] cournot_a200           named     p2 INFRA_FAIL           0.1s  ~443/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:50, then resuming.
+
+gptoss120b: 72/276 done, 204 to go  -> stage2b_C_gptoss120b.csv
+[  73/276] cournot_a200           named     p2 AT_EQUILIBRIUM       2.7s  ~1309/h
+[  74/276] public_goods_n_others3 disguised p1 AT_EQUILIBRIUM       2.0s  ~1508/h
+[  75/276] cournot_a200           named     p1 AT_EQUILIBRIUM       2.3s  ~1525/h
+[  76/276] repeated_pd_n_rounds2  named     p1 AT_EQUILIBRIUM       1.6s  ~1651/h
+[  77/276] vickrey_n_others7      disguised p0 AT_EQUILIBRIUM       2.0s  ~1671/h
+[  78/276] cournot_a100           named     p1 AT_EQUILIBRIUM      53.5s  ~336/h
+[  79/276] repeated_pd_n_rounds10 disguised p0 AT_EQUILIBRIUM       1.5s  ~383/h
+[  79/276] repeated_pd_n_rounds10 named     p2 INFRA_FAIL           0.6s  ~434/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~04:51, then resuming.
+
+gptoss120b: 79/276 done, 197 to go  -> stage2b_C_gptoss120b.csv
+[  79/276] repeated_pd_n_rounds10 named     p2 INFRA_FAIL           2.1s  ~1689/h  auth
+
+The provider is refusing access (401/403). Pausing; nothing is lost.
+waiting until ~05:06, then resuming.
+

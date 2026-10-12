@@ -76,3 +76,33 @@ gptoss120b: 60/276 done, 216 to go  -> stage2b_C_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~02:49, then resuming.
 
+gptoss120b: 66/276 done, 210 to go  -> stage2b_C_gptoss120b.csv
+[  67/276] public_goods_n_others7 disguised p1 AT_EQUILIBRIUM       2.1s  ~1729/h
+[  68/276] public_goods_n_others3 disguised p2 AT_EQUILIBRIUM       2.5s  ~1586/h
+[  69/276] vickrey_n_others3      disguised p1 AT_EQUILIBRIUM       1.9s  ~1689/h
+[  70/276] cournot_a100           disguised p1 AT_EQUILIBRIUM       3.2s  ~1496/h
+[  71/276] vickrey_n_others1      named     p0 AT_EQUILIBRIUM      52.6s  ~289/h
+[  72/276] cournot_a60            named     p1 AT_EQUILIBRIUM       2.6s  ~333/h
+[  72/276] vickrey_n_others3      disguised p0 INFRA_FAIL           0.8s  ~384/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:50, then resuming.
+
+gptoss120b: 72/276 done, 204 to go  -> stage2b_C_gptoss120b.csv
+[  73/276] vickrey_n_others3      disguised p0 AT_EQUILIBRIUM       1.8s  ~1992/h
+[  74/276] cournot_a100           named     p1 AT_EQUILIBRIUM       1.9s  ~1949/h
+[  75/276] public_goods_n_others2 disguised p0 AT_EQUILIBRIUM       3.4s  ~1515/h
+[  76/276] vickrey_n_others3      disguised p0 AT_EQUILIBRIUM       1.9s  ~1586/h
+[  77/276] public_goods_n_others7 named     p0 AT_EQUILIBRIUM       2.0s  ~1621/h
+[  78/276] cournot_a60            disguised p1 AT_EQUILIBRIUM      54.0s  ~332/h
+[  78/276] repeated_pd_n_rounds10 disguised p2 INFRA_FAIL           1.0s  ~381/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~04:51, then resuming.
+
+gptoss120b: 78/276 done, 198 to go  -> stage2b_C_gptoss120b.csv
+[  78/276] repeated_pd_n_rounds10 disguised p2 INFRA_FAIL           1.0s  ~3453/h  auth
+
+The provider is refusing access (401/403). Pausing; nothing is lost.
+waiting until ~05:06, then resuming.
+
