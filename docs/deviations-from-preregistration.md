@@ -328,3 +328,20 @@ Groq Support confirmed in item 13 (keys from different people's accounts).
 - **Gemini 3.5 Flash Lite's Stage 5** is split the same way across its two keys (item 12).
 - **Effect:** none on which questions are asked or how they are scored. Each answer's timestamp
   and `model_api_id` are recorded as before.
+
+## 15. Kimi's unreadable answers on 7–9 October; one server refusal re-asked (2026-10-13)
+
+**Classification only; no change to either plan.** Kimi K3 has 237 unreadable answers in Stage
+2B: 115 moves (PARSE_FAIL) and 122 maths checks (PROBE_FORMAT_FAIL). All are in Blocks C and E,
+and most date from 7–9 October. The rejected text is scrambled: leaked control tokens,
+mixed-script fragments and broken JSON. That points to NVIDIA serving a degraded model on those
+days.
+
+- **Scored as registered:** these replies arrived, so by the rule in item 9 they are the model's
+  unreadable answers. They are not re-asked.
+- **In the paper:** the paper reports them as a rate and checks whether Kimi's Block C and E
+  results change when 7–9 October is left out (a sensitivity analysis, labelled as such).
+- **One exception:** one row (Block E, 2026-10-07 04:51 UTC) is NVIDIA's refusal "DEGRADED
+  function cannot be invoked" (HTTP 400). The model never ran, so it is relabelled INFRA_FAIL
+  and re-asked, as registered for server refusals.
+- **Code:** `agents/llm.py` now classifies that NVIDIA error as infrastructure.

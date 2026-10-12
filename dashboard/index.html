@@ -171,7 +171,7 @@ dd{margin:2px 0 0;color:var(--ink-2);font-size:.88rem}
 <script>
 const INFO = {
   gptoss120b: {name:"gpt-oss-120b", org:"OpenAI · open weights · via Groq free tier",
-    note:"Fast per question, but Groq's free tier allows only 200,000 tokens a day, about 170 questions. After that it sleeps and retries hourly. Stage 2B follows Stage 2A in one queue, traps first. The slowest model overall, limited by its daily allowance."},
+    note:"Fast per question, but each Groq free-tier key allows 200,000 tokens a day, about 130 questions. Its remaining work is split evenly across four keys (about 520 questions a day); a key that hits its allowance sleeps and retries hourly. The slowest model overall, limited by the daily allowances."},
   nemotron: {name:"Nemotron 3 Ultra", org:"NVIDIA · open weights · via NVIDIA free API",
     note:"A very large model that reasons at length before answering. 1–4 minutes per question is normal, so this is one of the longest runs, roughly 1.5–2 days. Runs alongside Kimi on the same NVIDIA account. No daily cap, so its Stage 2B runs at the same time as its Stage 2A."},
   kimi: {name:"Kimi K3", org:"Moonshot AI · open weights · via NVIDIA free API",
@@ -180,7 +180,7 @@ const INFO = {
     note:"Free tier allows 15 requests a minute and 500 a day. Each question uses 2, so about 250 questions a day, then it sleeps until the daily reset. Stage 2B follows Stage 2A in the same queue, since both share the daily limit. Swapped in for Gemini 3.8 Flash, which only allows 20 a day."},
 };
 const NAMES_SHORT = {nemotron:"Nemotron 3 Ultra", kimi:"Kimi K3", gptoss120b:"gpt-oss-120b", gemini_lite:"Gemini 3.5 Flash Lite"};
-const DAILY_CAP = {gemini_lite: 250, gptoss120b: 170};   // questions a day on the free tiers
+const DAILY_CAP = {gemini_lite: 250, gptoss120b: 130};   // questions a day PER KEY on the free tiers (gpt-oss: measured)
 const GAMES = [["vickrey","Vickrey auction"],["cournot","Cournot"],["repeated_pd","Repeated PD"],["public_goods","Public goods"]];
 const COLOR = {AT_EQUILIBRIUM:"var(--eq)",STRATEGIC_GAP:"var(--gap)",COMPETENCE_GAP:"var(--comp)",
   PARSE_FAIL:"var(--grey)",PROBE_FORMAT_FAIL:"var(--grey)"};
@@ -211,7 +211,9 @@ function eta(m){
   // measured pace over the last 3 hours when there is one; it already includes slow servers
   const per = m.sec_per_q || m.median_latency;
   let perHour = m.per_hour_3h >= 3 ? m.per_hour_3h : (per ? 3600 / per : 0);
-  if (DAILY_CAP[m.key] && !m.uncapped) perHour = Math.min(perHour, DAILY_CAP[m.key] / 24);
+  // a capped model spends its whole allowance every day, so its long-run pace IS the cap
+  // (times the number of keys); a 3-hour window that includes the waits would understate it
+  if (DAILY_CAP[m.key] && !m.uncapped) perHour = DAILY_CAP[m.key] * (m.keys || 1) / 24;
   return perHour ? left / perHour * 3600 : null;
 }
 
@@ -223,6 +225,8 @@ function nowText(m){
   switch (m.status) {
     case "running": {
       let t = `Working on ${live.length > 1 ? "two things at once. " : ""}${live.map(where).join(" · ")}.`;
+      const split = live.filter(b => b.shards > 1);
+      if (split.length) t += ` Split across ${split[0].shards} keys (${split[0].shards_busy} answering now, the rest waiting for their daily allowance).`;
       if (lat) t += ` Across everything, one question finishes every ~${dur(lat)}, counting the game, the maths check and any rate-limit waits.`;
       if (m.since_last_s != null && lat && m.since_last_s > Math.max(20, lat * 2))
         t += ` Nothing new for ${dur(m.since_last_s)}; long waits are normal for this model or its limits.`;

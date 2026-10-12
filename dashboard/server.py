@@ -18,7 +18,10 @@ from collections import defaultdict
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(ROOT / ".env")
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 PORT = 8792
@@ -105,6 +108,15 @@ def sources(model: str) -> list[dict]:
     return out
 
 
+def api_keys(provider: str) -> int:
+    """How many keys this provider has in .env (KEY, KEY_2, KEY_3, ...)."""
+    import os
+    base = {"groq": "GROQ_API_KEY", "gemini": "GEMINI_API_KEY"}.get(provider)
+    if not base or not os.getenv(base):
+        return 1
+    return 1 + next(n for n in range(2, 50) if not os.getenv(f"{base}_{n}")) - 2
+
+
 def model_state(model: str, spec, procs: list[str]) -> dict:
     """One model across ALL its questions: Stage 2A plus every Stage 2B block."""
     raw = ROOT / "results" / "raw"
@@ -113,12 +125,21 @@ def model_state(model: str, spec, procs: list[str]) -> dict:
         rows = read_rows(raw / f"{src['csv']}.csv")
         answered = [r for r in rows if r.get("verdict") != "INFRA_FAIL"]
         keys = {(r["game"], r["framing"], r["seed"], r["paraphrase_idx"]) for r in answered}
-        live = any(src["cmd"] in c for c in procs)
-        tail = log_tail(src["csv"]) if live else []
-        waiting = bool(tail) and tail[-1].startswith("waiting until")
+        # one process per key when a block is split (--shard i/k); each writes its own log
+        tails = []
+        for c in procs:
+            if src["cmd"] not in c:
+                continue
+            part = c.split("--shard ", 1)[1].split()[0] if "--shard " in c else ""
+            tails.append(log_tail(src["csv"] + (f"_{part.replace('/', 'of')}" if part else "")))
+        live = bool(tails)
+        busy = [t for t in tails if not (t and t[-1].startswith("waiting until"))]
+        waiting = live and not busy
+        tail = tails[0] if tails else []
         blocks.append({
             "block": src["block"], "label": src["label"], "done": len(keys),
-            "total": src["total"], "running": live and not waiting, "waiting": live and waiting,
+            "total": src["total"], "running": live and bool(busy), "waiting": waiting,
+            "shards": len(tails), "shards_busy": len(busy),
             "resume_at": tail[-1].replace("waiting until ~", "").split(",")[0] if waiting else "",
             "pause_reason": ("daily" if "daily quota" in " ".join(tail[-3:-1]).lower()
                              else "outage") if waiting else "",
@@ -194,8 +215,9 @@ def model_state(model: str, spec, procs: list[str]) -> dict:
         "pause_reason": waiting[0]["pause_reason"] if status == "paused" else "",
         "resume_at": waiting[0]["resume_at"] if status == "paused" else "",
         "since_last_s": age_s(rows_all[-1]["timestamp"]) if rows_all else None,
-        # a paid-tier key lifts the free daily cap the time estimate would otherwise assume
-        "uncapped": model == "gemini_lite" and bool(__import__("os").getenv("GEMINI_API_KEY_2")),
+        # each key has its own free daily allowance, so the daily cap scales with the keys
+        "keys": api_keys(spec.provider),
+        "uncapped": False,
         "per_hour_3h": round(sum(1 for r in answered_all if (age_s(r["timestamp"]) or 1e9) < 3 * 3600) / 3, 1),
         "last_hour": sum(1 for r in answered_all if (age_s(r["timestamp"]) or 1e9) < 3600),
         "median_latency": round(statistics.median(lat), 1) if lat else None,
