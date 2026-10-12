@@ -65,3 +65,16 @@ gptoss120b: 25/400 done, 375 to go  -> stage5_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~23:06, then resuming.
 
+gptoss120b: 31/400 done, 369 to go  -> stage5_gptoss120b.csv
+[  32/400] repeated_pd_subsidy_5p7 named     p1 AT_EQUILIBRIUM       2.5s  ~1458/h
+[  33/400] repeated_pd_subsidy_1p5 named     p2 STRATEGIC_GAP        2.0s  ~1613/h
+[  34/400] repeated_pd_subsidy_2p5 named     p2 STRATEGIC_GAP        1.3s  ~1859/h
+[  35/400] repeated_pd_subsidy_5p7 named     p0 AT_EQUILIBRIUM       1.8s  ~1896/h
+[  36/400] repeated_pd_subsidy_2p5 named     p1 AT_EQUILIBRIUM      55.1s  ~287/h
+[  37/400] repeated_pd_subsidy_1p5 named     p2 STRATEGIC_GAP        1.9s  ~335/h
+[  38/400] repeated_pd_subsidy_5p7 named     p2 AT_EQUILIBRIUM       1.8s  ~380/h
+[  38/400] repeated_pd_subsidy_5p7 named     p1 INFRA_FAIL           0.1s  ~434/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~00:07, then resuming.
+

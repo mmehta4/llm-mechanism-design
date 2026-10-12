@@ -229,8 +229,9 @@ def api_key(provider: str) -> str:
         env_var = "GEMINI_API_KEY_2"
     # A second Groq key (a second person's free-tier account, with consent; Groq Support
     # confirmed this is permitted -- item 13). Same provider, so no change to the design.
-    if provider == "groq" and os.getenv("GROQ_KEY_SLOT") == "2":
-        env_var = "GROQ_API_KEY_2"
+    # Further keys follow the same rule: GROQ_KEY_SLOT=n reads GROQ_API_KEY_n.
+    if provider == "groq" and os.getenv("GROQ_KEY_SLOT", "1") != "1":
+        env_var = f"GROQ_API_KEY_{os.environ['GROQ_KEY_SLOT']}"
     key = os.getenv(env_var)
     if not key:
         raise RuntimeError(

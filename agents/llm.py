@@ -91,6 +91,8 @@ def infra_kind(exc: Exception | None) -> str | None:
         return "quota"            # a DAILY cap -- will not clear by retrying
     if code == 429:
         return "rate_limit"       # a per-minute cap -- clears in seconds
+    if code == 400 and "degraded function cannot be invoked" in msg:
+        return "overloaded"       # NVIDIA refusing to run the model at all (deviation 15)
     if code == 400:
         return None               # Groq's "Failed to generate JSON": the model's output
     if code in (401, 403):

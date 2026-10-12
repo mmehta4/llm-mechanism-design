@@ -1960,3 +1960,15 @@ gptoss120b: 1002/1104 done, 102 to go  -> stage2b_B_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~23:48, then resuming.
 
+gptoss120b: 1008/1104 done, 96 to go  -> stage2b_B_gptoss120b.csv
+[1009/1104] cournot_trap           named     p1 AT_EQUILIBRIUM       1.9s  ~1873/h
+[1010/1104] vickrey_trap           named     p0 STRATEGIC_GAP        2.3s  ~1718/h
+[1011/1104] vickrey_trap           disguised p0 STRATEGIC_GAP        2.6s  ~1601/h
+[1012/1104] public_goods_trap      named     p2 AT_EQUILIBRIUM       2.4s  ~1565/h
+[1013/1104] vickrey_trap           disguised p0 AT_EQUILIBRIUM      53.6s  ~287/h
+[1014/1104] repeated_pd_trap       named     p0 AT_EQUILIBRIUM       2.6s  ~330/h
+[1014/1104] public_goods_trap      named     p0 INFRA_FAIL           0.7s  ~381/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~00:49, then resuming.
+

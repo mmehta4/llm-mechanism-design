@@ -308,3 +308,67 @@ people is acceptable, provided the accounts and keys are being used appropriatel
 - **The split, one sequential run per key:**
   - key 1: Stage 2A, then Stage 2C, then Block E;
   - key 2: Block B, then Block C.
+
+## 14. Four Groq keys, with the remaining work split evenly (2026-10-12/13)
+
+**Operational, not a change to the design.** Two further free-tier Groq keys, each from a
+further person's account given with consent, were added on 2026-10-13. This is the arrangement
+Groq Support confirmed in item 13 (keys from different people's accounts).
+
+- **Same provider:** all four keys are Groq, with the same model and settings. Every gpt-oss
+  question is still served by Groq.
+- **The split (`--shard i/k`):** gpt-oss's remaining work (Stage 5, then Blocks B, C and E) is
+  divided across the keys. Shard i takes every k-th question of the registered plan, starting at
+  position i, in the registered order.
+  - The shards are disjoint, and together they are exactly the registered plan.
+  - Rows are appended to the same file under a file lock.
+  - No question can be asked twice: the launcher refuses to start split runs while runs split a
+    different way are alive.
+- **Timeline:** on 2026-10-12 the split used the two existing keys. From 2026-10-13 it uses four.
+- **Gemini 3.5 Flash Lite's Stage 5** is split the same way across its two keys (item 12).
+- **Effect:** none on which questions are asked or how they are scored. Each answer's timestamp
+  and `model_api_id` are recorded as before.
+
+## 15. Kimi's unreadable answers on 7–9 October; one server refusal re-asked (2026-10-13)
+
+**Classification only; no change to either plan.** Kimi K3 has 237 unreadable answers in Stage
+2B: 115 moves (PARSE_FAIL) and 122 maths checks (PROBE_FORMAT_FAIL). All are in Blocks C and E,
+and most date from 7–9 October. The rejected text is scrambled: leaked control tokens,
+mixed-script fragments and broken JSON. That points to NVIDIA serving a degraded model on those
+days.
+
+- **Scored as registered:** these replies arrived, so by the rule in item 9 they are the model's
+  unreadable answers. They are not re-asked.
+- **In the paper:** the paper reports them as a rate and checks whether Kimi's Block C and E
+  results change when 7–9 October is left out (a sensitivity analysis, labelled as such).
+- **One exception:** one row (Block E, 2026-10-07 04:51 UTC) is NVIDIA's refusal "DEGRADED
+  function cannot be invoked" (HTTP 400). The model never ran, so it is relabelled INFRA_FAIL
+  and re-asked, as registered for server refusals.
+- **Code:** `agents/llm.py` now classifies that NVIDIA error as infrastructure.
+
+## 16. Kimi's unreadable answers from NVIDIA's degraded days, re-asked (2026-10-13)
+
+**A deviation from the registered scoring rule, at the author's decision.** Item 15 found that
+NVIDIA served Kimi K3 in a degraded state on 7–9 October:
+- 219 of Kimi's 236 unreadable Stage 2B answers fall on those three days (16% of that window's
+  answers, against about 3% on other days);
+- they are spread evenly across normal and disguised wording and across games;
+- NVIDIA also refused requests with "DEGRADED function cannot be invoked".
+
+The author chose to re-ask those 219 unreadable answers, and only those. The 17 unreadable answers
+from other days stand as registered.
+
+- **How:** `analysis/relabel_degraded_kimi.py` relabels each affected row INFRA_FAIL, with
+  `infra = degraded_server:<original verdict>`. The runner then re-asks exactly those questions,
+  the same question each time. The original rows stay in the files.
+- **Known limitation, reported in the paper:** only the unreadable answers get a second attempt.
+  The readable answers from the same three days stand, so the re-ask is selective. A wider
+  option was considered and declined: re-asking every Kimi answer from 7–9 October (1,378
+  questions), independent of outcome.
+- **Paper:** Kimi's Block C and E results are reported both ways:
+  1. with the re-asked answers;
+  2. with the registered scoring, where the original unreadable answers count as unreadable.
+
+  The same item also reports the result with 7–9 October excluded.
+- **Timing:** decided before the Stage 2B analysis was run for any model. It was not run because
+  gpt-oss's Stage 2B was still incomplete.

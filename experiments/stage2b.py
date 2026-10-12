@@ -34,7 +34,7 @@ sys.path.insert(0, str(ROOT))
 
 from config import CAPABILITY_ORDER, MASTER_SEED
 from experiments import stage2
-from experiments.stage2 import WAIT_S, run_plan, sleep_until, trial_key
+from experiments.stage2 import WAIT_S, run_plan, sleep_until, trial_key, shard
 from games.stress import ENDGAME, SWEEP, TRAPS
 
 FRAMINGS = ("named", "disguised")
@@ -119,6 +119,7 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--wait", action="store_true")
     ap.add_argument("--status", action="store_true")
+    ap.add_argument("--shard", default=None, help="i/k: this process asks every k-th question")
     args = ap.parse_args()
 
     if args.block in DROPPED_BLOCKS and not args.practice:
@@ -142,7 +143,8 @@ def main() -> int:
         out = raw / f"stage2b_{args.block}_{args.model}.csv"
 
     while True:
-        code = run_plan(args.model, todo_all, out, limit=args.limit, status=args.status)
+        code = run_plan(args.model, shard(todo_all, args.shard), out, limit=args.limit,
+                        status=args.status)
         if not (args.wait and code in WAIT_S):
             return code
         wake = time.strftime("%H:%M", time.localtime(time.time() + WAIT_S[code]))

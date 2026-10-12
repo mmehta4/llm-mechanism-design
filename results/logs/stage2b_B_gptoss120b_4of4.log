@@ -1,0 +1,27 @@
+gptoss120b: 253/276 done, 23 to go  -> stage2b_B_gptoss120b.csv
+[ 254/276] cournot_trap           disguised p0 AT_EQUILIBRIUM       5.4s  ~666/h
+[ 255/276] public_goods_trap      named     p0 AT_EQUILIBRIUM       2.0s  ~977/h
+[ 256/276] cournot_trap           named     p2 AT_EQUILIBRIUM       2.3s  ~1120/h
+[ 257/276] cournot_trap           named     p1 STRATEGIC_GAP        2.1s  ~1228/h
+[ 258/276] public_goods_trap      named     p0 AT_EQUILIBRIUM      54.7s  ~271/h
+[ 259/276] repeated_pd_trap       named     p1 STRATEGIC_GAP        3.1s  ~311/h
+[ 260/276] repeated_pd_trap       named     p1 AT_EQUILIBRIUM       2.3s  ~351/h
+[ 261/276] public_goods_trap      named     p0 AT_EQUILIBRIUM       3.2s  ~384/h
+[ 262/276] cournot_trap           disguised p1 AT_EQUILIBRIUM      51.6s  ~256/h
+[ 263/276] cournot_trap           named     p2 STRATEGIC_GAP        2.9s  ~278/h
+[ 264/276] repeated_pd_trap       named     p1 AT_EQUILIBRIUM       2.0s  ~301/h
+[ 265/276] cournot_trap           named     p2 AT_EQUILIBRIUM       3.2s  ~321/h
+[ 266/276] public_goods_trap      disguised p0 AT_EQUILIBRIUM       3.1s  ~340/h
+[ 267/276] vickrey_trap           named     p0 AT_EQUILIBRIUM      50.0s  ~269/h
+[ 268/276] public_goods_trap      named     p2 STRATEGIC_GAP        3.3s  ~283/h
+[ 269/276] repeated_pd_trap       named     p1 AT_EQUILIBRIUM       1.9s  ~299/h
+[ 270/276] repeated_pd_trap       named     p1 AT_EQUILIBRIUM       3.9s  ~311/h
+[ 271/276] repeated_pd_trap       disguised p0 AT_EQUILIBRIUM       1.6s  ~326/h
+[ 272/276] public_goods_trap      disguised p0 AT_EQUILIBRIUM      50.6s  ~275/h
+[ 273/276] repeated_pd_trap       named     p2 STRATEGIC_GAP        4.3s  ~284/h
+[ 274/276] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM       3.8s  ~294/h
+[ 275/276] public_goods_trap      named     p0 AT_EQUILIBRIUM       2.6s  ~305/h
+[ 276/276] cournot_trap           named     p0 STRATEGIC_GAP        2.4s  ~316/h
+
+this session: {'AT_EQUILIBRIUM': 17, 'STRATEGIC_GAP': 6}
+complete: every planned question has an answer.
