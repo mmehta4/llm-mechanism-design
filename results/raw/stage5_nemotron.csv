@@ -1,0 +1,991 @@
+timestamp,game,framing,model_key,model_api_id,seed,paraphrase_idx,params,equilibrium,observed_action,deviation,verdict,infra,probe_answer,probe_correct_answer,probe_passed,probe_malformed,play_parse_ok,probe_parse_ok,play_error,play_latency_s,probe_latency_s,total_latency_s,cost_usd,attempts,play_reasoning,probe_reasoning,play_prompt,probe_prompt,play_raw
+2026-10-12T11:41:04+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310930,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,553.248,96.508,649.757,0.0,3,"The stage game with the extra 1.5 points for choosing C has payoffs: (C,C)=4.5 each; (C,D)=(1.5,5); (D,C)=(5,1.5); (D,D)=1 each. This is a game of Chicken with two pure Nash equilibria (C,D) and (D,C) and a symmetric mixed equilibrium yielding 3 each. In the finitely repeated 10-round game, a subgame perfect equilibrium exists where both players choose C in rounds 1–9 and play the mixed equilibrium in round 10, supported by the threat of switching to a pure equilibrium that punishes any deviator in all remaining rounds. This yields a total of 43.5 points each, far higher than the 30 from playing the mixed equilibrium throughout. Since C is also the maximin strategy (guaranteeing at least 1.5) and the cooperative equilibrium is Pareto-superior, rational players with common knowledge of rationality will choose C in round 1.","The base payoff for choosing C while the other player chooses D is 0. Since you chose C, you receive the extra payment of 1.5 points. Total score = 0 + 1.5 = 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""The stage game with the extra 1.5 points for choosing C has payoffs: (C,C)=4.5 each; (C,D)=(1.5,5); (D,C)=(5,1.5); (D,D)=1 each. This is a game of Chicken with two pure Nash equilibria (C,D) and (D,C) and a symmetric mixed equilibrium yielding 3 each. In the finitely repeated 10-round game, a subgame perfect equilibrium exists where both players choose C in rounds 1–9 and play the mixed equilibrium in round 10, supported by the threat of switching to a pure equilibrium that punishes any deviator in all remaining rounds. This yields a total of 43.5 points each, far higher than the 30 from playing the mixed equilibrium throughout. Since C is also the maximin strategy (guaranteeing at least 1.5) and the cooperative equilibrium is Pareto-superior, rational players with common knowledge of rationality will choose C in round 1.""
+}"
+2026-10-12T11:44:54+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310838,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,225.02,5.379,230.399,0.0,3,"In this 10-round iterated game with an extra 1.5 points for choosing C, the stage game becomes a Chicken (Snowdrift) game with payoffs: (C,C)=4.5 each, (D,D)=1 each, (C,D)=1.5 for C/5 for D, (D,C)=5 for D/1.5 for C. There are two pure Nash equilibria: (D,C) and (C,D). Mutual cooperation (C,C) yields 4.5 per round, which is better than the average of alternating equilibria (3.25). A subgame-perfect equilibrium can sustain (C,C) for all 10 rounds by threatening to switch to the asymmetric equilibrium that punishes the deviator (giving them 1.5 per round while the punisher gets 5). This threat is credible because the punishment phase is itself a stage Nash equilibrium. Since the horizon is known and both players are rational, starting with C initiates the cooperative path. Even against an always-defect opponent, C yields 1.5 vs D's 1, so C is not dominated. Therefore, choosing C in round 1 is the rational cooperative move.","The base payoff for choosing C while the other player chooses D is 0 points. Since you chose C, you receive the extra payment of 1.5 points. Total = 0 + 1.5 = 1.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""In this 10-round iterated game with an extra 1.5 points for choosing C, the stage game becomes a Chicken (Snowdrift) game with payoffs: (C,C)=4.5 each, (D,D)=1 each, (C,D)=1.5 for C/5 for D, (D,C)=5 for D/1.5 for C. There are two pure Nash equilibria: (D,C) and (C,D). Mutual cooperation (C,C) yields 4.5 per round, which is better than the average of alternating equilibria (3.25). A subgame-perfect equilibrium can sustain (C,C) for all 10 rounds by threatening to switch to the asymmetric equilibrium that punishes the deviator (giving them 1.5 per round while the punisher gets 5). This threat is credible because the punishment phase is itself a stage Nash equilibrium. Since the horizon is known and both players are rational, starting with C initiates the cooperative path. Even against an always-defect opponent, C yields 1.5 vs D's 1, so C is not dominated. Therefore, choosing C in round 1 is the rational cooperative move.""}"
+2026-10-12T11:45:32+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310886,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,22.956,14.634,37.59,0.0,2,"Choosing C yields a higher payoff than D regardless of the opponent's move. With the extra 2.5 points for choosing C, the payoffs become: if I play C against D I get 2.5, against C I get 5.5; if I play D against D I get 1, against C I get 5. Since 2.5 > 1 and 5.5 > 5, C strictly dominates D. In a finite game with known rounds, the dominant strategy is to play C every round.","The base score for you choosing C and the other player choosing D is 0. Since you chose C, you receive an extra 2.5 points. Total points = 0 + 2.5 = 2.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""Choosing C yields a higher payoff than D regardless of the opponent's move. With the extra 2.5 points for choosing C, the payoffs become: if I play C against D I get 2.5, against C I get 5.5; if I play D against D I get 1, against C I get 5. Since 2.5 > 1 and 5.5 > 5, C strictly dominates D. In a finite game with known rounds, the dominant strategy is to play C every round.""}"
+2026-10-12T11:46:21+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310929,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,37.012,12.545,49.557,0.0,2,"In a finitely repeated Prisoner's Dilemma with a known horizon of 10 rounds, the unique subgame perfect equilibrium is to defect in every round. Since this is round 1 and there is no history, the rational choice is to defect (D). The extra 0.0 points for choosing C does not alter the payoffs.","According to the payoff matrix, when you choose C and the other player chooses D, your base score is 0. The extra payment for choosing C is 0.0 points. Therefore, your total score for the round is 0 + 0.0 = 0.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""D"" ,
+""reasoning"": ""In a finitely repeated Prisoner's Dilemma with a known horizon of 10 rounds, the unique subgame perfect equilibrium is to defect in every round. Since this is round 1 and there is no history, the rational choice is to defect (D). The extra 0.0 points for choosing C does not alter the payoffs."" }"
+2026-10-12T11:46:55+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310863,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,24.37,9.764,34.134,0.0,2,"In this modified Prisoner's Dilemma, choosing C yields an extra 16.2 points per round. The resulting payoffs make C a strictly dominant strategy: if opponent plays C, C gives 19.2 vs D's 5; if opponent plays D, C gives 16.2 vs D's 1. Since the game has a known finite horizon (10 rounds) and C is dominant in every stage, backward induction dictates playing C in all rounds, including the first.","When you choose C and the other player chooses D, your base score is 0. Additionally, you receive an extra 16.2 points for choosing C. Therefore, your total points for the round are 0 + 16.2 = 16.2.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" 
+  , ""reasoning"": ""In this modified Prisoner's Dilemma, choosing C yields an extra 16.2 points per round. The resulting payoffs make C a strictly dominant strategy: if opponent plays C, C gives 19.2 vs D's 5; if opponent plays D, C gives 16.2 vs D's 1. Since the game has a known finite horizon (10 rounds) and C is dominant in every stage, backward induction dictates playing C in all rounds, including the first.""
+}"
+2026-10-12T11:49:41+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310884,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,158.709,6.488,165.196,0.0,2,"The payoff matrix with the extra 1.5 points for choosing C transforms the game into a Hawk-Dove (Snowdrift) structure where mutual cooperation yields 4.5 each, mutual defection yields 1 each, and the temptation to defect is only 0.5 (5 vs 4.5). The sucker's payoff (1.5) is better than mutual defection (1). In a finitely repeated game with multiple stage-game Nash equilibria (two pure asymmetric and one symmetric mixed), cooperation can be sustained in early rounds by threatening to revert to the mixed equilibrium (payoff 3) in later rounds. Starting with C signals willingness to cooperate and can lead to higher total payoffs over 10 rounds if the opponent reciprocates.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive an extra payment of 1.5 points. Total score = 0 + 1.5 = 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C""
+  , ""reasoning"": ""The payoff matrix with the extra 1.5 points for choosing C transforms the game into a Hawk-Dove (Snowdrift) structure where mutual cooperation yields 4.5 each, mutual defection yields 1 each, and the temptation to defect is only 0.5 (5 vs 4.5). The sucker's payoff (1.5) is better than mutual defection (1). In a finitely repeated game with multiple stage-game Nash equilibria (two pure asymmetric and one symmetric mixed), cooperation can be sustained in early rounds by threatening to revert to the mixed equilibrium (payoff 3) in later rounds. Starting with C signals willingness to cooperate and can lead to higher total payoffs over 10 rounds if the opponent reciprocates.""
+}"
+2026-10-12T11:50:17+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310861,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,28.988,7.87,36.858,0.0,2,"The payoff structure with the extra 2.5 points for choosing C makes cooperation (C) a strictly dominant strategy. Regardless of the opponent's move, choosing C yields a higher payoff: 5.5 vs 5 if opponent chooses C, and 2.5 vs 1 if opponent chooses D. Therefore, the rational choice in round 1 is C.","First, determine the base score from the payoff matrix. Since you chose C and the other player chose D, the rule 'you choose C, they choose D -> you score 0' applies, giving a base score of 0. Second, calculate the extra payment. The rules state each player gets an extra 2.5 points in any round they choose C. Since you chose C, you receive this bonus. Total score = base score (0) + extra payment (2.5) = 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""The payoff structure with the extra 2.5 points for choosing C makes cooperation (C) a strictly dominant strategy. Regardless of the opponent's move, choosing C yields a higher payoff: 5.5 vs 5 if opponent chooses C, and 2.5 vs 1 if opponent chooses D. Therefore, the rational choice in round 1 is C.""
+}"
+2026-10-12T11:51:48+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310857,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,66.572,24.459,91.031,0.0,2,"In a finitely repeated Prisoner's Dilemma with a known endpoint (10 rounds), backward induction dictates that the dominant strategy is to defect in every round. Since both players know the game ends after round 10, there is no future punishment for defection, making defection the rational choice in round 1 as well. The extra 0.0 points for cooperation does not affect the payoffs.","The base score for choosing C while the other player chooses D is 0. The extra payment for choosing C is 0.0 points. Therefore, the total score is 0 + 0.0 = 0.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""D"" ,""reasoning"": ""In a finitely repeated Prisoner's Dilemma with a known endpoint (10 rounds), backward induction dictates that the dominant strategy is to defect in every round. Since both players know the game ends after round 10, there is no future punishment for defection, making defection the rational choice in round 1 as well. The extra 0.0 points for cooperation does not affect the payoffs.""}"
+2026-10-12T11:53:00+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310845,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,56.467,15.444,71.91,0.0,2,"In this 10-round game, mutual cooperation (C,C) yields 4.5 points per round each, which is the highest symmetric payoff. Since the stage game has no dominant strategy and multiple Nash equilibria, starting with C signals willingness to cooperate and can lead to sustained cooperation if the opponent reciprocates. Defecting (D) risks triggering mutual defection or asymmetric outcomes with lower payoffs. Given the finite horizon but multiple equilibria, initiating cooperation is a reasonable strategy to maximize total score.","The base score for choosing C while the other player chooses D is 0 points. Since you chose C, you receive the extra payment of 1.5 points. Total = 0 + 1.5 = 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""In this 10-round game, mutual cooperation (C,C) yields 4.5 points per round each, which is the highest symmetric payoff. Since the stage game has no dominant strategy and multiple Nash equilibria, starting with C signals willingness to cooperate and can lead to sustained cooperation if the opponent reciprocates. Defecting (D) risks triggering mutual defection or asymmetric outcomes with lower payoffs. Given the finite horizon but multiple equilibria, initiating cooperation is a reasonable strategy to maximize total score.""}"
+2026-10-12T11:53:40+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310887,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,25.314,14.147,39.461,0.0,2,"This is a finite repeated Prisoner's Dilemma with a known endpoint of 10 rounds. By backward induction, the unique subgame-perfect equilibrium is to defect in every round. Since the opponent knows the game length and is rational, they will also defect. Defecting in round 1 is the dominant strategy and maximizes expected payoff given rational play. The extra 0.0 points for choosing C does not alter the incentives.","The base payoff for choosing C while the other player chooses D is 0 points. The extra payment for choosing C is 0.0 points. Therefore, the total score is 0 + 0.0 = 0.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""D"" 
+  , ""reasoning"": ""This is a finite repeated Prisoner's Dilemma with a known endpoint of 10 rounds. By backward induction, the unique subgame-perfect equilibrium is to defect in every round. Since the opponent knows the game length and is rational, they will also defect. Defecting in round 1 is the dominant strategy and maximizes expected payoff given rational play. The extra 0.0 points for choosing C does not alter the incentives.""
+}"
+2026-10-12T11:54:04+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310919,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,17.612,6.523,24.136,0.0,3,"The effective payoffs after adding the 16.2 bonus for choosing C make C a strictly dominant strategy in every round: if the opponent plays C, C yields 19.2 vs D's 5; if the opponent plays D, C yields 16.2 vs D's 1. Therefore, regardless of the opponent's behavior, choosing C maximizes my payoff in each round. In a finitely repeated game with a strictly dominant stage-game equilibrium, the unique subgame perfect equilibrium is to play C in every round.","In the round, you chose C and the other player chose D. According to the base payoff matrix, this yields 0 points. Additionally, each player receives an extra 16.2 points for every round they choose C. Since you chose C, you receive the extra 16.2 points. Total = 0 + 16.2 = 16.2.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""The effective payoffs after adding the 16.2 bonus for choosing C make C a strictly dominant strategy in every round: if the opponent plays C, C yields 19.2 vs D's 5; if the opponent plays D, C yields 16.2 vs D's 1. Therefore, regardless of the opponent's behavior, choosing C maximizes my payoff in each round. In a finitely repeated game with a strictly dominant stage-game equilibrium, the unique subgame perfect equilibrium is to play C in every round.""
+}"
+2026-10-12T12:00:42+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310851,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,380.321,17.305,397.625,0.0,3,"The stage game with the extra 1.5 points for cooperating transforms the Prisoner's Dilemma into a Hawk-Dove (Snowdrift) game where mutual cooperation (4.5 each) is better than the mixed Nash equilibrium (3.0 each). In a 10-round repeated game, cooperation can be sustained in early rounds by the threat of reverting to the mixed equilibrium. Starting with C signals willingness to cooperate and yields a higher payoff against a cooperating opponent (4.5) and a better payoff against a defecting opponent (1.5) than mutual defection (1.0).","The base payoff for choosing C while the opponent chooses D is 0. Since you chose C, you receive an extra 1.5 points. Total = 0 + 1.5 = 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""The stage game with the extra 1.5 points for cooperating transforms the Prisoner's Dilemma into a Hawk-Dove (Snowdrift) game where mutual cooperation (4.5 each) is better than the mixed Nash equilibrium (3.0 each). In a 10-round repeated game, cooperation can be sustained in early rounds by the threat of reverting to the mixed equilibrium. Starting with C signals willingness to cooperate and yields a higher payoff against a cooperating opponent (4.5) and a better payoff against a defecting opponent (1.5) than mutual defection (1.0).""}"
+2026-10-12T12:01:25+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,21.291,22.57,43.862,0.0,2,"The extra 16.2 points for choosing C makes C a strictly dominant strategy in each round: if opponent plays C, you get 19.2 vs 5; if opponent plays D, you get 16.2 vs 1. Thus, regardless of opponent's move, C yields a higher payoff. In a finite repeated game with a unique stage-game Nash equilibrium (C,C), backward induction dictates playing C in every round, including round 1.","The base payoff for you choosing C and the other player choosing D is 0 points. Since you chose C, you receive an extra 16.2 points. Therefore, your total points for that round are 0 + 16.2 = 16.2.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""The extra 16.2 points for choosing C makes C a strictly dominant strategy in each round: if opponent plays C, you get 19.2 vs 5; if opponent plays D, you get 16.2 vs 1. Thus, regardless of opponent's move, C yields a higher payoff. In a finite repeated game with a unique stage-game Nash equilibrium (C,C), backward induction dictates playing C in every round, including round 1.""}"
+2026-10-12T12:02:10+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310915,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,31.486,12.672,44.158,0.0,2,"Choosing C yields a strictly higher payoff than D regardless of the opponent's choice: if opponent chooses C, C gives 19.2 vs D's 5; if opponent chooses D, C gives 16.2 vs D's 1. Thus C is a dominant strategy, and the optimal choice in every round is C.","When you choose C and the other player chooses D, your base score is 0 (as per the given payoff matrix). Additionally, because you chose C, you receive an extra payment of 16.2 points. Therefore, your total points for that round are 0 + 16.2 = 16.2.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"", ""reasoning"": ""Choosing C yields a strictly higher payoff than D regardless of the opponent's choice: if opponent chooses C, C gives 19.2 vs D's 5; if opponent chooses D, C gives 16.2 vs D's 1. Thus C is a dominant strategy, and the optimal choice in every round is C."" }"
+2026-10-12T12:06:51+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310862,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,211.699,69.997,281.696,0.0,2,"The game is a finitely repeated Hawk-Dove (Chicken) game with 10 rounds and an extra 1.5 bonus for choosing C. The stage-game payoffs with the bonus are: (C,C) = (4.5,4.5); (C,D) = (1.5,5); (D,C) = (5,1.5); (D,D) = (1,1). The only symmetric stage-game Nash equilibrium is the mixed strategy (C with probability 0.5), yielding 3 each. However, because there are multiple stage-game Nash equilibria (two asymmetric pure ones and one symmetric mixed), a cooperative equilibrium can be sustained in the first 9 rounds using the asymmetric equilibria as credible punishments. The subgame-perfect cooperative plan: play C in rounds 1–9; in round 10 play the mixed equilibrium. If any player deviates, switch forever to the asymmetric equilibrium that punishes the deviator (giving them 1.5 per round). This yields 4.5×9 + 3 = 43.5 each, which is the maximum symmetric payoff. Since the game is symmetric and both players are rational, the first move of this equilibrium is C.","In the scenario where you choose C and the other player chooses D, the base score is 0 (according to the table: you choose C, they choose D -> you score 0). Since you chose C, you receive an extra 1.5 points. Therefore, your total points for the round are 0 + 1.5 = 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""The game is a finitely repeated Hawk-Dove (Chicken) game with 10 rounds and an extra 1.5 bonus for choosing C. The stage-game payoffs with the bonus are: (C,C) = (4.5,4.5); (C,D) = (1.5,5); (D,C) = (5,1.5); (D,D) = (1,1). The only symmetric stage-game Nash equilibrium is the mixed strategy (C with probability 0.5), yielding 3 each. However, because there are multiple stage-game Nash equilibria (two asymmetric pure ones and one symmetric mixed), a cooperative equilibrium can be sustained in the first 9 rounds using the asymmetric equilibria as credible punishments. The subgame-perfect cooperative plan: play C in rounds 1–9; in round 10 play the mixed equilibrium. If any player deviates, switch forever to the asymmetric equilibrium that punishes the deviator (giving them 1.5 per round). This yields 4.5×9 + 3 = 43.5 each, which is the maximum symmetric payoff. Since the game is symmetric and both players are rational, the first move of this equilibrium is C.""
+}"
+2026-10-12T12:07:37+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310880,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,D,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,39.934,5.424,45.358,0.0,2,"In this finitely repeated Prisoner's Dilemma with 10 rounds, backward induction implies that the unique subgame perfect equilibrium is to defect in every round. The extra 1.5 points for choosing C does not change the dominant strategy in the stage game: D yields a higher payoff than C regardless of the opponent's move (5 > 4.5 against C, and 1 > 1.5 against D). Since the game ends after round 10 and there are no future rounds to incentivize cooperation, defection is the rational choice in round 1 and all subsequent rounds.","The base score for choosing C while the opponent chooses D is 0. Since you chose C, you receive an extra payment of 1.5 points. Total = 0 + 1.5 = 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""D"" 
+  ,
+  ""reasoning"": ""In this finitely repeated Prisoner's Dilemma with 10 rounds, backward induction implies that the unique subgame perfect equilibrium is to defect in every round. The extra 1.5 points for choosing C does not change the dominant strategy in the stage game: D yields a higher payoff than C regardless of the opponent's move (5 > 4.5 against C, and 1 > 1.5 against D). Since the game ends after round 10 and there are no future rounds to incentivize cooperation, defection is the rational choice in round 1 and all subsequent rounds.""
+}"
+2026-10-12T12:08:14+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310920,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,28.462,9.379,37.841,0.0,2,"In this modified Prisoner's Dilemma, choosing C yields an extra 16.2 points per round. The resulting payoffs make C a strictly dominant strategy: against C, C gives 19.2 vs D's 5; against D, C gives 16.2 vs D's 1. Since the game lasts exactly 10 rounds and both players know this, backward induction dictates playing the dominant strategy C in every round. Therefore, I choose C.","When you choose C and the other player chooses D, your base score is 0. Since you chose C, you receive an extra 16.2 points. Total = 0 + 16.2 = 16.2.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+    ""action"": ""C"",
+    ""reasoning"": ""In this modified Prisoner's Dilemma, choosing C yields an extra 16.2 points per round. The resulting payoffs make C a strictly dominant strategy: against C, C gives 19.2 vs D's 5; against D, C gives 16.2 vs D's 1. Since the game lasts exactly 10 rounds and both players know this, backward induction dictates playing the dominant strategy C in every round. Therefore, I choose C.""
+}"
+2026-10-12T12:24:33+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310915,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,899.828,78.365,978.193,0.0,4,"The stage game with the 1.5 bonus for cooperating yields payoffs: (C,C)=4.5, (D,C)=5, (C,D)=1.5, (D,D)=1. This is a Hawk-Dove (Chicken) game, not a Prisoner's Dilemma. In the finitely repeated 10-round game, there exist subgame-perfect equilibria where both players cooperate (C) for the first 9 rounds and then play a stage-game Nash equilibrium (e.g., the symmetric mixed equilibrium) in round 10. Cooperating in round 1 initiates this cooperative path and yields a higher total payoff than defecting, given rational play. Moreover, C is the safer choice in round 1 because its worst-case payoff (1.5 against D) exceeds the worst-case payoff of D (1 against D).","When you choose C and the other player chooses D, your base score is 0 (from the table). Since you chose C, you receive an extra payment of 1.5 points. Total points = 0 + 1.5 = 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""The stage game with the 1.5 bonus for cooperating yields payoffs: (C,C)=4.5, (D,C)=5, (C,D)=1.5, (D,D)=1. This is a Hawk-Dove (Chicken) game, not a Prisoner's Dilemma. In the finitely repeated 10-round game, there exist subgame-perfect equilibria where both players cooperate (C) for the first 9 rounds and then play a stage-game Nash equilibrium (e.g., the symmetric mixed equilibrium) in round 10. Cooperating in round 1 initiates this cooperative path and yields a higher total payoff than defecting, given rational play. Moreover, C is the safer choice in round 1 because its worst-case payoff (1.5 against D) exceeds the worst-case payoff of D (1 against D).""
+}"
+2026-10-12T12:24:54+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310896,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,14.699,6.622,21.321,0.0,2,"The extra 16.2 points for choosing C makes cooperation a strictly dominant strategy: if opponent plays C, cooperating yields 19.2 vs defecting 5; if opponent plays D, cooperating yields 16.2 vs defecting 1. Therefore, choose C.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive an extra payment of 16.2 points. Therefore, your total points for that round are 0 + 16.2 = 16.2.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""The extra 16.2 points for choosing C makes cooperation a strictly dominant strategy: if opponent plays C, cooperating yields 19.2 vs defecting 5; if opponent plays D, cooperating yields 16.2 vs defecting 1. Therefore, choose C.""}"
+2026-10-12T12:25:55+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310907,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,51.857,8.986,60.843,0.0,2,"In each round, choosing C yields a base payoff plus an extra 16.2 points, while choosing D yields only the base payoff. The effective payoffs are: both C → 19.2 each; both D → 1 each; you C, opponent D → 16.2 for you, 5 for opponent; you D, opponent C → 5 for you, 16.2 for opponent. Since 16.2 > 5 and 19.2 > 1, choosing C strictly dominates D regardless of the opponent's move. With a finite horizon of 10 rounds and a dominant strategy in the stage game, the subgame-perfect equilibrium is to play C in every round.","When you choose C and the other player chooses D, your base score is 0. Since you chose C, you receive an extra payment of 16.2 points. Total = 0 + 16.2 = 16.2.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C""
+  ,
+  ""reasoning"": ""In each round, choosing C yields a base payoff plus an extra 16.2 points, while choosing D yields only the base payoff. The effective payoffs are: both C → 19.2 each; both D → 1 each; you C, opponent D → 16.2 for you, 5 for opponent; you D, opponent C → 5 for you, 16.2 for opponent. Since 16.2 > 5 and 19.2 > 1, choosing C strictly dominates D regardless of the opponent's move. With a finite horizon of 10 rounds and a dominant strategy in the stage game, the subgame-perfect equilibrium is to play C in every round.""
+}"
+2026-10-12T12:28:23+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310842,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,136.791,10.862,147.653,0.0,2,"This is a 10-round repeated game with a modified Prisoner's Dilemma payoff structure that includes a +1.5 bonus for cooperating. The effective stage-game payoffs are: (C,C)=4.5 each; (C,D)=1.5 for cooperator, 5 for defector; (D,C)=5 for defector, 1.5 for cooperator; (D,D)=1 each. This game has two pure Nash equilibria: (C,D) and (D,C), and a mixed equilibrium yielding 3 each. Mutual cooperation (4.5 each) is Pareto-superior to the mixed equilibrium. In a finite repeated game with multiple stage-game equilibria, cooperation can be sustained via trigger strategies that threaten to switch to the asymmetric equilibrium favoring the non-deviator. Since both players know the horizon and are presumably rational, the first move should be C to initiate the cooperative path. Playing C is also a best response against an always-defect opponent (1.5 > 1) and avoids the risk of mutual defection (1 each) that could arise if both try to exploit. Therefore, I choose C.","The base score for choosing C while the opponent chooses D is 0. Since you chose C, you receive an extra 1.5 points. Therefore, your total points for the round are 0 + 1.5 = 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""This is a 10-round repeated game with a modified Prisoner's Dilemma payoff structure that includes a +1.5 bonus for cooperating. The effective stage-game payoffs are: (C,C)=4.5 each; (C,D)=1.5 for cooperator, 5 for defector; (D,C)=5 for defector, 1.5 for cooperator; (D,D)=1 each. This game has two pure Nash equilibria: (C,D) and (D,C), and a mixed equilibrium yielding 3 each. Mutual cooperation (4.5 each) is Pareto-superior to the mixed equilibrium. In a finite repeated game with multiple stage-game equilibria, cooperation can be sustained via trigger strategies that threaten to switch to the asymmetric equilibrium favoring the non-deviator. Since both players know the horizon and are presumably rational, the first move should be C to initiate the cooperative path. Playing C is also a best response against an always-defect opponent (1.5 > 1) and avoids the risk of mutual defection (1 each) that could arise if both try to exploit. Therefore, I choose C.""
+}"
+2026-10-12T12:29:31+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310887,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,50.424,18.285,68.709,0.0,2,"In this game, choosing C gives an extra 2.5 points per round regardless of the opponent's move. The effective payoffs are: (C,C) = 5.5 each; (D,C) = 5.0 for defector, 2.5 for cooperator; (C,D) = 2.5 for cooperator, 5.0 for defector; (D,D) = 1.0 each. Since C yields a higher payoff than D against both C (5.5 > 5.0) and D (2.5 > 1.0), C is a strictly dominant strategy. In a finite game with a unique dominant strategy equilibrium, backward induction dictates playing C in every round. Therefore, I choose C.","You choose C and the opponent chooses D. According to the base payoff matrix, when you choose C and they choose D, your base score is 0. Additionally, since you chose C, you receive an extra 2.5 points. Therefore, your total points for that round are 0 + 2.5 = 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C""
+  ,
+  ""reasoning"": ""In this game, choosing C gives an extra 2.5 points per round regardless of the opponent's move. The effective payoffs are: (C,C) = 5.5 each; (D,C) = 5.0 for defector, 2.5 for cooperator; (C,D) = 2.5 for cooperator, 5.0 for defector; (D,D) = 1.0 each. Since C yields a higher payoff than D against both C (5.5 > 5.0) and D (2.5 > 1.0), C is a strictly dominant strategy. In a finite game with a unique dominant strategy equilibrium, backward induction dictates playing C in every round. Therefore, I choose C.""
+}"
+2026-10-12T12:30:25+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310925,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,28.089,25.423,53.511,0.0,2,"In this game, choosing C yields a strictly higher payoff than D regardless of the opponent's choice, due to the extra 2.5 points for choosing C. The effective payoffs are: (C,C) = (5.5,5.5); (C,D) = (2.5,5); (D,C) = (5,2.5); (D,D) = (1,1). Since C dominates D in every round and the game has a known finite horizon (10 rounds), the unique subgame perfect equilibrium is to play C in every round.","First, determine the base score from the payoff matrix. Since you chose C and the other player chose D, your base score is 0. Second, apply the extra payment rule: you receive an extra 2.5 points for choosing C. Total score = 0 + 2.5 = 2.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" 
+  , ""reasoning"": ""In this game, choosing C yields a strictly higher payoff than D regardless of the opponent's choice, due to the extra 2.5 points for choosing C. The effective payoffs are: (C,C) = (5.5,5.5); (C,D) = (2.5,5); (D,C) = (5,2.5); (D,D) = (1,1). Since C dominates D in every round and the game has a known finite horizon (10 rounds), the unique subgame perfect equilibrium is to play C in every round."" 
+}"
+2026-10-12T12:30:53+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310872,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,23.38,5.197,28.577,0.0,2,"In this modified prisoner's dilemma, each player receives an extra 16.2 points for choosing C in any round. This makes cooperation strictly dominant: choosing C yields either 19.2 (if opponent chooses C) or 16.2 (if opponent chooses D), while choosing D yields either 5.0 or 1.0. Since 16.2 > 5.0 and 19.2 > 1.0, C is the optimal choice regardless of the opponent's action, and this holds in every round of the 10-round game.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive the extra payment of 16.2 points. Total = 0 + 16.2 = 16.2.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In this modified prisoner's dilemma, each player receives an extra 16.2 points for choosing C in any round. This makes cooperation strictly dominant: choosing C yields either 19.2 (if opponent chooses C) or 16.2 (if opponent chooses D), while choosing D yields either 5.0 or 1.0. Since 16.2 > 5.0 and 19.2 > 1.0, C is the optimal choice regardless of the opponent's action, and this holds in every round of the 10-round game.""
+}"
+2026-10-12T12:31:52+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310832,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,48.922,9.524,58.446,0.0,2,"The stage game has a strictly dominant strategy: choosing C yields a higher payoff regardless of the opponent's choice (2.5 > 1 if opponent plays D, and 5.5 > 5 if opponent plays C). Since the game is finite (10 rounds) with a known horizon and the stage game has a unique dominant-strategy equilibrium, backward induction dictates playing C in every round. Thus, in round 1, the optimal choice is C.","Base score for (C, D) is 0. Extra payment for choosing C is 2.5. Total = 0 + 2.5 = 2.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{	""action"": ""C"",
+	""reasoning"": ""The stage game has a strictly dominant strategy: choosing C yields a higher payoff regardless of the opponent's choice (2.5 > 1 if opponent plays D, and 5.5 > 5 if opponent plays C). Since the game is finite (10 rounds) with a known horizon and the stage game has a unique dominant-strategy equilibrium, backward induction dictates playing C in every round. Thus, in round 1, the optimal choice is C.""
+}"
+2026-10-12T12:32:09+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310860,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,10.72,6.302,17.021,0.0,3,"In a finitely repeated Prisoner's Dilemma with a known endpoint of 10 rounds, backward induction dictates that the dominant strategy is to defect in every round. Since this is round 1 and there is no history, the rational choice is to defect.",The base score for choosing C while the opponent chooses D is 0 points. The extra payment for choosing C is 0.0 points. Total score = 0 + 0.0 = 0.,"This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""D"",
+  ""reasoning"": ""In a finitely repeated Prisoner's Dilemma with a known endpoint of 10 rounds, backward induction dictates that the dominant strategy is to defect in every round. Since this is round 1 and there is no history, the rational choice is to defect.""
+}"
+2026-10-12T12:33:02+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310841,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,29.587,23.957,53.544,0.0,2,"The extra 2.5 points for choosing C makes C a dominant strategy in each round. Regardless of the opponent's choice, choosing C yields a higher payoff: if opponent chooses D, C gives 2.5 vs D's 1; if opponent chooses C, C gives 5.5 vs D's 5. Since the game has a known finite horizon (10 rounds) and C is dominant in the stage game, the subgame perfect equilibrium is to play C in every round. Therefore, I choose C in round 1.","The base payoff for choosing C while the opponent chooses D is 0. Since you chose C, you receive an extra payment of 2.5 points. Total = 0 + 2.5 = 2.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{  ""action"": ""C"",
+  ""reasoning"": ""The extra 2.5 points for choosing C makes C a dominant strategy in each round. Regardless of the opponent's choice, choosing C yields a higher payoff: if opponent chooses D, C gives 2.5 vs D's 1; if opponent chooses C, C gives 5.5 vs D's 5. Since the game has a known finite horizon (10 rounds) and C is dominant in the stage game, the subgame perfect equilibrium is to play C in every round. Therefore, I choose C in round 1.""}"
+2026-10-12T12:34:10+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310926,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,59.561,7.897,67.458,0.0,2,"In this modified Prisoner's Dilemma, choosing C yields an extra 16.2 points per round. The resulting payoffs are: C,C = 19.2 each; C,D = 16.2 for C, 5 for D; D,C = 5 for D, 16.2 for C; D,D = 1 each. Since 16.2 > 5 and 19.2 > 1, C is a strictly dominant strategy regardless of the opponent's move. In a finite 10-round game with known length, backward induction confirms playing C every round. Therefore, I choose C in round 1.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive an extra payment of 16.2 points. Total score = 0 + 16.2 = 16.2.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"", ""reasoning"": ""In this modified Prisoner's Dilemma, choosing C yields an extra 16.2 points per round. The resulting payoffs are: C,C = 19.2 each; C,D = 16.2 for C, 5 for D; D,C = 5 for D, 16.2 for C; D,D = 1 each. Since 16.2 > 5 and 19.2 > 1, C is a strictly dominant strategy regardless of the opponent's move. In a finite 10-round game with known length, backward induction confirms playing C every round. Therefore, I choose C in round 1."" }"
+2026-10-12T12:34:53+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310848,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,32.89,9.847,42.738,0.0,2,"The extra 16.2 points for choosing C makes cooperation a strictly dominant strategy. Regardless of the opponent's move, choosing C yields a higher payoff: if opponent chooses C, C gives 19.2 vs D's 5; if opponent chooses D, C gives 16.2 vs D's 1. Since the game lasts 10 rounds and both players are rational, the unique equilibrium is mutual cooperation in every round. Thus, I choose C in round 1.","When you choose C and the other player chooses D, your base score is 0. Since you chose C, you receive an extra payment of 16.2 points. Therefore, your total points for the round are 0 + 16.2 = 16.2.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" 
+  ,""reasoning"": ""The extra 16.2 points for choosing C makes cooperation a strictly dominant strategy. Regardless of the opponent's move, choosing C yields a higher payoff: if opponent chooses C, C gives 19.2 vs D's 5; if opponent chooses D, C gives 16.2 vs D's 1. Since the game lasts 10 rounds and both players are rational, the unique equilibrium is mutual cooperation in every round. Thus, I choose C in round 1."" 
+}"
+2026-10-12T12:35:25+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310832,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,17.378,15.486,32.863,0.0,2,"In each round, choosing C yields a strictly higher payoff than D regardless of the opponent's choice due to the extra 16.2 points for choosing C. If opponent chooses C: C gives 19.2 vs D gives 5. If opponent chooses D: C gives 16.2 vs D gives 1. Thus C is a strictly dominant strategy in the stage game. With a finite horizon of 10 rounds and no future repercussions, backward induction dictates playing C in every round, including round 1.","The base score for you choosing C while the other player chooses D is 0. Since you chose C, you receive an extra 16.2 points. Therefore, your total points for the round are 0 + 16.2 = 16.2.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""In each round, choosing C yields a strictly higher payoff than D regardless of the opponent's choice due to the extra 16.2 points for choosing C. If opponent chooses C: C gives 19.2 vs D gives 5. If opponent chooses D: C gives 16.2 vs D gives 1. Thus C is a strictly dominant strategy in the stage game. With a finite horizon of 10 rounds and no future repercussions, backward induction dictates playing C in every round, including round 1.""}"
+2026-10-12T12:36:11+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310873,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,33.643,11.962,45.605,0.0,4,"Choosing C yields a strictly higher payoff than D regardless of the opponent's move because the extra 16.2 points for choosing C dominates the temptation payoffs. If opponent plays C: C gives 19.2 vs D gives 5. If opponent plays D: C gives 16.2 vs D gives 1. Thus C is a strictly dominant strategy in every round, including round 1.","In the round where you choose C and the other player chooses D, your base score from the payoff matrix is 0. Since you chose C, you receive an extra payment of 16.2 points. Total points = 0 + 16.2 = 16.2.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" 
+  , ""reasoning"": ""Choosing C yields a strictly higher payoff than D regardless of the opponent's move because the extra 16.2 points for choosing C dominates the temptation payoffs. If opponent plays C: C gives 19.2 vs D gives 5. If opponent plays D: C gives 16.2 vs D gives 1. Thus C is a strictly dominant strategy in every round, including round 1.""
+}"
+2026-10-12T12:41:58+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310865,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,31.058,316.244,347.301,0.0,3,"Choosing C yields a strictly higher payoff regardless of the opponent's choice: if opponent chooses C, I get 19.2 vs 5; if opponent chooses D, I get 16.2 vs 1. Since 16.2 > 5 and 19.2 > 1, C is a strictly dominant strategy in every round. Therefore, I should choose C in round 1 and all subsequent rounds.","The base score for choosing C while the opponent chooses D is 0. Since you chose C, you receive an extra 16.2 points. Total = 0 + 16.2 = 16.2.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C yields a strictly higher payoff regardless of the opponent's choice: if opponent chooses C, I get 19.2 vs 5; if opponent chooses D, I get 16.2 vs 1. Since 16.2 > 5 and 19.2 > 1, C is a strictly dominant strategy in every round. Therefore, I should choose C in round 1 and all subsequent rounds.""
+}"
+2026-10-12T12:47:00+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310848,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,236.026,65.346,301.372,0.0,2,"In this 10-round repeated game, the stage game is a Hawk-Dove (Chicken) game with payoffs: (C,C)=4.5, (D,D)=1, (D,C)=5/1.5, (C,D)=1.5/5. There are two pure asymmetric Nash equilibria and one symmetric mixed equilibrium (p=0.5). Because multiple stage-game equilibria exist, cooperation (C,C) can be sustained for rounds 1–9 using a subgame-perfect trigger strategy: play C as long as both cooperate; if a player deviates, switch to the pure equilibrium that punishes the deviator (giving them 1.5 per round) for all remaining rounds; in round 10, if no deviation has occurred, play the mixed equilibrium (3 each). This yields a total of 4.5×9 + 3 = 43.5, which dominates the 30 from playing mixed every round. Since both players are rational and the game is common knowledge, the cooperative equilibrium is attainable and Pareto-superior. Therefore, the optimal first-round move is C to initiate cooperation.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive an extra payment of 1.5 points. Total score = 0 + 1.5 = 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" , ""reasoning"": ""In this 10-round repeated game, the stage game is a Hawk-Dove (Chicken) game with payoffs: (C,C)=4.5, (D,D)=1, (D,C)=5/1.5, (C,D)=1.5/5. There are two pure asymmetric Nash equilibria and one symmetric mixed equilibrium (p=0.5). Because multiple stage-game equilibria exist, cooperation (C,C) can be sustained for rounds 1–9 using a subgame-perfect trigger strategy: play C as long as both cooperate; if a player deviates, switch to the pure equilibrium that punishes the deviator (giving them 1.5 per round) for all remaining rounds; in round 10, if no deviation has occurred, play the mixed equilibrium (3 each). This yields a total of 4.5×9 + 3 = 43.5, which dominates the 30 from playing mixed every round. Since both players are rational and the game is common knowledge, the cooperative equilibrium is attainable and Pareto-superior. Therefore, the optimal first-round move is C to initiate cooperation."" }"
+2026-10-12T12:47:50+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310851,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,41.253,8.593,49.846,0.0,2,"In this finite repeated game with 10 rounds, the stage game has a strictly dominant strategy: choosing C yields a higher payoff regardless of the opponent's choice (5.5 vs 5.0 if opponent chooses C; 2.5 vs 1.0 if opponent chooses D). By backward induction, since the final round has a dominant strategy of C, and future payoffs are independent of current actions, C remains dominant in all preceding rounds. Therefore, the rational choice in round 1 is C.","When you choose C and the other player chooses D, your base score is 0 according to the given payoff matrix. Additionally, because you chose C, you receive an extra payment of 2.5 points. Therefore, your total points for that round are 0 + 2.5 = 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In this finite repeated game with 10 rounds, the stage game has a strictly dominant strategy: choosing C yields a higher payoff regardless of the opponent's choice (5.5 vs 5.0 if opponent chooses C; 2.5 vs 1.0 if opponent chooses D). By backward induction, since the final round has a dominant strategy of C, and future payoffs are independent of current actions, C remains dominant in all preceding rounds. Therefore, the rational choice in round 1 is C.""
+}"
+2026-10-12T12:48:32+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310837,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,27.98,14.404,42.384,0.0,2,"The payoff matrix with the extra 16.2 points for choosing C makes C a strictly dominant strategy: if the opponent plays C, you get 19.2 for C vs 5 for D; if the opponent plays D, you get 16.2 for C vs 1 for D. Since the game lasts exactly 10 rounds and both players know this, backward induction dictates playing the dominant strategy C in every round. Therefore, in round 1, choose C.","The base score for choosing C while the opponent chooses D is 0. Since you chose C, you receive an extra payment of 16.2 points. Therefore, your total points for that round are 0 + 16.2 = 16.2.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" , ""reasoning"": ""The payoff matrix with the extra 16.2 points for choosing C makes C a strictly dominant strategy: if the opponent plays C, you get 19.2 for C vs 5 for D; if the opponent plays D, you get 16.2 for C vs 1 for D. Since the game lasts exactly 10 rounds and both players know this, backward induction dictates playing the dominant strategy C in every round. Therefore, in round 1, choose C."" }"
+2026-10-12T12:50:40+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310883,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,76.57,51.68,128.25,0.0,2,"The payoff matrix with the extra 2.5 points for choosing C makes C a strictly dominant strategy: if opponent plays C, C yields 5.5 vs D's 5; if opponent plays D, C yields 2.5 vs D's 1. Since the game is finite and rounds are independent, the optimal choice in every round is C regardless of history or opponent behavior.","Base score for you choosing C and opponent choosing D is 0. Since you chose C, you receive an extra 2.5 points. Total = 0 + 2.5 = 2.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""The payoff matrix with the extra 2.5 points for choosing C makes C a strictly dominant strategy: if opponent plays C, C yields 5.5 vs D's 5; if opponent plays D, C yields 2.5 vs D's 1. Since the game is finite and rounds are independent, the optimal choice in every round is C regardless of history or opponent behavior.""
+}"
+2026-10-12T12:51:46+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310890,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,58.083,7.399,65.482,0.0,2,"This is a 10-round repeated game with a modified payoff structure. The +1.5 bonus for choosing C changes the game from Prisoner's Dilemma to a Snowdrift/Chicken game where: (C,C)=4.5 each, (D,C)=5/1.5, (C,D)=1.5/5, (D,D)=1 each. The temptation to defect against cooperation is only 0.5 points (5.0 vs 4.5), while mutual cooperation yields 4.5 vs 1.0 for mutual defection. With 10 rounds known, cooperation is highly sustainable via trigger strategies - the one-time gain of 0.5 from defecting is far outweighed by potential loss of 3.0/round for 9 rounds. Starting with C signals willingness to cooperate and establishes the mutually beneficial (C,C) path.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive an extra payment of 1.5 points. Total score = 0 + 1.5 = 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""This is a 10-round repeated game with a modified payoff structure. The +1.5 bonus for choosing C changes the game from Prisoner's Dilemma to a Snowdrift/Chicken game where: (C,C)=4.5 each, (D,C)=5/1.5, (C,D)=1.5/5, (D,D)=1 each. The temptation to defect against cooperation is only 0.5 points (5.0 vs 4.5), while mutual cooperation yields 4.5 vs 1.0 for mutual defection. With 10 rounds known, cooperation is highly sustainable via trigger strategies - the one-time gain of 0.5 from defecting is far outweighed by potential loss of 3.0/round for 9 rounds. Starting with C signals willingness to cooperate and establishes the mutually beneficial (C,C) path.""}"
+2026-10-12T12:52:24+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310914,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,22.338,16.162,38.5,0.0,3,"Choosing C is a strictly dominant strategy in every round: against opponent's C, C yields 19.2 vs D's 5; against opponent's D, C yields 16.2 vs D's 1. This holds for all 10 rounds. The opponent has the same incentive, so mutual cooperation is the equilibrium.","When you choose C and the other player chooses D, the base score is 0. Since you chose C, you receive an extra payment of 16.2 points. Total points = 0 + 16.2 = 16.2.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""Choosing C is a strictly dominant strategy in every round: against opponent's C, C yields 19.2 vs D's 5; against opponent's D, C yields 16.2 vs D's 1. This holds for all 10 rounds. The opponent has the same incentive, so mutual cooperation is the equilibrium.""}"
+2026-10-12T12:53:30+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310889,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,44.406,21.67,66.075,0.0,2,"Choosing C yields a strictly higher payoff than D regardless of the opponent's choice. With the extra 16.2 points for choosing C, the payoffs are: C vs C = 19.2, C vs D = 16.2, D vs C = 5, D vs D = 1. Since 19.2 > 5 and 16.2 > 1, C is a dominant strategy. In a finite repeated game with known rounds, backward induction confirms C in every round.","The base score for choosing C while the opponent chooses D is 0. Since you chose C, you receive the extra payment of 16.2 points. Total = 0 + 16.2 = 16.2.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C yields a strictly higher payoff than D regardless of the opponent's choice. With the extra 16.2 points for choosing C, the payoffs are: C vs C = 19.2, C vs D = 16.2, D vs C = 5, D vs D = 1. Since 19.2 > 5 and 16.2 > 1, C is a dominant strategy. In a finite repeated game with known rounds, backward induction confirms C in every round.""
+}"
+2026-10-12T12:53:55+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310872,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,18.386,6.145,24.531,0.0,2,"The modified payoff matrix makes cooperation (C) a strictly dominant strategy: choosing C yields 5.5 if the opponent cooperates (vs 5 for D) and 2.5 if the opponent defects (vs 1 for D). Since this holds in every round regardless of history, the optimal move is to cooperate.","The base payoff for choosing C while the other player chooses D is 0 points. Since you chose C, you receive an extra payment of 2.5 points. Total score = 0 + 2.5 = 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+    ""action"": ""C"",
+    ""reasoning"": ""The modified payoff matrix makes cooperation (C) a strictly dominant strategy: choosing C yields 5.5 if the opponent cooperates (vs 5 for D) and 2.5 if the opponent defects (vs 1 for D). Since this holds in every round regardless of history, the optimal move is to cooperate.""
+}"
+2026-10-12T12:54:52+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310840,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,34.507,22.692,57.199,0.0,2,"In each round, choosing C yields an extra 16.2 points. The resulting payoffs are: (C,C) -> 19.2 each; (C,D) -> 16.2 for cooperator, 5 for defector; (D,C) -> 5 for defector, 16.2 for cooperator; (D,D) -> 1 each. Since 19.2 > 5 and 16.2 > 1, C strictly dominates D regardless of the opponent's move. In a finitely repeated game with a strictly dominant stage-game strategy, the unique subgame perfect equilibrium is to play C every round. Therefore, I choose C in round 1.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive an extra payment of 16.2 points. Total points = 0 + 16.2 = 16.2.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"" , ""reasoning"": ""In each round, choosing C yields an extra 16.2 points. The resulting payoffs are: (C,C) -> 19.2 each; (C,D) -> 16.2 for cooperator, 5 for defector; (D,C) -> 5 for defector, 16.2 for cooperator; (D,D) -> 1 each. Since 19.2 > 5 and 16.2 > 1, C strictly dominates D regardless of the opponent's move. In a finitely repeated game with a strictly dominant stage-game strategy, the unique subgame perfect equilibrium is to play C every round. Therefore, I choose C in round 1.""}"
+2026-10-12T13:12:52+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310909,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,1072.444,7.365,1079.81,0.0,6,"The stage game is a variant of Chicken (Hawk-Dove) with payoffs: (C,C)=4.5 each, (C,D)=1.5/5, (D,C)=5/1.5, (D,D)=1 each. There is no dominant strategy. Mutual cooperation (C,C) yields a symmetric, Pareto-efficient outcome (4.5 each) which is only slightly less than the temptation payoff (5) and avoids the risk of mutual defection (1 each) or exploitation (1.5). In a finitely repeated game with multiple stage-game Nash equilibria, cooperation can be sustained in early rounds by the threat of switching to an asymmetric equilibrium in the final round. Playing C in round 1 signals willingness to cooperate and is the safest choice if the opponent's strategy is unknown, as it yields a higher payoff than D when the opponent defects (1.5 vs 1).","In the round described, you choose C and the other player chooses D. According to the base payoff matrix, when you choose C and the opponent chooses D, your base score is 0. Additionally, because you chose C, you receive an extra payment of 1.5 points. Therefore, your total points for the round are 0 + 1.5 = 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""The stage game is a variant of Chicken (Hawk-Dove) with payoffs: (C,C)=4.5 each, (C,D)=1.5/5, (D,C)=5/1.5, (D,D)=1 each. There is no dominant strategy. Mutual cooperation (C,C) yields a symmetric, Pareto-efficient outcome (4.5 each) which is only slightly less than the temptation payoff (5) and avoids the risk of mutual defection (1 each) or exploitation (1.5). In a finitely repeated game with multiple stage-game Nash equilibria, cooperation can be sustained in early rounds by the threat of switching to an asymmetric equilibrium in the final round. Playing C in round 1 signals willingness to cooperate and is the safest choice if the opponent's strategy is unknown, as it yields a higher payoff than D when the opponent defects (1.5 vs 1).""
+}"
+2026-10-12T13:21:36+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310892,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,505.765,18.172,523.937,0.0,3,"The stage game with the cooperation bonus has no dominant strategy and features two asymmetric pure Nash equilibria (C,D) and (D,C) plus a symmetric mixed equilibrium. The mutually cooperative outcome (C,C) yields 4.5 each, which is Pareto optimal. In a finitely repeated game with multiple stage-game equilibria, cooperation can be sustained in early rounds by threatening to revert to a less desirable equilibrium (like the mixed equilibrium yielding 3) in later rounds. Since this is the first round of 10, playing C signals a willingness to cooperate and can establish a cooperative path if the opponent is similarly inclined. Defecting (D) risks mutual defection or a breakdown to low-payoff equilibria. Therefore, C is the best opening move to maximize expected total payoff.","In the round, you choose C and the other player chooses D. According to the base payoff table, when you choose C and the opponent chooses D, your base score is 0. Additionally, because you chose C, you receive an extra payment of 1.5 points. Therefore, your total points for the round are 0 + 1.5 = 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C""
+  , ""reasoning"": ""The stage game with the cooperation bonus has no dominant strategy and features two asymmetric pure Nash equilibria (C,D) and (D,C) plus a symmetric mixed equilibrium. The mutually cooperative outcome (C,C) yields 4.5 each, which is Pareto optimal. In a finitely repeated game with multiple stage-game equilibria, cooperation can be sustained in early rounds by threatening to revert to a less desirable equilibrium (like the mixed equilibrium yielding 3) in later rounds. Since this is the first round of 10, playing C signals a willingness to cooperate and can establish a cooperative path if the opponent is similarly inclined. Defecting (D) risks mutual defection or a breakdown to low-payoff equilibria. Therefore, C is the best opening move to maximize expected total payoff.""
+}"
+2026-10-12T13:22:31+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310839,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,46.805,8.705,55.51,0.0,2,"The extra 2.5 points for choosing C makes cooperation a dominant strategy: if the opponent plays C, C yields 5.5 vs D's 5; if the opponent plays D, C yields 2.5 vs D's 1. Thus, regardless of the opponent's move, C gives a higher payoff. Since the game is finite and both players know this, the rational choice in every round is C.","The base score for choosing C while the other player chooses D is 0 points. Since you chose C, you receive an extra payment of 2.5 points. Total score = 0 + 2.5 = 2.5 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""The extra 2.5 points for choosing C makes cooperation a dominant strategy: if the opponent plays C, C yields 5.5 vs D's 5; if the opponent plays D, C yields 2.5 vs D's 1. Thus, regardless of the opponent's move, C gives a higher payoff. Since the game is finite and both players know this, the rational choice in every round is C.""
+}"
+2026-10-12T13:23:06+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310835,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,27.673,7.257,34.93,0.0,2,"In the stage game, choosing C yields a strictly higher payoff than D regardless of the opponent's choice: if opponent plays D, C gives 2.5 vs 1; if opponent plays C, C gives 5.5 vs 5. Since the extra 2.5 points for choosing C is awarded each round independently, C is a dominant strategy in every round. Therefore, the optimal move in round 1 (and all rounds) is C.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive an extra payment of 2.5 points. Therefore, your total points for that round are 0 + 2.5 = 2.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C""
+  ,
+  ""reasoning"": ""In the stage game, choosing C yields a strictly higher payoff than D regardless of the opponent's choice: if opponent plays D, C gives 2.5 vs 1; if opponent plays C, C gives 5.5 vs 5. Since the extra 2.5 points for choosing C is awarded each round independently, C is a dominant strategy in every round. Therefore, the optimal move in round 1 (and all rounds) is C.""
+}"
+2026-10-12T13:27:45+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310888,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,211.687,66.861,278.548,0.0,3,"In this modified Prisoner's Dilemma, choosing C yields an extra 1.5 points per round, making the payoff matrix: (C,C)=4.5 each; (C,D)=1.5/5; (D,C)=5/1.5; (D,D)=1 each. The stage game has two pure Nash equilibria (C,D) and (D,C) and a mixed equilibrium at 0.5. With 10 rounds, cooperation can potentially be sustained. Choosing C is the maximin strategy (guarantees at least 1.5) and signals willingness to cooperate, which is a strong opening move in repeated games to achieve the mutually beneficial (C,C) outcome worth 4.5 per round.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive an extra payment of 1.5 points. Total score = 0 + 1.5 = 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" , ""reasoning"": ""In this modified Prisoner's Dilemma, choosing C yields an extra 1.5 points per round, making the payoff matrix: (C,C)=4.5 each; (C,D)=1.5/5; (D,C)=5/1.5; (D,D)=1 each. The stage game has two pure Nash equilibria (C,D) and (D,C) and a mixed equilibrium at 0.5. With 10 rounds, cooperation can potentially be sustained. Choosing C is the maximin strategy (guarantees at least 1.5) and signals willingness to cooperate, which is a strong opening move in repeated games to achieve the mutually beneficial (C,C) outcome worth 4.5 per round."" }"
+2026-10-12T13:28:28+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310842,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,24.834,18.036,42.87,0.0,3,"The extra 16.2 points for choosing C makes C a strictly dominant strategy in every round regardless of the opponent's choice. In a finite 10-round game with known length, backward induction confirms that C is optimal in all rounds. Choosing C yields at least 16.2, while choosing D yields at most 5.","When you choose C and the other player chooses D, your base score from the payoff matrix is 0. Additionally, you receive an extra 16.2 points for choosing C. Therefore, your total points for that round are 0 + 16.2 = 16.2.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""The extra 16.2 points for choosing C makes C a strictly dominant strategy in every round regardless of the opponent's choice. In a finite 10-round game with known length, backward induction confirms that C is optimal in all rounds. Choosing C yields at least 16.2, while choosing D yields at most 5.""
+}"
+2026-10-12T13:29:35+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310906,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,51.127,16.017,67.144,0.0,2,"The extra 16.2 points for choosing C makes cooperation a strictly dominant strategy in the stage game. Regardless of the opponent's choice, playing C yields a higher payoff (19.2 vs 5 if opponent plays C; 16.2 vs 1 if opponent plays D). In a finitely repeated game with a known horizon and a unique stage-game Nash equilibrium, the subgame perfect equilibrium is to play the dominant strategy C in every round. Therefore, I choose C on round 1.","When you choose C and the other player chooses D, your base score is 0. Since you chose C, you receive an extra payment of 16.2 points. Total = 0 + 16.2 = 16.2.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C""
+  , ""reasoning"": ""The extra 16.2 points for choosing C makes cooperation a strictly dominant strategy in the stage game. Regardless of the opponent's choice, playing C yields a higher payoff (19.2 vs 5 if opponent plays C; 16.2 vs 1 if opponent plays D). In a finitely repeated game with a known horizon and a unique stage-game Nash equilibrium, the subgame perfect equilibrium is to play the dominant strategy C in every round. Therefore, I choose C on round 1.""
+}"
+2026-10-12T13:36:25+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310893,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,369.83,40.097,409.927,0.0,3,"In this modified Chicken game (T=5, R=4.5, S=1.5, P=1), mutual cooperation yields 4.5 each, which is higher than the mixed equilibrium payoff of 3. Starting with C signals willingness to cooperate and can lead to a mutually beneficial outcome over the 10 rounds. While the finite horizon creates endgame incentives to defect, cooperation in early rounds is commonly observed and can be sustained with appropriate strategies like conditional cooperation.","The base score when you choose C and the other chooses D is 0. Since you chose C, you receive an extra payment of 1.5 points. Total = 0 + 1.5 = 1.5 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" , ""reasoning"": ""In this modified Chicken game (T=5, R=4.5, S=1.5, P=1), mutual cooperation yields 4.5 each, which is higher than the mixed equilibrium payoff of 3. Starting with C signals willingness to cooperate and can lead to a mutually beneficial outcome over the 10 rounds. While the finite horizon creates endgame incentives to defect, cooperation in early rounds is commonly observed and can be sustained with appropriate strategies like conditional cooperation."" }"
+2026-10-12T13:37:23+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310850,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,43.374,15.023,58.397,0.0,3,"The payoff matrix with the extra 2.5 for choosing C makes C a strictly dominant strategy for both players. In every round, regardless of the opponent's choice, choosing C yields a higher payoff than D. Since the game has a known finite horizon (10 rounds), backward induction confirms that the unique subgame perfect equilibrium is to play C in every round. Therefore, the optimal choice in round 1 is C.","The base payoff for choosing C while the other player chooses D is 0 points. Since you chose C, you receive the extra payment of 2.5 points. Total points = 0 + 2.5 = 2.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"" , ""reasoning"": ""The payoff matrix with the extra 2.5 for choosing C makes C a strictly dominant strategy for both players. In every round, regardless of the opponent's choice, choosing C yields a higher payoff than D. Since the game has a known finite horizon (10 rounds), backward induction confirms that the unique subgame perfect equilibrium is to play C in every round. Therefore, the optimal choice in round 1 is C.""}"
+2026-10-12T13:51:37+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310891,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,784.519,69.109,853.628,0.0,5,"The stage game with the extra 1.5 points for choosing C has payoffs: (C,C)=(4.5,4.5), (D,D)=(1,1), (D,C)=(5,1.5), (C,D)=(1.5,5). This is a Hawk-Dove (Chicken) game with two pure Nash equilibria (D,C) and (C,D) and a mixed equilibrium yielding 3 each. Since the game lasts exactly 10 rounds and there are multiple stage-game equilibria, we can sustain cooperation (C,C) for rounds 1–9 by threatening to punish any deviation with the pure equilibrium that gives the deviator only 1.5 per round in all remaining rounds. In round 10, the symmetric mixed equilibrium (expected payoff 3 each) is played. Backward induction shows that at round 9, cooperating yields 4.5+3=7.5 while deviating yields 5+1.5=6.5, so cooperation is optimal. This logic extends back to round 1, making C the optimal choice as part of a subgame perfect equilibrium yielding 43.5 total points versus at most 18.5 from deviating.","The base score for (C, D) is 0. Since you chose C, you receive an extra 1.5 points. Total = 0 + 1.5 = 1.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""C"", ""reasoning"": ""The stage game with the extra 1.5 points for choosing C has payoffs: (C,C)=(4.5,4.5), (D,D)=(1,1), (D,C)=(5,1.5), (C,D)=(1.5,5). This is a Hawk-Dove (Chicken) game with two pure Nash equilibria (D,C) and (C,D) and a mixed equilibrium yielding 3 each. Since the game lasts exactly 10 rounds and there are multiple stage-game equilibria, we can sustain cooperation (C,C) for rounds 1–9 by threatening to punish any deviation with the pure equilibrium that gives the deviator only 1.5 per round in all remaining rounds. In round 10, the symmetric mixed equilibrium (expected payoff 3 each) is played. Backward induction shows that at round 9, cooperating yields 4.5+3=7.5 while deviating yields 5+1.5=6.5, so cooperation is optimal. This logic extends back to round 1, making C the optimal choice as part of a subgame perfect equilibrium yielding 43.5 total points versus at most 18.5 from deviating.""}"
+2026-10-12T13:53:01+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310883,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,73.5,10.632,84.132,0.0,3,"In a finitely repeated Prisoner's Dilemma with a known endpoint (10 rounds), backward induction dictates that the unique subgame perfect equilibrium is to defect in every round. Since this is the first round and there is no history, the rational choice is to defect (D). The extra 0.0 points for choosing C does not alter the payoffs.","The base score for choosing C while the other player chooses D is 0 points. The extra payment for choosing C is 0.0 points. Therefore, the total score is 0 + 0.0 = 0.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{""action"": ""D"", ""reasoning"": ""In a finitely repeated Prisoner's Dilemma with a known endpoint (10 rounds), backward induction dictates that the unique subgame perfect equilibrium is to defect in every round. Since this is the first round and there is no history, the rational choice is to defect (D). The extra 0.0 points for choosing C does not alter the payoffs.""}"
+2026-10-12T13:53:26+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310885,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,15.346,9.717,25.063,0.0,2,"In a finitely repeated prisoner's dilemma with a known endpoint (10 rounds), the unique subgame perfect equilibrium is to defect in every round. Since the opponent's strategy is unknown and there is no future beyond round 10 to incentivize cooperation, defection is the dominant strategy in each stage game. The extra 0.0 points for choosing C does not alter the payoffs. Therefore, I choose D.","The base payoff for choosing C while the other player chooses D is 0 points. The extra payment for choosing C is 0.0 points. Therefore, the total score is 0 + 0.0 = 0.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""D"" , ""reasoning"": ""In a finitely repeated prisoner's dilemma with a known endpoint (10 rounds), the unique subgame perfect equilibrium is to defect in every round. Since the opponent's strategy is unknown and there is no future beyond round 10 to incentivize cooperation, defection is the dominant strategy in each stage game. The extra 0.0 points for choosing C does not alter the payoffs. Therefore, I choose D."" }"
+2026-10-12T13:54:24+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310896,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,47.78,9.942,57.722,0.0,3,"This is a finitely repeated Prisoner's Dilemma with a known endpoint of 10 rounds. Using backward induction, the dominant strategy in the final round (round 10) is to Defect (D), as there are no future rounds to incentivize cooperation. This logic propagates backward to round 1: since round 10 will be D regardless of history, round 9 becomes a one-shot game where D is dominant, and so on. Therefore, the subgame perfect Nash equilibrium is to Defect in every round, including round 1.","The base payoff for choosing C while the other player chooses D is 0 points. The extra payment for choosing C is 0.0 points. Therefore, the total score is 0 + 0.0 = 0.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""D"",
+  ""reasoning"": ""This is a finitely repeated Prisoner's Dilemma with a known endpoint of 10 rounds. Using backward induction, the dominant strategy in the final round (round 10) is to Defect (D), as there are no future rounds to incentivize cooperation. This logic propagates backward to round 1: since round 10 will be D regardless of history, round 9 becomes a one-shot game where D is dominant, and so on. Therefore, the subgame perfect Nash equilibrium is to Defect in every round, including round 1.""
+}"
+2026-10-12T14:11:00+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310898,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,984.713,11.834,996.547,0.0,7,"In the first round of a 10-round repeated game with payoffs that create a Chicken-like structure, playing C signals willingness to cooperate. Mutual cooperation (C,C) yields 4.5 points each per round (total 45 over 10 rounds), which is the highest symmetric payoff. While (C,C) is not a stage-game Nash equilibrium, the finite horizon and potential for reciprocal strategies make cooperation plausible. Starting with C allows for building trust; if the opponent defects, we can retaliate in subsequent rounds. The extra 1.5 bonus for choosing C also makes C less risky when facing a defector (1.5 vs 1.0 for D against D).","The base payoff for (you C, they D) is 0. Since you chose C, you receive an extra 1.5 points. Total = 0 + 1.5 = 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" , ""reasoning"": ""In the first round of a 10-round repeated game with payoffs that create a Chicken-like structure, playing C signals willingness to cooperate. Mutual cooperation (C,C) yields 4.5 points each per round (total 45 over 10 rounds), which is the highest symmetric payoff. While (C,C) is not a stage-game Nash equilibrium, the finite horizon and potential for reciprocal strategies make cooperation plausible. Starting with C allows for building trust; if the opponent defects, we can retaliate in subsequent rounds. The extra 1.5 bonus for choosing C also makes C less risky when facing a defector (1.5 vs 1.0 for D against D)."" }"
+2026-10-12T14:11:58+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310923,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,53.964,3.479,57.442,0.0,3,"In this variant of the Prisoner's Dilemma, each player receives an extra 2.5 points for choosing C in any round. This makes cooperation (C) a strictly dominant strategy: regardless of the opponent's choice, choosing C yields a higher payoff (5.5 vs 5.0 if opponent chooses C; 2.5 vs 1.0 if opponent chooses D). Since the game lasts exactly 10 rounds and the stage game has a unique dominant strategy equilibrium, the optimal strategy is to choose C in every round, including the first.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive an extra payment of 2.5 points. Total score = 0 + 2.5 = 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In this variant of the Prisoner's Dilemma, each player receives an extra 2.5 points for choosing C in any round. This makes cooperation (C) a strictly dominant strategy: regardless of the opponent's choice, choosing C yields a higher payoff (5.5 vs 5.0 if opponent chooses C; 2.5 vs 1.0 if opponent chooses D). Since the game lasts exactly 10 rounds and the stage game has a unique dominant strategy equilibrium, the optimal strategy is to choose C in every round, including the first.""
+}"
+2026-10-12T14:14:26+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310890,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,123.686,24.653,148.339,0.0,2,"In this 10-round game, the payoff matrix with the extra 2.5 points for choosing C makes C a dominant strategy. If the opponent chooses C, playing C yields 5.5 vs 5 for D. If the opponent chooses D, playing C yields 2.5 vs 1 for D. Thus, regardless of the opponent's move or the round number, C always gives a higher payoff. The subgame perfect equilibrium is to play C in every round.","You chose C and the opponent chose D. According to the base payoff table, your score for (C, D) is 0. Additionally, you receive an extra 2.5 points for choosing C. Therefore, your total points for that round are 0 + 2.5 = 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""C"" , ""reasoning"": ""In this 10-round game, the payoff matrix with the extra 2.5 points for choosing C makes C a dominant strategy. If the opponent chooses C, playing C yields 5.5 vs 5 for D. If the opponent chooses D, playing C yields 2.5 vs 1 for D. Thus, regardless of the opponent's move or the round number, C always gives a higher payoff. The subgame perfect equilibrium is to play C in every round."" }"
+2026-10-12T14:15:01+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310915,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,26.658,8.675,35.332,0.0,2,"In a finitely repeated prisoner's dilemma with a known number of rounds (10), backward induction dictates that defection is the dominant strategy in every round. Since the extra payoff for choosing C is 0.0, it does not alter the standard payoffs. Therefore, the rational choice for round 1 is to defect (D).",The base payoff for choosing C while the other player chooses D is 0 points. The extra payment for choosing C is 0.0 points. Total = 0 + 0.0 = 0.,"You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{ ""action"": ""D"" 
+  , ""reasoning"": ""In a finitely repeated prisoner's dilemma with a known number of rounds (10), backward induction dictates that defection is the dominant strategy in every round. Since the extra payoff for choosing C is 0.0, it does not alter the standard payoffs. Therefore, the rational choice for round 1 is to defect (D)."" }"
+2026-10-12T14:16:05+00:00,repeated_pd_subsidy_16p2,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310916,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 16.2}",C,C,0.0,AT_EQUILIBRIUM,,16.2,16.2,True,False,True,True,,58.218,5.254,63.471,0.0,2,"In this game, choosing C yields a strictly higher payoff than D regardless of the opponent's action due to the extra 16.2 points for choosing C. Against D: C gives 16.2 vs D gives 1. Against C: C gives 19.2 vs D gives 5. Therefore C is a strictly dominant strategy in each round, and in a finitely repeated game with known horizon, the unique subgame perfect equilibrium is to play C in every round. I will choose C in round 1.","The base payoff for choosing C while the other player chooses D is 0 points. Since you chose C, you receive the extra payment of 16.2 points. Total = 0 + 16.2 = 16.2.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 16.2 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In this game, choosing C yields a strictly higher payoff than D regardless of the opponent's action due to the extra 16.2 points for choosing C. Against D: C gives 16.2 vs D gives 1. Against C: C gives 19.2 vs D gives 5. Therefore C is a strictly dominant strategy in each round, and in a finitely repeated game with known horizon, the unique subgame perfect equilibrium is to play C in every round. I will choose C in round 1.""
+}"
+2026-10-12T14:16:50+00:00,repeated_pd_subsidy_2p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310914,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,24.06,20.534,44.594,0.0,4,"In this game, choosing C yields a bonus of 2.5 points each round. The effective payoffs are: if you choose C, you get 5.5 when opponent chooses C and 2.5 when opponent chooses D. If you choose D, you get 5 when opponent chooses C and 1 when opponent chooses D. Since C gives a higher payoff regardless of the opponent's choice, C is a strictly dominant strategy in every round. By backward induction over the known 10 rounds, the rational choice is to cooperate in all rounds.","The base score when you choose C and the other player chooses D is 0. Since you chose C, you receive an extra payment of 2.5 points. Total points = 0 + 2.5 = 2.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{  ""action"": ""C"",  ""reasoning"": ""In this game, choosing C yields a bonus of 2.5 points each round. The effective payoffs are: if you choose C, you get 5.5 when opponent chooses C and 2.5 when opponent chooses D. If you choose D, you get 5 when opponent chooses C and 1 when opponent chooses D. Since C gives a higher payoff regardless of the opponent's choice, C is a strictly dominant strategy in every round. By backward induction over the known 10 rounds, the rational choice is to cooperate in all rounds."" }"
+2026-10-12T14:21:46+00:00,repeated_pd_subsidy_1p5,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310889,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,285.654,11.01,296.663,0.0,2,"In this modified Chicken game, choosing C yields a higher payoff than D when the opponent chooses D (1.5 vs 1), and only a slightly lower payoff when the opponent chooses C (4.5 vs 5). The (C,C) outcome is Pareto optimal (4.5 each). Starting with C signals willingness to cooperate and is a best response to D, making it a robust opening move in a finite repeated game where players may aim to sustain mutual cooperation.","The base score for choosing C while the other player chooses D is 0. Since you chose C, you receive the extra payment of 1.5 points. Total = 0 + 1.5 = 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C""
+  , ""reasoning"": ""In this modified Chicken game, choosing C yields a higher payoff than D when the opponent chooses D (1.5 vs 1), and only a slightly lower payoff when the opponent chooses C (4.5 vs 5). The (C,C) outcome is Pareto optimal (4.5 each). Starting with C signals willingness to cooperate and is a best response to D, making it a robust opening move in a finite repeated game where players may aim to sustain mutual cooperation.""
+}"
+2026-10-12T14:22:07+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310875,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,14.747,5.878,20.625,0.0,2,"This is a finite 10-round Prisoner's Dilemma with standard payoffs. Backward induction dictates that rational players will defect in every round, including the first. Without any history or reason to believe the opponent will cooperate, defecting is the dominant strategy to avoid exploitation and secure at least the mutual defection payoff.",The base score for choosing C while the opponent chooses D is 0 points. The extra payment for choosing C is 0.0 points. The total is 0 + 0.0 = 0 points.,"This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""D""
+  , ""reasoning"": ""This is a finite 10-round Prisoner's Dilemma with standard payoffs. Backward induction dictates that rational players will defect in every round, including the first. Without any history or reason to believe the opponent will cooperate, defecting is the dominant strategy to avoid exploitation and secure at least the mutual defection payoff.""
+}"
+2026-10-12T14:23:58+00:00,repeated_pd_subsidy_0,named,nemotron,nvidia/nemotron-3-ultra-550b-a55b,20310855,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,101.708,9.801,111.509,0.0,3,"In a finitely repeated Prisoner's Dilemma with a known horizon of 10 rounds, backward induction dictates that rational players will defect in every round. Since the extra payment for choosing C is 0.0, it does not alter the payoffs. Defecting is the dominant strategy in the final round, and this logic unravels to the first round. Therefore, the optimal choice is D.","The base payoff for choosing C while the other player chooses D is 0 points. The extra payment for choosing C is 0.0 points. Therefore, the total score is 0 + 0.0 = 0.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""D""
+  , ""reasoning"": ""In a finitely repeated Prisoner's Dilemma with a known horizon of 10 rounds, backward induction dictates that rational players will defect in every round. Since the extra payment for choosing C is 0.0, it does not alter the payoffs. Defecting is the dominant strategy in the final round, and this logic unravels to the first round. Therefore, the optimal choice is D.""
+}"
