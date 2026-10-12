@@ -45,7 +45,18 @@ CEREBRAS_ENV = "GPTOSS_PROVIDER=cerebras"
 # permitted). Everything stays on Groq as registered; each key serves one sequential chain,
 # balanced so both finish about together. This takes precedence over the Cerebras route.
 GROQ_ENV = "GROQ_KEY_SLOT=2"
-if os.getenv("GROQ_API_KEY_2"):
+# With three or more Groq keys (each a different person's account, as item 13), every remaining
+# gpt-oss block is split evenly across all keys (--shard i/k: disjoint slices of the registered
+# plan, same order), so the keys finish together. Still Groq for everything, as registered.
+GROQ_KEYS = 1 + next(n for n in range(2, 50) if not os.getenv(f"GROQ_API_KEY_{n}")) - 2
+if GROQ_KEYS >= 3:
+    GPTOSS_CHAINS = [
+        [(f"GROQ_KEY_SLOT={i}",)]
+        + [(script, f"{args} --shard {i}/{GROQ_KEYS}") for script, args in
+           (S("gptoss120b"), B("B", "gptoss120b"), B("C", "gptoss120b"), B("E", "gptoss120b"))]
+        for i in range(1, GROQ_KEYS + 1)
+    ]
+elif os.getenv("GROQ_API_KEY_2"):
     GPTOSS_CHAINS = [
         [A("gptoss120b"), X("gptoss120b"), S("gptoss120b"), B("E", "gptoss120b")],
         [(GROQ_ENV,), B("B", "gptoss120b"), B("C", "gptoss120b")],
@@ -106,7 +117,8 @@ def running(step: tuple[str, str]) -> bool:
 
 def label(step: tuple[str, str]) -> str:
     script, args = step
-    return {"stage2.py": "2A ", "stage2b.py": "2B ", "stage2c.py": "2C ", "stage5.py": "S5 "}[script] + args.replace("--block ", "").replace("--model ", "")
+    return ({"stage2.py": "2A ", "stage2b.py": "2B ", "stage2c.py": "2C ", "stage5.py": "S5 "}[script]
+            + args.replace("--block ", "").replace("--model ", "").replace("--shard ", "#"))
 
 
 def dashboard_up() -> bool:
@@ -114,8 +126,19 @@ def dashboard_up() -> bool:
     return bool(out.strip())
 
 
+def unsharded_gptoss_running() -> bool:
+    """True while a gpt-oss run started without --shard is alive. Split runs must not start
+    beside one, or the same question could be asked twice."""
+    out = subprocess.run(["ps", "-eo", "command="], capture_output=True, text=True).stdout
+    return any("gptoss120b" in line and "experiments/stage" in line and "--shard" not in line
+               and "launch_stage2" not in line for line in out.splitlines())
+
+
 def main() -> None:
     (ROOT / "results" / "logs").mkdir(parents=True, exist_ok=True)
+    blocked = GROQ_KEYS >= 3 and unsharded_gptoss_running()
+    if blocked:
+        print("gpt-oss: unsplit runs still alive -- stop them first; split runs not started")
     # the live console, detached like the runs so it outlives the app that started it
     if dashboard_up():
         print("live console       already running  http://localhost:8792")
@@ -134,13 +157,15 @@ def main() -> None:
         if len(chain[0]) == 1:                      # a leading (ENV,) marker: per-chain env
             env, chain = chain[0][0] + " ", chain[1:]
         name = " -> ".join(label(step) for step in chain) + (f"  [{env.strip()}]" if env else "")
+        if blocked and chain in [c[1:] for c in GPTOSS_CHAINS]:
+            continue
         live = [step for step in chain if running(step)]
         if live:
             print(f"{name}\n    already running ({label(live[0])})")
             continue
         script = "; ".join(
             f"{env}{PY} experiments/{s} {a} --wait "
-            f">> results/logs/{s.split('.')[0]}_{a.replace('--block ', '').replace('--model ', '').replace(' ', '_')}.log 2>&1"
+            f">> results/logs/{s.split('.')[0]}_{a.replace('--block ', '').replace('--model ', '').replace('--shard ', '').replace('/', 'of').replace(' ', '_')}.log 2>&1"
             for s, a in chain
         )
         subprocess.Popen(

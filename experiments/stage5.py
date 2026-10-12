@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from config import CAPABILITY_ORDER, MASTER_SEED
-from experiments.stage2 import WAIT_S, run_plan, sleep_until, trial_key
+from experiments.stage2 import WAIT_S, run_plan, shard, sleep_until, trial_key
 from games import GAMES
 from games.probes import PROBES, NumericProbe
 from games.subsidy import PROBE, SUBSIDY_LEVELS, derived_level, key_for, spec_for
@@ -89,6 +89,7 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--wait", action="store_true")
     ap.add_argument("--status", action="store_true")
+    ap.add_argument("--shard", default=None, help="i/k: this process asks every k-th question")
     args = ap.parse_args()
     if args.model not in LAMBDA_HAT:
         print(f"STOP: no fitted λ for {args.model} yet (entered at the decision gate).")
@@ -99,7 +100,8 @@ def main() -> int:
     register(levels_for(args.model))
     out = ROOT / "results" / "raw" / f"stage5_{args.model}.csv"
     while True:
-        code = run_plan(args.model, plan(args.model), out, limit=args.limit, status=args.status)
+        code = run_plan(args.model, shard(plan(args.model), args.shard), out, limit=args.limit,
+                        status=args.status)
         if not (args.wait and code in WAIT_S):
             return code
         wake = time.strftime("%H:%M", time.localtime(time.time() + WAIT_S[code]))

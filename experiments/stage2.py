@@ -157,6 +157,20 @@ def session(args) -> int:
     return run_plan(args.model, plan(), out, limit=args.limit, status=args.status)
 
 
+def shard(todo_all: list[tuple], spec: str | None) -> list[tuple]:
+    """Keep every k-th planned trial, starting at i, for --shard i/k (i = 1..k).
+
+    Splits one block across k API keys without changing it: the shards are disjoint and
+    together are exactly the registered plan, in the registered order.
+    """
+    if not spec:
+        return todo_all
+    i, k = (int(x) for x in spec.split("/"))
+    if not 1 <= i <= k:
+        raise ValueError(f"--shard {spec}: need 1 <= i <= k")
+    return [t for j, t in enumerate(todo_all) if j % k == i - 1]
+
+
 def run_plan(model: str, todo_all: list[tuple], out: Path, limit: int | None = None,
              status: bool = False) -> int:
     """Run every trial in `todo_all` not already answered in `out`. Shared with 2B.
