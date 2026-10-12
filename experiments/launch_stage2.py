@@ -77,8 +77,8 @@ else:
 GEMINI_ENV = "GEMINI_KEY_SLOT=2"
 if os.getenv("GEMINI_API_KEY_2"):
     GEMINI_CHAINS = [[A("gemini_lite")],
-                     [B("B", "gemini_lite"), B("C", "gemini_lite")],
-                     [(GEMINI_ENV,), X("gemini_lite"), B("E", "gemini_lite"), S("gemini_lite")]]
+                     [B("B", "gemini_lite"), B("C", "gemini_lite"), ("stage5.py", "--model gemini_lite --shard 1/2")],
+                     [(GEMINI_ENV,), X("gemini_lite"), B("E", "gemini_lite"), ("stage5.py", "--model gemini_lite --shard 2/2")]]
 else:
     GEMINI_CHAINS = [[A("gemini_lite"), B("B", "gemini_lite"), X("gemini_lite"), B("C", "gemini_lite"),
                       B("E", "gemini_lite")]]
@@ -126,19 +126,20 @@ def dashboard_up() -> bool:
     return bool(out.strip())
 
 
-def unsharded_gptoss_running() -> bool:
+def old_split_gptoss_running() -> bool:
     """True while a gpt-oss run started without --shard is alive. Split runs must not start
     beside one, or the same question could be asked twice."""
     out = subprocess.run(["ps", "-eo", "command="], capture_output=True, text=True).stdout
-    return any("gptoss120b" in line and "experiments/stage" in line and "--shard" not in line
-               and "launch_stage2" not in line for line in out.splitlines())
+    return any("gptoss120b" in line and "experiments/stage" in line
+               and f"/{GROQ_KEYS} " not in line + " " and "launch_stage2" not in line
+               for line in out.splitlines())
 
 
 def main() -> None:
     (ROOT / "results" / "logs").mkdir(parents=True, exist_ok=True)
-    blocked = GROQ_KEYS >= 2 and unsharded_gptoss_running()
+    blocked = GROQ_KEYS >= 2 and old_split_gptoss_running()
     if blocked:
-        print("gpt-oss: unsplit runs still alive -- stop them first; split runs not started")
+        print("gpt-oss: runs split for a different key count still alive -- stop them first; split runs not started")
     # the live console, detached like the runs so it outlives the app that started it
     if dashboard_up():
         print("live console       already running  http://localhost:8792")

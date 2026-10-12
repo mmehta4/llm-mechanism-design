@@ -308,3 +308,23 @@ people is acceptable, provided the accounts and keys are being used appropriatel
 - **The split, one sequential run per key:**
   - key 1: Stage 2A, then Stage 2C, then Block E;
   - key 2: Block B, then Block C.
+
+## 14. Four Groq keys, with the remaining work split evenly (2026-10-12/13)
+
+**Operational, not a change to the design.** Two further free-tier Groq keys, each from a
+further person's account given with consent, were added on 2026-10-13. This is the arrangement
+Groq Support confirmed in item 13 (keys from different people's accounts).
+
+- **Same provider:** all four keys are Groq, with the same model and settings. Every gpt-oss
+  question is still served by Groq.
+- **The split (`--shard i/k`):** gpt-oss's remaining work (Stage 5, then Blocks B, C and E) is
+  divided across the keys. Shard i takes every k-th question of the registered plan, starting at
+  position i, in the registered order.
+  - The shards are disjoint, and together they are exactly the registered plan.
+  - Rows are appended to the same file under a file lock.
+  - No question can be asked twice: the launcher refuses to start split runs while runs split a
+    different way are alive.
+- **Timeline:** on 2026-10-12 the split used the two existing keys. From 2026-10-13 it uses four.
+- **Gemini 3.5 Flash Lite's Stage 5** is split the same way across its two keys (item 12).
+- **Effect:** none on which questions are asked or how they are scored. Each answer's timestamp
+  and `model_api_id` are recorded as before.

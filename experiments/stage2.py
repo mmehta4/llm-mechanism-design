@@ -191,6 +191,7 @@ def run_plan(model: str, todo_all: list[tuple], out: Path, limit: int | None = N
               flush=True)
     todo = [t for t in todo_all if t not in done and t not in stuck]
 
+    done = done & set(todo_all)          # with --shard, count only this shard's questions
     print(f"{model}: {len(done)}/{len(todo_all)} done, {len(todo)} to go  -> {out.name}",
           flush=True)
     if status or not todo:
