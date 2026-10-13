@@ -39,7 +39,7 @@
 \large Do LLM Agents Derive or Recall Game-Theoretic Equilibria,\\
 and What That Means for Mechanism Design}
 \author{Meet Mehta}
-\date{Working paper, \today\ifdraftpred\\[4pt]\small\textcolor{predcol}{\textbf{Draft.} gpt-oss-120b's Stage~2B data are still being collected. Values shown in
+\date{Working paper, \today\ifdraftpred\\[4pt]\small\textcolor{predcol}{\textbf{Draft.} gpt-oss-120b's Stage~2B number-sweep and endgame data are still being collected. Values shown in
 violet with a superscript p are the author's pre-registered predictions, not data, and will be
 replaced by measurements.}\fi}
 
@@ -76,7 +76,9 @@ the equilibrium: removing the familiar frame raises defection in every model (po
 46\%$\to$83\%). Fitted to the data, logit QRE fails our pre-registered calibration test for all
 four models, because LLM errors are rare, large and discrete rather than payoff-scaled noise.
 Traps that make the textbook answer wrong do not fool the two strongest models (93--100\%
-correct in both wordings), while Gemini fails the traps' arithmetic in the textbook direction.
+correct in both wordings). gpt-oss falls into them when the game is named, giving the textbook
+answer about five times as often as when it is disguised, and Gemini fails the traps' arithmetic
+in the textbook direction.
 In the normal wording of a finitely repeated dilemma, the models cooperate early and defect at
 the end (99--100\% in the announced last round), as people do, rather than defecting throughout
 as backward induction requires.
@@ -693,10 +695,11 @@ where that is not so, in three blocks of 3{,}036 questions per model:
 \item \textbf{Endgame (Block E).} The prisoner's dilemma at round 5, 9 or 10 of 10, after
   mutual cooperation in every earlier round. Backward induction says defect in every round.
 \end{itemize}
-\ifdraftpred\noindent\textcolor{predcol}{In this draft, results for Nemotron, Kimi and Gemini are
-measured; gpt-oss's entries (marked p) are the pre-registered predictions, which were stated for
-all models jointly and are shown at the midpoint of each registered range. Pooled tests use the
-three complete models and are provisional until gpt-oss's data are in.}\par\fi
+\ifdraftpred\noindent\textcolor{predcol}{In this draft, the traps (Block~B) are measured for all four
+models and analysed as registered. For the number sweep and the endgame (Blocks~C and E),
+gpt-oss's entries (marked p) are the pre-registered predictions, which were stated for all
+models jointly and are shown at the midpoint of each registered range; pooled tests there use the
+three complete models and are provisional.}\par\fi
 
 \begin{table}[t]
 \centering
@@ -708,10 +711,10 @@ whose trap-specific maths check was passed. ``--'': no answer passed the check.}
 \toprule
 Trap & What changes (correct answer) & gpt-oss & Nemotron & Kimi & Gemini \\
 \midrule
-Vickrey & winner pays \emph{twice} the second bid (bid $v/2$) & \pred{28}$\to$\pred{58} & 100$\to$100 & 99$\to$94 & --$\to$56 \\
-Cournot & three firms (produce $(a-c)/4$) & \pred{22}$\to$\pred{48} & 100$\to$100 & 99$\to$99 & --$\to$-- \\
-Prisoner's dilemma & $R>T$ and $S>P$ (cooperate) & \pred{22}$\to$\pred{68} & 100$\to$100 & 99$\to$100 & --$\to$100 \\
-Public goods & $M=5>n=4$ (contribute all) & \pred{32}$\to$\pred{78} & 93$\to$100 & 96$\to$96 & 67$\to$61 \\
+Vickrey & winner pays \emph{twice} the second bid (bid $v/2$) & 56$\to$65 & 100$\to$100 & 99$\to$94 & --$\to$56 \\
+Cournot & three firms (produce $(a-c)/4$) & 71$\to$40 & 100$\to$100 & 99$\to$99 & --$\to$-- \\
+Prisoner's dilemma & $R>T$ and $S>P$ (cooperate) & 59$\to$93 & 100$\to$100 & 99$\to$100 & --$\to$100 \\
+Public goods & $M=5>n=4$ (contribute all) & 75$\to$95 & 93$\to$100 & 96$\to$96 & 67$\to$61 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -719,13 +722,32 @@ Public goods & $M=5>n=4$ (contribute all) & \pred{32}$\to$\pred{78} & 93$\to$100
 \paragraph{Traps: the strong models are not fooled.} The registered prediction was that
 recall would make the normal wording a trap: 15--40\% correct, against 40--85\% disguised.
 Nemotron and Kimi instead answer every trap correctly 93--100\% of the time in \emph{both}
-wordings. Pooled over the three models, the textbook answer is given in 0--1\% of
-normal-wording answers to the Vickrey, Cournot and prisoner's dilemma traps. A model that recalled ``bid your value'' or ``defect'' would have
-fallen into these traps; these two re-derive the answer when one rule changes. Pooled over the
-three complete models, no trap shows a significant wording difference in correct answers
-(Cochran--Mantel--Haenszel, all Holm $p\ge0.43$). The one significant difference in textbook
-answers runs \emph{against} recall: in the Vickrey trap the textbook bid is more common in the
-disguised wording (9\% vs 0\%, Holm $p=0.049$).
+wordings, and almost never give the textbook answer (at most 7\% in any cell). A model that
+recalled ``bid your value'' or ``defect'' would have fallen into these traps; these two
+re-derive the answer when one rule changes.
+
+\paragraph{gpt-oss falls into the traps when the game is named.} gpt-oss shows the recall
+signature the traps were built to detect. In the normal wording it gives the textbook answer in
+24\% of Vickrey answers (``bid your value''), 41\% of prisoner's dilemma answers (``defect'') and
+23\% of public goods answers (``contribute nothing''), against 4\%, 7\% and 5\% disguised. Its
+correct rate rises under disguise accordingly: from 59\% to 93\% in the prisoner's dilemma and
+from 75\% to 95\% in public goods (both $p<10^{-5}$), and from 56\% to 65\% in the auction
+(not significant). The Cournot trap runs the other way (71\% named, 40\% disguised), with no
+textbook answers in either wording. Here the disguised version demands the three-firm
+first-order condition from scratch, which pre-registration~2 expected to be harder. This
+matches gpt-oss's graded retrieval in Stage~2C: the same model, by an independent test, again
+answers from memory when it recognises the game.
+
+\paragraph{The registered test, pooled.} Pooled over all four models (Cochran--Mantel--Haenszel
+by model, Holm across the four traps), two traps show a significant wording effect. In the
+prisoner's dilemma trap, disguise raises correct answers by 12 points (Holm $p=6\times10^{-10}$)
+and cuts textbook answers from 14\% to 2\% (Holm $p=6\times10^{-10}$). In the Cournot trap,
+disguise lowers correct answers by 10 points (Holm $p=3\times10^{-6}$). Public goods ($+5$ under disguise, Holm
+$p=0.055$) and Vickrey ($-3$, $p=0.52$) are not significant. The predicted direction (more
+traps fallen into in the normal wording) holds for the prisoner's dilemma and public goods,
+reverses for Cournot, and is absent for Vickrey. The predicted levels were far too low: pooled
+correct rates are 79--98\% in every cell. The predicted most-caught trap, the double-payment
+auction, held narrowly (83\% correct over both wordings, against 84--93\% for the others).
 
 \paragraph{Gemini fails the traps' maths, in the textbook direction.} Gemini passed no maths
 check in the normal wording of the Vickrey, Cournot and prisoner's dilemma traps (0 of 138
@@ -862,10 +884,11 @@ $\alpha=2$, three such bidders leave the winner with
 $\mathbb E[v_{(1)}]-2\,\mathbb E[v_{(2)}]=77.5-110=-32.5$. Any dependence of $\alpha\cdot b$ on
 $\alpha$ therefore cannot be QRE noise; it is the fingerprint of recall. Stage~2B's ``winner pays
 twice'' trap implements exactly this test (Table~\ref{tab:traps}). Nemotron bids half its value
-in 100\% of answers in both wordings and Kimi in 99\% and 94\%: the rational response, which is also the QRE-consistent one;
-gpt-oss's registered prediction is \pred{28\%} and \pred{58\%}. Gemini cannot pass the trap's
-maths check in the normal wording, and half of its failed checks apply the single-payment rule,
-the arithmetic signature of recall.
+in 100\% of answers in both wordings and Kimi in 99\% and 94\%: the rational response, which is
+also the QRE-consistent one. gpt-oss bids its full value, the recalled answer, in 24\% of
+normal-wording answers against 4\% disguised: exactly the fingerprint the theorem identifies.
+Gemini cannot pass the trap's maths check in the normal wording, and half of its failed checks
+apply the single-payment rule, the arithmetic signature of recall.
 
 \begin{theorem}[a reserve never raises efficiency]\label{thm:reserve}
 For any $\lam$, expected efficiency (the winner's value, or 0 without a sale) cannot be
@@ -1110,9 +1133,10 @@ times larger than needed.
 answers across models and games:
 \begin{itemize}
 \item Nemotron's and Kimi's Cournot play survives the removal of every cue that could trigger
-  recall;
-\item gpt-oss's play degrades step by step as the cues are removed, and its errors become the
-  cooperative (collusive) answer;
+  recall, and both re-derive the answer when a trap changes one rule;
+\item gpt-oss's play degrades step by step as the cues are removed, its errors become the
+  cooperative (collusive) answer, and in the traps it gives the textbook answer about five
+  times as often when the game is named;
 \item Gemini's Cournot play does not survive the removal of the game's name;
 \item for games whose rules are their fingerprint (the second-price auction, public goods), no
   wording hid the game from the strongest models, so derivation and recall remain observationally
@@ -1209,7 +1233,8 @@ model and the game, and it can be measured. Isomorphic twins with same-wording c
 probes, measured recognition and an extreme disguise separate the two wherever the game can be
 hidden at all. On that evidence:
 \begin{itemize}
-\item two frontier models solve a Cournot game they no longer recognise;
+\item two frontier models solve a Cournot game they no longer recognise, and are not fooled by
+  traps that make the textbook answer wrong;
 \item a third loses the equilibrium step by step as the cues are removed;
 \item a fourth loses it as soon as the name goes;
 \item in the prisoner's dilemma, recognising the game pulls every model away from equilibrium,
