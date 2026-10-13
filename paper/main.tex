@@ -5,6 +5,7 @@
 \usepackage{microtype}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -19,6 +20,17 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \newcommand{\tbd}[1]{\textcolor{red}{[TBD: #1]}}
+% ---- DRAFT MODE: values not yet measured are shown as the author's pre-registered predictions,
+% in violet with a superscript p. Set \draftpredfalse (and replace every \pred) for the final.
+\newif\ifdraftpred \draftpredtrue
+\definecolor{predcol}{RGB}{122,40,160}
+\newcommand{\pred}[1]{\textcolor{predcol}{#1\textsuperscript{p}}}
+\ifdraftpred
+  \usepackage{draftwatermark}
+  \SetWatermarkText{DRAFT}
+  \SetWatermarkScale{1.1}
+  \SetWatermarkColor[gray]{0.93}
+\fi
 \newcommand{\lam}{\lambda}
 \DeclareMathOperator{\logit}{logit}
 \setlist{itemsep=1pt,topsep=3pt}
@@ -27,7 +39,9 @@
 \large Do LLM Agents Derive or Recall Game-Theoretic Equilibria,\\
 and What That Means for Mechanism Design}
 \author{Meet Mehta}
-\date{Working paper, \today}
+\date{Working paper, \today\ifdraftpred\\[4pt]\small\textcolor{predcol}{\textbf{Draft.} gpt-oss-120b's Stage~2B data are still being collected. Values shown in
+violet with a superscript p are the author's pre-registered predictions, not data, and will be
+replaced by measurements.}\fi}
 
 \begin{document}
 \maketitle
@@ -61,7 +75,11 @@ In the prisoner's dilemma, recognition retrieves a cultural script of cooperatio
 the equilibrium: removing the familiar frame raises defection in every model (pooled
 46\%$\to$83\%). Fitted to the data, logit QRE fails our pre-registered calibration test for all
 four models, because LLM errors are rare, large and discrete rather than payoff-scaled noise.
-\tbd{Stage~2B traps.}
+Traps that make the textbook answer wrong do not fool the two strongest models (93--100\%
+correct in both wordings), while Gemini fails the traps' arithmetic in the textbook direction.
+In the normal wording of a finitely repeated dilemma, the models cooperate early and defect at
+the end (99--100\% in the announced last round), as people do, rather than defecting throughout
+as backward induction requires.
 
 We then ask what noisy, quantal-response agents imply for mechanism design. We prove four
 results:
@@ -338,8 +356,10 @@ registered on OSF before its data existed. Each fixes:
 \item the tests and multiple-comparison corrections.
 \end{itemize}
 The analysis code is fingerprinted too, and it refuses to run on real data unless its
-fingerprint matches. Ten deviations, all recorded before the affected analysis, are listed in
-Appendix~\ref{app:deviations}. None changes a registered test.
+fingerprint matches. Fourteen deviations, all recorded before the affected analysis, are listed in
+Appendix~\ref{app:deviations}. None changes a registered test. One changes a registered scoring
+rule (the re-asking of Kimi's unreadable answers from three days of degraded service), and the
+affected results are reported both ways.
 
 \paragraph{Tests.}
 \begin{itemize}
@@ -660,10 +680,146 @@ mechanism stage studies why. Stage~5 (Section~\ref{sec:stage5}) does this direct
 whether the agents respond to incentives as QRE or as classical theory predicts.
 
 \subsection{Stage 2B: traps, number sweeps and the endgame}
-\tbd{Block~B (traps): the correct share and the recall signature (the textbook answer where it
-is wrong), named vs disguised, CMH across models. Block~C (sweep): the wording$\times$size
-interaction. Block~E (endgame): defection at rounds 5, 9 and 10. Complete for three models;
-gpt-oss-120b's blocks are still in collection.}
+Stage~2A cannot separate a model that recalls the textbook answer from one that derives it,
+because there the textbook answer is also correct. Stage~2B (pre-registration~2) asks questions
+where that is not so, in three blocks of 3{,}036 questions per model:
+\begin{itemize}
+\item \textbf{Traps (Block B).} One rule or the numbers make the textbook answer wrong
+  (Table~\ref{tab:traps}). A deriving model gets the trap right in both wordings; a recalling
+  model falls in more often when the familiar wording calls up the memorised answer. Each trap
+  has its own maths check, which tests the trap rule rather than the ordinary one.
+\item \textbf{Number sweep (Block C).} Each game at three sizes. Does the wording effect
+  survive a change of scale?
+\item \textbf{Endgame (Block E).} The prisoner's dilemma at round 5, 9 or 10 of 10, after
+  mutual cooperation in every earlier round. Backward induction says defect in every round.
+\end{itemize}
+\ifdraftpred\noindent\textcolor{predcol}{In this draft, results for Nemotron, Kimi and Gemini are
+measured; gpt-oss's entries (marked p) are the pre-registered predictions, which were stated for
+all models jointly and are shown at the midpoint of each registered range. Pooled tests use the
+three complete models and are provisional until gpt-oss's data are in.}\par\fi
+
+\begin{table}[t]
+\centering
+\caption{Stage~2B traps: share correct (\%), normal $\to$ disguised wording, among answers
+whose trap-specific maths check was passed. ``--'': no answer passed the check.}
+\label{tab:traps}
+\small
+\begin{tabular}{@{}>{\raggedright}p{2.0cm}>{\raggedright\arraybackslash}p{4.3cm}cccc@{}}
+\toprule
+Trap & What changes (correct answer) & gpt-oss & Nemotron & Kimi & Gemini \\
+\midrule
+Vickrey & winner pays \emph{twice} the second bid (bid $v/2$) & \pred{28}$\to$\pred{58} & 100$\to$100 & 99$\to$94 & --$\to$56 \\
+Cournot & three firms (produce $(a-c)/4$) & \pred{22}$\to$\pred{48} & 100$\to$100 & 99$\to$99 & --$\to$-- \\
+Prisoner's dilemma & $R>T$ and $S>P$ (cooperate) & \pred{22}$\to$\pred{68} & 100$\to$100 & 99$\to$100 & --$\to$100 \\
+Public goods & $M=5>n=4$ (contribute all) & \pred{32}$\to$\pred{78} & 93$\to$100 & 96$\to$96 & 67$\to$61 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Traps: the strong models are not fooled.} The registered prediction was that
+recall would make the normal wording a trap: 15--40\% correct, against 40--85\% disguised.
+Nemotron and Kimi instead answer every trap correctly 93--100\% of the time in \emph{both}
+wordings. Pooled over the three models, the textbook answer is given in 0--1\% of
+normal-wording answers to the Vickrey, Cournot and prisoner's dilemma traps. A model that recalled ``bid your value'' or ``defect'' would have
+fallen into these traps; these two re-derive the answer when one rule changes. Pooled over the
+three complete models, no trap shows a significant wording difference in correct answers
+(Cochran--Mantel--Haenszel, all Holm $p\ge0.43$). The one significant difference in textbook
+answers runs \emph{against} recall: in the Vickrey trap the textbook bid is more common in the
+disguised wording (9\% vs 0\%, Holm $p=0.049$).
+
+\paragraph{Gemini fails the traps' maths, in the textbook direction.} Gemini passed no maths
+check in the normal wording of the Vickrey, Cournot and prisoner's dilemma traps (0 of 138
+each), so its play there cannot be scored. The failures are themselves informative
+(exploratory). In the Vickrey trap's check (``the winner pays twice the second-highest bid;
+what is your payoff?''), 71 of Gemini's 138 normal-wording answers are exactly the
+single-payment payoff, $v-H$ rather than $v-2H$: the familiar rule overrides the stated one even
+in arithmetic. In the disguised wording it passes about half of the Vickrey and prisoner's
+dilemma checks and then plays correctly 56\% and 100\% of the time.
+
+\begin{table}[t]
+\centering
+\caption{Stage~2B number sweep: share correct (\%), normal / disguised, pooled over the three
+complete models. Interaction: wording $\times$ size in a logistic regression with model fixed
+effects, Holm across games.}
+\label{tab:sweep}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Game (sizes) & Small & Medium & Large & Interaction, Holm $p$ \\
+\midrule
+Vickrey (2, 4, 8 bidders) & 100 / 99 & 100 / 100 & 100 / 100 & not estimable (ceiling) \\
+Cournot ($a\approx$ 60, 100, 200) & 96 / 68 & 95 / 65 & 93 / 65 & 0.71 \\
+Public goods (3, 4, 8 players) & 100 / 83 & 99 / 89 & 99 / 99 & 0.17 \\
+Prisoner's dilemma (2, 10, 50 rounds) & 78 / 79 & 37 / 64 & 28 / 61 & 0.0005 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The wording effect does not depend on scale, except in the prisoner's dilemma.}
+Table~\ref{tab:sweep} gives the sweep. As registered, the Cournot gap is constant across sizes
+(28--30 points; interaction $p=0.71$). It comes almost entirely from Gemini (95\% normal
+against 14\% disguised over all sizes), while Nemotron and Kimi lose at most 9 points. The
+prisoner's dilemma is the registered exception, and it behaves as predicted: equilibrium
+defection in the normal wording falls with the horizon (78\% at 2 rounds, 28\% at 50) and the
+gap widens from 0 to 33 points (Holm $p=0.0005$). A long, recognised dilemma reads as an
+invitation to cooperate. gpt-oss's sweep is still in collection; its registered prediction is
+\pred{no wording~$\times$~size interaction except a positive one in the prisoner's dilemma}.
+
+\begin{table}[t]
+\centering
+\caption{Stage~2B endgame: defection (\%) in round 5, 9 or 10 of a 10-round prisoner's
+dilemma after mutual cooperation in every earlier round. Theory: 100\% in every cell.}
+\label{tab:endgame}
+\small
+\begin{tabular}{@{}lccc ccc@{}}
+\toprule
+ & \multicolumn{3}{c}{Normal wording} & \multicolumn{3}{c}{Disguised wording} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Model & 5 & 9 & 10 & 5 & 9 & 10 \\
+\midrule
+gpt-oss-120b & \pred{35} & \pred{48} & \pred{60} & \pred{82} & \pred{82} & \pred{88} \\
+Nemotron 3 Ultra & 22 & 96 & 100 & 16 & 93 & 96 \\
+Kimi K3 & 7 & 59 & 99 & 10 & 60 & 95 \\
+Gemini 3.5 Flash Lite & 0 & 68 & 100 & 5 & 11 & 27 \\
+\midrule
+Three models pooled & 10 & 74 & 100 & 10 & 55 & 73 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/endgame.pdf}
+\caption{Stage~2B endgame: defection after mutual cooperation in every earlier round, by round
+and wording, for the three models whose Block~E is complete (95\% Wilson intervals; dashed:
+backward induction). Nemotron and Kimi trace the same curve in both wordings. Gemini defects at
+the end only when the game is named.}
+\label{fig:endgame}
+\end{figure}
+
+\paragraph{The endgame: cooperate early, defect at the end.} None of the three complete models
+follows backward induction from the start: after four rounds of mutual cooperation, at most 22\% defect in round
+5 (Table~\ref{tab:endgame}, Figure~\ref{fig:endgame}). Defection then rises sharply, and in the normal wording it reaches
+99--100\% in the announced last round for all three complete models. This is the pattern of human
+play in finitely repeated dilemmas \citep{selten1986end}, not the backward-induction solution.
+The author's registered expectation was the opposite: weak, ``warm'' named endgame behaviour
+and high disguised defection throughout. The registered discriminator, named defection in round
+10 minus round 9, was predicted at $+10$ to $+15$ points and is $+26$. Pre-registration~2 named
+near-theory round-10 defection in the normal wording as ``the most surprising single result
+Stage~2B could produce''; it occurred. Read as registered, the models' cooperation in the named
+game is strategic, not warmth: it ends exactly when the future ends.
+
+The wording difference in rounds 9 and 10 (pooled $+20$ and $+27$ points, Holm $p<10^{-7}$) is
+almost entirely Gemini's. Nemotron and Kimi defect at nearly the same rates in both wordings (within 6 points), so their
+endgame reasoning does not depend on recognising the game. Gemini defects in the last round
+100\% of the time when the game is named and 27\% when it is not: it applies the folk rule
+``defect at the end'' only to a game it recognises. This matches its retrieval signature in
+Cournot.
+
+\paragraph{Robustness to the re-asked answers.} Kimi's Block~C and E results above include the
+219 answers re-asked after NVIDIA's degraded days (Appendix~\ref{app:deviations}). Under the
+registered scoring, which drops them, Kimi's rate in every Block~C and E cell moves by at most
+5 points, and no conclusion changes.
 
 
 % =====================================================================================
@@ -705,7 +861,11 @@ distribution at every $\alpha$. A bidder that recalls ``bid your value'' bids $v
 $\alpha=2$, three such bidders leave the winner with
 $\mathbb E[v_{(1)}]-2\,\mathbb E[v_{(2)}]=77.5-110=-32.5$. Any dependence of $\alpha\cdot b$ on
 $\alpha$ therefore cannot be QRE noise; it is the fingerprint of recall. Stage~2B's ``winner pays
-twice'' trap implements exactly this test: \tbd{trap result}.
+twice'' trap implements exactly this test (Table~\ref{tab:traps}). Nemotron bids half its value
+in 100\% of answers in both wordings and Kimi in 99\% and 94\%: the rational response, which is also the QRE-consistent one;
+gpt-oss's registered prediction is \pred{28\%} and \pred{58\%}. Gemini cannot pass the trap's
+maths check in the normal wording, and half of its failed checks apply the single-payment rule,
+the arithmetic signature of recall.
 
 \begin{theorem}[a reserve never raises efficiency]\label{thm:reserve}
 For any $\lam$, expected efficiency (the winner's value, or 0 without a sale) cannot be
@@ -739,8 +899,8 @@ The optimal reserve $r^*(\lam)$ is U-shaped:
   bids 59 on average), so the reserve acts as a floor under random overbids, and $r^*$ rises
   above 50.
 \end{itemize}
-The revenue gain over Myerson's reserve never exceeds about 1\%. Moreover, all three models
-analysed so far bid at the ceiling of precision in the standard auction. For these agents the
+The revenue gain over Myerson's reserve never exceeds about 1\%. Moreover, all four models bid
+at the ceiling of precision in the standard (named) auction (Appendix~\ref{app:lambda}). For these agents the
 auction leaves little to design, so we turn to the game where they are genuinely noisy.
 
 \subsection{A cooperation subsidy for the prisoner's dilemma}
@@ -1014,8 +1174,8 @@ agents, the text of a rule, and not only its payoffs, is a design variable.
 \section{Limitations}\label{sec:limitations}
 
 \begin{itemize}
-\item \textbf{Disguises can fail.} The standard disguise did not hide the games from two of three
-  models, and no wording hid the auction or public goods. Recognition is coded from written
+\item \textbf{Disguises can fail.} The standard disguise did not hide the games from two of the four
+  models (Nemotron and Kimi), and no wording hid the auction or public goods. Recognition is coded from written
   reasoning, so silent recognition cannot be excluded.
 \item \textbf{A leaky answer box.} In Stage~2A's disguised wording the answer field still carried
   the named game's field names (``bid'', ``quantity'', ``contribution''). This was found after
@@ -1069,7 +1229,7 @@ predictions and decisions are the author's.
 
 \section*{Data and code availability}
 Code, prompts, seeds, raw answers, analysis outputs and the locked analysis plans are available at
-\tbd{public repository URL}. Pre-registrations: osf.io/2uqpj, osf.io/6hz8d, osf.io/cqnsy, osf.io/qg43y.
+\url{https://github.com/mmehta4/llm-mechanism-design}\ifdraftpred\ (public on release)\fi. Pre-registrations: osf.io/2uqpj, osf.io/6hz8d, osf.io/cqnsy, osf.io/qg43y.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}
