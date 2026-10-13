@@ -8,3 +8,30 @@ kimi: 177/207 done, 30 to go  -> stage2b_E_kimi.csv
 [ 184/207] repeated_pd_round9     named     p2 AT_EQUILIBRIUM    1074.6s  ~6/h
 [ 184/207] repeated_pd_round5     disguised p1 INFRA_FAIL         904.9s  ~6/h  rate_limit
 [ 185/207] repeated_pd_round9     disguised p0 AT_EQUILIBRIUM     509.0s  ~6/h
+[ 186/207] repeated_pd_round10    named     p0 AT_EQUILIBRIUM     890.6s  ~6/h
+[ 187/207] repeated_pd_round9     disguised p1 STRATEGIC_GAP      375.6s  ~6/h
+[ 188/207] repeated_pd_round5     named     p2 STRATEGIC_GAP      379.9s  ~6/h
+[ 189/207] repeated_pd_round9     named     p0 AT_EQUILIBRIUM     762.2s  ~6/h
+[ 190/207] repeated_pd_round5     named     p2 STRATEGIC_GAP      492.1s  ~6/h
+[ 191/207] repeated_pd_round9     named     p2 STRATEGIC_GAP      467.6s  ~6/h
+[ 192/207] repeated_pd_round10    named     p0 AT_EQUILIBRIUM     418.1s  ~6/h
+[ 193/207] repeated_pd_round9     disguised p2 AT_EQUILIBRIUM     454.7s  ~6/h
+[ 194/207] repeated_pd_round5     disguised p0 STRATEGIC_GAP      444.3s  ~6/h
+[ 195/207] repeated_pd_round10    disguised p2 AT_EQUILIBRIUM     479.0s  ~6/h
+[ 196/207] repeated_pd_round10    disguised p1 AT_EQUILIBRIUM     502.2s  ~6/h
+[ 197/207] repeated_pd_round5     disguised p0 AT_EQUILIBRIUM     515.5s  ~6/h
+[ 198/207] repeated_pd_round9     named     p2 STRATEGIC_GAP      429.8s  ~6/h
+[ 199/207] repeated_pd_round9     disguised p2 AT_EQUILIBRIUM     445.9s  ~7/h
+[ 200/207] repeated_pd_round9     disguised p2 AT_EQUILIBRIUM     441.8s  ~7/h
+[ 201/207] repeated_pd_round9     disguised p2 AT_EQUILIBRIUM     451.3s  ~7/h
+[ 202/207] repeated_pd_round9     disguised p1 STRATEGIC_GAP      417.3s  ~7/h
+[ 203/207] repeated_pd_round5     named     p2 STRATEGIC_GAP      449.1s  ~7/h
+[ 204/207] repeated_pd_round9     disguised p2 AT_EQUILIBRIUM     457.6s  ~7/h
+[ 205/207] repeated_pd_round9     disguised p1 STRATEGIC_GAP      477.2s  ~7/h
+[ 206/207] repeated_pd_round10    disguised p0 AT_EQUILIBRIUM     485.3s  ~7/h
+
+this session: {'AT_EQUILIBRIUM': 18, 'STRATEGIC_GAP': 11, 'INFRA_FAIL': 1}
+1 questions still to go (server refusals) -- they are re-asked on the next pass.
+waiting until ~07:55, then resuming.
+
+kimi: 206/207 done, 1 to go  -> stage2b_E_kimi.csv

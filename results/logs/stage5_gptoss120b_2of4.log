@@ -57,3 +57,44 @@ gptoss120b: 259/100 done, 73 to go  -> stage5_gptoss120b.csv
 The provider is refusing access (401/403). Pausing; nothing is lost.
 waiting until ~04:58, then resuming.
 
+gptoss120b: 259/100 done, 73 to go  -> stage5_gptoss120b.csv
+[ 260/100] repeated_pd_subsidy_1p5 named     p2 STRATEGIC_GAP        2.9s  ~1235/h
+[ 261/100] repeated_pd_subsidy_1p5 named     p0 STRATEGIC_GAP        2.5s  ~1338/h
+[ 262/100] repeated_pd_subsidy_2p5 named     p2 AT_EQUILIBRIUM       2.2s  ~1416/h
+[ 263/100] repeated_pd_subsidy_0  named     p2 STRATEGIC_GAP        2.0s  ~1501/h
+[ 264/100] repeated_pd_subsidy_1p5 named     p2 STRATEGIC_GAP       55.3s  ~277/h
+[ 265/100] repeated_pd_subsidy_0  named     p0 AT_EQUILIBRIUM       1.6s  ~325/h
+[ 266/100] repeated_pd_subsidy_0  named     p2 AT_EQUILIBRIUM       1.3s  ~372/h
+[ 267/100] repeated_pd_subsidy_5p7 named     p1 STRATEGIC_GAP        2.5s  ~410/h
+[ 268/100] repeated_pd_subsidy_5p7 named     p1 AT_EQUILIBRIUM      54.9s  ~259/h
+[ 269/100] repeated_pd_subsidy_1p5 named     p2 STRATEGIC_GAP        2.9s  ~281/h
+[ 269/100] repeated_pd_subsidy_0  named     p1 INFRA_FAIL           0.9s  ~307/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~06:00, then resuming.
+
+gptoss120b: 281/100 done, 63 to go  -> stage5_gptoss120b.csv
+[ 282/100] repeated_pd_subsidy_0  named     p1 AT_EQUILIBRIUM       2.0s  ~1801/h
+[ 283/100] repeated_pd_subsidy_2p5 named     p2 AT_EQUILIBRIUM       2.0s  ~1777/h
+[ 284/100] repeated_pd_subsidy_5p7 named     p2 AT_EQUILIBRIUM       1.7s  ~1880/h
+[ 285/100] repeated_pd_subsidy_2p5 named     p0 AT_EQUILIBRIUM       2.1s  ~1840/h
+[ 286/100] repeated_pd_subsidy_2p5 named     p1 AT_EQUILIBRIUM      55.0s  ~287/h
+[ 287/100] repeated_pd_subsidy_5p7 named     p1 AT_EQUILIBRIUM       2.1s  ~333/h
+[ 287/100] repeated_pd_subsidy_0  named     p2 INFRA_FAIL           0.8s  ~384/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~07:01, then resuming.
+
+gptoss120b: 293/100 done, 57 to go  -> stage5_gptoss120b.csv
+[ 294/100] repeated_pd_subsidy_0  named     p2 AT_EQUILIBRIUM       1.6s  ~2233/h
+[ 295/100] repeated_pd_subsidy_5p7 named     p0 AT_EQUILIBRIUM       2.2s  ~1880/h
+[ 296/100] repeated_pd_subsidy_2p5 named     p0 AT_EQUILIBRIUM       1.9s  ~1883/h
+[ 297/100] repeated_pd_subsidy_2p5 named     p1 AT_EQUILIBRIUM       2.2s  ~1813/h
+[ 298/100] repeated_pd_subsidy_2p5 named     p0 AT_EQUILIBRIUM      53.6s  ~292/h
+[ 299/100] repeated_pd_subsidy_0  named     p0 STRATEGIC_GAP        2.0s  ~340/h
+[ 300/100] repeated_pd_subsidy_2p5 named     p2 AT_EQUILIBRIUM       2.5s  ~381/h
+[ 300/100] repeated_pd_subsidy_5p7 named     p1 INFRA_FAIL           0.1s  ~435/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~08:02, then resuming.
+

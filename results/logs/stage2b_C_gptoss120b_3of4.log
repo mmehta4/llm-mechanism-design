@@ -107,3 +107,40 @@ gptoss120b: 79/276 done, 197 to go  -> stage2b_C_gptoss120b.csv
 The provider is refusing access (401/403). Pausing; nothing is lost.
 waiting until ~05:06, then resuming.
 
+gptoss120b: 79/276 done, 197 to go  -> stage2b_C_gptoss120b.csv
+[  80/276] repeated_pd_n_rounds10 named     p2 AT_EQUILIBRIUM       1.2s  ~2989/h
+[  81/276] cournot_a60            named     p2 AT_EQUILIBRIUM       2.1s  ~2195/h
+[  82/276] public_goods_n_others2 disguised p0 AT_EQUILIBRIUM       2.8s  ~1770/h
+[  83/276] repeated_pd_n_rounds10 named     p2 AT_EQUILIBRIUM       1.8s  ~1819/h
+[  84/276] cournot_a60            named     p1 AT_EQUILIBRIUM       2.1s  ~1801/h
+[  85/276] public_goods_n_others3 named     p1 AT_EQUILIBRIUM      53.1s  ~342/h
+[  86/276] cournot_a200           disguised p1 AT_EQUILIBRIUM       3.2s  ~380/h
+[  87/276] repeated_pd_n_rounds10 disguised p1 STRATEGIC_GAP        1.6s  ~424/h
+[  87/276] cournot_a100           named     p0 INFRA_FAIL           1.4s  ~467/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~06:07, then resuming.
+
+gptoss120b: 87/276 done, 189 to go  -> stage2b_C_gptoss120b.csv
+[  88/276] cournot_a100           named     p0 AT_EQUILIBRIUM       6.0s  ~596/h
+[  89/276] cournot_a60            disguised p2 AT_EQUILIBRIUM       2.9s  ~806/h
+[  90/276] repeated_pd_n_rounds10 named     p2 AT_EQUILIBRIUM       1.4s  ~1043/h
+[  91/276] vickrey_n_others1      disguised p1 AT_EQUILIBRIUM      55.4s  ~219/h
+[  91/276] cournot_a200           named     p0 INFRA_FAIL           0.9s  ~270/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~07:09, then resuming.
+
+gptoss120b: 91/276 done, 185 to go  -> stage2b_C_gptoss120b.csv
+[  92/276] cournot_a200           named     p0 AT_EQUILIBRIUM       2.5s  ~1428/h
+[  93/276] cournot_a200           disguised p2 STRATEGIC_GAP        2.9s  ~1317/h
+[  94/276] public_goods_n_others3 disguised p1 AT_EQUILIBRIUM       2.1s  ~1436/h
+[  95/276] public_goods_n_others2 named     p1 AT_EQUILIBRIUM       2.7s  ~1406/h
+[  96/276] repeated_pd_n_rounds10 disguised p1 STRATEGIC_GAP       53.4s  ~283/h
+[  97/276] vickrey_n_others1      named     p1 AT_EQUILIBRIUM       2.7s  ~326/h
+[  98/276] vickrey_n_others3      named     p1 AT_EQUILIBRIUM       1.4s  ~372/h
+[  98/276] vickrey_n_others1      disguised p1 INFRA_FAIL           0.1s  ~425/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~08:10, then resuming.
+
