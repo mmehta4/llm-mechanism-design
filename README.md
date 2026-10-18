@@ -10,7 +10,7 @@ rules or by recognising a famous game and recalling its answer. This study separ
 keep the numbers, rules and information but drop the game's vocabulary. Every answer is paired
 with a maths check in the same wording.
 
-Four models answer **20,368 questions** in four pre-registered studies, covering a Vickrey auction,
+Four models from four developers answer **20,368 questions** in four pre-registered studies, covering a Vickrey auction,
 a Cournot duopoly, a finitely repeated prisoner's dilemma and a public goods game.
 
 ## Main results
@@ -18,7 +18,7 @@ a Cournot duopoly, a finitely repeated prisoner's dilemma and a public goods gam
 | | gpt-oss-120b | Nemotron 3 Ultra | Kimi K3 | Gemini 3.5 Flash Lite |
 |---|---|---|---|---|
 | Cournot equilibrium play, normal → disguised → extreme | 96 → 80 → 30% | stays 88–100% | stays 99–100% | 96 → 4% |
-| Traps (the textbook answer is wrong) | falls in when the game is named | not fooled | not fooled | fails the trap arithmetic |
+| Traps (the textbook answer is wrong) | falls in under the standard wording | not fooled | not fooled | fails the trap arithmetic |
 | Pattern | graded retrieval | hidden but still solved | hidden but still solved | retrieval and comprehension limits |
 
 - **Prisoner's dilemma:** recognising the game retrieves a script of cooperation, and removing the

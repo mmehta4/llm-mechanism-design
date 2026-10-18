@@ -95,7 +95,7 @@ def design_figure() -> None:
     p = GAMES["cournot"].sampler(seed=s)
     eq_n = p["equilibrium"]
     eq_x = GAMES["cournot_extreme"].sampler(seed=s)["equilibrium"]
-    panels = [("Normal (Stage 2A)", named, BLUE, f"equilibrium: produce {eq_n:.1f}"),
+    panels = [("Standard (Stage 2A)", named, BLUE, f"equilibrium: produce {eq_n:.1f}"),
               ("Disguised (Stage 2A)", disg, ORANGE, f"equilibrium: open {eq_n:.1f} (same numbers, no game words)"),
               ("Extreme (Stage 2C)", ext, AQUA, f"equilibrium: x = {eq_x:.2f}, i.e. amount 2x + 4 = {2 * eq_x + 4:.1f}")]
     fig, axes = plt.subplots(1, 3, figsize=(7.2, 3.3))
@@ -112,8 +112,6 @@ def design_figure() -> None:
                 family="monospace", color=INK, linespacing=1.25)
         ax.text(0.5, 0.03, textwrap.fill(foot, 34), ha="center", va="center", transform=ax.transAxes,
                 fontsize=6.4, color=INK2)
-    fig.suptitle("One Cournot question, identical numbers, three wordings; each answer is followed by "
-                 "a maths check in the same wording", fontsize=8, color=INK2, y=1.0)
     save(fig, "design")
 
 
@@ -131,7 +129,7 @@ def dumbbell(ax, models, rows_by_model, game, fn, ylabel=None):
                 ax.plot(i + dx, v, "o", ms=5.5, color=color, mec="#fcfcfb", mew=1.4, zorder=3)
             pts.append((i + dx, v))
         ax.plot([pts[0][0], pts[1][0]], [pts[0][1], pts[1][1]], color=INK2, lw=0.7, alpha=0.6, zorder=1)
-    ax.set_xticks(xs, [SHORT[m] for m in models])
+    ax.set_xticks(xs, [SHORT[m] for m in models], rotation=35, ha="right", rotation_mode="anchor", fontsize=7.5)
     ax.set_ylim(-0.03, 1.05)
     ax.set_yticks([0, 0.25, 0.5, 0.75, 1], ["0%", "25%", "50%", "75%", "100%"])
     ax.set_title(GAME_NAME[game], fontsize=8.5, color=INK)
@@ -147,7 +145,7 @@ def stage2a_figure() -> list[str]:
         dumbbell(axes[0, j], models, rows, g, eq_play, "equilibrium play" if j == 0 else None)
         dumbbell(axes[1, j], models, rows, g, names, "names the game" if j == 0 else None)
     h = [plt.Line2D([], [], marker="o", color=c, lw=0, ms=5.5) for c in (BLUE, ORANGE)]
-    fig.legend(h, ["normal wording", "disguised wording (same numbers)"], loc="upper center", ncol=2,
+    fig.legend(h, ["standard wording", "disguised wording (same numbers)"], loc="upper center", ncol=2,
                bbox_to_anchor=(0.5, 1.04))
     fig.tight_layout(h_pad=1.2)
     save(fig, "stage2a")
@@ -179,7 +177,8 @@ def stage2c_figure() -> list[str]:
                         ax.plot(i + dx, v, "o", ms=5, color=color, mec="#fcfcfb", mew=1.3, zorder=3)
                         pts.append((i + dx, v))
                 ax.plot(*zip(*pts), color=INK2, lw=0.7, alpha=0.6, zorder=1)
-            ax.set_xticks(range(len(models)), [SHORT[m] for m in models])
+            ax.set_xticks(range(len(models)), [SHORT[m] for m in models], rotation=35, ha="right",
+                          rotation_mode="anchor", fontsize=7.5)
             ax.set_ylim(-0.03, 1.05)
             ax.set_yticks([0, 0.5, 1], ["0%", "50%", "100%"])
             if row == 0:
@@ -187,7 +186,7 @@ def stage2c_figure() -> list[str]:
             if j == 0:
                 ax.set_ylabel(label)
     h = [plt.Line2D([], [], marker="o", color=c, lw=0, ms=5) for c in (BLUE, ORANGE, AQUA)]
-    fig.legend(h, ["normal (2A)", "disguised (2A)", "extreme (2C)"], loc="upper center", ncol=3,
+    fig.legend(h, ["standard (2A)", "disguised (2A)", "extreme (2C)"], loc="upper center", ncol=3,
                bbox_to_anchor=(0.5, 1.04))
     fig.tight_layout(h_pad=1.2)
     save(fig, "stage2c")
@@ -362,7 +361,7 @@ def endgame_figure() -> list[str]:
     axes[0][0].set_ylabel("defection")
     h = [plt.Line2D([], [], marker="o", color=c, lw=1.1, ms=5) for c in (BLUE, ORANGE)] + \
         [plt.Line2D([], [], color=INK2, lw=0.9, ls=(0, (4, 2)))]
-    fig.legend(h, ["normal wording", "disguised wording", "backward induction (defect always)"],
+    fig.legend(h, ["standard wording", "disguised wording", "backward induction (defect always)"],
                loc="upper center", ncol=3, bbox_to_anchor=(0.5, 1.08), fontsize=7.5)
     fig.tight_layout(w_pad=0.8)
     save(fig, "endgame")
