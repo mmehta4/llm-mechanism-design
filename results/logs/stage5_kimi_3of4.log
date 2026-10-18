@@ -58,3 +58,35 @@ kimi: 20/100 done, 80 to go  -> stage5_kimi.csv
 [  76/100] repeated_pd_subsidy_50 named     p2 AT_EQUILIBRIUM     485.2s  ~8/h
 [  77/100] repeated_pd_subsidy_0  named     p1 AT_EQUILIBRIUM     535.3s  ~8/h
 [  78/100] repeated_pd_subsidy_2p5 named     p1 AT_EQUILIBRIUM     400.2s  ~8/h
+[  79/100] repeated_pd_subsidy_50 named     p2 AT_EQUILIBRIUM     385.3s  ~8/h
+[  80/100] repeated_pd_subsidy_1p5 named     p1 STRATEGIC_GAP      429.0s  ~8/h
+[  81/100] repeated_pd_subsidy_50 named     p0 AT_EQUILIBRIUM     492.7s  ~8/h
+[  82/100] repeated_pd_subsidy_1p5 named     p1 STRATEGIC_GAP      472.3s  ~8/h
+[  83/100] repeated_pd_subsidy_50 named     p2 AT_EQUILIBRIUM     506.3s  ~8/h
+[  84/100] repeated_pd_subsidy_2p5 named     p2 AT_EQUILIBRIUM     478.3s  ~8/h
+[  85/100] repeated_pd_subsidy_1p5 named     p2 STRATEGIC_GAP      530.2s  ~8/h
+[  86/100] repeated_pd_subsidy_50 named     p2 AT_EQUILIBRIUM     556.4s  ~8/h
+[  87/100] repeated_pd_subsidy_1p5 named     p1 STRATEGIC_GAP      482.6s  ~8/h
+[  88/100] repeated_pd_subsidy_0  named     p0 AT_EQUILIBRIUM     509.1s  ~8/h
+[  89/100] repeated_pd_subsidy_1p5 named     p2 STRATEGIC_GAP      498.1s  ~8/h
+[  90/100] repeated_pd_subsidy_50 named     p1 AT_EQUILIBRIUM     487.3s  ~8/h
+[  91/100] repeated_pd_subsidy_1p5 named     p0 STRATEGIC_GAP      465.7s  ~8/h
+[  92/100] repeated_pd_subsidy_2p5 named     p2 AT_EQUILIBRIUM     764.2s  ~8/h
+[  93/100] repeated_pd_subsidy_2p5 named     p2 AT_EQUILIBRIUM     539.1s  ~8/h
+[  94/100] repeated_pd_subsidy_1p5 named     p1 STRATEGIC_GAP      570.8s  ~8/h
+[  94/100] repeated_pd_subsidy_2p5 named     p1 INFRA_FAIL        1448.8s  ~8/h  overloaded
+[  95/100] repeated_pd_subsidy_50 named     p0 AT_EQUILIBRIUM     559.4s  ~7/h
+[  96/100] repeated_pd_subsidy_50 named     p1 AT_EQUILIBRIUM     504.0s  ~7/h
+[  97/100] repeated_pd_subsidy_2p5 named     p0 AT_EQUILIBRIUM     507.7s  ~7/h
+[  98/100] repeated_pd_subsidy_0  named     p1 AT_EQUILIBRIUM     779.5s  ~7/h
+
+this session: {'AT_EQUILIBRIUM': 53, 'STRATEGIC_GAP': 25, 'INFRA_FAIL': 2}
+2 questions still to go (server refusals) -- they are re-asked on the next pass.
+waiting until ~11:30, then resuming.
+
+kimi: 98/100 done, 2 to go  -> stage5_kimi.csv
+[  99/100] repeated_pd_subsidy_1p5 named     p0 STRATEGIC_GAP      438.5s  ~8/h
+[ 100/100] repeated_pd_subsidy_2p5 named     p1 AT_EQUILIBRIUM     468.8s  ~8/h
+
+this session: {'STRATEGIC_GAP': 1, 'AT_EQUILIBRIUM': 1}
+complete: every planned question has an answer.

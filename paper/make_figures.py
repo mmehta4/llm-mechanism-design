@@ -332,10 +332,47 @@ def stage5_figure(synthetic: bool = False) -> list[str]:
     return models
 
 
+# --- Figure: Stage 2B endgame, defection by round, normal vs disguised ----------------------
+
+def endgame_figure() -> list[str]:
+    from analysis.stage2b import block_rows, defected
+    models = [m for m in CAPABILITY_ORDER if block_complete(m, "2B-E")]
+    if not models:
+        return []
+    rows = [r for r in block_rows("E", False) if r["model"] in models and r["kept"]]
+    rounds = (5, 9, 10)
+    fig, axes = plt.subplots(1, len(models), figsize=(7.2, 2.35), sharey=True, squeeze=False)
+    for ax, m in zip(axes[0], models):
+        ax.axhline(1.0, color=INK2, lw=0.9, ls=(0, (4, 2)), zorder=1)
+        for fr, color, dx in (("named", BLUE, -0.12), ("disguised", ORANGE, 0.12)):
+            pts = []
+            for k, rd in enumerate(rounds):
+                rs = [r for r in rows if r["model"] == m and r["framing"] == fr and r["game"] == f"repeated_pd_round{rd}"]
+                v, lo, hi, n = rate(rs, defected)
+                if n:
+                    ax.plot([k + dx] * 2, [lo, hi], color=color, lw=1.6)
+                    ax.plot(k + dx, v, "o", ms=5.5, color=color, mec="#fcfcfb", mew=1.4, zorder=3)
+                    pts.append((k + dx, v))
+            ax.plot(*zip(*pts), color=color, lw=1.1, alpha=0.75, zorder=2)
+        ax.set_xticks(range(3), ["round 5", "round 9", "round 10\n(last)"])
+        ax.set_ylim(-0.03, 1.05)
+        ax.set_yticks([0, 0.25, 0.5, 0.75, 1], ["0%", "25%", "50%", "75%", "100%"])
+        ax.set_title(NAME[m], fontsize=8.5)
+    axes[0][0].set_ylabel("defection")
+    h = [plt.Line2D([], [], marker="o", color=c, lw=1.1, ms=5) for c in (BLUE, ORANGE)] + \
+        [plt.Line2D([], [], color=INK2, lw=0.9, ls=(0, (4, 2)))]
+    fig.legend(h, ["normal wording", "disguised wording", "backward induction (defect always)"],
+               loc="upper center", ncol=3, bbox_to_anchor=(0.5, 1.08), fontsize=7.5)
+    fig.tight_layout(w_pad=0.8)
+    save(fig, "endgame")
+    return models
+
+
 if __name__ == "__main__":
     OUT.mkdir(parents=True, exist_ok=True)
     design_figure()
     print("stage2a models:", stage2a_figure())
     print("stage2c models:", stage2c_figure())
     print("stage5 models:", stage5_figure())
+    print("endgame models:", endgame_figure())
     # misses_figure()  -- withheld: relies on KNEW_OVERRODE (hand-check kappa 0.49)

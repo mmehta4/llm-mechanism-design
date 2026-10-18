@@ -1,0 +1,50 @@
+gptoss120b: 254/276 done, 22 to go  -> stage2b_B_gptoss120b.csv
+[ 255/276] vickrey_trap           disguised p1 AT_EQUILIBRIUM       4.1s  ~873/h
+[ 256/276] repeated_pd_trap       named     p1 STRATEGIC_GAP        1.8s  ~1219/h
+[ 257/276] vickrey_trap           disguised p0 AT_EQUILIBRIUM       3.4s  ~1164/h
+[ 258/276] cournot_trap           disguised p2 AT_EQUILIBRIUM      54.9s  ~225/h
+[ 258/276] vickrey_trap           named     p0 INFRA_FAIL           0.2s  ~280/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~16:12, then resuming.
+
+gptoss120b: 258/276 done, 18 to go  -> stage2b_B_gptoss120b.csv
+[ 259/276] vickrey_trap           named     p0 AT_EQUILIBRIUM       2.6s  ~1394/h
+[ 260/276] public_goods_trap      disguised p2 AT_EQUILIBRIUM       3.2s  ~1253/h
+[ 261/276] public_goods_trap      disguised p0 AT_EQUILIBRIUM       3.5s  ~1173/h
+[ 262/276] public_goods_trap      disguised p0 AT_EQUILIBRIUM       2.9s  ~1192/h
+[ 263/276] public_goods_trap      disguised p1 AT_EQUILIBRIUM      52.9s  ~277/h
+[ 263/276] vickrey_trap           disguised p2 INFRA_FAIL           2.6s  ~320/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~17:13, then resuming.
+
+gptoss120b: 263/276 done, 13 to go  -> stage2b_B_gptoss120b.csv
+[ 264/276] vickrey_trap           disguised p2 AT_EQUILIBRIUM       3.8s  ~948/h
+[ 265/276] repeated_pd_trap       named     p0 AT_EQUILIBRIUM       1.9s  ~1252/h
+[ 266/276] public_goods_trap      named     p2 AT_EQUILIBRIUM       2.7s  ~1270/h
+[ 267/276] cournot_trap           named     p0 AT_EQUILIBRIUM       3.3s  ~1222/h
+[ 268/276] repeated_pd_trap       disguised p2 AT_EQUILIBRIUM      52.6s  ~280/h
+[ 269/276] vickrey_trap           disguised p0 AT_EQUILIBRIUM       3.3s  ~319/h
+[ 269/276] cournot_trap           disguised p2 INFRA_FAIL           1.8s  ~363/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~18:14, then resuming.
+
+gptoss120b: 269/276 done, 7 to go  -> stage2b_B_gptoss120b.csv
+[ 270/276] cournot_trap           disguised p2 AT_EQUILIBRIUM       3.8s  ~939/h
+[ 271/276] public_goods_trap      disguised p0 AT_EQUILIBRIUM       2.6s  ~1115/h
+[ 272/276] vickrey_trap           named     p0 AT_EQUILIBRIUM       3.0s  ~1140/h
+[ 273/276] cournot_trap           named     p0 AT_EQUILIBRIUM       2.4s  ~1212/h
+[ 274/276] public_goods_trap      disguised p0 AT_EQUILIBRIUM      54.4s  ~272/h
+[ 274/276] cournot_trap           named     p1 INFRA_FAIL           2.5s  ~314/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~19:15, then resuming.
+
+gptoss120b: 274/276 done, 2 to go  -> stage2b_B_gptoss120b.csv
+[ 275/276] cournot_trap           named     p1 COMPETENCE_GAP       3.2s  ~1106/h
+[ 276/276] repeated_pd_trap       named     p2 STRATEGIC_GAP        1.3s  ~1564/h
+
+this session: {'COMPETENCE_GAP': 1, 'STRATEGIC_GAP': 1}
+complete: every planned question has an answer.

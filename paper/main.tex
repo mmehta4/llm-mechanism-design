@@ -5,6 +5,7 @@
 \usepackage{microtype}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -19,6 +20,17 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \newcommand{\tbd}[1]{\textcolor{red}{[TBD: #1]}}
+% ---- DRAFT MODE: values not yet measured are shown as the author's pre-registered predictions,
+% in violet with a superscript p. Set \draftpredfalse (and replace every \pred) for the final.
+\newif\ifdraftpred \draftpredtrue
+\definecolor{predcol}{RGB}{122,40,160}
+\newcommand{\pred}[1]{\textcolor{predcol}{#1\textsuperscript{p}}}
+\ifdraftpred
+  \usepackage{draftwatermark}
+  \SetWatermarkText{DRAFT}
+  \SetWatermarkScale{1.1}
+  \SetWatermarkColor[gray]{0.93}
+\fi
 \newcommand{\lam}{\lambda}
 \DeclareMathOperator{\logit}{logit}
 \setlist{itemsep=1pt,topsep=3pt}
@@ -27,7 +39,9 @@
 \large Do LLM Agents Derive or Recall Game-Theoretic Equilibria,\\
 and What That Means for Mechanism Design}
 \author{Meet Mehta}
-\date{Working paper, \today}
+\date{Working paper, \today\ifdraftpred\\[4pt]\small\textcolor{predcol}{\textbf{Draft.} gpt-oss-120b's Stage~2B number-sweep and endgame data are still being collected. Values shown in
+violet with a superscript p are the author's pre-registered predictions, not data, and will be
+replaced by measurements.}\fi}
 
 \begin{document}
 \maketitle
@@ -41,9 +55,9 @@ question is asked in its standard wording and in a disguised wording with identi
 rules and information structure but no game vocabulary. A third, pre-registered study adds an
 \emph{extreme} disguise: no story, coded answers and a neutral answer box. Every answer is
 paired with a competence probe in the same wording, so a change in play cannot be blamed on
-misreading. Four models from four providers answer 18{,}768 questions across a Vickrey auction,
-a Cournot duopoly, a finitely repeated prisoner's dilemma and a public goods game, under three
-pre-registrations.
+misreading. Four models from four providers answer up to 20{,}368 questions across a Vickrey
+auction, a Cournot duopoly, a finitely repeated prisoner's dilemma and a public goods game, under
+four pre-registrations.
 
 The four models split into three patterns:
 \begin{itemize}
@@ -61,9 +75,15 @@ In the prisoner's dilemma, recognition retrieves a cultural script of cooperatio
 the equilibrium: removing the familiar frame raises defection in every model (pooled
 46\%$\to$83\%). Fitted to the data, logit QRE fails our pre-registered calibration test for all
 four models, because LLM errors are rare, large and discrete rather than payoff-scaled noise.
-\tbd{Stage~2B traps.}
+Traps that make the textbook answer wrong do not fool the two strongest models (93--100\%
+correct in both wordings). gpt-oss falls into them when the game is named, giving the textbook
+answer about five times as often as when it is disguised, and Gemini fails the traps' arithmetic
+in the textbook direction.
+In the normal wording of a finitely repeated dilemma, the models cooperate early and defect at
+the end (99--100\% in the announced last round), as people do, rather than defecting throughout
+as backward induction requires.
 
-We then ask what noisy, quantal-response agents imply for mechanism design. We prove three
+We then ask what noisy, quantal-response agents imply for mechanism design. We prove four
 results:
 \begin{itemize}
 \item a payment multiplier in a second-price auction is irrelevant for logit-QRE bidders but
@@ -71,10 +91,15 @@ results:
 \item the revenue-optimal reserve price is U-shaped in bidder precision but gains at most about
   1\% over Myerson's;
 \item the cooperation subsidy that achieves any target cooperation rate has a closed form,
-  whose stage-game halfway point is free of parameters across the entire regular-QRE family.
+  whose stage-game halfway point is free of parameters across the entire regular-QRE family;
+\item no regular QRE can produce cooperation above one half at subsidies up to that halfway
+  point, at any precision.
 \end{itemize}
-A pre-registered test pits the derived subsidy against a classically guessed one:
-\tbd{Stage~5 result}.
+A pre-registered test pits the derived subsidy against a classically guessed one, in 1{,}600
+further questions. Classical theory predicts the models' response better than QRE for all four
+models. The derived subsidy reaches its 90\% target in every model but overpays, by up to twenty
+times, because three models cooperate at levels no QRE can produce: their low fitted precision
+measured a cooperation norm, not insensitivity to incentives.
 \end{abstract}
 
 \tableofcontents
@@ -114,7 +139,7 @@ changes the rules, which is the only reason to design a mechanism at all.
 \item \textbf{Measured recognition.} A validated code records whether the model's reasoning
   names the game (agreement with blind hand coding $\kappa = 1.00$). Recognition and play are
   then read jointly, by rules fixed before the data.
-\item \textbf{Pre-registration.} Three registrations on OSF fix the predictions, sample sizes,
+\item \textbf{Pre-registration.} Four registrations on OSF fix the predictions, sample sizes,
   exclusions and tests before each study \citep{nosek2018prereg}. The analysis code was locked
   by cryptographic fingerprint.
 \end{enumerate}
@@ -130,8 +155,11 @@ changes the rules, which is the only reason to design a mechanism at all.
   familiar frame triggers cooperation. Removing it raises defection in all four models, by
   17--76 points.
 \item \textbf{Quantal response does not fit LLM play.} It fails held-out calibration for every
-  model, which motivates testing directly whether the models respond to incentives as QRE or as
-  classical theory predicts (Stage~5).
+  model.
+\item \textbf{Models respond to incentives more sharply than QRE allows.} In a pre-registered
+  subsidy test, classical theory beats QRE for every model, and a subsidy derived from the fitted
+  QRE overpays by up to twenty times. Merely stating a subsidy rule, at zero, cuts cooperation by
+  23 points in each of three models.
 \end{itemize}
 
 \paragraph{Contributions.}
@@ -142,9 +170,11 @@ changes the rules, which is the only reason to design a mechanism at all.
 \item Evidence that the answer differs by model and by game, including a retrieval signature in
   Gemini's Cournot play and recognition-driven cooperation in the prisoner's dilemma.
 \item Theory for mechanism design with QRE agents: an invariance theorem that turns a payment
-  multiplier into a test of retrieval; the U-shaped revenue-optimal reserve; and a closed-form
-  cooperation subsidy with a parameter-free prediction. These are tested on the same models in a
-  pre-registered study.
+  multiplier into a test of retrieval; the U-shaped revenue-optimal reserve; a closed-form
+  cooperation subsidy with a parameter-free prediction; and a ceiling on quantal cooperation
+  that explains when fitted QRE will mislead a designer.
+\item A pre-registered test of a mechanism derived from fitted behaviour, on the same models.
+  It shows that a behavioural model can fail in a predictable direction, and by how much.
 \end{enumerate}
 
 % =====================================================================================
@@ -328,8 +358,10 @@ registered on OSF before its data existed. Each fixes:
 \item the tests and multiple-comparison corrections.
 \end{itemize}
 The analysis code is fingerprinted too, and it refuses to run on real data unless its
-fingerprint matches. Ten deviations, all recorded before the affected analysis, are listed in
-Appendix~\ref{app:deviations}. None changes a registered test.
+fingerprint matches. Fourteen deviations, all recorded before the affected analysis, are listed in
+Appendix~\ref{app:deviations}. None changes a registered test. One changes a registered scoring
+rule (the re-asking of Kimi's unreadable answers from three days of degraded service), and the
+affected results are reported both ways.
 
 \paragraph{Tests.}
 \begin{itemize}
@@ -650,10 +682,166 @@ mechanism stage studies why. Stage~5 (Section~\ref{sec:stage5}) does this direct
 whether the agents respond to incentives as QRE or as classical theory predicts.
 
 \subsection{Stage 2B: traps, number sweeps and the endgame}
-\tbd{Block~B (traps): the correct share and the recall signature (the textbook answer where it
-is wrong), named vs disguised, CMH across models. Block~C (sweep): the wording$\times$size
-interaction. Block~E (endgame): defection at rounds 5, 9 and 10. Complete for three models;
-gpt-oss-120b's blocks are still in collection.}
+Stage~2A cannot separate a model that recalls the textbook answer from one that derives it,
+because there the textbook answer is also correct. Stage~2B (pre-registration~2) asks questions
+where that is not so, in three blocks of 3{,}036 questions per model:
+\begin{itemize}
+\item \textbf{Traps (Block B).} One rule or the numbers make the textbook answer wrong
+  (Table~\ref{tab:traps}). A deriving model gets the trap right in both wordings; a recalling
+  model falls in more often when the familiar wording calls up the memorised answer. Each trap
+  has its own maths check, which tests the trap rule rather than the ordinary one.
+\item \textbf{Number sweep (Block C).} Each game at three sizes. Does the wording effect
+  survive a change of scale?
+\item \textbf{Endgame (Block E).} The prisoner's dilemma at round 5, 9 or 10 of 10, after
+  mutual cooperation in every earlier round. Backward induction says defect in every round.
+\end{itemize}
+\ifdraftpred\noindent\textcolor{predcol}{In this draft, the traps (Block~B) are measured for all four
+models and analysed as registered. For the number sweep and the endgame (Blocks~C and E),
+gpt-oss's entries (marked p) are the pre-registered predictions, which were stated for all
+models jointly and are shown at the midpoint of each registered range; pooled tests there use the
+three complete models and are provisional.}\par\fi
+
+\begin{table}[t]
+\centering
+\caption{Stage~2B traps: share correct (\%), normal $\to$ disguised wording, among answers
+whose trap-specific maths check was passed. ``--'': no answer passed the check.}
+\label{tab:traps}
+\small
+\begin{tabular}{@{}>{\raggedright}p{2.0cm}>{\raggedright\arraybackslash}p{4.3cm}cccc@{}}
+\toprule
+Trap & What changes (correct answer) & gpt-oss & Nemotron & Kimi & Gemini \\
+\midrule
+Vickrey & winner pays \emph{twice} the second bid (bid $v/2$) & 56$\to$65 & 100$\to$100 & 99$\to$94 & --$\to$56 \\
+Cournot & three firms (produce $(a-c)/4$) & 71$\to$40 & 100$\to$100 & 99$\to$99 & --$\to$-- \\
+Prisoner's dilemma & $R>T$ and $S>P$ (cooperate) & 59$\to$93 & 100$\to$100 & 99$\to$100 & --$\to$100 \\
+Public goods & $M=5>n=4$ (contribute all) & 75$\to$95 & 93$\to$100 & 96$\to$96 & 67$\to$61 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Traps: the strong models are not fooled.} The registered prediction was that
+recall would make the normal wording a trap: 15--40\% correct, against 40--85\% disguised.
+Nemotron and Kimi instead answer every trap correctly 93--100\% of the time in \emph{both}
+wordings, and almost never give the textbook answer (at most 7\% in any cell). A model that
+recalled ``bid your value'' or ``defect'' would have fallen into these traps; these two
+re-derive the answer when one rule changes.
+
+\paragraph{gpt-oss falls into the traps when the game is named.} gpt-oss shows the recall
+signature the traps were built to detect. In the normal wording it gives the textbook answer in
+24\% of Vickrey answers (``bid your value''), 41\% of prisoner's dilemma answers (``defect'') and
+23\% of public goods answers (``contribute nothing''), against 4\%, 7\% and 5\% disguised. Its
+correct rate rises under disguise accordingly: from 59\% to 93\% in the prisoner's dilemma and
+from 75\% to 95\% in public goods (both $p<10^{-5}$), and from 56\% to 65\% in the auction
+(not significant). The Cournot trap runs the other way (71\% named, 40\% disguised), with no
+textbook answers in either wording. Here the disguised version demands the three-firm
+first-order condition from scratch, which pre-registration~2 expected to be harder. This
+matches gpt-oss's graded retrieval in Stage~2C: the same model, by an independent test, again
+answers from memory when it recognises the game.
+
+\paragraph{The registered test, pooled.} Pooled over all four models (Cochran--Mantel--Haenszel
+by model, Holm across the four traps), two traps show a significant wording effect. In the
+prisoner's dilemma trap, disguise raises correct answers by 12 points (Holm $p=6\times10^{-10}$)
+and cuts textbook answers from 14\% to 2\% (Holm $p=6\times10^{-10}$). In the Cournot trap,
+disguise lowers correct answers by 10 points (Holm $p=3\times10^{-6}$). Public goods ($+5$ under disguise, Holm
+$p=0.055$) and Vickrey ($-3$, $p=0.52$) are not significant. The predicted direction (more
+traps fallen into in the normal wording) holds for the prisoner's dilemma and public goods,
+reverses for Cournot, and is absent for Vickrey. The predicted levels were far too low: pooled
+correct rates are 79--98\% in every cell. The predicted most-caught trap, the double-payment
+auction, held narrowly (83\% correct over both wordings, against 84--93\% for the others).
+
+\paragraph{Gemini fails the traps' maths, in the textbook direction.} Gemini passed no maths
+check in the normal wording of the Vickrey, Cournot and prisoner's dilemma traps (0 of 138
+each), so its play there cannot be scored. The failures are themselves informative
+(exploratory). In the Vickrey trap's check (``the winner pays twice the second-highest bid;
+what is your payoff?''), 71 of Gemini's 138 normal-wording answers are exactly the
+single-payment payoff, $v-H$ rather than $v-2H$: the familiar rule overrides the stated one even
+in arithmetic. In the disguised wording it passes about half of the Vickrey and prisoner's
+dilemma checks and then plays correctly 56\% and 100\% of the time.
+
+\begin{table}[t]
+\centering
+\caption{Stage~2B number sweep: share correct (\%), normal / disguised, pooled over the three
+complete models. Interaction: wording $\times$ size in a logistic regression with model fixed
+effects, Holm across games.}
+\label{tab:sweep}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Game (sizes) & Small & Medium & Large & Interaction, Holm $p$ \\
+\midrule
+Vickrey (2, 4, 8 bidders) & 100 / 99 & 100 / 100 & 100 / 100 & not estimable (ceiling) \\
+Cournot ($a\approx$ 60, 100, 200) & 96 / 68 & 95 / 65 & 93 / 65 & 0.71 \\
+Public goods (3, 4, 8 players) & 100 / 83 & 99 / 89 & 99 / 99 & 0.17 \\
+Prisoner's dilemma (2, 10, 50 rounds) & 78 / 79 & 37 / 64 & 28 / 61 & 0.0005 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The wording effect does not depend on scale, except in the prisoner's dilemma.}
+Table~\ref{tab:sweep} gives the sweep. As registered, the Cournot gap is constant across sizes
+(28--30 points; interaction $p=0.71$). It comes almost entirely from Gemini (95\% normal
+against 14\% disguised over all sizes), while Nemotron and Kimi lose at most 9 points. The
+prisoner's dilemma is the registered exception, and it behaves as predicted: equilibrium
+defection in the normal wording falls with the horizon (78\% at 2 rounds, 28\% at 50) and the
+gap widens from 0 to 33 points (Holm $p=0.0005$). A long, recognised dilemma reads as an
+invitation to cooperate. gpt-oss's sweep is still in collection; its registered prediction is
+\pred{no wording~$\times$~size interaction except a positive one in the prisoner's dilemma}.
+
+\begin{table}[t]
+\centering
+\caption{Stage~2B endgame: defection (\%) in round 5, 9 or 10 of a 10-round prisoner's
+dilemma after mutual cooperation in every earlier round. Theory: 100\% in every cell.}
+\label{tab:endgame}
+\small
+\begin{tabular}{@{}lccc ccc@{}}
+\toprule
+ & \multicolumn{3}{c}{Normal wording} & \multicolumn{3}{c}{Disguised wording} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Model & 5 & 9 & 10 & 5 & 9 & 10 \\
+\midrule
+gpt-oss-120b & \pred{35} & \pred{48} & \pred{60} & \pred{82} & \pred{82} & \pred{88} \\
+Nemotron 3 Ultra & 22 & 96 & 100 & 16 & 93 & 96 \\
+Kimi K3 & 7 & 59 & 99 & 10 & 60 & 95 \\
+Gemini 3.5 Flash Lite & 0 & 68 & 100 & 5 & 11 & 27 \\
+\midrule
+Three models pooled & 10 & 74 & 100 & 10 & 55 & 73 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/endgame.pdf}
+\caption{Stage~2B endgame: defection after mutual cooperation in every earlier round, by round
+and wording, for the three models whose Block~E is complete (95\% Wilson intervals; dashed:
+backward induction). Nemotron and Kimi trace the same curve in both wordings. Gemini defects at
+the end only when the game is named.}
+\label{fig:endgame}
+\end{figure}
+
+\paragraph{The endgame: cooperate early, defect at the end.} None of the three complete models
+follows backward induction from the start: after four rounds of mutual cooperation, at most 22\% defect in round
+5 (Table~\ref{tab:endgame}, Figure~\ref{fig:endgame}). Defection then rises sharply, and in the normal wording it reaches
+99--100\% in the announced last round for all three complete models. This is the pattern of human
+play in finitely repeated dilemmas \citep{selten1986end}, not the backward-induction solution.
+The author's registered expectation was the opposite: weak, ``warm'' named endgame behaviour
+and high disguised defection throughout. The registered discriminator, named defection in round
+10 minus round 9, was predicted at $+10$ to $+15$ points and is $+26$. Pre-registration~2 named
+near-theory round-10 defection in the normal wording as ``the most surprising single result
+Stage~2B could produce''; it occurred. Read as registered, the models' cooperation in the named
+game is strategic, not warmth: it ends exactly when the future ends.
+
+The wording difference in rounds 9 and 10 (pooled $+20$ and $+27$ points, Holm $p<10^{-7}$) is
+almost entirely Gemini's. Nemotron and Kimi defect at nearly the same rates in both wordings (within 6 points), so their
+endgame reasoning does not depend on recognising the game. Gemini defects in the last round
+100\% of the time when the game is named and 27\% when it is not: it applies the folk rule
+``defect at the end'' only to a game it recognises. This matches its retrieval signature in
+Cournot.
+
+\paragraph{Robustness to the re-asked answers.} Kimi's Block~C and E results above include the
+219 answers re-asked after NVIDIA's degraded days (Appendix~\ref{app:deviations}). Under the
+registered scoring, which drops them, Kimi's rate in every Block~C and E cell moves by at most
+5 points, and no conclusion changes.
 
 
 % =====================================================================================
@@ -695,7 +883,12 @@ distribution at every $\alpha$. A bidder that recalls ``bid your value'' bids $v
 $\alpha=2$, three such bidders leave the winner with
 $\mathbb E[v_{(1)}]-2\,\mathbb E[v_{(2)}]=77.5-110=-32.5$. Any dependence of $\alpha\cdot b$ on
 $\alpha$ therefore cannot be QRE noise; it is the fingerprint of recall. Stage~2B's ``winner pays
-twice'' trap implements exactly this test: \tbd{trap result}.
+twice'' trap implements exactly this test (Table~\ref{tab:traps}). Nemotron bids half its value
+in 100\% of answers in both wordings and Kimi in 99\% and 94\%: the rational response, which is
+also the QRE-consistent one. gpt-oss bids its full value, the recalled answer, in 24\% of
+normal-wording answers against 4\% disguised: exactly the fingerprint the theorem identifies.
+Gemini cannot pass the trap's maths check in the normal wording, and half of its failed checks
+apply the single-payment rule, the arithmetic signature of recall.
 
 \begin{theorem}[a reserve never raises efficiency]\label{thm:reserve}
 For any $\lam$, expected efficiency (the winner's value, or 0 without a sale) cannot be
@@ -729,8 +922,8 @@ The optimal reserve $r^*(\lam)$ is U-shaped:
   bids 59 on average), so the reserve acts as a floor under random overbids, and $r^*$ rises
   above 50.
 \end{itemize}
-The revenue gain over Myerson's reserve never exceeds about 1\%. Moreover, all three models
-analysed so far bid at the ceiling of precision in the standard auction. For these agents the
+The revenue gain over Myerson's reserve never exceeds about 1\%. Moreover, all four models bid
+at the ceiling of precision in the standard (named) auction (Appendix~\ref{app:lambda}). For these agents the
 auction leaves little to design, so we turn to the game where they are genuinely noisy.
 
 \subsection{A cooperation subsidy for the prisoner's dilemma}
@@ -762,6 +955,24 @@ At $p=\tfrac12$ and $\tau=\tau_{1/2}$ the player is indifferent, so a regular qu
 randomises evenly. Uniqueness holds because $\Delta U(p)-\tau$ rises in $p$, while the response
 falls in it.
 \end{proof}
+
+\begin{proposition}[a ceiling on quantal cooperation]\label{prop:ceiling}
+In the stage game, for every subsidy $\tau\le\tau_{1/2}$, every symmetric regular QRE has
+cooperation $p\le\tfrac12$, at every precision. Cooperation above one half at
+$\tau\le\tau_{1/2}$ is therefore outside the whole regular-QRE family.
+\end{proposition}
+\begin{proof}
+Suppose $p>\tfrac12$. Since $\Delta U$ is increasing in $p$ (because $T-R>P-S$),
+$\Delta U(p)-\tau>\Delta U(\tfrac12)-\tau_{1/2}=0$, so defection is strictly better than
+cooperation against $p$. A regular quantal responder then cooperates with probability below
+$\tfrac12$, contradicting $p>\tfrac12$.
+\end{proof}
+
+\noindent The fitting consequence is immediate. A population that cooperates more than half the
+time without a subsidy can only be approached by QRE from below, as $\lam\to0$. The maximum
+likelihood $\lam$ is then driven to the floor of the grid, and Theorem~\ref{thm:subsidy} turns a
+near-zero $\lam$ into an enormous ``required'' subsidy. Section~\ref{sec:stage5} shows this
+happening.
 
 \begin{figure}[t]
 \centering
@@ -832,8 +1043,88 @@ and the derived subsidy $\tau^*$ (capped at 50).}
 \label{fig:stage5}
 \end{figure}}{}
 
-\tbd{Results: cooperation by level and model; QRE vs classical at $\tau=2.5$; the derived
-mechanism at $\tau^*$; the halfway-point test.}
+\begin{table}[t]
+\centering
+\caption{Stage 5: round-1 cooperation (\%) under the subsidy $\tau$, 100 questions per cell,
+against each theory's prediction. QRE is evaluated at the model's fitted Stage 2A precision
+$\hat\lam$ (posterior median). Classical is the stage-game equilibrium. The last column is
+Stage 2A's identical question without the subsidy rule. $^\dagger$At the registered cap.}
+\label{tab:stage5}
+\small
+\begin{tabular}{@{}lrr cccc c@{}}
+\toprule
+ & & & \multicolumn{4}{c}{Cooperation at subsidy $\tau$} & No rule \\
+\cmidrule(lr){4-7}
+Model & $\hat\lam$ & $\tau^*$ & 0 & 1.5 & 2.5 & $\tau^*$ & (2A) \\
+\midrule
+gpt-oss-120b & 0.579 & 5.7 & 8 & 57 & 84 & 98 & 31 \\
+Nemotron 3 Ultra & 0.154 & 16.2 & 18 & 96 & 100 & 100 & 41 \\
+Kimi K3 & 0.0075 & 50$^\dagger$ & 31 & 95 & 99 & 99 & 54 \\
+Gemini 3.5 Flash Lite & 0.0032 & 50$^\dagger$ & 94 & 100 & 100 & 100 & 91 \\
+\midrule
+\multicolumn{3}{@{}l}{Classical prediction} & 0 & 50 & 100 & 100 & \\
+\multicolumn{3}{@{}l}{QRE prediction, gpt-oss} & 32 & 50 & 62 & 90 & \\
+\multicolumn{3}{@{}l}{QRE prediction, Nemotron} & 44 & 50 & 54 & 90 & \\
+\multicolumn{3}{@{}l}{QRE prediction, Kimi / Gemini} & 50 & 50 & 50 & 59 / 54 & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All 1{,}600 Stage 5 answers were collected after pre-registration~4 was filed (first answer two
+minutes after the registration time stamp). Table~\ref{tab:stage5} and
+Figure~\ref{fig:stage5} give the results. The four registered tests read as follows.
+
+\paragraph{Test 1: at $\tau=2.5$, classical theory predicts better than QRE, for every model.}
+The difference in absolute error (classical minus QRE) is $-46$ points for Nemotron, $-48$ for
+Kimi and $-50$ for Gemini, with bootstrap intervals far from zero. For gpt-oss it is $-6$ points
+$[-20,+8]$: classical theory is closer, but not decisively. Every model cooperates at least 84\%
+once cooperation is dominant, where QRE at the fitted precision predicts 50--62\%.
+
+\paragraph{Test 2: the derived mechanism reaches its target, and overshoots it.} At $\tau^*$,
+cooperation is 98--100\% for every model, inside the registered band of $90\pm15$. For every
+model, though, the 95\% interval lies wholly above 90\%: the mechanism worked, but it overpaid.
+The overpayment is largest where Proposition~\ref{prop:ceiling} predicts it. Kimi and Gemini
+cooperate more than half the time with no subsidy (54\% and 91\% in Stage~2A), so their fitted $\lam$ sits at the floor of the
+grid and $\tau^*$ hits the cap of 50, twenty times the 2.5 at which they already cooperate
+99--100\%. Only for gpt-oss did the derived subsidy earn its cost: the classical guess of 2.5
+reached 84\%, short of the 90\% target, and $\tau^*=5.7$ reached 98\%.
+
+\paragraph{Test 3: the parameter-free halfway point holds for one model.} Corollary~\ref{cor:half}
+predicts exactly 50\% at $\tau=1.5$ for any regular quantal responder. gpt-oss cooperates 57\%
+$[47,66]$ (exact binomial $p=0.19$), consistent with the prediction. The other three cooperate
+95--100\% (Holm-adjusted $p<10^{-21}$), which by Proposition~\ref{prop:ceiling} no regular QRE
+can produce. Cooperation this high at $\tau=1.5$ is consistent with the subgame-perfect
+repeated-game cooperation described in Section~\ref{sec:mechanism} and with a cooperation norm;
+Stage~5 alone does not separate the two.
+
+\paragraph{Test 4: calibration.} Only 3 of 16 cells are within $\pm10$ points of QRE: gpt-oss at
+$\tau=1.5$ and $\tau^*$, and Nemotron at $\tau^*$, where QRE's 90\% and the observed 100\% are
+both near the ceiling.
+
+\paragraph{Stating the rule changes play.} The registered comparison of $\tau=0$ with Stage~2A
+isolates the effect of merely stating a subsidy rule, with a subsidy of zero. Cooperation falls
+for three models: gpt-oss from 31\% to 8\%, Nemotron from 41\% to 18\% and Kimi from 54\% to
+31\% (each $p<0.001$). Gemini is unchanged (91\% vs 94\%, $p=0.44$). A payoff rule on the page
+seems to move these models from the cooperative script towards the payoff calculation. That is
+itself a mechanism-design effect: the framing of an incentive matters even when the incentive is
+zero.
+
+\paragraph{Pre-registration~4, scored.} The amended headline prediction was that classical
+theory would beat QRE at $\tau=2.5$ for Nemotron and Kimi, that $\tau^*$ would overshoot, and
+that QRE would be closest only for Gemini. The first two parts held; the third failed, because
+classical theory was also closer for Gemini. The author's level-by-level forecasts were closer
+to the data than either theory for gpt-oss and Kimi (mean absolute error 6.5 and 13 points,
+against 8.3 and 19.5 for classical theory and 15.3 and 38.3 for QRE). For Nemotron they were as
+close as classical theory (16.5 against 16.0 points). They missed badly for Gemini (43.5 points),
+whose near-universal cooperation at $\tau=0$ the author did not foresee. This comparison
+is descriptive and was not registered.
+
+\paragraph{What Stage 5 shows.} The models are not insensitive to incentives, which is what a
+low fitted $\lam$ would suggest. They are \emph{more} responsive than QRE allows, and three of
+them more responsive than even the classical stage-game equilibrium at $\tau=1.5$. The low
+prisoner's dilemma $\lam$ measured a cooperation norm on the unsubsidised question, not noise in
+responding to payoffs. A designer who took it at face value would set subsidies up to twenty
+times larger than needed.
 
 % =====================================================================================
 \section{Discussion}\label{sec:discussion}
@@ -842,9 +1133,10 @@ mechanism at $\tau^*$; the halfway-point test.}
 answers across models and games:
 \begin{itemize}
 \item Nemotron's and Kimi's Cournot play survives the removal of every cue that could trigger
-  recall;
-\item gpt-oss's play degrades step by step as the cues are removed, and its errors become the
-  cooperative (collusive) answer;
+  recall, and both re-derive the answer when a trap changes one rule;
+\item gpt-oss's play degrades step by step as the cues are removed, its errors become the
+  cooperative (collusive) answer, and in the traps it gives the textbook answer about five
+  times as often when the game is named;
 \item Gemini's Cournot play does not survive the removal of the game's name;
 \item for games whose rules are their fingerprint (the second-price auction, public goods), no
   wording hid the game from the strongest models, so derivation and recall remain observationally
@@ -865,7 +1157,9 @@ robustness to rule changes.
 models look more rational than they are. In the prisoner's dilemma we find the reverse.
 Recognising the game lowers equilibrium play: Gemini by 62 points under the standard disguise,
 and every model by 17--76 points relative to the extreme wording. The retrieved content is the folk lesson of repeated dilemmas
-(trust, reciprocity, establishing cooperation), not the backward-induction solution. For
+(trust, reciprocity, establishing cooperation), not the backward-induction solution, much as
+calling a human prisoner's dilemma the ``Community Game'' raises cooperation
+\citep{liberman2004name}. For
 mechanism design this matters directly: an agent's behaviour depends on which famous game the
 designer's rules resemble.
 
@@ -881,15 +1175,31 @@ shows that noise makes high compliance expensive, so subsidies should be set fro
 responsiveness rather than from dominance thresholds. And the decision gate warns against borrowing the
 behavioural model wholesale. Logit QRE fails held-out calibration for every model, because LLM
 errors are rare, large and discrete: slips, collusive answers and norms. A fitted $\lam$ then
-encodes a norm or a slip rate rather than noise, and a mechanism tuned to it may systematically
-over- or under-pay. Stage~5 tests this directly.
+encodes a norm or a slip rate rather than noise. Stage~5 shows the cost: a subsidy derived from
+the fitted $\lam$ reached its target but overpaid by up to twenty times, while the classical
+dominance threshold was enough for three of four models.
+
+\paragraph{When does a fitted behavioural model mislead?} Proposition~\ref{prop:ceiling} gives a
+check that needs no new data: if a population cooperates more than half the time where every
+regular QRE predicts at most half, the population is outside the model, and any $\lam$ fitted to
+it will be pushed towards zero. Three of our four models fail this check in Stage~5 (95--100\%
+cooperation at $\tau=1.5$), and Gemini already fails it without any subsidy (91--94\%). The general lesson is that a precision parameter fitted to one
+setting (here, the unsubsidised game) can measure something other than responsiveness (here, a
+norm), and then extrapolates badly to the setting a designer cares about. Checking a behavioural
+model's qualitative restrictions before trusting its parameters is cheap, and it would have
+prevented the overpayment.
+
+\paragraph{Framing is part of the mechanism.} Stating a subsidy rule of zero cut cooperation by
+23 points in three models. Framing effects are well documented in people \citep{tversky1981framing}; in the prisoner's
+dilemma, merely renaming the game changes human cooperation \citep{liberman2004name}. For LLM
+agents, the text of a rule, and not only its payoffs, is a design variable.
 
 % =====================================================================================
 \section{Limitations}\label{sec:limitations}
 
 \begin{itemize}
-\item \textbf{Disguises can fail.} The standard disguise did not hide the games from two of three
-  models, and no wording hid the auction or public goods. Recognition is coded from written
+\item \textbf{Disguises can fail.} The standard disguise did not hide the games from two of the four
+  models (Nemotron and Kimi), and no wording hid the auction or public goods. Recognition is coded from written
   reasoning, so silent recognition cannot be excluded.
 \item \textbf{A leaky answer box.} In Stage~2A's disguised wording the answer field still carried
   the named game's field names (``bid'', ``quantity'', ``contribution''). This was found after
@@ -904,6 +1214,13 @@ over- or under-pay. Stage~5 tests this directly.
   but not the gate's verdict.
 \item \textbf{The stage-game QRE in the prisoner's dilemma.} It ignores continuation play, which
   is harmless when the stage equilibrium is unique but not at $\tau=1.5$.
+\item \textbf{Stage 5 is one game.} The subsidy test uses the prisoner's dilemma only, with one
+  wording, and 100 questions per level. Cooperation above one half at $\tau=1.5$ is consistent
+  with both a norm and subgame-perfect repeated-game play, and Stage~5 does not separate them.
+\item \textbf{Data collection on NVIDIA's degraded days.} Kimi returned scrambled replies on 7--9
+  October 2026; 219 unreadable Stage~2B answers from those days were re-asked at the author's
+  decision (Appendix~\ref{app:deviations}). Only unreadable answers were re-asked, so the re-ask
+  is selective; results are reported both ways.
 \item \textbf{Scope.} Four models, four games and free API tiers with default sampling.
   Cross-model patterns are rankings, not estimates of population effects.
 \end{itemize}
@@ -916,7 +1233,8 @@ model and the game, and it can be measured. Isomorphic twins with same-wording c
 probes, measured recognition and an extreme disguise separate the two wherever the game can be
 hidden at all. On that evidence:
 \begin{itemize}
-\item two frontier models solve a Cournot game they no longer recognise;
+\item two frontier models solve a Cournot game they no longer recognise, and are not fooled by
+  traps that make the textbook answer wrong;
 \item a third loses the equilibrium step by step as the cues are removed;
 \item a fourth loses it as soon as the name goes;
 \item in the prisoner's dilemma, recognising the game pulls every model away from equilibrium,
@@ -924,15 +1242,19 @@ hidden at all. On that evidence:
 \item the standard behavioural model, logit QRE, does not describe any of them.
 \end{itemize}
 For mechanism design these are not curiosities. They determine whether a rule tuned to observed
-play will survive a change in the rules. \tbd{one sentence on Stage~5 once available.}
+play will survive a change in the rules. In a pre-registered test, a subsidy derived from fitted
+quantal response did reach its target, but overpaid by up to twenty times, because the models
+respond to incentives more sharply than the fitted model allows. Before designing for AI agents
+from a behavioural model, the model itself should be tested on them.
 
 % =====================================================================================
 \section*{Acknowledgements}
-Software development, data collection and drafting were assisted by Claude (Anthropic).
+Claude (Anthropic) assisted with code, typesetting and drafting. The research questions,
+predictions and decisions are the author's.
 
 \section*{Data and code availability}
 Code, prompts, seeds, raw answers, analysis outputs and the locked analysis plans are available at
-\tbd{public repository URL}. Pre-registrations: osf.io/2uqpj, osf.io/6hz8d, osf.io/cqnsy, osf.io/qg43y.
+\url{https://github.com/mmehta4/llm-mechanism-design}\ifdraftpred\ (public on release)\fi. Pre-registrations: osf.io/2uqpj, osf.io/6hz8d, osf.io/cqnsy, osf.io/qg43y.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}
@@ -958,6 +1280,18 @@ Code, prompts, seeds, raw answers, analysis outputs and the locked analysis plan
   Stage~2A; 2 Nemotron Stage~2A; 7 Nemotron Stage~2B traps). The re-asked answers stand.
 \item \textbf{The pilot answer form} sent explanatory text that leaked words; fixed before
   Stage~2C.
+\item \textbf{A second provider for gpt-oss} (Cerebras, same open weights) was recorded as an option
+  for Stage~2B and never used. Every gpt-oss answer comes from Groq.
+\item \textbf{Additional API keys.} A second Gemini key and three further Groq keys, each from a
+  different person's account, were used after the providers' support teams confirmed in writing
+  that this is permitted. Same models and settings. Remaining work was split into disjoint
+  slices of the registered question list, so no question was asked twice.
+\item \textbf{One NVIDIA refusal} (``DEGRADED function cannot be invoked'') had been scored as an
+  unreadable Kimi answer; it was relabelled a server refusal and re-asked.
+\item \textbf{Kimi's unreadable answers from NVIDIA's degraded days} (7--9 October 2026) were
+  re-asked at the author's decision: 219 answers, 16\% of that window against about 3\% on other
+  days. Only unreadable answers were re-asked; the originals remain in the data, and affected
+  results are reported both ways.
 \end{enumerate}
 
 \section{Stage 2A precision fits}\label{app:lambda}

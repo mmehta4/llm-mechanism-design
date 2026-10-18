@@ -144,3 +144,353 @@ gptoss120b: 91/276 done, 185 to go  -> stage2b_C_gptoss120b.csv
 Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
 waiting until ~08:10, then resuming.
 
+gptoss120b: 98/276 done, 178 to go  -> stage2b_C_gptoss120b.csv
+[  99/276] vickrey_n_others1      disguised p1 AT_EQUILIBRIUM       2.1s  ~1719/h
+[ 100/276] vickrey_n_others1      named     p2 AT_EQUILIBRIUM       1.9s  ~1821/h
+[ 101/276] vickrey_n_others7      named     p2 AT_EQUILIBRIUM       1.5s  ~1974/h
+[ 102/276] repeated_pd_n_rounds2  disguised p1 AT_EQUILIBRIUM       2.3s  ~1861/h
+[ 103/276] cournot_a200           disguised p2 AT_EQUILIBRIUM       3.1s  ~1660/h
+[ 104/276] public_goods_n_others7 disguised p2 AT_EQUILIBRIUM      53.5s  ~336/h
+[ 104/276] public_goods_n_others3 named     p0 INFRA_FAIL           1.2s  ~385/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~09:11, then resuming.
+
+gptoss120b: 104/276 done, 172 to go  -> stage2b_C_gptoss120b.csv
+[ 105/276] public_goods_n_others3 named     p0 AT_EQUILIBRIUM       2.5s  ~1427/h
+[ 106/276] vickrey_n_others7      named     p2 AT_EQUILIBRIUM       1.5s  ~1806/h
+[ 107/276] public_goods_n_others3 disguised p1 AT_EQUILIBRIUM       2.8s  ~1597/h
+[ 108/276] public_goods_n_others2 named     p2 AT_EQUILIBRIUM       2.4s  ~1575/h
+[ 109/276] cournot_a60            disguised p0 AT_EQUILIBRIUM      53.5s  ~287/h
+[ 110/276] public_goods_n_others3 named     p2 AT_EQUILIBRIUM       2.1s  ~334/h
+[ 110/276] vickrey_n_others7      disguised p2 INFRA_FAIL           2.1s  ~377/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~10:12, then resuming.
+
+gptoss120b: 110/276 done, 166 to go  -> stage2b_C_gptoss120b.csv
+[ 111/276] vickrey_n_others7      disguised p2 AT_EQUILIBRIUM       3.1s  ~1176/h
+[ 112/276] repeated_pd_n_rounds50 disguised p0 AT_EQUILIBRIUM       2.4s  ~1310/h
+[ 113/276] repeated_pd_n_rounds10 disguised p0 AT_EQUILIBRIUM       2.1s  ~1420/h
+[ 114/276] cournot_a60            disguised p0 AT_EQUILIBRIUM      57.0s  ~223/h
+[ 114/276] repeated_pd_n_rounds2  disguised p1 INFRA_FAIL           0.1s  ~278/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~11:13, then resuming.
+
+gptoss120b: 114/276 done, 162 to go  -> stage2b_C_gptoss120b.csv
+[ 115/276] repeated_pd_n_rounds2  disguised p1 STRATEGIC_GAP        1.8s  ~1966/h
+[ 116/276] cournot_a200           named     p2 AT_EQUILIBRIUM       2.7s  ~1571/h
+[ 117/276] vickrey_n_others7      disguised p1 AT_EQUILIBRIUM       2.5s  ~1530/h
+[ 118/276] vickrey_n_others1      named     p2 AT_EQUILIBRIUM       1.7s  ~1639/h
+[ 119/276] public_goods_n_others2 disguised p0 AT_EQUILIBRIUM       3.0s  ~1531/h
+[ 120/276] cournot_a60            disguised p2 AT_EQUILIBRIUM      53.7s  ~330/h
+[ 121/276] vickrey_n_others7      named     p1 AT_EQUILIBRIUM       1.5s  ~377/h
+[ 121/276] repeated_pd_n_rounds2  named     p0 INFRA_FAIL           1.5s  ~421/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~12:14, then resuming.
+
+gptoss120b: 121/276 done, 155 to go  -> stage2b_C_gptoss120b.csv
+[ 122/276] repeated_pd_n_rounds2  named     p0 AT_EQUILIBRIUM       1.6s  ~2187/h
+[ 123/276] public_goods_n_others7 named     p0 AT_EQUILIBRIUM       2.3s  ~1822/h
+[ 124/276] repeated_pd_n_rounds2  named     p0 AT_EQUILIBRIUM       1.6s  ~1946/h
+[ 125/276] cournot_a60            disguised p0 AT_EQUILIBRIUM       4.2s  ~1474/h
+[ 126/276] repeated_pd_n_rounds10 named     p2 AT_EQUILIBRIUM      51.9s  ~292/h
+[ 127/276] vickrey_n_others7      named     p2 AT_EQUILIBRIUM       1.8s  ~340/h
+[ 128/276] vickrey_n_others1      named     p2 AT_EQUILIBRIUM       2.4s  ~383/h
+[ 128/276] public_goods_n_others3 disguised p2 INFRA_FAIL           2.7s  ~420/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~13:15, then resuming.
+
+gptoss120b: 128/276 done, 148 to go  -> stage2b_C_gptoss120b.csv
+[ 129/276] public_goods_n_others3 disguised p2 AT_EQUILIBRIUM       2.6s  ~1401/h
+[ 130/276] vickrey_n_others3      named     p0 AT_EQUILIBRIUM       1.5s  ~1784/h
+[ 131/276] cournot_a100           disguised p1 STRATEGIC_GAP        2.8s  ~1569/h
+[ 132/276] repeated_pd_n_rounds50 named     p1 STRATEGIC_GAP        1.8s  ~1662/h
+[ 133/276] vickrey_n_others3      named     p2 AT_EQUILIBRIUM       1.7s  ~1736/h
+[ 134/276] vickrey_n_others7      disguised p0 AT_EQUILIBRIUM      53.2s  ~340/h
+[ 135/276] public_goods_n_others2 named     p2 AT_EQUILIBRIUM       1.8s  ~386/h
+[ 135/276] public_goods_n_others2 disguised p0 INFRA_FAIL           1.4s  ~431/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~14:16, then resuming.
+
+gptoss120b: 135/276 done, 141 to go  -> stage2b_C_gptoss120b.csv
+[ 136/276] public_goods_n_others2 disguised p0 AT_EQUILIBRIUM       2.5s  ~1453/h
+[ 137/276] repeated_pd_n_rounds10 named     p0 AT_EQUILIBRIUM       2.0s  ~1605/h
+[ 138/276] repeated_pd_n_rounds2  named     p2 AT_EQUILIBRIUM       1.6s  ~1784/h
+[ 139/276] vickrey_n_others1      disguised p1 AT_EQUILIBRIUM       2.6s  ~1666/h
+[ 140/276] public_goods_n_others3 disguised p0 AT_EQUILIBRIUM       2.8s  ~1574/h
+[ 141/276] cournot_a60            named     p1 AT_EQUILIBRIUM      52.2s  ~339/h
+[ 141/276] repeated_pd_n_rounds50 named     p1 INFRA_FAIL           1.3s  ~388/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~15:17, then resuming.
+
+gptoss120b: 141/276 done, 135 to go  -> stage2b_C_gptoss120b.csv
+[ 142/276] repeated_pd_n_rounds50 named     p1 AT_EQUILIBRIUM       1.7s  ~2151/h
+[ 143/276] repeated_pd_n_rounds50 named     p2 STRATEGIC_GAP        2.0s  ~1983/h
+[ 144/276] public_goods_n_others2 named     p0 AT_EQUILIBRIUM       2.0s  ~1930/h
+[ 145/276] vickrey_n_others3      disguised p2 AT_EQUILIBRIUM       2.8s  ~1717/h
+[ 146/276] repeated_pd_n_rounds10 named     p2 STRATEGIC_GAP        1.9s  ~1755/h
+[ 147/276] repeated_pd_n_rounds2  disguised p2 AT_EQUILIBRIUM      53.8s  ~337/h
+[ 148/276] vickrey_n_others1      named     p1 AT_EQUILIBRIUM       1.6s  ~383/h
+[ 148/276] vickrey_n_others3      disguised p2 INFRA_FAIL           1.5s  ~428/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~16:19, then resuming.
+
+gptoss120b: 148/276 done, 128 to go  -> stage2b_C_gptoss120b.csv
+[ 149/276] vickrey_n_others3      disguised p2 AT_EQUILIBRIUM       2.9s  ~1244/h
+[ 150/276] vickrey_n_others1      named     p0 AT_EQUILIBRIUM       2.5s  ~1329/h
+[ 151/276] public_goods_n_others7 disguised p0 AT_EQUILIBRIUM       2.9s  ~1297/h
+[ 152/276] cournot_a100           named     p0 AT_EQUILIBRIUM       2.3s  ~1350/h
+[ 153/276] cournot_a200           disguised p2 AT_EQUILIBRIUM      52.6s  ~285/h
+[ 153/276] cournot_a100           disguised p1 INFRA_FAIL           2.9s  ~327/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~17:20, then resuming.
+
+gptoss120b: 153/276 done, 123 to go  -> stage2b_C_gptoss120b.csv
+[ 154/276] cournot_a100           disguised p1 AT_EQUILIBRIUM       3.1s  ~1146/h
+[ 155/276] public_goods_n_others7 named     p1 AT_EQUILIBRIUM       2.4s  ~1303/h
+[ 156/276] cournot_a200           named     p2 AT_EQUILIBRIUM       2.7s  ~1315/h
+[ 157/276] public_goods_n_others7 disguised p2 AT_EQUILIBRIUM       2.4s  ~1357/h
+[ 158/276] repeated_pd_n_rounds2  named     p2 AT_EQUILIBRIUM       2.0s  ~1423/h
+[ 159/276] cournot_a100           named     p0 AT_EQUILIBRIUM      51.5s  ~337/h
+[ 160/276] cournot_a100           disguised p0 STRATEGIC_GAP        4.0s  ~370/h
+[ 160/276] cournot_a200           named     p2 INFRA_FAIL           0.4s  ~421/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~18:21, then resuming.
+
+gptoss120b: 160/276 done, 116 to go  -> stage2b_C_gptoss120b.csv
+[ 161/276] cournot_a200           named     p2 AT_EQUILIBRIUM       3.7s  ~976/h
+[ 162/276] vickrey_n_others3      named     p1 AT_EQUILIBRIUM       3.2s  ~1037/h
+[ 163/276] cournot_a100           disguised p1 STRATEGIC_GAP        2.8s  ~1103/h
+[ 164/276] vickrey_n_others3      named     p2 AT_EQUILIBRIUM       2.5s  ~1169/h
+[ 165/276] vickrey_n_others7      named     p0 AT_EQUILIBRIUM       2.0s  ~1258/h
+[ 166/276] cournot_a100           named     p2 AT_EQUILIBRIUM      51.7s  ~327/h
+[ 167/276] public_goods_n_others2 named     p1 AT_EQUILIBRIUM       2.9s  ~366/h
+[ 167/276] cournot_a100           disguised p0 INFRA_FAIL           0.1s  ~417/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~19:22, then resuming.
+
+gptoss120b: 167/276 done, 109 to go  -> stage2b_C_gptoss120b.csv
+[ 168/276] cournot_a100           disguised p0 STRATEGIC_GAP        4.1s  ~887/h
+[ 169/276] public_goods_n_others3 named     p2 AT_EQUILIBRIUM       2.1s  ~1148/h
+[ 170/276] cournot_a100           disguised p2 AT_EQUILIBRIUM       3.5s  ~1103/h
+[ 171/276] public_goods_n_others2 named     p0 AT_EQUILIBRIUM       2.1s  ~1212/h
+[ 172/276] public_goods_n_others7 disguised p1 STRATEGIC_GAP       54.3s  ~272/h
+[ 173/276] public_goods_n_others7 named     p2 AT_EQUILIBRIUM       2.1s  ~316/h
+[ 173/276] repeated_pd_n_rounds50 disguised p0 INFRA_FAIL           0.2s  ~368/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~20:23, then resuming.
+
+gptoss120b: 173/276 done, 103 to go  -> stage2b_C_gptoss120b.csv
+[ 174/276] repeated_pd_n_rounds50 disguised p0 AT_EQUILIBRIUM       1.7s  ~2105/h
+[ 175/276] vickrey_n_others1      disguised p1 AT_EQUILIBRIUM       2.2s  ~1840/h
+[ 176/276] public_goods_n_others3 disguised p2 AT_EQUILIBRIUM       2.7s  ~1639/h
+[ 177/276] repeated_pd_n_rounds50 disguised p2 AT_EQUILIBRIUM       1.6s  ~1761/h
+[ 178/276] cournot_a60            named     p1 AT_EQUILIBRIUM       4.6s  ~1405/h
+[ 179/276] cournot_a60            disguised p0 AT_EQUILIBRIUM      52.4s  ~331/h
+[ 179/276] repeated_pd_n_rounds50 disguised p2 INFRA_FAIL           0.1s  ~386/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~21:24, then resuming.
+
+gptoss120b: 179/276 done, 97 to go  -> stage2b_C_gptoss120b.csv
+[ 180/276] repeated_pd_n_rounds50 disguised p2 AT_EQUILIBRIUM       2.5s  ~1440/h
+[ 181/276] public_goods_n_others7 named     p2 AT_EQUILIBRIUM       2.2s  ~1524/h
+[ 182/276] vickrey_n_others3      disguised p2 AT_EQUILIBRIUM       2.4s  ~1523/h
+[ 183/276] public_goods_n_others2 disguised p0 AT_EQUILIBRIUM       2.5s  ~1507/h
+[ 184/276] cournot_a60            disguised p1 AT_EQUILIBRIUM      53.8s  ~284/h
+[ 185/276] public_goods_n_others2 disguised p1 AT_EQUILIBRIUM       3.2s  ~325/h
+[ 185/276] vickrey_n_others7      disguised p2 INFRA_FAIL           0.1s  ~378/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~22:25, then resuming.
+
+gptoss120b: 185/276 done, 91 to go  -> stage2b_C_gptoss120b.csv
+[ 186/276] vickrey_n_others7      disguised p2 AT_EQUILIBRIUM       2.7s  ~1309/h
+[ 187/276] cournot_a60            named     p0 STRATEGIC_GAP        2.4s  ~1394/h
+[ 188/276] vickrey_n_others3      disguised p2 COMPETENCE_GAP       2.6s  ~1395/h
+[ 189/276] repeated_pd_n_rounds2  named     p0 AT_EQUILIBRIUM       2.6s  ~1394/h
+[ 190/276] cournot_a200           disguised p0 AT_EQUILIBRIUM      52.4s  ~287/h
+[ 191/276] repeated_pd_n_rounds50 named     p0 STRATEGIC_GAP        3.2s  ~327/h
+[ 191/276] cournot_a60            named     p1 INFRA_FAIL           1.4s  ~374/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~23:26, then resuming.
+
+gptoss120b: 191/276 done, 85 to go  -> stage2b_C_gptoss120b.csv
+[ 192/276] cournot_a60            named     p1 AT_EQUILIBRIUM       2.6s  ~1396/h
+[ 193/276] vickrey_n_others3      disguised p1 AT_EQUILIBRIUM       2.9s  ~1311/h
+[ 194/276] repeated_pd_n_rounds2  disguised p0 AT_EQUILIBRIUM       2.5s  ~1353/h
+[ 195/276] public_goods_n_others7 named     p0 AT_EQUILIBRIUM       5.1s  ~1101/h
+[ 196/276] vickrey_n_others7      disguised p1 AT_EQUILIBRIUM       2.7s  ~1142/h
+[ 197/276] vickrey_n_others7      disguised p0 AT_EQUILIBRIUM      47.7s  ~340/h
+[ 197/276] cournot_a200           disguised p0 INFRA_FAIL           3.9s  ~374/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~00:28, then resuming.
+
+gptoss120b: 197/276 done, 79 to go  -> stage2b_C_gptoss120b.csv
+[ 198/276] cournot_a200           disguised p0 STRATEGIC_GAP        2.7s  ~1322/h
+[ 199/276] repeated_pd_n_rounds10 disguised p0 AT_EQUILIBRIUM       2.5s  ~1370/h
+[ 200/276] cournot_a60            disguised p1 AT_EQUILIBRIUM       5.2s  ~1036/h
+[ 201/276] vickrey_n_others3      disguised p1 AT_EQUILIBRIUM       2.3s  ~1135/h
+[ 202/276] public_goods_n_others2 named     p1 AT_EQUILIBRIUM      51.3s  ~281/h
+[ 203/276] cournot_a200           named     p1 AT_EQUILIBRIUM       2.3s  ~326/h
+[ 203/276] cournot_a200           named     p1 INFRA_FAIL           2.9s  ~364/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~01:29, then resuming.
+
+gptoss120b: 203/276 done, 73 to go  -> stage2b_C_gptoss120b.csv
+[ 204/276] cournot_a200           named     p1 AT_EQUILIBRIUM       2.4s  ~1502/h
+[ 205/276] repeated_pd_n_rounds50 disguised p0 AT_EQUILIBRIUM       1.4s  ~1875/h
+[ 206/276] repeated_pd_n_rounds10 disguised p1 AT_EQUILIBRIUM       3.2s  ~1542/h
+[ 207/276] vickrey_n_others7      named     p1 AT_EQUILIBRIUM       1.4s  ~1711/h
+[ 208/276] public_goods_n_others7 named     p1 AT_EQUILIBRIUM       1.8s  ~1759/h
+[ 209/276] repeated_pd_n_rounds50 disguised p0 AT_EQUILIBRIUM      53.5s  ~339/h
+[ 210/276] repeated_pd_n_rounds2  disguised p2 AT_EQUILIBRIUM       3.7s  ~374/h
+[ 210/276] vickrey_n_others3      disguised p1 INFRA_FAIL           0.1s  ~426/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~02:30, then resuming.
+
+gptoss120b: 210/276 done, 66 to go  -> stage2b_C_gptoss120b.csv
+[ 211/276] vickrey_n_others3      disguised p1 AT_EQUILIBRIUM       3.3s  ~1092/h
+[ 212/276] cournot_a200           named     p2 AT_EQUILIBRIUM       2.5s  ~1238/h
+[ 213/276] repeated_pd_n_rounds50 disguised p1 AT_EQUILIBRIUM       2.6s  ~1285/h
+[ 214/276] cournot_a200           disguised p2 AT_EQUILIBRIUM       4.6s  ~1108/h
+[ 215/276] cournot_a60            named     p2 AT_EQUILIBRIUM      51.3s  ~280/h
+[ 216/276] public_goods_n_others3 disguised p0 AT_EQUILIBRIUM       3.7s  ~318/h
+[ 216/276] vickrey_n_others7      named     p0 INFRA_FAIL           0.1s  ~370/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~03:31, then resuming.
+
+gptoss120b: 216/276 done, 60 to go  -> stage2b_C_gptoss120b.csv
+[ 217/276] vickrey_n_others7      named     p0 AT_EQUILIBRIUM       2.3s  ~1538/h
+[ 218/276] vickrey_n_others1      disguised p2 AT_EQUILIBRIUM       2.5s  ~1492/h
+[ 219/276] cournot_a60            disguised p1 AT_EQUILIBRIUM       2.6s  ~1446/h
+[ 220/276] cournot_a100           named     p1 AT_EQUILIBRIUM       2.1s  ~1504/h
+[ 221/276] vickrey_n_others3      disguised p0 AT_EQUILIBRIUM       2.0s  ~1557/h
+[ 222/276] public_goods_n_others3 named     p1 AT_EQUILIBRIUM      53.1s  ~334/h
+[ 222/276] public_goods_n_others3 disguised p1 INFRA_FAIL           1.9s  ~379/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~04:32, then resuming.
+
+gptoss120b: 222/276 done, 54 to go  -> stage2b_C_gptoss120b.csv
+[ 223/276] public_goods_n_others3 disguised p1 AT_EQUILIBRIUM       3.0s  ~1186/h
+[ 224/276] cournot_a200           named     p1 AT_EQUILIBRIUM       2.2s  ~1384/h
+[ 225/276] repeated_pd_n_rounds10 disguised p1 AT_EQUILIBRIUM       2.7s  ~1360/h
+[ 226/276] public_goods_n_others3 named     p1 AT_EQUILIBRIUM       2.7s  ~1358/h
+[ 227/276] public_goods_n_others7 named     p2 AT_EQUILIBRIUM      53.6s  ~280/h
+[ 228/276] vickrey_n_others7      disguised p0 AT_EQUILIBRIUM       1.3s  ~330/h
+[ 228/276] repeated_pd_n_rounds2  named     p0 INFRA_FAIL           1.6s  ~375/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~05:33, then resuming.
+
+gptoss120b: 228/276 done, 48 to go  -> stage2b_C_gptoss120b.csv
+[ 229/276] repeated_pd_n_rounds2  named     p0 AT_EQUILIBRIUM       1.4s  ~2627/h
+[ 230/276] vickrey_n_others1      named     p2 AT_EQUILIBRIUM       1.9s  ~2207/h
+[ 231/276] vickrey_n_others7      named     p0 AT_EQUILIBRIUM       1.5s  ~2278/h
+[ 232/276] public_goods_n_others3 disguised p2 AT_EQUILIBRIUM       3.0s  ~1868/h
+[ 233/276] cournot_a200           named     p1 AT_EQUILIBRIUM       2.7s  ~1734/h
+[ 234/276] repeated_pd_n_rounds50 named     p0 AT_EQUILIBRIUM      52.4s  ~344/h
+[ 235/276] vickrey_n_others1      named     p1 AT_EQUILIBRIUM       1.6s  ~391/h
+[ 235/276] public_goods_n_others2 disguised p1 INFRA_FAIL           1.6s  ~436/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~06:34, then resuming.
+
+gptoss120b: 235/276 done, 41 to go  -> stage2b_C_gptoss120b.csv
+[ 236/276] public_goods_n_others2 disguised p1 AT_EQUILIBRIUM       2.8s  ~1278/h
+[ 237/276] cournot_a100           named     p0 AT_EQUILIBRIUM       2.4s  ~1374/h
+[ 238/276] repeated_pd_n_rounds2  named     p1 AT_EQUILIBRIUM       2.0s  ~1490/h
+[ 239/276] vickrey_n_others7      named     p1 AT_EQUILIBRIUM       2.0s  ~1558/h
+[ 240/276] cournot_a100           named     p0 AT_EQUILIBRIUM       2.3s  ~1560/h
+[ 241/276] cournot_a100           disguised p1 AT_EQUILIBRIUM      53.0s  ~334/h
+[ 241/276] cournot_a100           disguised p1 INFRA_FAIL           2.1s  ~378/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~07:35, then resuming.
+
+gptoss120b: 241/276 done, 35 to go  -> stage2b_C_gptoss120b.csv
+[ 242/276] cournot_a100           disguised p1 STRATEGIC_GAP        2.8s  ~1305/h
+[ 243/276] public_goods_n_others7 disguised p0 AT_EQUILIBRIUM       3.0s  ~1243/h
+[ 244/276] public_goods_n_others2 named     p2 AT_EQUILIBRIUM       2.4s  ~1310/h
+[ 245/276] repeated_pd_n_rounds2  disguised p2 STRATEGIC_GAP        1.4s  ~1490/h
+[ 246/276] vickrey_n_others1      disguised p0 AT_EQUILIBRIUM      52.6s  ~289/h
+[ 247/276] public_goods_n_others7 named     p0 AT_EQUILIBRIUM       2.4s  ~334/h
+[ 248/276] vickrey_n_others1      named     p2 AT_EQUILIBRIUM       1.9s  ~379/h
+[ 248/276] public_goods_n_others7 named     p0 INFRA_FAIL           0.1s  ~432/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~08:37, then resuming.
+
+gptoss120b: 248/276 done, 28 to go  -> stage2b_C_gptoss120b.csv
+[ 249/276] public_goods_n_others7 named     p0 AT_EQUILIBRIUM       1.9s  ~1933/h
+[ 250/276] repeated_pd_n_rounds2  disguised p1 AT_EQUILIBRIUM       1.9s  ~1907/h
+[ 251/276] vickrey_n_others3      named     p2 AT_EQUILIBRIUM       1.8s  ~1946/h
+[ 252/276] cournot_a100           named     p1 AT_EQUILIBRIUM       2.7s  ~1743/h
+[ 253/276] cournot_a200           named     p1 AT_EQUILIBRIUM       2.2s  ~1720/h
+[ 254/276] public_goods_n_others2 disguised p1 AT_EQUILIBRIUM      53.1s  ~340/h
+[ 255/276] repeated_pd_n_rounds2  named     p0 AT_EQUILIBRIUM       1.5s  ~387/h
+[ 255/276] cournot_a200           disguised p0 INFRA_FAIL           0.6s  ~438/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~09:38, then resuming.
+
+gptoss120b: 255/276 done, 21 to go  -> stage2b_C_gptoss120b.csv
+[ 256/276] cournot_a200           disguised p0 AT_EQUILIBRIUM       3.7s  ~979/h
+[ 257/276] cournot_a100           named     p1 AT_EQUILIBRIUM       2.5s  ~1158/h
+[ 258/276] public_goods_n_others7 disguised p1 AT_EQUILIBRIUM       2.5s  ~1240/h
+[ 259/276] public_goods_n_others2 named     p0 AT_EQUILIBRIUM       2.4s  ~1293/h
+[ 260/276] vickrey_n_others3      named     p0 AT_EQUILIBRIUM      52.4s  ~283/h
+[ 261/276] public_goods_n_others3 named     p2 AT_EQUILIBRIUM       1.7s  ~331/h
+[ 261/276] vickrey_n_others3      named     p1 INFRA_FAIL           0.8s  ~381/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~10:39, then resuming.
+
+gptoss120b: 261/276 done, 15 to go  -> stage2b_C_gptoss120b.csv
+[ 262/276] vickrey_n_others3      named     p1 AT_EQUILIBRIUM       1.8s  ~1985/h
+[ 263/276] repeated_pd_n_rounds10 named     p1 AT_EQUILIBRIUM       2.0s  ~1881/h
+[ 264/276] repeated_pd_n_rounds50 disguised p1 AT_EQUILIBRIUM       2.4s  ~1738/h
+[ 265/276] repeated_pd_n_rounds50 disguised p0 AT_EQUILIBRIUM       1.9s  ~1775/h
+[ 266/276] cournot_a60            disguised p2 AT_EQUILIBRIUM      55.9s  ~281/h
+[ 266/276] repeated_pd_n_rounds50 disguised p1 INFRA_FAIL           1.6s  ~329/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~11:40, then resuming.
+
+gptoss120b: 266/276 done, 10 to go  -> stage2b_C_gptoss120b.csv
+[ 267/276] repeated_pd_n_rounds50 disguised p1 AT_EQUILIBRIUM       2.0s  ~1761/h
+[ 268/276] repeated_pd_n_rounds50 disguised p1 AT_EQUILIBRIUM       3.6s  ~1280/h
+[ 269/276] vickrey_n_others3      named     p1 AT_EQUILIBRIUM       1.9s  ~1427/h
+[ 270/276] repeated_pd_n_rounds2  named     p0 STRATEGIC_GAP        2.0s  ~1505/h
+[ 271/276] vickrey_n_others3      disguised p1 AT_EQUILIBRIUM       2.5s  ~1489/h
+[ 272/276] vickrey_n_others7      disguised p2 AT_EQUILIBRIUM      51.5s  ~340/h
+[ 273/276] cournot_a200           named     p1 AT_EQUILIBRIUM       4.0s  ~373/h
+[ 273/276] cournot_a60            disguised p0 INFRA_FAIL           1.9s  ~415/h  quota
+
+Daily quota reached. Nothing is lost -- run the same command tomorrow and it carries on from here.
+waiting until ~12:41, then resuming.
+
+gptoss120b: 273/276 done, 3 to go  -> stage2b_C_gptoss120b.csv
+[ 274/276] cournot_a60            disguised p0 STRATEGIC_GAP        2.7s  ~1311/h
+[ 275/276] vickrey_n_others1      disguised p0 AT_EQUILIBRIUM       2.2s  ~1448/h
+[ 276/276] vickrey_n_others3      named     p0 AT_EQUILIBRIUM       1.4s  ~1685/h
+
+this session: {'STRATEGIC_GAP': 1, 'AT_EQUILIBRIUM': 2}
+complete: every planned question has an answer.

@@ -49,7 +49,18 @@ GROQ_ENV = "GROQ_KEY_SLOT=2"
 # gpt-oss block is split evenly across all keys (--shard i/k: disjoint slices of the registered
 # plan, same order), so the keys finish together. Still Groq for everything, as registered.
 GROQ_KEYS = 1 + next(n for n in range(2, 50) if not os.getenv(f"GROQ_API_KEY_{n}")) - 2
-if GROQ_KEYS >= 2:
+# A key on Groq's paid tier (GROQ_PAID_SLOT=n) has no daily cap: everything left goes through it,
+# split into PAID_RUNS parallel runs. Same provider, model and settings as registered.
+PAID_SLOT, PAID_RUNS = os.getenv("GROQ_PAID_SLOT"), 8
+if PAID_SLOT:
+    GROQ_KEYS = PAID_RUNS                 # the split count the duplicate guard checks against
+    GPTOSS_CHAINS = [
+        [(f"GROQ_KEY_SLOT={PAID_SLOT}",)]
+        + [(script, f"{args} --shard {i}/{PAID_RUNS}") for script, args in
+           (S("gptoss120b"), B("B", "gptoss120b"), B("C", "gptoss120b"), B("E", "gptoss120b"))]
+        for i in range(1, PAID_RUNS + 1)
+    ]
+elif GROQ_KEYS >= 2:
     GPTOSS_CHAINS = [
         [(f"GROQ_KEY_SLOT={i}",)]
         + [(script, f"{args} --shard {i}/{GROQ_KEYS}") for script, args in
