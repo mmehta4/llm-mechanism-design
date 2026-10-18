@@ -5743,3 +5743,1354 @@ Choose C or D.","Two players simultaneously choose C or D. Your own score:
   you choose D, they choose D  ->  you score 1
 On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
 In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?",
+2026-10-13T02:43:31+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,,,INFRA_FAIL,quota,,1.5,,True,False,False,"RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 500, model: gemini-3.5-flash-lite\nPlease retry in 21h16m33.149698874s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'}, 'quotaValue': '500'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '76593s'}]}}]",0.527,4.49,5.017,0.0,2,,,"You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?",
+2026-10-13T03:43:36+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,,,INFRA_FAIL,quota,,1.5,,True,False,False,"RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 500, model: gemini-3.5-flash-lite\nPlease retry in 20h16m27.981087529s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'}, 'quotaValue': '500'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '72987s'}]}}]",0.652,4.391,5.043,0.0,2,,,"You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?",
+2026-10-13T04:43:41+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,,,INFRA_FAIL,quota,,1.5,,True,False,False,"RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 500, model: gemini-3.5-flash-lite\nPlease retry in 19h16m22.614156153s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'}, 'quotaValue': '500'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '69382s'}]}}]",0.898,4.474,5.373,0.0,2,,,"You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?",
+2026-10-13T05:43:48+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,INFRA_FAIL,quota,,1.5,,True,True,False,,6.216,0.375,6.591,0.0,2,"In the first round, choosing C maximizes initial cooperation and also triggers the extra 1.5 point bonus for choosing C, yielding a high potential payoff if reciprocated.",,"You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, choosing C maximizes initial cooperation and also triggers the extra 1.5 point bonus for choosing C, yielding a high potential payoff if reciprocated.""
+}"
+2026-10-13T06:43:53+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,INFRA_FAIL,quota,,1.5,,True,True,False,,1.334,3.985,5.32,0.0,2,"In the first round, choosing C maximizes initial cooperation and earns the extra 1.5 point bonus for choosing C, establishing a cooperative precedent.",,"You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, choosing C maximizes initial cooperation and earns the extra 1.5 point bonus for choosing C, establishing a cooperative precedent.""
+}"
+2026-10-13T07:43:59+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310864,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,1.202,4.815,6.017,0.0,2,Choosing C in the first round yields a high immediate payoff due to the bonus points and sets a cooperative tone for future rounds.,"Choosing C yields a base score of 0 when the other player chooses D, plus an extra 1.5 points for choosing C, totaling 1.5 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C in the first round yields a high immediate payoff due to the bonus points and sets a cooperative tone for future rounds.""
+}"
+2026-10-13T07:44:09+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310911,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.481,4.797,9.279,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with bonuses for choosing cooperation, establishing a cooperative norm yields the highest expected payoff.","You chose C, which gives a base score of 0 against their D. Additionally, choosing C awards an extra 1.5 points, making the total score 0 + 1.5 = 1.5 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with bonuses for choosing cooperation, establishing a cooperative norm yields the highest expected payoff.""
+}"
+2026-10-13T07:44:18+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310895,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.721,4.626,9.347,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential joint score before any endgame effects occur.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, totaling 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential joint score before any endgame effects occur.""
+}"
+2026-10-13T07:44:27+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310877,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.745,4.605,9.35,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a cooperative norm that can maximize potential mutual gains.","Choosing C when the other player chooses D gives a base score of 0, and the extra payment for choosing C is 0.0, totaling 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a cooperative norm that can maximize potential mutual gains.""
+}"
+2026-10-13T07:44:37+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310883,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.849,4.542,9.391,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, starting with cooperation maximizes the potential for mutual benefit before any end-game effects take over.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 1.5 points, making your total score 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, starting with cooperation maximizes the potential for mutual benefit before any end-game effects take over.""
+}"
+2026-10-13T07:44:46+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310917,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.943,4.39,9.334,0.0,2,"In the first round of a finitely repeated game, starting with cooperation sets a positive precedent for mutual gain and maximizes the potential cumulative score before endgame effects apply.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, totaling 0 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated game, starting with cooperation sets a positive precedent for mutual gain and maximizes the potential cumulative score before endgame effects apply.""
+}"
+2026-10-13T07:44:56+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310874,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,4.792,4.571,9.363,0.0,2,"In the first round of a finitely repeated prisoner's dilemma with bonuses for cooperation, starting with cooperation maximizes the potential for mutual high payoffs.","Choosing C gives a base score of 0 when the opponent chooses D, plus an extra 2.5 points for choosing C, totaling 2.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated prisoner's dilemma with bonuses for cooperation, starting with cooperation maximizes the potential for mutual high payoffs.""
+}"
+2026-10-13T07:45:05+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310848,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.944,4.705,9.65,0.0,2,"In the first round of a finitely repeated prisoner's dilemma, starting with cooperation (C) establishes a precedent for mutual benefit and maximizes potential joint score before any endgame effects apply.","When you choose C and they choose D, your base score is 0 and the extra payment for choosing C is 0.0, totaling 0 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated prisoner's dilemma, starting with cooperation (C) establishes a precedent for mutual benefit and maximizes potential joint score before any endgame effects apply.""
+}"
+2026-10-13T07:45:15+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310893,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,4.74,4.574,9.314,0.0,2,"In this game, choosing C provides a massive extra 50 points per round, completely overshadowing the base payoff matrix. Therefore, cooperation and choosing C yields the highest possible total reward.","Choosing C yields a base score of 0 when the opponent chooses D, plus an extra 50 points for choosing C, totaling 50.0 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In this game, choosing C provides a massive extra 50 points per round, completely overshadowing the base payoff matrix. Therefore, cooperation and choosing C yields the highest possible total reward.""
+}"
+2026-10-13T07:45:24+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310921,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,5.045,4.255,9.299,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation encourages mutual benefit, especially since no negative precedent has been set yet.","Choosing C when the other player chooses D gives a base score of 0, and the extra payment for choosing C is 0.0, totaling 0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation encourages mutual benefit, especially since no negative precedent has been set yet.""
+}"
+2026-10-13T07:45:34+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310903,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,5.27,4.732,10.002,0.0,2,"In the first round, choosing C provides a high combined payoff due to the 50.0 point bonus for choosing C, establishing a cooperative baseline.","When you choose C and they choose D, your base score is 0. Since you chose C, you also receive the extra 50.0 points, resulting in a total of 50 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, choosing C provides a high combined payoff due to the 50.0 point bonus for choosing C, establishing a cooperative baseline.""
+}"
+2026-10-13T07:45:43+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310853,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.391,4.656,9.047,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) establishes a precedent for mutual cooperation, which maximizes potential joint and individual payoffs over the game.","When you choose C and they choose D, the base score is 0. With an extra 0.0 points for choosing C, your total points are 0.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) establishes a precedent for mutual cooperation, which maximizes potential joint and individual payoffs over the game.""
+}"
+2026-10-13T07:45:52+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310914,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.518,4.689,9.208,0.0,2,"Since this is the first round of a 10-round game and choosing C includes an extra 1.5 point bonus, starting with cooperation sets a positive precedent to maximize mutual long-term payoffs.","Choosing C yields a base score of 0 when the other player chooses D, plus an extra 1.5 points for choosing C, totaling 1.5 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Since this is the first round of a 10-round game and choosing C includes an extra 1.5 point bonus, starting with cooperation sets a positive precedent to maximize mutual long-term payoffs.""
+}"
+2026-10-13T07:46:05+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310863,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,5.581,7.568,13.149,0.0,2,"In the first round of a finitely repeated prisoner's dilemma, starting with cooperation (C) establishes a cooperative precedent that can maximize mutual gains over the ten rounds.","When you choose C and they choose D, your base score is 0 and your extra payment for choosing C is 0.0, resulting in a total of 0 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated prisoner's dilemma, starting with cooperation (C) establishes a cooperative precedent that can maximize mutual gains over the ten rounds.""
+}"
+2026-10-13T07:46:11+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310930,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,1.229,4.518,5.746,0.0,2,"In the first round, choosing C maximizes my potential score and signals cooperation, especially given the extra 2.5 points incentive for choosing C.","You get 0 points from the base score when you choose C and they choose D, plus an extra 2.5 points for choosing C, totaling 2.5 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, choosing C maximizes my potential score and signals cooperation, especially given the extra 2.5 points incentive for choosing C.""
+}"
+2026-10-13T07:46:21+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310909,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.837,4.77,9.607,0.0,2,"In the first round of a repeated Prisoner's Dilemma, starting with cooperation sets a positive precedent and encourages mutual benefit.","Choosing C when the opponent chooses D gives a base score of 0, and the extra payment for choosing C is 0.0 points, totaling 0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a repeated Prisoner's Dilemma, starting with cooperation sets a positive precedent and encourages mutual benefit.""
+}"
+2026-10-13T07:46:30+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310859,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,5.099,4.039,9.137,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) establishes a precedent for mutual cooperation, which yields the highest joint and individual payoff over the course of the game.","When you choose C and they choose D, your base score is 0 and your extra payment for choosing C is 0.0, resulting in a total of 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) establishes a precedent for mutual cooperation, which yields the highest joint and individual payoff over the course of the game.""
+}"
+2026-10-13T07:46:39+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310916,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,5.011,4.561,9.572,0.0,2,"In the first round of a finitely repeated prisoner's dilemma with bonuses for cooperation, starting with cooperation maximizes potential mutual gain and establishes a cooperative precedent.","Choosing C yields 0 points from the base matrix and an extra 2.5 points for choosing C, totaling 2.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated prisoner's dilemma with bonuses for cooperation, starting with cooperation maximizes potential mutual gain and establishes a cooperative precedent.""
+}"
+2026-10-13T07:46:49+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310898,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.701,4.937,9.638,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a cooperative norm and maximizes potential joint payoff.","Choosing C when the opponent chooses D yields a base score of 0 points, plus an extra 0.0 points for choosing C, totaling 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a cooperative norm and maximizes potential joint payoff.""
+}"
+2026-10-13T07:46:58+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310907,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,4.554,4.646,9.2,0.0,2,"In the first round of a finitely repeated prisoner's dilemma with cooperation bonuses, starting with cooperation maximizes the potential for mutual high payoffs.","Choosing C yields a base score of 0 when the opponent chooses D, plus an extra payment of 2.5 points for choosing C, totaling 2.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated prisoner's dilemma with cooperation bonuses, starting with cooperation maximizes the potential for mutual high payoffs.""
+}"
+2026-10-13T07:47:07+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310906,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.815,4.524,9.34,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and aims for the highest joint payoff before any potential defection in later rounds.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, totaling 0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and aims for the highest joint payoff before any potential defection in later rounds.""
+}"
+2026-10-13T07:47:17+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310929,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.901,4.497,9.398,0.0,2,"In the first round of a 10-round game with mutual bonuses for choosing C, it is optimal to establish cooperation early to maximize long-term payoff.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 1.5 points, resulting in a total of 1.5 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a 10-round game with mutual bonuses for choosing C, it is optimal to establish cooperation early to maximize long-term payoff.""
+}"
+2026-10-13T07:47:27+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310831,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,5.377,4.269,9.646,0.0,2,"Choosing C in the first round yields a higher immediate payoff due to the 50.0 point bonus for selecting C, and it establishes a cooperative precedent for the upcoming rounds.","When you choose C, you score 3 base points and receive an extra 50.0 points. Since 3 plus 50 equals 53, and we typically round or sum precisely, 3 + 50 = 53.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C in the first round yields a higher immediate payoff due to the 50.0 point bonus for selecting C, and it establishes a cooperative precedent for the upcoming rounds.""
+}"
+2026-10-13T07:47:36+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310839,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.924,4.444,9.368,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with the added incentive for choosing C, starting with cooperation is the optimal strategy to build trust and maximize long-term payoffs.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 1.5 points, resulting in a total score of 1.5.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with the added incentive for choosing C, starting with cooperation is the optimal strategy to build trust and maximize long-term payoffs.""
+}"
+2026-10-13T07:47:45+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310916,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.708,4.868,9.575,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, it is optimal to build trust and maximize the cooperation bonus by choosing C.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 1.5 points, giving a total of 1.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, it is optimal to build trust and maximize the cooperation bonus by choosing C.""
+}"
+2026-10-13T07:47:55+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310832,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.585,4.871,9.457,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with a cooperation bonus, starting with cooperation maximizes the potential for mutual benefit before any end-game effects take over.","Choosing C yields a base score of 0 when the opponent chooses D, plus an extra payment of 1.5 points for choosing C, totaling 1.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with a cooperation bonus, starting with cooperation maximizes the potential for mutual benefit before any end-game effects take over.""
+}"
+2026-10-13T07:48:04+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310896,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,4.407,4.667,9.074,0.0,2,"Choosing C provides a base score of 3 plus an extra 2.5 points, yielding a total of 5.5 points if the opponent also cooperates, which maximizes mutual benefit in the first round.","When you choose C and they choose D, your base score is 0. Since you chose C, you also receive the extra payment of 2.5 points, giving a total of 2.5 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C provides a base score of 3 plus an extra 2.5 points, yielding a total of 5.5 points if the opponent also cooperates, which maximizes mutual benefit in the first round.""
+}"
+2026-10-13T07:48:14+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310866,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,4.696,4.933,9.629,0.0,2,"Since this is the first round of a finitely repeated game, choosing D maximizes potential immediate payoff and sets a competitive tone without prior trust established.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, totaling 0 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""D"",
+  ""reasoning"": ""Since this is the first round of a finitely repeated game, choosing D maximizes potential immediate payoff and sets a competitive tone without prior trust established.""
+}"
+2026-10-13T07:48:23+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310914,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.416,4.531,8.947,0.0,2,"In the first round of a finitely repeated game, starting with cooperation maximizes the potential for mutual benefit before any history of defection is established.","Choosing C when the other player chooses D yields a base score of 0, plus an extra 0.0 points for choosing C, totaling 0 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated game, starting with cooperation maximizes the potential for mutual benefit before any history of defection is established.""
+}"
+2026-10-13T07:48:33+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310838,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,4.854,5.076,9.93,0.0,2,"In the first round of a finitely repeated prisoner's dilemma with bonuses for cooperation, starting with cooperation maximizes the potential for mutual high payoffs.","When you choose C and they choose D, your base score is 0. Since you chose C, you also receive the extra 2.5 points, resulting in a total of 2.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated prisoner's dilemma with bonuses for cooperation, starting with cooperation maximizes the potential for mutual high payoffs.""
+}"
+2026-10-13T07:48:42+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310847,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,5.25,3.717,8.967,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, cooperating establishes a precedent for mutual cooperation to maximize potential payoffs.","Choosing C when the opponent chooses D gives a base score of 0, and the extra payment for choosing C is 0.0 points, totaling 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, cooperating establishes a precedent for mutual cooperation to maximize potential payoffs.""
+}"
+2026-10-13T07:48:51+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310882,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.993,4.501,9.494,0.0,2,Starting with cooperative play maximizes potential mutual gains and takes advantage of the extra points awarded for choosing C in every round.,"When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 1.5 points, resulting in a total of 1.5 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Starting with cooperative play maximizes potential mutual gains and takes advantage of the extra points awarded for choosing C in every round.""
+}"
+2026-10-13T07:49:00+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310924,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,4.718,4.647,9.365,0.0,2,"In the first round, cooperating (C) yields a total of 5.5 points if the other player also cooperates, and the extra 2.5 points for choosing C makes it a strong opening move to establish cooperation.","When you choose C and they choose D, your base score is 0. Since you chose C, you receive an extra 2.5 points, giving a total of 2.5 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, cooperating (C) yields a total of 5.5 points if the other player also cooperates, and the extra 2.5 points for choosing C makes it a strong opening move to establish cooperation.""
+}"
+2026-10-13T07:49:10+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310926,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.803,4.903,9.706,0.0,2,"In the first round of a finitely repeated game, choosing C establishes a cooperative precedent while maximizing potential combined payoff when including the bonus for choosing C.","Choosing C yields a base score of 0 when the other player chooses D, plus an extra 1.5 points for choosing C, totaling 1.5 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated game, choosing C establishes a cooperative precedent while maximizing potential combined payoff when including the bonus for choosing C.""
+}"
+2026-10-13T07:49:19+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310872,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,D,0.0,AT_EQUILIBRIUM,,0.0,0.0,True,False,True,True,,4.726,4.512,9.238,0.0,2,"Since this is the first round of a finitely repeated game with a known endpoint, playing D is the standard rational choice to test the opponent's strategy and avoid exploitation.","When you choose C and the other player chooses D, the base score is 0. The extra payment for choosing C is 0.0 points, making the total score 0.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""D"",
+  ""reasoning"": ""Since this is the first round of a finitely repeated game with a known endpoint, playing D is the standard rational choice to test the opponent's strategy and avoid exploitation.""
+}"
+2026-10-13T07:49:29+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310890,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,4.668,4.733,9.401,0.0,2,"In this game, choosing C provides a large bonus of 50.0 points in addition to the standard payoffs, making it heavily incentivized to cooperate and maximize total earnings right from the first round.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 50.0 points, making the total 50.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In this game, choosing C provides a large bonus of 50.0 points in addition to the standard payoffs, making it heavily incentivized to cooperate and maximize total earnings right from the first round.""
+}"
+2026-10-13T07:49:38+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310873,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.691,4.715,9.406,0.0,2,"In the first round, choosing C maximizes cooperation and takes advantage of the bonus points awarded for choosing C, establishing a cooperative precedent.","Choosing C yields a base score of 0 when the other player chooses D, plus an extra payment of 1.5 points for choosing C, totaling 1.5 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, choosing C maximizes cooperation and takes advantage of the bonus points awarded for choosing C, establishing a cooperative precedent.""
+}"
+2026-10-13T07:49:48+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310894,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.694,4.792,9.487,0.0,2,Choosing C in the first round yields a higher immediate payoff (3 + 1.5 = 4.5 compared to 5 for D) while signaling a willingness to cooperate for mutual gain in future rounds.,"Choosing C yields a base score of 0 when the other player chooses D, plus an extra 1.5 points for choosing C, totaling 1.5 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C in the first round yields a higher immediate payoff (3 + 1.5 = 4.5 compared to 5 for D) while signaling a willingness to cooperate for mutual gain in future rounds.""
+}"
+2026-10-13T07:49:57+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310838,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,5.246,4.576,9.821,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent that can maximize long-term payoffs if reciprocated.","When you choose C and they choose D, your base score is 0 and your extra payment for choosing C is 0.0, resulting in a total of 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent that can maximize long-term payoffs if reciprocated.""
+}"
+2026-10-13T07:50:06+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310831,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.195,4.758,8.953,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation encourages a mutually beneficial cooperative dynamic.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, totaling 0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation encourages a mutually beneficial cooperative dynamic.""
+}"
+2026-10-13T07:50:16+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310908,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.672,4.904,9.577,0.0,2,"In the first round of a finitely repeated prisoner's dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential long-term payoffs.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, resulting in a total of 0 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated prisoner's dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential long-term payoffs.""
+}"
+2026-10-13T07:50:25+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310903,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.917,4.337,9.255,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation sets a positive precedent for mutual gain before any end-game effects take over.","Choosing C when the opponent chooses D yields a base score of 0, and the extra payment for choosing C is 0.0, totaling 0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation sets a positive precedent for mutual gain before any end-game effects take over.""
+}"
+2026-10-13T07:50:35+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310873,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,4.764,4.989,9.752,0.0,2,Choosing C in the first round initiates potential cooperation and triggers the additional 2.5 point bonus for selecting C.,"When you choose C and they choose D, your base score is 0. Since you chose C, you also receive the extra 2.5 points, resulting in a total score of 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C in the first round initiates potential cooperation and triggers the additional 2.5 point bonus for selecting C.""
+}"
+2026-10-13T07:50:44+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310904,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.4,4.973,9.373,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, it is optimal to build trust and maximize round payoff by choosing C.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 1.5 points, giving a total of 1.5.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, it is optimal to build trust and maximize round payoff by choosing C.""
+}"
+2026-10-13T07:50:54+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310858,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,6.459,2.794,9.253,0.0,2,"In the first round, choosing C provides a high combined score and maximizes the extra 50.0 point bonus, setting a cooperative precedent.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 50.0 points, making the total 50.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, choosing C provides a high combined score and maximizes the extra 50.0 point bonus, setting a cooperative precedent.""
+}"
+2026-10-13T07:51:03+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310831,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.998,4.301,9.299,0.0,2,"In the first round with the cooperation-boosting extra points for choosing C, cooperating is the most profitable opening move to establish trust.","Choosing C yields 0 base points, plus an extra 1.5 points for choosing C, totaling 1.5 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round with the cooperation-boosting extra points for choosing C, cooperating is the most profitable opening move to establish trust.""
+}"
+2026-10-13T07:51:12+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310905,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,5.14,3.975,9.115,0.0,2,"Choosing C yields an extra 50 points per round, making cooperation significantly more lucrative than defection regardless of the base game payoffs.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 50 points, giving a total of 50.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C yields an extra 50 points per round, making cooperation significantly more lucrative than defection regardless of the base game payoffs.""
+}"
+2026-10-13T07:51:22+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310865,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,5.334,4.43,9.765,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, starting with cooperation maximizes the potential for mutual high payoffs.","When you choose C and they choose D, your base score is 0. Since you chose C, you receive an extra 2.5 points, giving a total of 2.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, starting with cooperation maximizes the potential for mutual high payoffs.""
+}"
+2026-10-13T07:51:32+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310867,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.764,4.935,9.699,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation encourages mutual benefit, aiming for the highest joint payoff of 3.0 each before any defection has occurred.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, totaling 0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation encourages mutual benefit, aiming for the highest joint payoff of 3.0 each before any defection has occurred.""
+}"
+2026-10-13T07:51:41+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310885,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,5.247,4.097,9.345,0.0,2,"In the first round, choosing C provides a high guaranteed payoff due to the extra 50.0 points bonus for choosing C, establishing a cooperative baseline while maximizing early score.","Choosing C yields a base score of 0 when the other player chooses D, plus an extra payment of 50.0 points for choosing C, totaling 50 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, choosing C provides a high guaranteed payoff due to the extra 50.0 points bonus for choosing C, establishing a cooperative baseline while maximizing early score.""
+}"
+2026-10-13T07:51:50+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310895,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,4.194,4.852,9.046,0.0,2,"Choosing C yields an extra 50.0 points in the current round, which heavily outweighs the standard payoff differences. Therefore, cooperating early is the most lucrative strategy.","You chose C, earning a base score of 0, plus the extra payment of 50.0 points for choosing C, totaling 50.0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C yields an extra 50.0 points in the current round, which heavily outweighs the standard payoff differences. Therefore, cooperating early is the most lucrative strategy.""
+}"
+2026-10-13T07:52:00+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310858,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.998,4.652,9.65,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation encourages a mutually beneficial cooperative outcome before any potential end-game defection effects.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, resulting in a total of 0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation encourages a mutually beneficial cooperative outcome before any potential end-game defection effects.""
+}"
+2026-10-13T07:52:09+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310882,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.516,4.593,9.109,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation establishes a mutually beneficial precedent and maximizes potential combined payoffs.","When you choose C and they choose D, your base score is 0. With an extra payment of 0.0 points for choosing C, your total score is 0 + 0.0 = 0.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation establishes a mutually beneficial precedent and maximizes potential combined payoffs.""
+}"
+2026-10-13T07:52:18+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310841,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.615,4.973,9.588,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) establishes a precedent for mutual cooperation, which maximizes potential joint and individual payoffs over the course of the game.","Choosing C when the other player chooses D gives a base score of 0, and the extra payment for choosing C is 0.0 points, totaling 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) establishes a precedent for mutual cooperation, which maximizes potential joint and individual payoffs over the course of the game.""
+}"
+2026-10-13T07:52:28+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310902,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,5.282,4.673,9.955,0.0,2,"Choosing C yields a high bonus of 50.0 points in addition to the base game score, making cooperation vastly more lucrative in the early rounds to encourage a mutually beneficial strategy.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra payment of 50.0 points, making the total 50.0 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C yields a high bonus of 50.0 points in addition to the base game score, making cooperation vastly more lucrative in the early rounds to encourage a mutually beneficial strategy.""
+}"
+2026-10-13T07:52:37+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310928,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.39,4.498,8.888,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) sets a precedent for mutual cooperation, which maximizes potential payoffs before the end-game effect of the final rounds.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, resulting in a total of 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) sets a precedent for mutual cooperation, which maximizes potential payoffs before the end-game effect of the final rounds.""
+}"
+2026-10-13T07:52:47+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310929,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,4.693,4.713,9.406,0.0,2,"Choosing C yields an extra 50.0 points in this round, making it much more lucrative regardless of the opponent's choice.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive the extra 50.0 points, making the total 50.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C yields an extra 50.0 points in this round, making it much more lucrative regardless of the opponent's choice.""
+}"
+2026-10-13T07:52:56+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310892,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,4.611,4.551,9.162,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with cooperation incentives, starting with C maximizes mutual benefit and establishes a cooperative precedent.","When you choose C and they choose D, your base score is 0. Since you chose C, you also receive an extra payment of 2.5 points, resulting in a total of 2.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with cooperation incentives, starting with C maximizes mutual benefit and establishes a cooperative precedent.""
+}"
+2026-10-13T07:53:05+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310850,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,5.627,3.967,9.594,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with cooperation bonuses, starting with cooperation maximizes potential mutual payoff before any defection has occurred.","Choosing C yields 0 base points, plus an extra 1.5 points for choosing C, totaling 1.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with cooperation bonuses, starting with cooperation maximizes potential mutual payoff before any defection has occurred.""
+}"
+2026-10-13T07:53:15+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310856,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.682,5.089,9.771,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, starting with cooperation maximizes potential joint and individual payoffs.","You chose C, which gives a base score of 0 against their D. Additionally, choosing C adds an extra payment of 1.5 points, resulting in a total of 1.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with bonuses for cooperation, starting with cooperation maximizes potential joint and individual payoffs.""
+}"
+2026-10-13T07:53:24+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310916,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.163,5.03,9.193,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) sets a positive precedent for mutual cooperation and maximizes potential joint payoff.","Choosing C when the other player chooses D gives a base score of 0, and the extra 0.0 points for choosing C adds nothing, resulting in a total of 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) sets a positive precedent for mutual cooperation and maximizes potential joint payoff.""
+}"
+2026-10-13T07:53:34+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310927,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,4.544,4.834,9.379,0.0,2,"Choosing C in the first round maximizes mutual cooperation and also earns the additional 2.5 point bonus for choosing C, setting a positive tone for the repeated game.","When you choose C and they choose D, your base score is 0. Additionally, because you chose C, you receive an extra 2.5 points, resulting in a total score of 2.5.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C in the first round maximizes mutual cooperation and also earns the additional 2.5 point bonus for choosing C, setting a positive tone for the repeated game.""
+}"
+2026-10-13T07:53:43+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310919,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.325,4.973,9.298,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a cooperative baseline and maximizes potential mutual payoff.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, totaling 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a cooperative baseline and maximizes potential mutual payoff.""
+}"
+2026-10-13T07:53:53+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310905,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,5.177,4.535,9.711,0.0,2,"In the first round of a finitely repeated prisoner's dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential long-term payoff.","Choosing C when the opponent chooses D yields a base score of 0, and the extra payment for choosing C is 0.0 points, totaling 0 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated prisoner's dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential long-term payoff.""
+}"
+2026-10-13T07:54:02+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310855,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,4.933,3.998,8.932,0.0,2,"In the first round, choosing C maximizes the immediate round score with the additional bonus points and establishes a cooperative baseline.","You chose C, earning 0 base points, plus the extra payment of 50.0 points for choosing C, totaling 50.0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, choosing C maximizes the immediate round score with the additional bonus points and establishes a cooperative baseline.""
+}"
+2026-10-13T07:54:11+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310868,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,6.59,3.006,9.596,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) establishes a precedent for mutual cooperation, which maximizes potential joint and individual payoffs over the game.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, resulting in a total of 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, cooperating (C) establishes a precedent for mutual cooperation, which maximizes potential joint and individual payoffs over the game.""
+}"
+2026-10-13T07:54:20+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310925,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,7.873,1.317,9.19,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with cooperation bonuses, starting with cooperation maximizes potential mutual gain and establishes a cooperative precedent.","Choosing C yields 0 base points, plus an extra 1.5 points for choosing C, totaling 1.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with cooperation bonuses, starting with cooperation maximizes potential mutual gain and establishes a cooperative precedent.""
+}"
+2026-10-13T07:54:30+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310895,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""X"", ""defect"": ""Y"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,5.298,4.406,9.705,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma with a cooperation bonus, starting with cooperation maximizes the potential for mutual benefit and establishes a cooperative norm.","Choosing C yields a base score of 0 when the opponent chooses D, plus an extra payment of 1.5 points for choosing C, totaling 1.5 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma with a cooperation bonus, starting with cooperation maximizes the potential for mutual benefit and establishes a cooperative norm.""
+}"
+2026-10-13T07:54:39+00:00,repeated_pd_subsidy_1p5,named,gemini_lite,gemini-3.5-flash-lite,20310860,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""mixed"", ""equilibrium_named"": ""mixed"", ""tau"": 1.5}",mixed,C,1.0,STRATEGIC_GAP,,1.5,1.5,True,False,True,True,,4.54,4.662,9.202,0.0,2,"In the first round of a finitely repeated prisoner's dilemma with bonuses for cooperation, starting with cooperation maximizes our potential mutual score and sets a positive precedent.","Choosing C yields 0 points from the base matrix plus an extra 1.5 points for choosing C, totaling 1.5 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 1.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated prisoner's dilemma with bonuses for cooperation, starting with cooperation maximizes our potential mutual score and sets a positive precedent.""
+}"
+2026-10-13T07:54:49+00:00,repeated_pd_subsidy_2p5,named,gemini_lite,gemini-3.5-flash-lite,20310897,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 2.5}",C,C,0.0,AT_EQUILIBRIUM,,2.5,2.5,True,False,True,True,,5.44,4.352,9.792,0.0,2,"In the first round, choosing C maximizes the collaborative score and earns the extra 2.5 point bonus, establishing a cooperative precedent.","You chose C and they chose D, giving a base score of 0. Because you chose C, you also receive the extra payment of 2.5 points, resulting in a total of 2.5 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 2.5 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round, choosing C maximizes the collaborative score and earns the extra 2.5 point bonus, establishing a cooperative precedent.""
+}"
+2026-10-13T07:54:59+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310854,2,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,4.407,5.569,9.976,0.0,2,"In this game, choosing C provides a massive 50.0 point bonus per round, making cooperation overwhelmingly profitable compared to defecting.","Choosing C yields a base score of 0 when the other player chooses D, plus an extra 50 points for choosing C, totaling 50 points.","This is round 1 of a game lasting exactly 10 rounds, a length known to both you and the other player. History so far: none yet
+Each round, you both simultaneously choose C or D, and score as follows:
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In this game, choosing C provides a massive 50.0 point bonus per round, making cooperation overwhelmingly profitable compared to defecting.""
+}"
+2026-10-13T07:55:08+00:00,repeated_pd_subsidy_50,named,gemini_lite,gemini-3.5-flash-lite,20310847,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""C"", ""equilibrium_named"": ""C"", ""tau"": 50.0}",C,C,0.0,AT_EQUILIBRIUM,,50.0,50.0,True,False,True,True,,3.549,4.967,8.516,0.0,2,"Choosing C yields a substantial bonus of 50.0 points in addition to the base score, making it the most lucrative option especially at the start of the game.","Choosing C yields 0 points from the base matrix and an extra 50.0 points for choosing C, totaling 50.0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 50.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""Choosing C yields a substantial bonus of 50.0 points in addition to the base score, making it the most lucrative option especially at the start of the game.""
+}"
+2026-10-13T07:55:17+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310886,1,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,7.885,2.011,9.895,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a cooperative norm and maximizes potential joint payoff.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, resulting in a total of 0 points.","You and one other player will play exactly 10 rounds, a number known to both of you. In every round you each choose D or C simultaneously.
+  If you both choose D, you each score 1.0.
+  If you both choose C, you each score 3.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+Current round: 1. History so far: none yet
+Choose D or C.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a cooperative norm and maximizes potential joint payoff.""
+}"
+2026-10-13T07:55:26+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310927,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,4.126,4.678,8.804,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential long-term payoffs.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, totaling 0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential long-term payoffs.""
+}"
+2026-10-13T07:55:36+00:00,repeated_pd_subsidy_0,named,gemini_lite,gemini-3.5-flash-lite,20310843,0,"{""n_rounds"": 10, ""T"": 5.0, ""R"": 3.0, ""P"": 1.0, ""S"": 0.0, ""round_num"": 1, ""history"": ""none yet"", ""coop"": ""Y"", ""defect"": ""X"", ""delta_min"": 0.5, ""equilibrium"": ""D"", ""equilibrium_named"": ""D"", ""tau"": 0.0}",D,C,1.0,STRATEGIC_GAP,,0.0,0.0,True,False,True,True,,5.036,4.659,9.695,0.0,2,"In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential long-term payoff.","Choosing C when the other player chooses D gives a base score of 0, plus an extra 0.0 points for choosing C, resulting in a total of 0 points.","You are playing a game with one other player for exactly 10 rounds, known to both of you. Each round you both simultaneously choose C or D.
+  If you both choose C, you each score 3.0.
+  If you both choose D, you each score 1.0.
+  If you choose D and they choose C, you score 5.0 and they score 0.0.
+  If you choose C and they choose D, you score 0.0 and they score 5.0.
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+This is round 1. History so far: none yet
+Choose C or D.","Two players simultaneously choose C or D. Your own score:
+  you choose C, they choose C  ->  you score 3
+  you choose D, they choose C  ->  you score 5
+  you choose C, they choose D  ->  you score 0
+  you choose D, they choose D  ->  you score 1
+On top of these scores, each player is paid an extra 0.0 points in every round in which that player chooses C.
+In one round you choose C and the other player chooses D. Including any extra payment, how many points do you get for that round?","{
+  ""action"": ""C"",
+  ""reasoning"": ""In the first round of a finitely repeated Prisoner's Dilemma, starting with cooperation (C) establishes a mutually beneficial precedent and maximizes potential long-term payoff.""
+}"
