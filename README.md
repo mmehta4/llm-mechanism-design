@@ -101,5 +101,4 @@ To collect new data, copy `.env.example` to `.env`, add your own API keys, and r
 }
 ```
 
-Claude (Anthropic) assisted with code, typesetting and drafting. The research questions,
-predictions and decisions are the author's.
+Claude (Anthropic) assisted with code and writing.
