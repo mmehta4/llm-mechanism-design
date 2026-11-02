@@ -2,7 +2,7 @@
 
 **Do LLM agents derive or recall game-theoretic equilibria, and what that means for mechanism design.**
 
-Meet Mehta · Independent researcher · October 2026 · [Paper (PDF)](paper/main.pdf) · DOI: [10.5281/zenodo.23508406](https://doi.org/10.5281/zenodo.23508406)
+Meet Mehta ([ORCID 0009-0000-3256-1337](https://orcid.org/0009-0000-3256-1337)) · Independent researcher · October 2026 · [Paper (PDF)](paper/main.pdf) · DOI: [10.5281/zenodo.23508406](https://doi.org/10.5281/zenodo.23508406)
 
 LLMs play textbook games well, but a model can reach the textbook answer by deriving it from the
 rules or by recognising a famous game and recalling its answer. This study separates the two with
