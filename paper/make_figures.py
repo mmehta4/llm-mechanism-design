@@ -97,7 +97,7 @@ def design_figure() -> None:
     eq_x = GAMES["cournot_extreme"].sampler(seed=s)["equilibrium"]
     panels = [("Standard (Stage 2A)", named, BLUE, f"equilibrium: produce {eq_n:.1f}"),
               ("Disguised (Stage 2A)", disg, ORANGE, f"equilibrium: open {eq_n:.1f} (same numbers, no game words)"),
-              ("Extreme (Stage 2C)", ext, AQUA, f"equilibrium: x = {eq_x:.2f}, i.e. amount 2x + 4 = {2 * eq_x + 4:.1f}")]
+              ("Extreme (Stage 2C)", ext, AQUA, f"equilibrium: number = {eq_x:.2f}, i.e. A = 2 \u00d7 {eq_x:.2f} + 4 = {2 * eq_x + 4:.1f}")]
     fig, axes = plt.subplots(1, 3, figsize=(7.2, 3.3))
     for ax, (title, text, color, foot) in zip(axes, panels):
         ax.axis("off")
@@ -107,7 +107,7 @@ def design_figure() -> None:
                                     facecolor=color, edgecolor="none"))
         ax.text(0.5, 0.95, title, ha="center", va="center", transform=ax.transAxes, fontsize=8.5,
                 weight="bold", color=INK)
-        wrapped = "\n".join(textwrap.fill(line, 37) for line in text.split("\n"))
+        wrapped = "\n".join(textwrap.fill(line, 35) for line in text.split("\n"))
         ax.text(0.06, 0.83, wrapped, ha="left", va="top", transform=ax.transAxes, fontsize=5.5,
                 family="monospace", color=INK, linespacing=1.25)
         ax.text(0.5, 0.03, textwrap.fill(foot, 34), ha="center", va="center", transform=ax.transAxes,
