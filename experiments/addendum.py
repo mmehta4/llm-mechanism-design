@@ -7,7 +7,7 @@ Registered as an OSF addendum (docs/preregistration-addendum.md) BEFORE any of t
 existed. Every arm of one model is asked in a single shuffled order, so the arms are collected
 at the same time and model drift cannot separate them.
 
-Block P (every model), 100 questions per arm, new seeds MASTER_SEED + 60_000 + k, paraphrase
+Block P (gpt-oss, Nemotron, Gemini, Mistral Large 4), 100 questions per arm, new seeds MASTER_SEED + 60_000 + k, paraphrase
 k % 3, round 1 of the 10-round PD:
   P1  repeated_pd, named                Stage 2A standard wording, no subsidy rule
   P2  repeated_pd_subsidy_0, named      Stage 5's rule stated at tau = 0
@@ -41,12 +41,14 @@ from games.probes import PROBES, NumericProbe                          # noqa: E
 from games.subsidy import PROBE as SUBSIDY_PROBE, key_for, spec_for    # noqa: E402
 
 N_P, N_G, N_PARAPHRASES = 100, 69, 3
+# Kimi K3 was retired on NVIDIA on 2026-10-15; Mistral Large 4 replaces it (Block P only).
+ADDENDUM_MODELS = ["gptoss120b", "nemotron", "gemini_lite", "mistral_large4"]
 SEED_P = MASTER_SEED + 60_000          # a block no earlier stage uses (2A 0..137, 2B 1k-3k, 5: 50k)
 POS_KEY = "repeated_pd_extreme_pos"
 POS_PAYOFFS = dict(T=11.0, R=7.0, P=3.0, S=1.0)    # 2u + 1 of (5, 3, 1, 0)
 
 PREREG = ROOT / "docs" / "preregistration-addendum.md"
-PREREG_SHA256: str | None = "6deeab4008f07b4c6139d8ef1017440912af6961a455bc48419f6e76d1e3a4bf"   # locked 2026-11-09
+PREREG_SHA256: str | None = "74912ffd4ed422fa4879a98dfe2674d32c909425525ea030fc4081b1761160ac"   # locked 2026-11-13 (amended: Kimi K3 retired)
 
 
 def register() -> None:
@@ -81,7 +83,7 @@ def locked() -> bool:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--model", required=True, choices=CAPABILITY_ORDER)
+    ap.add_argument("--model", required=True, choices=ADDENDUM_MODELS)
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--wait", action="store_true")
     ap.add_argument("--status", action="store_true")

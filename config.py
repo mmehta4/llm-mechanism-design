@@ -109,6 +109,17 @@ MODELS: dict[str, ModelSpec] = {
         output_usd_per_mtok=0.0,
         supports_temperature=True,
     ),
+    # --- Addendum only (docs/preregistration-addendum.md): Kimi K3 was retired on NVIDIA's API
+    # on 2026-10-15 (HTTP 410), so the addendum runs Mistral Large 4 in its place, on the same
+    # provider and free tier. It has no Stage 2A-5 data; it is not in CAPABILITY_ORDER.
+    "mistral_large4": ModelSpec(
+        key="mistral_large4",
+        provider="nvidia",
+        api_id="mistralai/mistral-large-4-1t-a52b",
+        input_usd_per_mtok=0.0,
+        output_usd_per_mtok=0.0,
+        supports_temperature=True,
+    ),
     # --- Most capable arm reachable at zero cost, via Google AI Studio's free tier.
     # Not reproducible in the way open weights are -- note that in limitations.
     "gemini": ModelSpec(

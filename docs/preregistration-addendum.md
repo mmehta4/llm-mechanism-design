@@ -3,6 +3,15 @@
 Addendum to pre-registrations 1–4 (osf.io/2uqpj, osf.io/6hz8d, osf.io/cqnsy, osf.io/qg43y).
 It is filed on OSF before any of the data below exists. Runner: `experiments/addendum.py`.
 
+**Amendment before filing (13 November 2026, no data collected).** Kimi K3 was retired on
+NVIDIA's API on 15 October 2026 (the endpoint now returns HTTP 410, "Gone"), so it cannot be
+re-asked where Stages 2A–5 ran it. Kimi K3 is therefore dropped. In its place, Block P is run
+on Mistral Large 4 (Mistral AI, `mistralai/mistral-large-4-1t-a52b`), on the same NVIDIA API
+and free tier. Mistral Large 4 has no earlier data, so for it only the within-addendum contrasts
+C1–C3 apply, and it carries no directional prediction. The predictions for Kimi K3 in Section 4
+were written before the retirement was found; they are kept for the record and are not scored.
+The first version of this file was committed as git commit bb64cba.
+
 ## 1. Questions
 
 1. **Loss framing.** The extreme prisoner's dilemma of Stage 2C changes three things at once:
@@ -21,7 +30,8 @@ It is filed on OSF before any of the data below exists. Runner: `experiments/add
 Every arm of a model is asked in one shuffled order (seeded), so all arms are collected
 concurrently.
 
-**Block P (all four models): 100 questions per arm**
+**Block P (gpt-oss-120b, Nemotron 3 Ultra, Gemini 3.5 Flash Lite, Mistral Large 4): 100
+questions per arm**
 - Seeds are `MASTER_SEED + 60000 + k` (k = 0..99), with paraphrase `k mod 3`.
 - Round 1 of the 10-round game.
 - All arms share the seeds, and the extreme arms share the counterbalanced letters.
@@ -44,10 +54,12 @@ identically (paper, Proposition 1).
 - Settings: models, default sampling, answer schemas, competence probes.
 - Providers, the same as for every earlier stage:
   - gpt-oss-120b on Groq (model key `gptoss120b`), as in Stages 2A, 2B, 2C and 5;
-  - Nemotron and Kimi on NVIDIA's API;
-  - Gemini on Google AI Studio.
+  - Nemotron 3 Ultra on NVIDIA's API;
+  - Gemini on Google AI Studio;
+  - Mistral Large 4 on NVIDIA's API (new to this addendum).
 
-  No other provider is used. Every comparison is against data from these same providers.
+  No other provider is used. Every comparison with earlier stages is against data from these
+  same providers.
 - Scoring:
   - the Stage 2C fraction-slip rule;
   - the registered tolerance, with the matched tolerance of ±0.5 after decoding also reported.
@@ -70,8 +82,8 @@ identically (paper, Proposition 1).
 | C3 = P4 − P1 | Frame and story removed, payoffs positive |
 | C4 = P3 − P1 | Concurrent replication of the Stage 2C shift |
 
-- Two-sided Fisher exact tests, with Holm correction across the four models within each
-  contrast.
+- Two-sided Fisher exact tests, with Holm correction across the four models within each of
+  C1–C3, and across the three models with earlier data (gpt-oss, Nemotron, Gemini) for C4.
 - Pooled across models: a Cochran–Mantel–Haenszel test stratified by model.
 - Effects are reported with 95% Newcombe intervals.
 
@@ -83,6 +95,9 @@ identically (paper, Proposition 1).
 two-sided).
 
 ## 4. Predictions (author, written before filing)
+
+Kimi K3's predictions below are not scored, because Kimi K3 is not run (see the amendment).
+Mistral Large 4 carries no directional prediction.
 
 Each prediction anchors on earlier results: Stage 2A for P1, Stage 5 at τ = 0 for P2, and
 Stage 2C for P3.
