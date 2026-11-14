@@ -35,7 +35,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from scipy.stats import fisher_exact, norm
+from scipy.stats import chi2, fisher_exact
 from statsmodels.stats.contingency_tables import StratifiedTable
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -111,7 +111,8 @@ def cmh(cells: list[tuple[int, int, int, int]]) -> tuple[float, float]:
     rd = sum(wi * (k1 / n1 - k2 / n2) for wi, (k1, n1, k2, n2) in zip(w, cells)) / sum(w)
     tabs = [[[k1, n1 - k1], [k2, n2 - k2]] for k1, n1, k2, n2 in cells]
     try:
-        p = float(StratifiedTable(tabs).test_null_odds(correction=False).pvalue)
+        # the p-value from the statistic: statsmodels' own pvalue underflows to 0 below ~1e-16
+        p = float(chi2.sf(StratifiedTable(tabs).test_null_odds(correction=False).statistic, 1))
     except Exception:                                       # degenerate (all-0 or all-1) strata
         p = float("nan")
     return rd, p
